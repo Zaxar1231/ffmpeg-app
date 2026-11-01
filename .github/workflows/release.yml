@@ -1,10 +1,15 @@
 name: Release
 
-# Pushing a tag `vX.Y.Z` builds Windows and Linux and publishes a GitHub
-# release with the archives, SHA-256 sums and notes from docs/releases/.
+# Adding release notes docs/releases/vX.Y.Z.md (X.Y.Z = pubspec version)
+# builds Windows and Linux and publishes a GitHub release `vX.Y.Z` with the
+# archives and SHA-256 sums; the tag is created by the release itself.
+# Pushing a tag `vX.Y.Z` does the same.
 on:
   push:
+    branches: ['**']
     tags: ['v*']
+    paths: ['docs/releases/**']
+  workflow_dispatch:
 
 env:
   FLUTTER_VERSION: '3.47.9'
@@ -13,7 +18,20 @@ permissions:
   contents: write
 
 jobs:
+  version:
+    runs-on: ubuntu-24.04
+    outputs:
+      tag: ${{ steps.v.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        run: |
+          v=$(sed -n 's/^version: *\([0-9.]*\).*/\1/p' pubspec.yaml)
+          test -f "docs/releases/v$v.md" || { echo "docs/releases/v$v.md is missing"; exit 1; }
+          echo "tag=v$v" >> "$GITHUB_OUTPUT"
+
   windows:
+    needs: version
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +46,7 @@ jobs:
       - name: Pack
         shell: pwsh
         run: |
-          $name = "kadra-${{ github.ref_name }}-windows-x64"
+          $name = "kadra-${{ needs.version.outputs.tag }}-windows-x64"
           New-Item -ItemType Directory -Path "dist/$name" | Out-Null
           Copy-Item -Recurse build/windows/x64/runner/Release/* "dist/$name/"
           Compress-Archive -Path "dist/$name" -DestinationPath "dist/$name.zip"
@@ -38,6 +56,7 @@ jobs:
           path: dist/*.zip
 
   linux:
+    needs: version
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -56,7 +75,7 @@ jobs:
       - run: flutter build linux --release
       - name: Pack
         run: |
-          name="kadra-${GITHUB_REF_NAME}-linux-x64"
+          name="kadra-${{ needs.version.outputs.tag }}-linux-x64"
           mkdir -p dist
           cp -r build/linux/x64/release/bundle "dist/$name"
           tar -C dist -czf "dist/$name.tar.gz" "$name"
@@ -66,7 +85,7 @@ jobs:
           path: dist/*.tar.gz
 
   publish:
-    needs: [windows, linux]
+    needs: [version, windows, linux]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -78,7 +97,9 @@ jobs:
         run: cd dist && sha256sum * > SHA256SUMS.txt && cat SHA256SUMS.txt
       - uses: softprops/action-gh-release@v2
         with:
-          name: Kadra ${{ github.ref_name }}
-          body_path: docs/releases/${{ github.ref_name }}.md
+          tag_name: ${{ needs.version.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: Kadra ${{ needs.version.outputs.tag }}
+          body_path: docs/releases/${{ needs.version.outputs.tag }}.md
           files: dist/*
           fail_on_unmatched_files: true
