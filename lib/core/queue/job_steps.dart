@@ -30,9 +30,14 @@ class JobStep {
     this.capture = StepCapture.none,
     this.workingDirectory,
     this.totalDuration,
+    this.files = const {},
   });
 
   final List<String> args;
+
+  /// Text files written before the step runs (path → content; both may use
+  /// placeholders such as `{{tmp}}`), e.g. concat demuxer lists.
+  final Map<String, String> files;
   final JobTool tool;
 
   /// Short human label, e.g. "1/2".
@@ -56,6 +61,7 @@ class JobStep {
     'capture': capture.name,
     'cwd': ?workingDirectory,
     'durationUs': ?totalDuration?.inMicroseconds,
+    if (files.isNotEmpty) 'files': files,
   };
 
   factory JobStep.fromJson(Map<String, dynamic> j) => JobStep(
@@ -66,6 +72,7 @@ class JobStep {
     capture: StepCapture.values.byName(j['capture'] as String? ?? 'none'),
     workingDirectory: j['cwd'] as String?,
     totalDuration: j['durationUs'] == null ? null : Duration(microseconds: j['durationUs'] as int),
+    files: (j['files'] as Map?)?.cast<String, String>() ?? const {},
   );
 }
 

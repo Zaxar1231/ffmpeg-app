@@ -152,6 +152,9 @@ class QueueController extends Notifier<QueueState> {
         final List<String> args;
         try {
           args = substitute(step.args, vars);
+          for (final f in step.files.entries) {
+            await File(substitute([f.key], vars).single).writeAsString(substitute([f.value], vars).single);
+          }
         } on StateError catch (e) {
           failure = ToolError(ToolErrorKind.unknown, line: e.message);
           break;

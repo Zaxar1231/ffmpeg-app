@@ -21,6 +21,12 @@ String stepsCommandText(List<JobStep> steps, Toolchain tc) {
         '# ${s.label ?? '${i + 1}/${steps.length}'}${s.workingDirectory != null ? '  (cd ${s.workingDirectory})' : ''}',
       );
     }
+    for (final f in s.files.entries) {
+      b.writeln('# ${f.key}:');
+      for (final line in f.value.trimRight().split('\n')) {
+        b.writeln('#   $line');
+      }
+    }
     b.writeln(quoteCommand([exe(s.tool), ...s.args], windows: windows));
     if (i < steps.length - 1) b.writeln();
   }

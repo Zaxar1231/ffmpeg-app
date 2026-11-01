@@ -254,22 +254,55 @@ int? targetVideoKbps({required double sizeMb, required Duration duration, requir
   return v < 50 ? null : v;
 }
 
+/// A filter graph that replaces the plain "input → encoder" path: editing
+/// tools describe extra inputs and a `-filter_complex` whose labeled outputs
+/// are encoded with the usual encoder settings.
+class EditGraph {
+  const EditGraph({
+    this.inputs = const [],
+    required this.complex,
+    this.video,
+    this.audio,
+    this.duration,
+    this.mainInput,
+  });
+
+  /// Inputs after the main one (`1:…`, `2:…`).
+  final List<FfmpegInput> inputs;
+
+  /// Replaces the plain `-i <main>` (e.g. to add `-stream_loop`).
+  final FfmpegInput? mainInput;
+  final String complex;
+
+  /// Output labels without brackets (`v`, `a`); null = no such stream.
+  final String? video;
+  final String? audio;
+
+  /// Length of the result when it differs from the source.
+  final Duration? duration;
+}
+
 /// Builds the job steps for converting [info] to [output].
 ConvertPlan planConvert({
   required MediaInfo info,
   required String output,
   required ConvertParams p,
   EncodeEnv env = const EncodeEnv(),
+  EditGraph? graph,
 }) {
   final issues = <ConvertIssue>[];
   final warnings = <ConvertIssue>[];
   final c = containerFor(p.container);
   final srcVideo = info.videoStreams.firstOrNull;
   final srcAudio = info.audioStreams.toList();
-  final duration = info.duration;
+  final duration = graph != null ? (graph.duration ?? info.duration) : info.duration;
 
   // ------------------------------------------------------------ video
-  final wantVideo = !c.audioOnly && srcVideo != null && p.video != VideoCodecChoice.none;
+  final wantVideo =
+      !c.audioOnly && srcVideo != null && p.video != VideoCodecChoice.none && (graph == null || graph.video != null);
+  if (graph != null && graph.video != null && p.video == VideoCodecChoice.copy) {
+    issues.add(ConvertIssue.noVideoEncoder);
+  }
   VideoEncoderSpec? enc;
   if (wantVideo && p.video != VideoCodecChoice.copy) {
     if (!c.video.contains(p.video)) issues.add(ConvertIssue.videoNotInContainer);
@@ -287,7 +320,7 @@ ConvertPlan planConvert({
   }
 
   // ------------------------------------------------------------ audio
-  final wantAudio = srcAudio.isNotEmpty && p.audio != AudioCodecChoice.none;
+  final wantAudio = srcAudio.isNotEmpty && p.audio != AudioCodecChoice.none && (graph == null || graph.audio != null);
   if (wantAudio && p.audio != AudioCodecChoice.copy && !c.audio.contains(p.audio)) {
     issues.add(ConvertIssue.audioNotInContainer);
   }
@@ -402,14 +435,29 @@ ConvertPlan planConvert({
     ];
   }
 
-  final maps = <String>[
-    if (wantVideo) '0:${srcVideo.index}',
-    if (wantAudio) '0:a',
-    if (c.subtitles && p.keepSubtitles && info.subtitleStreams.isNotEmpty) '0:s',
-  ];
-  final subtitleArgs = (c.subtitles && p.keepSubtitles && info.subtitleStreams.isNotEmpty)
-      ? ['-c:s', 'copy']
-      : <String>[];
+  // With a graph, encoder plumbing/scaling is appended to its outputs.
+  String? complex;
+  var vMap = wantVideo ? '0:${srcVideo.index}' : null;
+  var aMap = wantAudio ? '0:a' : null;
+  if (graph != null) {
+    complex = graph.complex;
+    if (wantVideo) {
+      vMap = '[${graph.video}]';
+      if (vf.isNotEmpty) {
+        complex = '$complex;[${graph.video}]${vf.join(',')}[vEnc]';
+        vMap = '[vEnc]';
+      }
+    }
+    // A raw stream specifier (`0:a`) passes audio through untouched.
+    if (wantAudio) aMap = graph.audio!.contains(':') ? graph.audio! : '[${graph.audio}]';
+  }
+  final keepSubs = graph == null && c.subtitles && p.keepSubtitles && info.subtitleStreams.isNotEmpty;
+  final maps = <String>[?vMap, ?aMap, if (keepSubs) '0:s'];
+  final inputs = graph == null
+      ? [FfmpegInput(info.path)]
+      : [graph.mainInput ?? FfmpegInput(info.path), ...graph.inputs];
+  final outVf = graph == null ? vf : const <String>[];
+  final subtitleArgs = keepSubs ? ['-c:s', 'copy'] : <String>[];
   final global = <String>[
     if (env.threads > 0) ...['-threads', '${env.threads}'],
     ...?plumbing?.global,
@@ -421,12 +469,13 @@ ConvertPlan planConvert({
 
   FfmpegCommand finalCmd() => FfmpegCommand(
     globalOptions: global,
-    inputs: [FfmpegInput(info.path)],
+    inputs: inputs,
+    filterComplex: complex,
     outputs: [
       FfmpegOutput(
         output,
         maps: maps,
-        videoFilters: vf,
+        videoFilters: outVf,
         audioFilters: af,
         noVideo: !wantVideo,
         noAudio: !wantAudio,
@@ -444,13 +493,14 @@ ConvertPlan planConvert({
   if (_isTwoPass(enc, p, videoKbps)) {
     final pass1 = FfmpegCommand(
       globalOptions: global,
-      inputs: [FfmpegInput(info.path)],
+      inputs: inputs,
+      filterComplex: complex,
       outputs: [
         FfmpegOutput(
           '-',
-          maps: ['0:${srcVideo!.index}'],
-          videoFilters: vf,
-          noAudio: true,
+          maps: graph == null ? [vMap!] : [vMap!, ?aMap],
+          videoFilters: outVf,
+          noAudio: graph == null,
           format: 'null',
           options: videoArgs(pass: 1),
         ),

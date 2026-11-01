@@ -187,7 +187,13 @@ class _CommandConfirmDialogState extends ConsumerState<_CommandConfirmDialog> {
             try {
               final args = splitCommandLine(_c.text);
               Navigator.pop(context, [
-                JobStep(args: args, tool: widget.steps.single.tool, totalDuration: widget.steps.single.totalDuration),
+                JobStep(
+                  args: args,
+                  tool: widget.steps.single.tool,
+                  totalDuration: widget.steps.single.totalDuration,
+                  workingDirectory: widget.steps.single.workingDirectory,
+                  files: widget.steps.single.files,
+                ),
               ]);
             } on FormatException {
               setState(() => _error = l.commandParseError);
