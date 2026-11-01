@@ -172,7 +172,7 @@
   "toolConcat": "Склейка",
   "toolConcatDesc": "Соединить несколько файлов в один.",
   "toolSplit": "Разделение",
-  "toolSplitDesc": "По времени, размеру, главам, тишине или сценам.",
+  "toolSplitDesc": "По времени, на равные части, по главам или по отмеченным точкам.",
   "toolCropScale": "Кадр и размер",
   "toolCropScaleDesc": "Кадрирование, масштаб, поворот, вертикальное видео.",
   "toolSpeed": "Скорость и FPS",
@@ -897,7 +897,7 @@
   "trackRemoveHint": "Сделать видео без звука",
   "pAudioFile": "Файл со звуком",
   "pAudioFileHint": "Можно взять звук из любого аудио- или видеофайла",
-  "pShortest": "По самой короткой дорожке",
+  "pShortest": "Закончить с самым коротким",
   "pShortestHint": "Обрезать результат, когда кончится видео или звук",
   "pLanguage": "Язык дорожки",
   "pLanguageHint": "Плееры покажут его при выборе дорожки",
@@ -1518,5 +1518,468 @@
   "genNoise": "Шум",
   "genSilence": "Тишина",
   "genMetronome": "Метроном",
-  "genDtmf": "Тоны DTMF"
+  "genDtmf": "Тоны DTMF",
+  "off": "выкл.",
+  "vertical": "вертикальное",
+  "noAudioTag": "без звука",
+  "addFiles": "Добавить файлы",
+  "needMoreClips": "Нужно хотя бы {n} файла",
+  "@needMoreClips": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "nothingChanged": "Ничего не изменено — задайте хотя бы один параметр",
+  "resultLength": "Длительность результата: {d}",
+  "@resultLength": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
+  "groupEditOutput": "Результат",
+  "pEditContainerHint": "Формат файла результата",
+  "pEditQuality": "Качество",
+  "pEditQualityHint": "Видео перекодируется; звук копируется, если его не меняли",
+  "pEditQualityHelp": "«Высокое» — практически без видимых потерь (для x264 это CRF 18), файл крупнее. «Обычное» — значение кодировщика по умолчанию (CRF 23). «Меньше размер» — заметно меньше файл, мелкие детали могут смазаться (CRF 28). Кодек выбирается как у исходника, если формат его поддерживает.",
+  "editQualityHigh": "Высокое",
+  "editQualityBalanced": "Обычное",
+  "editQualitySmall": "Меньше размер",
+  "pEditSpeedHint": "Быстрее — крупнее файл при том же качестве",
+  "previewBefore": "До",
+  "previewSplit": "Шторка",
+  "previewAfter": "После",
+  "rectHintOne": "Выделите область мышью; тяните за угол, чтобы изменить размер",
+  "rectHintMany": "Рисуйте области мышью (до 12); перетаскивайте их и тяните за угол",
+  "groupFragments": "Фрагменты",
+  "pCutMode": "Что делать с отмеченным",
+  "cutModeRemove": "Удалить",
+  "cutModeKeep": "Оставить только их",
+  "cutModeRemoveHint": "Отмеченные куски вырезаются, остальное склеивается",
+  "cutModeKeepHint": "Остаются только отмеченные куски, в порядке времени",
+  "cutHowTo": "Найдите место в плеере и нажмите «Начало», затем «Конец». Можно отметить сколько угодно фрагментов.",
+  "markFragmentStart": "Начало: {t}",
+  "@markFragmentStart": {
+    "placeholders": {
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "markFragmentEnd": "Конец: {t}",
+  "@markFragmentEnd": {
+    "placeholders": {
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "playFragment": "Воспроизвести фрагмент",
+  "cutNoRanges": "Отметьте хотя бы один фрагмент",
+  "cutNothingLeft": "После удаления ничего не остаётся",
+  "pLosslessCut": "Без перекодирования",
+  "losslessCutOnHint": "Мгновенно и без потерь, но границы — по ближайшим ключевым кадрам",
+  "losslessCutOffHint": "Точно до кадра; видео перекодируется",
+  "pLosslessCutHelp": "Видео сжато группами кадров, и начать кусок без перекодирования можно только с ключевого кадра (обычно они идут раз в 1–10 секунд). Поэтому в быстром режиме фрагмент может начаться чуть раньше отмеченного места. Если нужна точность до кадра — выключите этот режим: файл перекодируется, это дольше.",
+  "groupClips": "Файлы",
+  "groupJoin": "Склейка",
+  "pLosslessJoin": "Без перекодирования",
+  "losslessJoinOnHint": "Мгновенно; файлы должны быть одинаковыми по кодеку и размеру",
+  "losslessJoinOffHint": "Любые файлы: приводятся к одному размеру и частоте кадров",
+  "pLosslessJoinHelp": "Склейка без перекодирования подходит для частей одной записи (с одной камеры, одного стрима). Если у файлов разные кодеки, разрешение или параметры звука, результат может не воспроизводиться — тогда выключите этот режим.",
+  "concatMismatch": "Файлы различаются: {what}. Без перекодирования результат может не воспроизводиться.",
+  "@concatMismatch": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "mismatchCodec": "кодек видео",
+  "mismatchSize": "разрешение",
+  "mismatchPixfmt": "формат пикселей",
+  "mismatchAudio": "наличие звука",
+  "mismatchAudioCodec": "формат звука",
+  "mismatchVideo": "наличие видео",
+  "groupFrame": "Кадр",
+  "pJoinSize": "Размер кадра",
+  "pJoinSizeHint": "Остальные файлы вписываются с полями",
+  "joinSizeFirst": "Как у первого ({size})",
+  "@joinSizeFirst": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "groupTransition": "Переход между файлами",
+  "pTransition": "Эффект",
+  "pTransitionHint": "Как один файл сменяет другой",
+  "pTransitionDuration": "Длительность перехода",
+  "pTransitionDurationHint": "Файлы перекрываются на это время",
+  "clipShorterThanTransition": "Какой-то файл короче двух переходов — уменьшите длительность перехода",
+  "groupFades": "Появление и исчезание",
+  "pFadeIn": "Появление из чёрного",
+  "pFadeInHint": "В начале; звук нарастает вместе с картинкой",
+  "pFadeOut": "Уход в чёрное",
+  "pFadeOutHint": "В конце; звук затихает вместе с картинкой",
+  "xfFade": "Растворение",
+  "xfDissolve": "Рассыпание",
+  "xfFadeBlack": "Через чёрный",
+  "xfFadeWhite": "Через белый",
+  "xfCircleOpen": "Круг раскрывается",
+  "xfCircleClose": "Круг закрывается",
+  "xfCircleCrop": "Круглая шторка",
+  "xfRectCrop": "Прямоугольная шторка",
+  "xfRadial": "Радиальная стрелка",
+  "xfPixelize": "Пикселизация",
+  "xfDistance": "Перетекание",
+  "xfBlur": "Размытие",
+  "xfZoom": "Наезд",
+  "xfWipe": "Шторка {dir}",
+  "@xfWipe": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "xfSlide": "Сдвиг {dir}",
+  "@xfSlide": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "xfSmooth": "Плавная шторка {dir}",
+  "@xfSmooth": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "xfDiagonal": "Диагональ {dir}",
+  "@xfDiagonal": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "xfSqueeze": "Сжатие {dir}",
+  "@xfSqueeze": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "xfOpen": "Раскрытие {dir}",
+  "@xfOpen": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "groupSplit": "Разделение",
+  "pSplitMode": "Как делить",
+  "pSplitModeHint": "Части сохраняются как имя_001, имя_002…",
+  "splitEvery": "По времени",
+  "splitParts": "На N частей",
+  "splitChapters": "По главам",
+  "splitTimes": "По меткам",
+  "pSplitEvery": "Длина части",
+  "pSplitParts": "Число частей",
+  "pSplitPartsHint": "Равные по длительности",
+  "addCutPoint": "Разрезать здесь: {t}",
+  "@addCutPoint": {
+    "placeholders": {
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "splitNoPoints": "Нет точек разреза",
+  "splitFiles": "Получится файлов: {n}",
+  "@splitFiles": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pSplitPrecise": "Точно до кадра",
+  "splitPreciseOnHint": "Видео перекодируется, разрезы ровно в заданных местах",
+  "splitPreciseOffHint": "Мгновенно и без потерь; разрезы по ближайшим ключевым кадрам",
+  "splitKeyframeNote": "Без перекодирования части начинаются с ключевых кадров, поэтому их длина может немного отличаться.",
+  "groupCrop": "Кадрирование",
+  "pCropEdit": "Выделить область",
+  "pCropEditHint": "Включите и обведите на кадре то, что нужно оставить",
+  "cropRectLabel": "{size} от точки {x}, {y}",
+  "@cropRectLabel": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "x": {
+        "type": "String"
+      },
+      "y": {
+        "type": "String"
+      }
+    }
+  },
+  "cropAutodetect": "Найти чёрные поля",
+  "cropReset": "Сбросить",
+  "cropNothingFound": "Чёрных полей не найдено",
+  "groupRotate": "Поворот и отражение",
+  "pRotate": "Повернуть",
+  "pRotateHint": "По часовой стрелке",
+  "pFlipH": "Отразить по горизонтали",
+  "pFlipHHint": "Зеркально: левое становится правым",
+  "pFlipV": "Отразить по вертикали",
+  "pFlipVHint": "Верх становится низом",
+  "pAngle": "Наклон",
+  "pAngleHint": "Выровнять заваленный горизонт; края заполняются чёрным",
+  "makeVertical": "Вертикальное 9:16",
+  "pAspect": "Пропорции кадра",
+  "pAspectHint": "9:16 — Shorts, Reels, TikTok; 1:1 и 4:5 — лента",
+  "pFrameHeight": "Высота кадра",
+  "pFrameHeightHint": "Ширина считается по пропорциям",
+  "pFit": "Как вписать",
+  "fitFit": "С полями",
+  "fitFill": "Заполнить",
+  "fitBlur": "Размытый фон",
+  "fitStretch": "Растянуть",
+  "fitFitHint": "Видна вся картинка, по краям чёрные полосы",
+  "fitFillHint": "Кадр заполнен, края картинки обрезаются",
+  "fitBlurHint": "Вся картинка поверх её же размытой копии — как в соцсетях",
+  "fitStretchHint": "Картинка искажается под новый кадр",
+  "frameSizeResult": "Кадр: {from} → {to}",
+  "@frameSizeResult": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "groupSpeed": "Скорость",
+  "pSpeedFactor": "Множитель",
+  "pSpeedFactorHint": "Больше 1 — быстрее, меньше 1 — замедление",
+  "pSpeedAudio": "Звук",
+  "speedAudioKeep": "Тот же тон",
+  "speedAudioPitch": "Как пластинка",
+  "speedAudioMute": "Убрать",
+  "speedAudioKeepHint": "Темп меняется, голос не становится выше или ниже",
+  "speedAudioPitchHint": "Ускорение повышает тон, замедление понижает",
+  "speedAudioMuteHint": "В результате не будет звука",
+  "pReverse": "Задом наперёд",
+  "pReverseHint": "Видео и звук проигрываются в обратную сторону",
+  "groupFrameRate": "Частота кадров",
+  "pSpeedFps": "Кадров в секунду",
+  "pSpeedFpsHint": "У исходника {fps}",
+  "@pSpeedFpsHint": {
+    "placeholders": {
+      "fps": {
+        "type": "String"
+      }
+    }
+  },
+  "pInterpolate": "Плавное движение",
+  "pInterpolateHint": "Дорисовывает промежуточные кадры (для замедления)",
+  "pInterpolateHelp": "Фильтр minterpolate вычисляет движение и создаёт новые кадры между существующими. Замедление выглядит плавным, а не дёрганым. Работает очень медленно и на быстрых сценах может давать артефакты.",
+  "reverseMemoryWarning": "Обратное воспроизведение держит в памяти весь фрагмент: на длинных файлах может не хватить оперативной памяти. Лучше сначала вырезать короткий кусок.",
+  "interpolateSlowWarning": "Плавное движение работает очень медленно — минута видео может считаться десятки минут.",
+  "atempoQualityNote": "При сильном изменении темпа звук с сохранением тона может звучать «металлически».",
+  "groupRestore": "Восстановление",
+  "pDeinterlace": "Убрать «гребёнку»",
+  "pDeinterlaceHint": "Для записей с ТВ, видеокассет, старых камер",
+  "deinterlaceDetected": "Файл чересстрочный — рекомендуется включить",
+  "pDeinterlaceHelp": "Чересстрочное видео показывает полукадры, и на движении видны горизонтальные полосы («гребёнка»). bwdif — современный качественный фильтр; yadif — классический, чуть быстрее.",
+  "pVideoDenoise": "Подавление шума",
+  "pVideoDenoiseHint": "Убирает зерно и цифровой шум",
+  "pVideoDenoiseHelp": "Слабое–сильное — быстрый фильтр hqdn3d: чем сильнее, тем чище, но картинка становится «пластиковой». NLMeans — заметно качественнее сохраняет детали, но работает в десятки раз медленнее.",
+  "levelLight": "Слабое",
+  "levelMedium": "Среднее",
+  "levelStrong": "Сильное",
+  "denoiseNlmeans": "NLMeans (качественно, медленно)",
+  "pSharpen": "Резкость",
+  "pSharpenHint": "Подчёркивает детали; не делает размытое чётким",
+  "sharpenCas": "Адаптивная (CAS)",
+  "groupStabilize": "Стабилизация",
+  "pStabilize": "Убрать тряску",
+  "pStabilizeHint": "Два прохода: анализ движения, затем выравнивание",
+  "pStabilizeDeshakeHint": "В этой сборке нет vidstab — будет простой фильтр deshake",
+  "pStabilizeHelp": "Сначала программа отслеживает движение камеры по всему файлу, затем сдвигает и слегка увеличивает кадры, чтобы скрыть дрожание. Края кадра при этом немного обрезаются. Предпросмотр стабилизацию не показывает — её видно только в результате.",
+  "pShakiness": "Сила тряски",
+  "pShakinessHint": "Насколько сильно трясётся исходник (1–10)",
+  "pSmoothing": "Сглаживание",
+  "pSmoothingHint": "Больше — плавнее, но сильнее обрезка краёв",
+  "vidstabMissing": "В этой сборке ffmpeg нет libvidstab — используется более простой фильтр deshake. Для качественной стабилизации установите полную сборку в «Компонентах».",
+  "nlmeansSlowWarning": "NLMeans очень медленный: на Full HD — около кадра в секунду.",
+  "stepAnalyzeMotion": "анализ движения",
+  "groupColorBasic": "Основное",
+  "pBrightness": "Яркость",
+  "pBrightnessHint": "0 — без изменений",
+  "pContrast": "Контраст",
+  "pContrastHint": "1 — без изменений",
+  "pSaturation": "Насыщенность",
+  "pSaturationHint": "0 — чёрно-белое, 1 — без изменений",
+  "pGamma": "Гамма",
+  "pGammaHint": "Осветляет или затемняет средние тона",
+  "pHue": "Оттенок",
+  "pHueHint": "Сдвиг всех цветов по цветовому кругу",
+  "pTemperature": "Цветовая температура",
+  "pTemperatureHint": "Меньше — теплее (желтее), больше — холоднее (синее); 6500 K — нейтрально",
+  "groupLook": "Стиль",
+  "pLook": "Готовый стиль",
+  "pLookHint": "Применяется после основных настроек",
+  "lookGrayscale": "Чёрно-белое",
+  "lookSepia": "Сепия",
+  "lookVintage": "Винтаж",
+  "lookCrossProcess": "Кросс-процесс",
+  "lookNegative": "Негатив",
+  "lookStrongContrast": "Сильный контраст",
+  "lookLighter": "Светлее",
+  "lookDarker": "Темнее",
+  "pVignette": "Виньетка",
+  "pVignetteHint": "Затемнение по краям кадра",
+  "pLut": "LUT-файл",
+  "pLutHint": ".cube или .3dl — готовая цветокоррекция",
+  "pLutHelp": "LUT (таблица преобразования цвета) — файл с готовой цветокоррекцией из DaVinci Resolve, Premiere или от производителя камеры (например, перевод Log-профиля в обычный вид). Применяется до остальных настроек.",
+  "pLutMix": "Сила LUT",
+  "pLutMixHint": "Смешивание с исходными цветами",
+  "groupWatermark": "Логотип",
+  "pWatermarkImage": "Картинка",
+  "pWatermarkImageHint": "PNG с прозрачностью подходит лучше всего",
+  "pPosition": "Положение",
+  "pPositionHint": "Угол или край кадра",
+  "pWatermarkSize": "Размер",
+  "pWatermarkSizeHint": "Ширина относительно ширины видео",
+  "pOpacity": "Непрозрачность",
+  "pOpacityHint": "Меньше — прозрачнее",
+  "groupText": "Текст",
+  "pOverlayText": "Надпись",
+  "pOverlayTextHint": "Любой текст, включая символы % : , ' [ ]",
+  "pFontSize": "Размер шрифта",
+  "pFontSizeHint": "Относительно высоты видео",
+  "pFontColor": "Цвет",
+  "pFontColorHint": "Цвет букв",
+  "colorWhite": "белый",
+  "colorBlack": "чёрный",
+  "colorYellow": "жёлтый",
+  "colorRed": "красный",
+  "colorBlue": "голубой",
+  "pTextBox": "Подложка",
+  "pTextBoxHint": "Полупрозрачный прямоугольник под текстом; без неё — обводка",
+  "pFontFile": "Шрифт",
+  "pFontFileHint": "По умолчанию — системный шрифт без засечек",
+  "pTimecode": "Таймкод",
+  "pTimecodeHint": "Время от начала видео на каждом кадре",
+  "pTimecodePosition": "Положение таймкода",
+  "groupWhen": "Отступ и время показа",
+  "pMargin": "Отступ от края",
+  "pMarginHint": "Относительно высоты видео",
+  "pShowFrom": "Показывать с",
+  "pShowFromHint": "Пусто — с начала",
+  "pShowTo": "Показывать до",
+  "pShowToHint": "Пусто — до конца",
+  "overlayEmpty": "Выберите картинку, введите текст или включите таймкод",
+  "cornerTopLeft": "слева вверху",
+  "cornerTop": "вверху по центру",
+  "cornerTopRight": "справа вверху",
+  "cornerLeft": "слева по центру",
+  "cornerCenter": "в центре",
+  "cornerRight": "справа по центру",
+  "cornerBottomLeft": "слева внизу",
+  "cornerBottom": "внизу по центру",
+  "cornerBottomRight": "справа внизу",
+  "groupBlur": "Скрытие",
+  "pBlurMode": "Способ",
+  "blurModeBlur": "Размыть",
+  "blurModePixel": "Пиксели",
+  "blurModeDelogo": "Убрать логотип",
+  "blurModeBox": "Закрасить",
+  "blurModeBlurHint": "Лица, номера машин, экраны",
+  "blurModePixelHint": "Крупные квадраты, как в новостях",
+  "blurModeDelogoHint": "Заполняет область по соседним пикселям — для небольших логотипов на однородном фоне",
+  "blurModeBoxHint": "Чёрный прямоугольник",
+  "pStrength": "Сила",
+  "pBlurStrengthHint": "Насколько сильно скрывать",
+  "pBlurWhole": "Весь кадр",
+  "pBlurWholeHint": "Размыть всё изображение целиком",
+  "pEditRegions": "Рисовать области",
+  "pEditRegionsHint": "Выключите, чтобы посмотреть результат в предпросмотре",
+  "groupRegions": "Области",
+  "regionTimeHint": "Для каждой области можно задать время: пусто — всё видео",
+  "blurNoRegions": "Нарисуйте на кадре хотя бы одну область",
+  "groupLayout": "Расположение",
+  "pLayout": "Как разместить",
+  "pLayoutHint": "Высота или ширина подгоняется под первое видео",
+  "layoutSide": "Рядом",
+  "layoutTop": "Друг над другом",
+  "layoutGrid": "Сетка 2×2",
+  "layoutPip": "Картинка в картинке",
+  "pPipPositionHint": "Где будет маленькое окно",
+  "pPipSize": "Размер окна",
+  "pPipSizeHint": "Относительно ширины основного видео",
+  "pStackAudio": "Звук",
+  "pStackAudioHint": "Чей звук будет в результате",
+  "stackAudioFirst": "Первого видео",
+  "stackAudioMix": "Смешать все",
+  "stackAudioNone": "Без звука",
+  "shortestOnHint": "Результат длится, пока идут все видео",
+  "shortestOffHint": "До конца самого длинного; закончившиеся застывают на последнем кадре",
+  "groupLoop": "Повтор",
+  "pLoopMode": "Режим",
+  "loopRepeat": "Повторить",
+  "loopBoomerang": "Бумеранг",
+  "loopRepeatHint": "Видео проигрывается несколько раз подряд",
+  "loopBoomerangHint": "Вперёд, затем назад — бесшовная петля",
+  "pLoopTimes": "Сколько раз",
+  "pLoopTimesHint": "Общее число проигрываний",
+  "pBoomerangAudio": "Со звуком",
+  "pBoomerangAudioHint": "Звук тоже проиграется задом наперёд",
+  "groupToneMap": "Тональная компрессия",
+  "hdrSourceInfo": "Исходник: передаточная функция {trc}, цвета {prim}, {bits} бит",
+  "@hdrSourceInfo": {
+    "placeholders": {
+      "trc": {
+        "type": "String"
+      },
+      "prim": {
+        "type": "String"
+      },
+      "bits": {
+        "type": "String"
+      }
+    }
+  },
+  "notHdrWarning": "Файл не похож на HDR (передаточная функция: {trc}) — результат может выглядеть неверно",
+  "@notHdrWarning": {
+    "placeholders": {
+      "trc": {
+        "type": "String"
+      }
+    }
+  },
+  "pToneCurve": "Кривая",
+  "pToneCurveHelp": "HDR-видео содержит яркость, которую обычный экран показать не может. Кривая решает, как «сжать» её в обычный диапазон. Hable сохраняет детали в светах и тенях (хороший выбор по умолчанию), Möbius — точнее цвета в средних тонах, Reinhard — мягкий и светлый результат.",
+  "toneHableHint": "Сохраняет детали в светах — хороший выбор по умолчанию",
+  "toneMobiusHint": "Точнее цвета в средних тонах",
+  "toneReinhardHint": "Мягкий, светлый результат",
+  "toneBt2390Hint": "Стандарт ITU для вещания",
+  "pDesat": "Обесцвечивание светов",
+  "pDesatHint": "Убирает неестественно яркие цвета в светлых местах",
+  "pPlacebo": "Через видеокарту (libplacebo)",
+  "pPlaceboHint": "Быстрее и качественнее; нужна видеокарта с Vulkan"
 }

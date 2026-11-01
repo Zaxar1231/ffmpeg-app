@@ -1,3 +1,4 @@
+import '../../core/engine/ffmpeg_command.dart';
 import '../../core/engine/containers.dart';
 import '../../core/engine/encoders.dart';
 import '../../core/probe/media_info.dart';
@@ -111,4 +112,48 @@ ConvertPlan planEdit({
     audioKbps: plan.audioKbps,
     estimatedBytes: plan.estimatedBytes,
   );
+}
+
+const _stillExts = {'png', 'jpg', 'jpeg', 'webp', 'bmp', 'tif', 'tiff'};
+
+/// One frame of [graph] at [at] as PNG ([original] = without the graph).
+///
+/// `-copyts` keeps the source timestamps, so time-based options
+/// (`enable='between(t,…)'`, fades) behave as in the full render. A labeled
+/// audio output must be consumed: it goes to a short null output.
+List<String> previewFrameArgs({
+  required MediaInfo info,
+  required Duration at,
+  required String output,
+  EditGraph? graph,
+  bool original = false,
+}) {
+  final seek = at > Duration.zero ? at : null;
+  FfmpegInput withSeek(FfmpegInput i) {
+    final ext = i.path.split('.').last.toLowerCase();
+    if (seek == null || _stillExts.contains(ext)) return i;
+    return FfmpegInput(i.path, seek: seek, format: i.format, options: i.options);
+  }
+
+  if (graph == null || original || graph.video == null) {
+    return FfmpegCommand(
+      reportProgress: false,
+      inputs: [withSeek(FfmpegInput(info.path))],
+      outputs: [
+        FfmpegOutput(output, maps: ['0:v:0'], options: ['-frames:v', '1', '-update', '1']),
+      ],
+    ).toArgs();
+  }
+  final audioLabel = graph.audio != null && !graph.audio!.contains(':') ? graph.audio : null;
+  return FfmpegCommand(
+    reportProgress: false,
+    globalOptions: const ['-copyts'],
+    inputs: [withSeek(graph.mainInput ?? FfmpegInput(info.path)), for (final i in graph.inputs) withSeek(i)],
+    filterComplex: graph.complex,
+    outputs: [
+      FfmpegOutput(output, maps: ['[${graph.video}]'], options: ['-frames:v', '1', '-update', '1']),
+      if (audioLabel != null)
+        FfmpegOutput('-', maps: ['[$audioLabel]'], duration: const Duration(milliseconds: 100), format: 'null'),
+    ],
+  ).toArgs();
 }

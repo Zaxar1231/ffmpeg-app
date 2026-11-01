@@ -250,7 +250,7 @@ void main() {
 
   group('crop & scale', () {
     test('crop + rotate 90', () async {
-      final prm = CropScaleParams(crop: const CropRect(100, 20, 300, 200), rotate: 90);
+      final prm = CropScaleParams(crop: const CropRect(101, 21, 301, 201), rotate: 90);
       final i = await encode('crop.mp4', cropScaleGraph(sample, prm));
       expect(size(i), (200, 300));
       expect(i.audioStreams.first.codecName, 'aac'); // copied
@@ -449,5 +449,34 @@ void main() {
       final i = await encode('sdr.mp4', hdrToSdrGraph(hdr), info: hdr, eightBit: true);
       expect(i.videoStreams.first.pixFmt, 'yuv420p');
     }, skip: skip);
+  });
+
+  group('frame preview', () {
+    final cases = <String, EditGraph Function()>{
+      'original': () => const EditGraph(complex: ''),
+      'overlay': () => overlayGraph(sample, OverlayParams(imagePath: logo, text: 'x', timecode: true)),
+      'speed (audio label)': () => speedGraph(sample, const SpeedParams(factor: 2)),
+      'blur': () => blurGraph(sample, const BlurParams(regions: [BlurRegion(CropRect(10, 10, 100, 100))])),
+      'crop vertical blur': () => cropScaleGraph(sample, const CropScaleParams(aspect: 9 / 16, fit: FitMode.blur)),
+      'stack': () => stackGraph([sample, small], const StackParams(audio: StackAudio.mix)),
+      'fade': () => fadeGraph(sample, const Duration(seconds: 1), const Duration(seconds: 1)),
+      'loop': () => loopGraph(sample, const LoopParams()),
+    };
+    for (final e in cases.entries) {
+      test(e.key, () async {
+        final out = p.join(dir.path, 'frame_${e.key.split(' ').first}.png');
+        final g = e.value();
+        final args = previewFrameArgs(
+          info: sample,
+          at: const Duration(milliseconds: 1500),
+          output: out,
+          graph: g,
+          original: e.key == 'original',
+        );
+        final r = await runner.capture(ffmpeg!, args);
+        expect(r.ok, isTrue, reason: '${args.join(' ')}\n${r.stderr}');
+        expect(await File(out).length(), greaterThan(1000));
+      }, skip: skip);
+    }
   });
 }

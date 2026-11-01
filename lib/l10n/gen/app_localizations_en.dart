@@ -433,7 +433,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolSplit => 'Split';
 
   @override
-  String get toolSplitDesc => 'By time, size, chapters, silence or scenes.';
+  String get toolSplitDesc => 'By length, into equal parts, by chapters or at marked points.';
 
   @override
   String get toolCropScale => 'Crop & scale';
@@ -1939,7 +1939,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pAudioFileHint => 'Audio can come from any audio or video file';
 
   @override
-  String get pShortest => 'Stop at the shortest track';
+  String get pShortest => 'End with the shortest';
 
   @override
   String get pShortestHint => 'End the result when video or audio ends';
@@ -3404,4 +3404,998 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get genDtmf => 'DTMF tones';
+
+  @override
+  String get off => 'off';
+
+  @override
+  String get vertical => 'vertical';
+
+  @override
+  String get noAudioTag => 'no audio';
+
+  @override
+  String get addFiles => 'Add files';
+
+  @override
+  String needMoreClips(int n) {
+    return 'Add at least $n files';
+  }
+
+  @override
+  String get nothingChanged => 'Nothing is changed yet — set at least one parameter';
+
+  @override
+  String resultLength(String d) {
+    return 'Result length: $d';
+  }
+
+  @override
+  String get groupEditOutput => 'Output';
+
+  @override
+  String get pEditContainerHint => 'Container of the result';
+
+  @override
+  String get pEditQuality => 'Quality';
+
+  @override
+  String get pEditQualityHint => 'Video is re-encoded; audio is copied when untouched';
+
+  @override
+  String get pEditQualityHelp =>
+      '“High” is visually lossless (CRF 18 for x264), bigger file. “Normal” is the encoder default (CRF 23). “Smaller” gives a noticeably smaller file, fine detail may soften (CRF 28). The codec follows the source when the container supports it.';
+
+  @override
+  String get editQualityHigh => 'High';
+
+  @override
+  String get editQualityBalanced => 'Normal';
+
+  @override
+  String get editQualitySmall => 'Smaller';
+
+  @override
+  String get pEditSpeedHint => 'Faster gives a bigger file at the same quality';
+
+  @override
+  String get previewBefore => 'Before';
+
+  @override
+  String get previewSplit => 'Split';
+
+  @override
+  String get previewAfter => 'After';
+
+  @override
+  String get rectHintOne => 'Drag to draw the area; drag its corner to resize';
+
+  @override
+  String get rectHintMany => 'Draw areas with the mouse (up to 12); drag them or their corner';
+
+  @override
+  String get groupFragments => 'Fragments';
+
+  @override
+  String get pCutMode => 'Marked fragments';
+
+  @override
+  String get cutModeRemove => 'Remove';
+
+  @override
+  String get cutModeKeep => 'Keep only them';
+
+  @override
+  String get cutModeRemoveHint => 'Marked parts are removed, the rest is joined';
+
+  @override
+  String get cutModeKeepHint => 'Only the marked parts remain, in time order';
+
+  @override
+  String get cutHowTo => 'Find a spot in the player and press “Start”, then “End”. Mark as many fragments as you need.';
+
+  @override
+  String markFragmentStart(String t) {
+    return 'Start: $t';
+  }
+
+  @override
+  String markFragmentEnd(String t) {
+    return 'End: $t';
+  }
+
+  @override
+  String get playFragment => 'Play fragment';
+
+  @override
+  String get cutNoRanges => 'Mark at least one fragment';
+
+  @override
+  String get cutNothingLeft => 'Nothing would be left';
+
+  @override
+  String get pLosslessCut => 'Without re-encoding';
+
+  @override
+  String get losslessCutOnHint => 'Instant and lossless, but cuts snap to keyframes';
+
+  @override
+  String get losslessCutOffHint => 'Frame-accurate; video is re-encoded';
+
+  @override
+  String get pLosslessCutHelp =>
+      'Video is compressed in groups of frames, and a part can start without re-encoding only on a keyframe (usually every 1–10 seconds). In fast mode a fragment may therefore start a little earlier than marked. For frame accuracy turn this off: the file is re-encoded, which takes longer.';
+
+  @override
+  String get groupClips => 'Files';
+
+  @override
+  String get groupJoin => 'Join';
+
+  @override
+  String get pLosslessJoin => 'Without re-encoding';
+
+  @override
+  String get losslessJoinOnHint => 'Instant; files must share codec and size';
+
+  @override
+  String get losslessJoinOffHint => 'Any files: brought to one size and frame rate';
+
+  @override
+  String get pLosslessJoinHelp =>
+      'Joining without re-encoding suits parts of one recording (same camera or stream). If files differ in codec, resolution or audio format, the result may not play — turn this off then.';
+
+  @override
+  String concatMismatch(String what) {
+    return 'Files differ: $what. Without re-encoding the result may not play.';
+  }
+
+  @override
+  String get mismatchCodec => 'video codec';
+
+  @override
+  String get mismatchSize => 'resolution';
+
+  @override
+  String get mismatchPixfmt => 'pixel format';
+
+  @override
+  String get mismatchAudio => 'audio presence';
+
+  @override
+  String get mismatchAudioCodec => 'audio format';
+
+  @override
+  String get mismatchVideo => 'video presence';
+
+  @override
+  String get groupFrame => 'Frame';
+
+  @override
+  String get pJoinSize => 'Frame size';
+
+  @override
+  String get pJoinSizeHint => 'Other files are fitted with bars';
+
+  @override
+  String joinSizeFirst(String size) {
+    return 'As the first ($size)';
+  }
+
+  @override
+  String get groupTransition => 'Transition between files';
+
+  @override
+  String get pTransition => 'Effect';
+
+  @override
+  String get pTransitionHint => 'How one file gives way to the next';
+
+  @override
+  String get pTransitionDuration => 'Transition length';
+
+  @override
+  String get pTransitionDurationHint => 'Files overlap by this much';
+
+  @override
+  String get clipShorterThanTransition => 'A file is shorter than two transitions — shorten the transition';
+
+  @override
+  String get groupFades => 'Fade in and out';
+
+  @override
+  String get pFadeIn => 'Fade in from black';
+
+  @override
+  String get pFadeInHint => 'At the start; sound fades in too';
+
+  @override
+  String get pFadeOut => 'Fade out to black';
+
+  @override
+  String get pFadeOutHint => 'At the end; sound fades out too';
+
+  @override
+  String get xfFade => 'Cross-fade';
+
+  @override
+  String get xfDissolve => 'Dissolve';
+
+  @override
+  String get xfFadeBlack => 'Through black';
+
+  @override
+  String get xfFadeWhite => 'Through white';
+
+  @override
+  String get xfCircleOpen => 'Circle open';
+
+  @override
+  String get xfCircleClose => 'Circle close';
+
+  @override
+  String get xfCircleCrop => 'Circle crop';
+
+  @override
+  String get xfRectCrop => 'Rectangle crop';
+
+  @override
+  String get xfRadial => 'Radial';
+
+  @override
+  String get xfPixelize => 'Pixelize';
+
+  @override
+  String get xfDistance => 'Distance';
+
+  @override
+  String get xfBlur => 'Blur';
+
+  @override
+  String get xfZoom => 'Zoom in';
+
+  @override
+  String xfWipe(String dir) {
+    return 'Wipe $dir';
+  }
+
+  @override
+  String xfSlide(String dir) {
+    return 'Slide $dir';
+  }
+
+  @override
+  String xfSmooth(String dir) {
+    return 'Smooth wipe $dir';
+  }
+
+  @override
+  String xfDiagonal(String dir) {
+    return 'Diagonal $dir';
+  }
+
+  @override
+  String xfSqueeze(String dir) {
+    return 'Squeeze $dir';
+  }
+
+  @override
+  String xfOpen(String dir) {
+    return 'Open $dir';
+  }
+
+  @override
+  String get groupSplit => 'Split';
+
+  @override
+  String get pSplitMode => 'How to split';
+
+  @override
+  String get pSplitModeHint => 'Parts are saved as name_001, name_002…';
+
+  @override
+  String get splitEvery => 'By length';
+
+  @override
+  String get splitParts => 'Into N parts';
+
+  @override
+  String get splitChapters => 'By chapters';
+
+  @override
+  String get splitTimes => 'At points';
+
+  @override
+  String get pSplitEvery => 'Part length';
+
+  @override
+  String get pSplitParts => 'Number of parts';
+
+  @override
+  String get pSplitPartsHint => 'Equal in length';
+
+  @override
+  String addCutPoint(String t) {
+    return 'Cut here: $t';
+  }
+
+  @override
+  String get splitNoPoints => 'No cut points';
+
+  @override
+  String splitFiles(int n) {
+    return 'Files: $n';
+  }
+
+  @override
+  String get pSplitPrecise => 'Frame-accurate';
+
+  @override
+  String get splitPreciseOnHint => 'Video is re-encoded, cuts exactly where set';
+
+  @override
+  String get splitPreciseOffHint => 'Instant and lossless; cuts at nearest keyframes';
+
+  @override
+  String get splitKeyframeNote => 'Without re-encoding parts start on keyframes, so their lengths may differ slightly.';
+
+  @override
+  String get groupCrop => 'Crop';
+
+  @override
+  String get pCropEdit => 'Select area';
+
+  @override
+  String get pCropEditHint => 'Turn on and draw what to keep on the frame';
+
+  @override
+  String cropRectLabel(String size, String x, String y) {
+    return '$size at $x, $y';
+  }
+
+  @override
+  String get cropAutodetect => 'Detect black bars';
+
+  @override
+  String get cropReset => 'Reset';
+
+  @override
+  String get cropNothingFound => 'No black bars found';
+
+  @override
+  String get groupRotate => 'Rotate and flip';
+
+  @override
+  String get pRotate => 'Rotate';
+
+  @override
+  String get pRotateHint => 'Clockwise';
+
+  @override
+  String get pFlipH => 'Flip horizontally';
+
+  @override
+  String get pFlipHHint => 'Mirror: left becomes right';
+
+  @override
+  String get pFlipV => 'Flip vertically';
+
+  @override
+  String get pFlipVHint => 'Top becomes bottom';
+
+  @override
+  String get pAngle => 'Tilt';
+
+  @override
+  String get pAngleHint => 'Straighten a tilted horizon; corners are filled with black';
+
+  @override
+  String get makeVertical => 'Vertical 9:16';
+
+  @override
+  String get pAspect => 'Aspect ratio';
+
+  @override
+  String get pAspectHint => '9:16 for Shorts, Reels, TikTok; 1:1 and 4:5 for feeds';
+
+  @override
+  String get pFrameHeight => 'Frame height';
+
+  @override
+  String get pFrameHeightHint => 'Width follows the aspect ratio';
+
+  @override
+  String get pFit => 'How to fit';
+
+  @override
+  String get fitFit => 'Bars';
+
+  @override
+  String get fitFill => 'Fill';
+
+  @override
+  String get fitBlur => 'Blurred background';
+
+  @override
+  String get fitStretch => 'Stretch';
+
+  @override
+  String get fitFitHint => 'The whole picture, black bars at the sides';
+
+  @override
+  String get fitFillHint => 'The frame is filled, picture edges are cut';
+
+  @override
+  String get fitBlurHint => 'The whole picture over its blurred copy — like on social media';
+
+  @override
+  String get fitStretchHint => 'The picture is distorted to the new frame';
+
+  @override
+  String frameSizeResult(String from, String to) {
+    return 'Frame: $from → $to';
+  }
+
+  @override
+  String get groupSpeed => 'Speed';
+
+  @override
+  String get pSpeedFactor => 'Factor';
+
+  @override
+  String get pSpeedFactorHint => 'Above 1 is faster, below 1 is slow motion';
+
+  @override
+  String get pSpeedAudio => 'Audio';
+
+  @override
+  String get speedAudioKeep => 'Same pitch';
+
+  @override
+  String get speedAudioPitch => 'Like a record';
+
+  @override
+  String get speedAudioMute => 'Remove';
+
+  @override
+  String get speedAudioKeepHint => 'Tempo changes, voices keep their pitch';
+
+  @override
+  String get speedAudioPitchHint => 'Faster raises the pitch, slower lowers it';
+
+  @override
+  String get speedAudioMuteHint => 'The result has no audio';
+
+  @override
+  String get pReverse => 'Reverse';
+
+  @override
+  String get pReverseHint => 'Video and audio play backwards';
+
+  @override
+  String get groupFrameRate => 'Frame rate';
+
+  @override
+  String get pSpeedFps => 'Frames per second';
+
+  @override
+  String pSpeedFpsHint(String fps) {
+    return 'Source has $fps';
+  }
+
+  @override
+  String get pInterpolate => 'Smooth motion';
+
+  @override
+  String get pInterpolateHint => 'Synthesizes in-between frames (for slow motion)';
+
+  @override
+  String get pInterpolateHelp =>
+      'The minterpolate filter estimates motion and creates new frames between existing ones. Slow motion looks smooth instead of choppy. It is very slow and may show artifacts on fast scenes.';
+
+  @override
+  String get reverseMemoryWarning =>
+      'Reversing keeps the whole clip in memory: long files may run out of RAM. Trim a short part first.';
+
+  @override
+  String get interpolateSlowWarning => 'Smooth motion is very slow — a minute of video may take tens of minutes.';
+
+  @override
+  String get atempoQualityNote => 'At extreme tempo changes pitch-preserved audio may sound metallic.';
+
+  @override
+  String get groupRestore => 'Restoration';
+
+  @override
+  String get pDeinterlace => 'Deinterlace';
+
+  @override
+  String get pDeinterlaceHint => 'For TV recordings, tapes, old camcorders';
+
+  @override
+  String get deinterlaceDetected => 'The file is interlaced — recommended';
+
+  @override
+  String get pDeinterlaceHelp =>
+      'Interlaced video shows half-frames, and motion shows horizontal combing. bwdif is the modern quality filter; yadif is the classic one, a bit faster.';
+
+  @override
+  String get pVideoDenoise => 'Denoise';
+
+  @override
+  String get pVideoDenoiseHint => 'Removes grain and digital noise';
+
+  @override
+  String get pVideoDenoiseHelp =>
+      'Light–strong use the fast hqdn3d filter: stronger is cleaner but looks plastic. NLMeans keeps detail noticeably better but is tens of times slower.';
+
+  @override
+  String get levelLight => 'Light';
+
+  @override
+  String get levelMedium => 'Medium';
+
+  @override
+  String get levelStrong => 'Strong';
+
+  @override
+  String get denoiseNlmeans => 'NLMeans (quality, slow)';
+
+  @override
+  String get pSharpen => 'Sharpen';
+
+  @override
+  String get pSharpenHint => 'Emphasizes detail; cannot fix a blurry shot';
+
+  @override
+  String get sharpenCas => 'Adaptive (CAS)';
+
+  @override
+  String get groupStabilize => 'Stabilization';
+
+  @override
+  String get pStabilize => 'Remove shake';
+
+  @override
+  String get pStabilizeHint => 'Two passes: motion analysis, then correction';
+
+  @override
+  String get pStabilizeDeshakeHint => 'No vidstab in this build — simple deshake is used';
+
+  @override
+  String get pStabilizeHelp =>
+      'First the camera motion is tracked through the whole file, then frames are shifted and slightly zoomed to hide the shake. Frame edges are cropped a little. The preview does not show stabilization — only the result does.';
+
+  @override
+  String get pShakiness => 'Shakiness';
+
+  @override
+  String get pShakinessHint => 'How shaky the source is (1–10)';
+
+  @override
+  String get pSmoothing => 'Smoothing';
+
+  @override
+  String get pSmoothingHint => 'Higher is smoother but crops more';
+
+  @override
+  String get vidstabMissing =>
+      'This ffmpeg build lacks libvidstab — the simpler deshake filter is used. Install a full build in Components for quality stabilization.';
+
+  @override
+  String get nlmeansSlowWarning => 'NLMeans is very slow: about a frame per second at Full HD.';
+
+  @override
+  String get stepAnalyzeMotion => 'motion analysis';
+
+  @override
+  String get groupColorBasic => 'Basics';
+
+  @override
+  String get pBrightness => 'Brightness';
+
+  @override
+  String get pBrightnessHint => '0 means unchanged';
+
+  @override
+  String get pContrast => 'Contrast';
+
+  @override
+  String get pContrastHint => '1 means unchanged';
+
+  @override
+  String get pSaturation => 'Saturation';
+
+  @override
+  String get pSaturationHint => '0 is black and white, 1 is unchanged';
+
+  @override
+  String get pGamma => 'Gamma';
+
+  @override
+  String get pGammaHint => 'Brightens or darkens midtones';
+
+  @override
+  String get pHue => 'Hue';
+
+  @override
+  String get pHueHint => 'Shifts all colors around the color wheel';
+
+  @override
+  String get pTemperature => 'Color temperature';
+
+  @override
+  String get pTemperatureHint => 'Lower is warmer (yellower), higher is cooler (bluer); 6500 K is neutral';
+
+  @override
+  String get groupLook => 'Look';
+
+  @override
+  String get pLook => 'Preset look';
+
+  @override
+  String get pLookHint => 'Applied after the basics';
+
+  @override
+  String get lookGrayscale => 'Black & white';
+
+  @override
+  String get lookSepia => 'Sepia';
+
+  @override
+  String get lookVintage => 'Vintage';
+
+  @override
+  String get lookCrossProcess => 'Cross process';
+
+  @override
+  String get lookNegative => 'Negative';
+
+  @override
+  String get lookStrongContrast => 'Strong contrast';
+
+  @override
+  String get lookLighter => 'Lighter';
+
+  @override
+  String get lookDarker => 'Darker';
+
+  @override
+  String get pVignette => 'Vignette';
+
+  @override
+  String get pVignetteHint => 'Darkened frame edges';
+
+  @override
+  String get pLut => 'LUT file';
+
+  @override
+  String get pLutHint => '.cube or .3dl — a ready color grade';
+
+  @override
+  String get pLutHelp =>
+      'A LUT (look-up table) is a ready color grade from DaVinci Resolve, Premiere or a camera maker (e.g. converting a Log profile to normal). It is applied before the other settings.';
+
+  @override
+  String get pLutMix => 'LUT strength';
+
+  @override
+  String get pLutMixHint => 'Blend with the original colors';
+
+  @override
+  String get groupWatermark => 'Logo';
+
+  @override
+  String get pWatermarkImage => 'Image';
+
+  @override
+  String get pWatermarkImageHint => 'A PNG with transparency works best';
+
+  @override
+  String get pPosition => 'Position';
+
+  @override
+  String get pPositionHint => 'Corner or edge of the frame';
+
+  @override
+  String get pWatermarkSize => 'Size';
+
+  @override
+  String get pWatermarkSizeHint => 'Width relative to the video width';
+
+  @override
+  String get pOpacity => 'Opacity';
+
+  @override
+  String get pOpacityHint => 'Lower is more transparent';
+
+  @override
+  String get groupText => 'Text';
+
+  @override
+  String get pOverlayText => 'Caption';
+
+  @override
+  String get pOverlayTextHint => 'Any text, including % : , \' [ ]';
+
+  @override
+  String get pFontSize => 'Font size';
+
+  @override
+  String get pFontSizeHint => 'Relative to the video height';
+
+  @override
+  String get pFontColor => 'Color';
+
+  @override
+  String get pFontColorHint => 'Letter color';
+
+  @override
+  String get colorWhite => 'white';
+
+  @override
+  String get colorBlack => 'black';
+
+  @override
+  String get colorYellow => 'yellow';
+
+  @override
+  String get colorRed => 'red';
+
+  @override
+  String get colorBlue => 'blue';
+
+  @override
+  String get pTextBox => 'Background box';
+
+  @override
+  String get pTextBoxHint => 'Translucent box behind the text; otherwise an outline';
+
+  @override
+  String get pFontFile => 'Font';
+
+  @override
+  String get pFontFileHint => 'Default is the system sans-serif font';
+
+  @override
+  String get pTimecode => 'Timecode';
+
+  @override
+  String get pTimecodeHint => 'Time since the start on every frame';
+
+  @override
+  String get pTimecodePosition => 'Timecode position';
+
+  @override
+  String get groupWhen => 'Margin and timing';
+
+  @override
+  String get pMargin => 'Edge margin';
+
+  @override
+  String get pMarginHint => 'Relative to the video height';
+
+  @override
+  String get pShowFrom => 'Show from';
+
+  @override
+  String get pShowFromHint => 'Empty means from the start';
+
+  @override
+  String get pShowTo => 'Show until';
+
+  @override
+  String get pShowToHint => 'Empty means to the end';
+
+  @override
+  String get overlayEmpty => 'Choose an image, enter text or turn on the timecode';
+
+  @override
+  String get cornerTopLeft => 'top left';
+
+  @override
+  String get cornerTop => 'top center';
+
+  @override
+  String get cornerTopRight => 'top right';
+
+  @override
+  String get cornerLeft => 'center left';
+
+  @override
+  String get cornerCenter => 'center';
+
+  @override
+  String get cornerRight => 'center right';
+
+  @override
+  String get cornerBottomLeft => 'bottom left';
+
+  @override
+  String get cornerBottom => 'bottom center';
+
+  @override
+  String get cornerBottomRight => 'bottom right';
+
+  @override
+  String get groupBlur => 'Hiding';
+
+  @override
+  String get pBlurMode => 'Method';
+
+  @override
+  String get blurModeBlur => 'Blur';
+
+  @override
+  String get blurModePixel => 'Pixelate';
+
+  @override
+  String get blurModeDelogo => 'Remove logo';
+
+  @override
+  String get blurModeBox => 'Black box';
+
+  @override
+  String get blurModeBlurHint => 'Faces, license plates, screens';
+
+  @override
+  String get blurModePixelHint => 'Large squares, like on the news';
+
+  @override
+  String get blurModeDelogoHint => 'Fills the area from surrounding pixels — for small logos on a plain background';
+
+  @override
+  String get blurModeBoxHint => 'A black rectangle';
+
+  @override
+  String get pStrength => 'Strength';
+
+  @override
+  String get pBlurStrengthHint => 'How strongly to hide';
+
+  @override
+  String get pBlurWhole => 'Whole frame';
+
+  @override
+  String get pBlurWholeHint => 'Blur the entire picture';
+
+  @override
+  String get pEditRegions => 'Draw areas';
+
+  @override
+  String get pEditRegionsHint => 'Turn off to see the result in the preview';
+
+  @override
+  String get groupRegions => 'Areas';
+
+  @override
+  String get regionTimeHint => 'Each area can have a time window: empty means the whole video';
+
+  @override
+  String get blurNoRegions => 'Draw at least one area on the frame';
+
+  @override
+  String get groupLayout => 'Layout';
+
+  @override
+  String get pLayout => 'Arrangement';
+
+  @override
+  String get pLayoutHint => 'Height or width follows the first video';
+
+  @override
+  String get layoutSide => 'Side by side';
+
+  @override
+  String get layoutTop => 'Stacked';
+
+  @override
+  String get layoutGrid => '2×2 grid';
+
+  @override
+  String get layoutPip => 'Picture in picture';
+
+  @override
+  String get pPipPositionHint => 'Where the small window goes';
+
+  @override
+  String get pPipSize => 'Window size';
+
+  @override
+  String get pPipSizeHint => 'Relative to the main video width';
+
+  @override
+  String get pStackAudio => 'Audio';
+
+  @override
+  String get pStackAudioHint => 'Which audio the result has';
+
+  @override
+  String get stackAudioFirst => 'From the first video';
+
+  @override
+  String get stackAudioMix => 'Mix all';
+
+  @override
+  String get stackAudioNone => 'No audio';
+
+  @override
+  String get shortestOnHint => 'The result lasts while all videos play';
+
+  @override
+  String get shortestOffHint => 'Until the longest ends; finished ones freeze on the last frame';
+
+  @override
+  String get groupLoop => 'Repeat';
+
+  @override
+  String get pLoopMode => 'Mode';
+
+  @override
+  String get loopRepeat => 'Repeat';
+
+  @override
+  String get loopBoomerang => 'Boomerang';
+
+  @override
+  String get loopRepeatHint => 'The video plays several times in a row';
+
+  @override
+  String get loopBoomerangHint => 'Forward, then backward — a seamless loop';
+
+  @override
+  String get pLoopTimes => 'How many times';
+
+  @override
+  String get pLoopTimesHint => 'Total number of plays';
+
+  @override
+  String get pBoomerangAudio => 'With audio';
+
+  @override
+  String get pBoomerangAudioHint => 'Audio also plays backwards';
+
+  @override
+  String get groupToneMap => 'Tone mapping';
+
+  @override
+  String hdrSourceInfo(String trc, String prim, String bits) {
+    return 'Source: transfer $trc, primaries $prim, $bits-bit';
+  }
+
+  @override
+  String notHdrWarning(String trc) {
+    return 'The file does not look like HDR (transfer: $trc) — the result may look wrong';
+  }
+
+  @override
+  String get pToneCurve => 'Curve';
+
+  @override
+  String get pToneCurveHelp =>
+      'HDR video holds brightness a normal screen cannot show. The curve decides how to compress it into the normal range. Hable keeps detail in highlights and shadows (a good default), Möbius keeps midtone colors more accurate, Reinhard gives a soft, bright result.';
+
+  @override
+  String get toneHableHint => 'Keeps highlight detail — a good default';
+
+  @override
+  String get toneMobiusHint => 'More accurate midtone colors';
+
+  @override
+  String get toneReinhardHint => 'Soft, bright result';
+
+  @override
+  String get toneBt2390Hint => 'The ITU broadcast standard';
+
+  @override
+  String get pDesat => 'Highlight desaturation';
+
+  @override
+  String get pDesatHint => 'Tames oversaturated colors in bright areas';
+
+  @override
+  String get pPlacebo => 'On the GPU (libplacebo)';
+
+  @override
+  String get pPlaceboHint => 'Faster and better; needs a Vulkan GPU';
 }

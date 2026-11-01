@@ -917,7 +917,7 @@ abstract class AppLocalizations {
   /// No description provided for @toolSplitDesc.
   ///
   /// In ru, this message translates to:
-  /// **'По времени, размеру, главам, тишине или сценам.'**
+  /// **'По времени, на равные части, по главам или по отмеченным точкам.'**
   String get toolSplitDesc;
 
   /// No description provided for @toolCropScale.
@@ -3629,7 +3629,7 @@ abstract class AppLocalizations {
   /// No description provided for @pShortest.
   ///
   /// In ru, this message translates to:
-  /// **'По самой короткой дорожке'**
+  /// **'Закончить с самым коротким'**
   String get pShortest;
 
   /// No description provided for @pShortestHint.
@@ -6403,6 +6403,1896 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Тоны DTMF'**
   String get genDtmf;
+
+  /// No description provided for @off.
+  ///
+  /// In ru, this message translates to:
+  /// **'выкл.'**
+  String get off;
+
+  /// No description provided for @vertical.
+  ///
+  /// In ru, this message translates to:
+  /// **'вертикальное'**
+  String get vertical;
+
+  /// No description provided for @noAudioTag.
+  ///
+  /// In ru, this message translates to:
+  /// **'без звука'**
+  String get noAudioTag;
+
+  /// No description provided for @addFiles.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить файлы'**
+  String get addFiles;
+
+  /// No description provided for @needMoreClips.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нужно хотя бы {n} файла'**
+  String needMoreClips(int n);
+
+  /// No description provided for @nothingChanged.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ничего не изменено — задайте хотя бы один параметр'**
+  String get nothingChanged;
+
+  /// No description provided for @resultLength.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность результата: {d}'**
+  String resultLength(String d);
+
+  /// No description provided for @groupEditOutput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат'**
+  String get groupEditOutput;
+
+  /// No description provided for @pEditContainerHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат файла результата'**
+  String get pEditContainerHint;
+
+  /// No description provided for @pEditQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество'**
+  String get pEditQuality;
+
+  /// No description provided for @pEditQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео перекодируется; звук копируется, если его не меняли'**
+  String get pEditQualityHint;
+
+  /// No description provided for @pEditQualityHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'«Высокое» — практически без видимых потерь (для x264 это CRF 18), файл крупнее. «Обычное» — значение кодировщика по умолчанию (CRF 23). «Меньше размер» — заметно меньше файл, мелкие детали могут смазаться (CRF 28). Кодек выбирается как у исходника, если формат его поддерживает.'**
+  String get pEditQualityHelp;
+
+  /// No description provided for @editQualityHigh.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высокое'**
+  String get editQualityHigh;
+
+  /// No description provided for @editQualityBalanced.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обычное'**
+  String get editQualityBalanced;
+
+  /// No description provided for @editQualitySmall.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше размер'**
+  String get editQualitySmall;
+
+  /// No description provided for @pEditSpeedHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстрее — крупнее файл при том же качестве'**
+  String get pEditSpeedHint;
+
+  /// No description provided for @previewBefore.
+  ///
+  /// In ru, this message translates to:
+  /// **'До'**
+  String get previewBefore;
+
+  /// No description provided for @previewSplit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шторка'**
+  String get previewSplit;
+
+  /// No description provided for @previewAfter.
+  ///
+  /// In ru, this message translates to:
+  /// **'После'**
+  String get previewAfter;
+
+  /// No description provided for @rectHintOne.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделите область мышью; тяните за угол, чтобы изменить размер'**
+  String get rectHintOne;
+
+  /// No description provided for @rectHintMany.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рисуйте области мышью (до 12); перетаскивайте их и тяните за угол'**
+  String get rectHintMany;
+
+  /// No description provided for @groupFragments.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фрагменты'**
+  String get groupFragments;
+
+  /// No description provided for @pCutMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что делать с отмеченным'**
+  String get pCutMode;
+
+  /// No description provided for @cutModeRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get cutModeRemove;
+
+  /// No description provided for @cutModeKeep.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить только их'**
+  String get cutModeKeep;
+
+  /// No description provided for @cutModeRemoveHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмеченные куски вырезаются, остальное склеивается'**
+  String get cutModeRemoveHint;
+
+  /// No description provided for @cutModeKeepHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Остаются только отмеченные куски, в порядке времени'**
+  String get cutModeKeepHint;
+
+  /// No description provided for @cutHowTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найдите место в плеере и нажмите «Начало», затем «Конец». Можно отметить сколько угодно фрагментов.'**
+  String get cutHowTo;
+
+  /// No description provided for @markFragmentStart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало: {t}'**
+  String markFragmentStart(String t);
+
+  /// No description provided for @markFragmentEnd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конец: {t}'**
+  String markFragmentEnd(String t);
+
+  /// No description provided for @playFragment.
+  ///
+  /// In ru, this message translates to:
+  /// **'Воспроизвести фрагмент'**
+  String get playFragment;
+
+  /// No description provided for @cutNoRanges.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отметьте хотя бы один фрагмент'**
+  String get cutNoRanges;
+
+  /// No description provided for @cutNothingLeft.
+  ///
+  /// In ru, this message translates to:
+  /// **'После удаления ничего не остаётся'**
+  String get cutNothingLeft;
+
+  /// No description provided for @pLosslessCut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без перекодирования'**
+  String get pLosslessCut;
+
+  /// No description provided for @losslessCutOnHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мгновенно и без потерь, но границы — по ближайшим ключевым кадрам'**
+  String get losslessCutOnHint;
+
+  /// No description provided for @losslessCutOffHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точно до кадра; видео перекодируется'**
+  String get losslessCutOffHint;
+
+  /// No description provided for @pLosslessCutHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео сжато группами кадров, и начать кусок без перекодирования можно только с ключевого кадра (обычно они идут раз в 1–10 секунд). Поэтому в быстром режиме фрагмент может начаться чуть раньше отмеченного места. Если нужна точность до кадра — выключите этот режим: файл перекодируется, это дольше.'**
+  String get pLosslessCutHelp;
+
+  /// No description provided for @groupClips.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлы'**
+  String get groupClips;
+
+  /// No description provided for @groupJoin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Склейка'**
+  String get groupJoin;
+
+  /// No description provided for @pLosslessJoin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без перекодирования'**
+  String get pLosslessJoin;
+
+  /// No description provided for @losslessJoinOnHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мгновенно; файлы должны быть одинаковыми по кодеку и размеру'**
+  String get losslessJoinOnHint;
+
+  /// No description provided for @losslessJoinOffHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Любые файлы: приводятся к одному размеру и частоте кадров'**
+  String get losslessJoinOffHint;
+
+  /// No description provided for @pLosslessJoinHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Склейка без перекодирования подходит для частей одной записи (с одной камеры, одного стрима). Если у файлов разные кодеки, разрешение или параметры звука, результат может не воспроизводиться — тогда выключите этот режим.'**
+  String get pLosslessJoinHelp;
+
+  /// No description provided for @concatMismatch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлы различаются: {what}. Без перекодирования результат может не воспроизводиться.'**
+  String concatMismatch(String what);
+
+  /// No description provided for @mismatchCodec.
+  ///
+  /// In ru, this message translates to:
+  /// **'кодек видео'**
+  String get mismatchCodec;
+
+  /// No description provided for @mismatchSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'разрешение'**
+  String get mismatchSize;
+
+  /// No description provided for @mismatchPixfmt.
+  ///
+  /// In ru, this message translates to:
+  /// **'формат пикселей'**
+  String get mismatchPixfmt;
+
+  /// No description provided for @mismatchAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'наличие звука'**
+  String get mismatchAudio;
+
+  /// No description provided for @mismatchAudioCodec.
+  ///
+  /// In ru, this message translates to:
+  /// **'формат звука'**
+  String get mismatchAudioCodec;
+
+  /// No description provided for @mismatchVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'наличие видео'**
+  String get mismatchVideo;
+
+  /// No description provided for @groupFrame.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадр'**
+  String get groupFrame;
+
+  /// No description provided for @pJoinSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер кадра'**
+  String get pJoinSize;
+
+  /// No description provided for @pJoinSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Остальные файлы вписываются с полями'**
+  String get pJoinSizeHint;
+
+  /// No description provided for @joinSizeFirst.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как у первого ({size})'**
+  String joinSizeFirst(String size);
+
+  /// No description provided for @groupTransition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переход между файлами'**
+  String get groupTransition;
+
+  /// No description provided for @pTransition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эффект'**
+  String get pTransition;
+
+  /// No description provided for @pTransitionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как один файл сменяет другой'**
+  String get pTransitionHint;
+
+  /// No description provided for @pTransitionDuration.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность перехода'**
+  String get pTransitionDuration;
+
+  /// No description provided for @pTransitionDurationHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлы перекрываются на это время'**
+  String get pTransitionDurationHint;
+
+  /// No description provided for @clipShorterThanTransition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какой-то файл короче двух переходов — уменьшите длительность перехода'**
+  String get clipShorterThanTransition;
+
+  /// No description provided for @groupFades.
+  ///
+  /// In ru, this message translates to:
+  /// **'Появление и исчезание'**
+  String get groupFades;
+
+  /// No description provided for @pFadeIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Появление из чёрного'**
+  String get pFadeIn;
+
+  /// No description provided for @pFadeInHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В начале; звук нарастает вместе с картинкой'**
+  String get pFadeInHint;
+
+  /// No description provided for @pFadeOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уход в чёрное'**
+  String get pFadeOut;
+
+  /// No description provided for @pFadeOutHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В конце; звук затихает вместе с картинкой'**
+  String get pFadeOutHint;
+
+  /// No description provided for @xfFade.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растворение'**
+  String get xfFade;
+
+  /// No description provided for @xfDissolve.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рассыпание'**
+  String get xfDissolve;
+
+  /// No description provided for @xfFadeBlack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Через чёрный'**
+  String get xfFadeBlack;
+
+  /// No description provided for @xfFadeWhite.
+  ///
+  /// In ru, this message translates to:
+  /// **'Через белый'**
+  String get xfFadeWhite;
+
+  /// No description provided for @xfCircleOpen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Круг раскрывается'**
+  String get xfCircleOpen;
+
+  /// No description provided for @xfCircleClose.
+  ///
+  /// In ru, this message translates to:
+  /// **'Круг закрывается'**
+  String get xfCircleClose;
+
+  /// No description provided for @xfCircleCrop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Круглая шторка'**
+  String get xfCircleCrop;
+
+  /// No description provided for @xfRectCrop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прямоугольная шторка'**
+  String get xfRectCrop;
+
+  /// No description provided for @xfRadial.
+  ///
+  /// In ru, this message translates to:
+  /// **'Радиальная стрелка'**
+  String get xfRadial;
+
+  /// No description provided for @xfPixelize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пикселизация'**
+  String get xfPixelize;
+
+  /// No description provided for @xfDistance.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перетекание'**
+  String get xfDistance;
+
+  /// No description provided for @xfBlur.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размытие'**
+  String get xfBlur;
+
+  /// No description provided for @xfZoom.
+  ///
+  /// In ru, this message translates to:
+  /// **'Наезд'**
+  String get xfZoom;
+
+  /// No description provided for @xfWipe.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шторка {dir}'**
+  String xfWipe(String dir);
+
+  /// No description provided for @xfSlide.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг {dir}'**
+  String xfSlide(String dir);
+
+  /// No description provided for @xfSmooth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавная шторка {dir}'**
+  String xfSmooth(String dir);
+
+  /// No description provided for @xfDiagonal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Диагональ {dir}'**
+  String xfDiagonal(String dir);
+
+  /// No description provided for @xfSqueeze.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сжатие {dir}'**
+  String xfSqueeze(String dir);
+
+  /// No description provided for @xfOpen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Раскрытие {dir}'**
+  String xfOpen(String dir);
+
+  /// No description provided for @groupSplit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разделение'**
+  String get groupSplit;
+
+  /// No description provided for @pSplitMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как делить'**
+  String get pSplitMode;
+
+  /// No description provided for @pSplitModeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Части сохраняются как имя_001, имя_002…'**
+  String get pSplitModeHint;
+
+  /// No description provided for @splitEvery.
+  ///
+  /// In ru, this message translates to:
+  /// **'По времени'**
+  String get splitEvery;
+
+  /// No description provided for @splitParts.
+  ///
+  /// In ru, this message translates to:
+  /// **'На N частей'**
+  String get splitParts;
+
+  /// No description provided for @splitChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'По главам'**
+  String get splitChapters;
+
+  /// No description provided for @splitTimes.
+  ///
+  /// In ru, this message translates to:
+  /// **'По меткам'**
+  String get splitTimes;
+
+  /// No description provided for @pSplitEvery.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длина части'**
+  String get pSplitEvery;
+
+  /// No description provided for @pSplitParts.
+  ///
+  /// In ru, this message translates to:
+  /// **'Число частей'**
+  String get pSplitParts;
+
+  /// No description provided for @pSplitPartsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Равные по длительности'**
+  String get pSplitPartsHint;
+
+  /// No description provided for @addCutPoint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разрезать здесь: {t}'**
+  String addCutPoint(String t);
+
+  /// No description provided for @splitNoPoints.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нет точек разреза'**
+  String get splitNoPoints;
+
+  /// No description provided for @splitFiles.
+  ///
+  /// In ru, this message translates to:
+  /// **'Получится файлов: {n}'**
+  String splitFiles(int n);
+
+  /// No description provided for @pSplitPrecise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точно до кадра'**
+  String get pSplitPrecise;
+
+  /// No description provided for @splitPreciseOnHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео перекодируется, разрезы ровно в заданных местах'**
+  String get splitPreciseOnHint;
+
+  /// No description provided for @splitPreciseOffHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мгновенно и без потерь; разрезы по ближайшим ключевым кадрам'**
+  String get splitPreciseOffHint;
+
+  /// No description provided for @splitKeyframeNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без перекодирования части начинаются с ключевых кадров, поэтому их длина может немного отличаться.'**
+  String get splitKeyframeNote;
+
+  /// No description provided for @groupCrop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадрирование'**
+  String get groupCrop;
+
+  /// No description provided for @pCropEdit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделить область'**
+  String get pCropEdit;
+
+  /// No description provided for @pCropEditHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Включите и обведите на кадре то, что нужно оставить'**
+  String get pCropEditHint;
+
+  /// No description provided for @cropRectLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'{size} от точки {x}, {y}'**
+  String cropRectLabel(String size, String x, String y);
+
+  /// No description provided for @cropAutodetect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти чёрные поля'**
+  String get cropAutodetect;
+
+  /// No description provided for @cropReset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сбросить'**
+  String get cropReset;
+
+  /// No description provided for @cropNothingFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чёрных полей не найдено'**
+  String get cropNothingFound;
+
+  /// No description provided for @groupRotate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поворот и отражение'**
+  String get groupRotate;
+
+  /// No description provided for @pRotate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повернуть'**
+  String get pRotate;
+
+  /// No description provided for @pRotateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'По часовой стрелке'**
+  String get pRotateHint;
+
+  /// No description provided for @pFlipH.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отразить по горизонтали'**
+  String get pFlipH;
+
+  /// No description provided for @pFlipHHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зеркально: левое становится правым'**
+  String get pFlipHHint;
+
+  /// No description provided for @pFlipV.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отразить по вертикали'**
+  String get pFlipV;
+
+  /// No description provided for @pFlipVHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Верх становится низом'**
+  String get pFlipVHint;
+
+  /// No description provided for @pAngle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Наклон'**
+  String get pAngle;
+
+  /// No description provided for @pAngleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выровнять заваленный горизонт; края заполняются чёрным'**
+  String get pAngleHint;
+
+  /// No description provided for @makeVertical.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вертикальное 9:16'**
+  String get makeVertical;
+
+  /// No description provided for @pAspect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пропорции кадра'**
+  String get pAspect;
+
+  /// No description provided for @pAspectHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'9:16 — Shorts, Reels, TikTok; 1:1 и 4:5 — лента'**
+  String get pAspectHint;
+
+  /// No description provided for @pFrameHeight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота кадра'**
+  String get pFrameHeight;
+
+  /// No description provided for @pFrameHeightHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина считается по пропорциям'**
+  String get pFrameHeightHint;
+
+  /// No description provided for @pFit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как вписать'**
+  String get pFit;
+
+  /// No description provided for @fitFit.
+  ///
+  /// In ru, this message translates to:
+  /// **'С полями'**
+  String get fitFit;
+
+  /// No description provided for @fitFill.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заполнить'**
+  String get fitFill;
+
+  /// No description provided for @fitBlur.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размытый фон'**
+  String get fitBlur;
+
+  /// No description provided for @fitStretch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растянуть'**
+  String get fitStretch;
+
+  /// No description provided for @fitFitHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видна вся картинка, по краям чёрные полосы'**
+  String get fitFitHint;
+
+  /// No description provided for @fitFillHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадр заполнен, края картинки обрезаются'**
+  String get fitFillHint;
+
+  /// No description provided for @fitBlurHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вся картинка поверх её же размытой копии — как в соцсетях'**
+  String get fitBlurHint;
+
+  /// No description provided for @fitStretchHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинка искажается под новый кадр'**
+  String get fitStretchHint;
+
+  /// No description provided for @frameSizeResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадр: {from} → {to}'**
+  String frameSizeResult(String from, String to);
+
+  /// No description provided for @groupSpeed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скорость'**
+  String get groupSpeed;
+
+  /// No description provided for @pSpeedFactor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Множитель'**
+  String get pSpeedFactor;
+
+  /// No description provided for @pSpeedFactorHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше 1 — быстрее, меньше 1 — замедление'**
+  String get pSpeedFactorHint;
+
+  /// No description provided for @pSpeedAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук'**
+  String get pSpeedAudio;
+
+  /// No description provided for @speedAudioKeep.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тот же тон'**
+  String get speedAudioKeep;
+
+  /// No description provided for @speedAudioPitch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как пластинка'**
+  String get speedAudioPitch;
+
+  /// No description provided for @speedAudioMute.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать'**
+  String get speedAudioMute;
+
+  /// No description provided for @speedAudioKeepHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Темп меняется, голос не становится выше или ниже'**
+  String get speedAudioKeepHint;
+
+  /// No description provided for @speedAudioPitchHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ускорение повышает тон, замедление понижает'**
+  String get speedAudioPitchHint;
+
+  /// No description provided for @speedAudioMuteHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В результате не будет звука'**
+  String get speedAudioMuteHint;
+
+  /// No description provided for @pReverse.
+  ///
+  /// In ru, this message translates to:
+  /// **'Задом наперёд'**
+  String get pReverse;
+
+  /// No description provided for @pReverseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео и звук проигрываются в обратную сторону'**
+  String get pReverseHint;
+
+  /// No description provided for @groupFrameRate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота кадров'**
+  String get groupFrameRate;
+
+  /// No description provided for @pSpeedFps.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадров в секунду'**
+  String get pSpeedFps;
+
+  /// No description provided for @pSpeedFpsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'У исходника {fps}'**
+  String pSpeedFpsHint(String fps);
+
+  /// No description provided for @pInterpolate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавное движение'**
+  String get pInterpolate;
+
+  /// No description provided for @pInterpolateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дорисовывает промежуточные кадры (для замедления)'**
+  String get pInterpolateHint;
+
+  /// No description provided for @pInterpolateHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтр minterpolate вычисляет движение и создаёт новые кадры между существующими. Замедление выглядит плавным, а не дёрганым. Работает очень медленно и на быстрых сценах может давать артефакты.'**
+  String get pInterpolateHelp;
+
+  /// No description provided for @reverseMemoryWarning.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обратное воспроизведение держит в памяти весь фрагмент: на длинных файлах может не хватить оперативной памяти. Лучше сначала вырезать короткий кусок.'**
+  String get reverseMemoryWarning;
+
+  /// No description provided for @interpolateSlowWarning.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавное движение работает очень медленно — минута видео может считаться десятки минут.'**
+  String get interpolateSlowWarning;
+
+  /// No description provided for @atempoQualityNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'При сильном изменении темпа звук с сохранением тона может звучать «металлически».'**
+  String get atempoQualityNote;
+
+  /// No description provided for @groupRestore.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восстановление'**
+  String get groupRestore;
+
+  /// No description provided for @pDeinterlace.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать «гребёнку»'**
+  String get pDeinterlace;
+
+  /// No description provided for @pDeinterlaceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для записей с ТВ, видеокассет, старых камер'**
+  String get pDeinterlaceHint;
+
+  /// No description provided for @deinterlaceDetected.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл чересстрочный — рекомендуется включить'**
+  String get deinterlaceDetected;
+
+  /// No description provided for @pDeinterlaceHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чересстрочное видео показывает полукадры, и на движении видны горизонтальные полосы («гребёнка»). bwdif — современный качественный фильтр; yadif — классический, чуть быстрее.'**
+  String get pDeinterlaceHelp;
+
+  /// No description provided for @pVideoDenoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подавление шума'**
+  String get pVideoDenoise;
+
+  /// No description provided for @pVideoDenoiseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает зерно и цифровой шум'**
+  String get pVideoDenoiseHint;
+
+  /// No description provided for @pVideoDenoiseHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слабое–сильное — быстрый фильтр hqdn3d: чем сильнее, тем чище, но картинка становится «пластиковой». NLMeans — заметно качественнее сохраняет детали, но работает в десятки раз медленнее.'**
+  String get pVideoDenoiseHelp;
+
+  /// No description provided for @levelLight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слабое'**
+  String get levelLight;
+
+  /// No description provided for @levelMedium.
+  ///
+  /// In ru, this message translates to:
+  /// **'Среднее'**
+  String get levelMedium;
+
+  /// No description provided for @levelStrong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сильное'**
+  String get levelStrong;
+
+  /// No description provided for @denoiseNlmeans.
+  ///
+  /// In ru, this message translates to:
+  /// **'NLMeans (качественно, медленно)'**
+  String get denoiseNlmeans;
+
+  /// No description provided for @pSharpen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Резкость'**
+  String get pSharpen;
+
+  /// No description provided for @pSharpenHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подчёркивает детали; не делает размытое чётким'**
+  String get pSharpenHint;
+
+  /// No description provided for @sharpenCas.
+  ///
+  /// In ru, this message translates to:
+  /// **'Адаптивная (CAS)'**
+  String get sharpenCas;
+
+  /// No description provided for @groupStabilize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стабилизация'**
+  String get groupStabilize;
+
+  /// No description provided for @pStabilize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать тряску'**
+  String get pStabilize;
+
+  /// No description provided for @pStabilizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Два прохода: анализ движения, затем выравнивание'**
+  String get pStabilizeHint;
+
+  /// No description provided for @pStabilizeDeshakeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В этой сборке нет vidstab — будет простой фильтр deshake'**
+  String get pStabilizeDeshakeHint;
+
+  /// No description provided for @pStabilizeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сначала программа отслеживает движение камеры по всему файлу, затем сдвигает и слегка увеличивает кадры, чтобы скрыть дрожание. Края кадра при этом немного обрезаются. Предпросмотр стабилизацию не показывает — её видно только в результате.'**
+  String get pStabilizeHelp;
+
+  /// No description provided for @pShakiness.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила тряски'**
+  String get pShakiness;
+
+  /// No description provided for @pShakinessHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Насколько сильно трясётся исходник (1–10)'**
+  String get pShakinessHint;
+
+  /// No description provided for @pSmoothing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сглаживание'**
+  String get pSmoothing;
+
+  /// No description provided for @pSmoothingHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше — плавнее, но сильнее обрезка краёв'**
+  String get pSmoothingHint;
+
+  /// No description provided for @vidstabMissing.
+  ///
+  /// In ru, this message translates to:
+  /// **'В этой сборке ffmpeg нет libvidstab — используется более простой фильтр deshake. Для качественной стабилизации установите полную сборку в «Компонентах».'**
+  String get vidstabMissing;
+
+  /// No description provided for @nlmeansSlowWarning.
+  ///
+  /// In ru, this message translates to:
+  /// **'NLMeans очень медленный: на Full HD — около кадра в секунду.'**
+  String get nlmeansSlowWarning;
+
+  /// No description provided for @stepAnalyzeMotion.
+  ///
+  /// In ru, this message translates to:
+  /// **'анализ движения'**
+  String get stepAnalyzeMotion;
+
+  /// No description provided for @groupColorBasic.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основное'**
+  String get groupColorBasic;
+
+  /// No description provided for @pBrightness.
+  ///
+  /// In ru, this message translates to:
+  /// **'Яркость'**
+  String get pBrightness;
+
+  /// No description provided for @pBrightnessHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'0 — без изменений'**
+  String get pBrightnessHint;
+
+  /// No description provided for @pContrast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Контраст'**
+  String get pContrast;
+
+  /// No description provided for @pContrastHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'1 — без изменений'**
+  String get pContrastHint;
+
+  /// No description provided for @pSaturation.
+  ///
+  /// In ru, this message translates to:
+  /// **'Насыщенность'**
+  String get pSaturation;
+
+  /// No description provided for @pSaturationHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'0 — чёрно-белое, 1 — без изменений'**
+  String get pSaturationHint;
+
+  /// No description provided for @pGamma.
+  ///
+  /// In ru, this message translates to:
+  /// **'Гамма'**
+  String get pGamma;
+
+  /// No description provided for @pGammaHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Осветляет или затемняет средние тона'**
+  String get pGammaHint;
+
+  /// No description provided for @pHue.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оттенок'**
+  String get pHue;
+
+  /// No description provided for @pHueHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг всех цветов по цветовому кругу'**
+  String get pHueHint;
+
+  /// No description provided for @pTemperature.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цветовая температура'**
+  String get pTemperature;
+
+  /// No description provided for @pTemperatureHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше — теплее (желтее), больше — холоднее (синее); 6500 K — нейтрально'**
+  String get pTemperatureHint;
+
+  /// No description provided for @groupLook.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стиль'**
+  String get groupLook;
+
+  /// No description provided for @pLook.
+  ///
+  /// In ru, this message translates to:
+  /// **'Готовый стиль'**
+  String get pLook;
+
+  /// No description provided for @pLookHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применяется после основных настроек'**
+  String get pLookHint;
+
+  /// No description provided for @lookGrayscale.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чёрно-белое'**
+  String get lookGrayscale;
+
+  /// No description provided for @lookSepia.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сепия'**
+  String get lookSepia;
+
+  /// No description provided for @lookVintage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Винтаж'**
+  String get lookVintage;
+
+  /// No description provided for @lookCrossProcess.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кросс-процесс'**
+  String get lookCrossProcess;
+
+  /// No description provided for @lookNegative.
+  ///
+  /// In ru, this message translates to:
+  /// **'Негатив'**
+  String get lookNegative;
+
+  /// No description provided for @lookStrongContrast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сильный контраст'**
+  String get lookStrongContrast;
+
+  /// No description provided for @lookLighter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Светлее'**
+  String get lookLighter;
+
+  /// No description provided for @lookDarker.
+  ///
+  /// In ru, this message translates to:
+  /// **'Темнее'**
+  String get lookDarker;
+
+  /// No description provided for @pVignette.
+  ///
+  /// In ru, this message translates to:
+  /// **'Виньетка'**
+  String get pVignette;
+
+  /// No description provided for @pVignetteHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Затемнение по краям кадра'**
+  String get pVignetteHint;
+
+  /// No description provided for @pLut.
+  ///
+  /// In ru, this message translates to:
+  /// **'LUT-файл'**
+  String get pLut;
+
+  /// No description provided for @pLutHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'.cube или .3dl — готовая цветокоррекция'**
+  String get pLutHint;
+
+  /// No description provided for @pLutHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'LUT (таблица преобразования цвета) — файл с готовой цветокоррекцией из DaVinci Resolve, Premiere или от производителя камеры (например, перевод Log-профиля в обычный вид). Применяется до остальных настроек.'**
+  String get pLutHelp;
+
+  /// No description provided for @pLutMix.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила LUT'**
+  String get pLutMix;
+
+  /// No description provided for @pLutMixHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смешивание с исходными цветами'**
+  String get pLutMixHint;
+
+  /// No description provided for @groupWatermark.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логотип'**
+  String get groupWatermark;
+
+  /// No description provided for @pWatermarkImage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинка'**
+  String get pWatermarkImage;
+
+  /// No description provided for @pWatermarkImageHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'PNG с прозрачностью подходит лучше всего'**
+  String get pWatermarkImageHint;
+
+  /// No description provided for @pPosition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Положение'**
+  String get pPosition;
+
+  /// No description provided for @pPositionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Угол или край кадра'**
+  String get pPositionHint;
+
+  /// No description provided for @pWatermarkSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер'**
+  String get pWatermarkSize;
+
+  /// No description provided for @pWatermarkSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина относительно ширины видео'**
+  String get pWatermarkSizeHint;
+
+  /// No description provided for @pOpacity.
+  ///
+  /// In ru, this message translates to:
+  /// **'Непрозрачность'**
+  String get pOpacity;
+
+  /// No description provided for @pOpacityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше — прозрачнее'**
+  String get pOpacityHint;
+
+  /// No description provided for @groupText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текст'**
+  String get groupText;
+
+  /// No description provided for @pOverlayText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Надпись'**
+  String get pOverlayText;
+
+  /// No description provided for @pOverlayTextHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Любой текст, включая символы % : , \' [ ]'**
+  String get pOverlayTextHint;
+
+  /// No description provided for @pFontSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер шрифта'**
+  String get pFontSize;
+
+  /// No description provided for @pFontSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Относительно высоты видео'**
+  String get pFontSizeHint;
+
+  /// No description provided for @pFontColor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет'**
+  String get pFontColor;
+
+  /// No description provided for @pFontColorHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет букв'**
+  String get pFontColorHint;
+
+  /// No description provided for @colorWhite.
+  ///
+  /// In ru, this message translates to:
+  /// **'белый'**
+  String get colorWhite;
+
+  /// No description provided for @colorBlack.
+  ///
+  /// In ru, this message translates to:
+  /// **'чёрный'**
+  String get colorBlack;
+
+  /// No description provided for @colorYellow.
+  ///
+  /// In ru, this message translates to:
+  /// **'жёлтый'**
+  String get colorYellow;
+
+  /// No description provided for @colorRed.
+  ///
+  /// In ru, this message translates to:
+  /// **'красный'**
+  String get colorRed;
+
+  /// No description provided for @colorBlue.
+  ///
+  /// In ru, this message translates to:
+  /// **'голубой'**
+  String get colorBlue;
+
+  /// No description provided for @pTextBox.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подложка'**
+  String get pTextBox;
+
+  /// No description provided for @pTextBoxHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полупрозрачный прямоугольник под текстом; без неё — обводка'**
+  String get pTextBoxHint;
+
+  /// No description provided for @pFontFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифт'**
+  String get pFontFile;
+
+  /// No description provided for @pFontFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'По умолчанию — системный шрифт без засечек'**
+  String get pFontFileHint;
+
+  /// No description provided for @pTimecode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Таймкод'**
+  String get pTimecode;
+
+  /// No description provided for @pTimecodeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Время от начала видео на каждом кадре'**
+  String get pTimecodeHint;
+
+  /// No description provided for @pTimecodePosition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Положение таймкода'**
+  String get pTimecodePosition;
+
+  /// No description provided for @groupWhen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отступ и время показа'**
+  String get groupWhen;
+
+  /// No description provided for @pMargin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отступ от края'**
+  String get pMargin;
+
+  /// No description provided for @pMarginHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Относительно высоты видео'**
+  String get pMarginHint;
+
+  /// No description provided for @pShowFrom.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показывать с'**
+  String get pShowFrom;
+
+  /// No description provided for @pShowFromHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пусто — с начала'**
+  String get pShowFromHint;
+
+  /// No description provided for @pShowTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показывать до'**
+  String get pShowTo;
+
+  /// No description provided for @pShowToHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пусто — до конца'**
+  String get pShowToHint;
+
+  /// No description provided for @overlayEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите картинку, введите текст или включите таймкод'**
+  String get overlayEmpty;
+
+  /// No description provided for @cornerTopLeft.
+  ///
+  /// In ru, this message translates to:
+  /// **'слева вверху'**
+  String get cornerTopLeft;
+
+  /// No description provided for @cornerTop.
+  ///
+  /// In ru, this message translates to:
+  /// **'вверху по центру'**
+  String get cornerTop;
+
+  /// No description provided for @cornerTopRight.
+  ///
+  /// In ru, this message translates to:
+  /// **'справа вверху'**
+  String get cornerTopRight;
+
+  /// No description provided for @cornerLeft.
+  ///
+  /// In ru, this message translates to:
+  /// **'слева по центру'**
+  String get cornerLeft;
+
+  /// No description provided for @cornerCenter.
+  ///
+  /// In ru, this message translates to:
+  /// **'в центре'**
+  String get cornerCenter;
+
+  /// No description provided for @cornerRight.
+  ///
+  /// In ru, this message translates to:
+  /// **'справа по центру'**
+  String get cornerRight;
+
+  /// No description provided for @cornerBottomLeft.
+  ///
+  /// In ru, this message translates to:
+  /// **'слева внизу'**
+  String get cornerBottomLeft;
+
+  /// No description provided for @cornerBottom.
+  ///
+  /// In ru, this message translates to:
+  /// **'внизу по центру'**
+  String get cornerBottom;
+
+  /// No description provided for @cornerBottomRight.
+  ///
+  /// In ru, this message translates to:
+  /// **'справа внизу'**
+  String get cornerBottomRight;
+
+  /// No description provided for @groupBlur.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скрытие'**
+  String get groupBlur;
+
+  /// No description provided for @pBlurMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Способ'**
+  String get pBlurMode;
+
+  /// No description provided for @blurModeBlur.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размыть'**
+  String get blurModeBlur;
+
+  /// No description provided for @blurModePixel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пиксели'**
+  String get blurModePixel;
+
+  /// No description provided for @blurModeDelogo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать логотип'**
+  String get blurModeDelogo;
+
+  /// No description provided for @blurModeBox.
+  ///
+  /// In ru, this message translates to:
+  /// **'Закрасить'**
+  String get blurModeBox;
+
+  /// No description provided for @blurModeBlurHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лица, номера машин, экраны'**
+  String get blurModeBlurHint;
+
+  /// No description provided for @blurModePixelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Крупные квадраты, как в новостях'**
+  String get blurModePixelHint;
+
+  /// No description provided for @blurModeDelogoHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заполняет область по соседним пикселям — для небольших логотипов на однородном фоне'**
+  String get blurModeDelogoHint;
+
+  /// No description provided for @blurModeBoxHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чёрный прямоугольник'**
+  String get blurModeBoxHint;
+
+  /// No description provided for @pStrength.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила'**
+  String get pStrength;
+
+  /// No description provided for @pBlurStrengthHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Насколько сильно скрывать'**
+  String get pBlurStrengthHint;
+
+  /// No description provided for @pBlurWhole.
+  ///
+  /// In ru, this message translates to:
+  /// **'Весь кадр'**
+  String get pBlurWhole;
+
+  /// No description provided for @pBlurWholeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размыть всё изображение целиком'**
+  String get pBlurWholeHint;
+
+  /// No description provided for @pEditRegions.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рисовать области'**
+  String get pEditRegions;
+
+  /// No description provided for @pEditRegionsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выключите, чтобы посмотреть результат в предпросмотре'**
+  String get pEditRegionsHint;
+
+  /// No description provided for @groupRegions.
+  ///
+  /// In ru, this message translates to:
+  /// **'Области'**
+  String get groupRegions;
+
+  /// No description provided for @regionTimeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для каждой области можно задать время: пусто — всё видео'**
+  String get regionTimeHint;
+
+  /// No description provided for @blurNoRegions.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нарисуйте на кадре хотя бы одну область'**
+  String get blurNoRegions;
+
+  /// No description provided for @groupLayout.
+  ///
+  /// In ru, this message translates to:
+  /// **'Расположение'**
+  String get groupLayout;
+
+  /// No description provided for @pLayout.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как разместить'**
+  String get pLayout;
+
+  /// No description provided for @pLayoutHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота или ширина подгоняется под первое видео'**
+  String get pLayoutHint;
+
+  /// No description provided for @layoutSide.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рядом'**
+  String get layoutSide;
+
+  /// No description provided for @layoutTop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Друг над другом'**
+  String get layoutTop;
+
+  /// No description provided for @layoutGrid.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сетка 2×2'**
+  String get layoutGrid;
+
+  /// No description provided for @layoutPip.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинка в картинке'**
+  String get layoutPip;
+
+  /// No description provided for @pPipPositionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Где будет маленькое окно'**
+  String get pPipPositionHint;
+
+  /// No description provided for @pPipSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер окна'**
+  String get pPipSize;
+
+  /// No description provided for @pPipSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Относительно ширины основного видео'**
+  String get pPipSizeHint;
+
+  /// No description provided for @pStackAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук'**
+  String get pStackAudio;
+
+  /// No description provided for @pStackAudioHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чей звук будет в результате'**
+  String get pStackAudioHint;
+
+  /// No description provided for @stackAudioFirst.
+  ///
+  /// In ru, this message translates to:
+  /// **'Первого видео'**
+  String get stackAudioFirst;
+
+  /// No description provided for @stackAudioMix.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смешать все'**
+  String get stackAudioMix;
+
+  /// No description provided for @stackAudioNone.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без звука'**
+  String get stackAudioNone;
+
+  /// No description provided for @shortestOnHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат длится, пока идут все видео'**
+  String get shortestOnHint;
+
+  /// No description provided for @shortestOffHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'До конца самого длинного; закончившиеся застывают на последнем кадре'**
+  String get shortestOffHint;
+
+  /// No description provided for @groupLoop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повтор'**
+  String get groupLoop;
+
+  /// No description provided for @pLoopMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Режим'**
+  String get pLoopMode;
+
+  /// No description provided for @loopRepeat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить'**
+  String get loopRepeat;
+
+  /// No description provided for @loopBoomerang.
+  ///
+  /// In ru, this message translates to:
+  /// **'Бумеранг'**
+  String get loopBoomerang;
+
+  /// No description provided for @loopRepeatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео проигрывается несколько раз подряд'**
+  String get loopRepeatHint;
+
+  /// No description provided for @loopBoomerangHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вперёд, затем назад — бесшовная петля'**
+  String get loopBoomerangHint;
+
+  /// No description provided for @pLoopTimes.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сколько раз'**
+  String get pLoopTimes;
+
+  /// No description provided for @pLoopTimesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Общее число проигрываний'**
+  String get pLoopTimesHint;
+
+  /// No description provided for @pBoomerangAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Со звуком'**
+  String get pBoomerangAudio;
+
+  /// No description provided for @pBoomerangAudioHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук тоже проиграется задом наперёд'**
+  String get pBoomerangAudioHint;
+
+  /// No description provided for @groupToneMap.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тональная компрессия'**
+  String get groupToneMap;
+
+  /// No description provided for @hdrSourceInfo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исходник: передаточная функция {trc}, цвета {prim}, {bits} бит'**
+  String hdrSourceInfo(String trc, String prim, String bits);
+
+  /// No description provided for @notHdrWarning.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл не похож на HDR (передаточная функция: {trc}) — результат может выглядеть неверно'**
+  String notHdrWarning(String trc);
+
+  /// No description provided for @pToneCurve.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кривая'**
+  String get pToneCurve;
+
+  /// No description provided for @pToneCurveHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'HDR-видео содержит яркость, которую обычный экран показать не может. Кривая решает, как «сжать» её в обычный диапазон. Hable сохраняет детали в светах и тенях (хороший выбор по умолчанию), Möbius — точнее цвета в средних тонах, Reinhard — мягкий и светлый результат.'**
+  String get pToneCurveHelp;
+
+  /// No description provided for @toneHableHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохраняет детали в светах — хороший выбор по умолчанию'**
+  String get toneHableHint;
+
+  /// No description provided for @toneMobiusHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точнее цвета в средних тонах'**
+  String get toneMobiusHint;
+
+  /// No description provided for @toneReinhardHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мягкий, светлый результат'**
+  String get toneReinhardHint;
+
+  /// No description provided for @toneBt2390Hint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стандарт ITU для вещания'**
+  String get toneBt2390Hint;
+
+  /// No description provided for @pDesat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обесцвечивание светов'**
+  String get pDesat;
+
+  /// No description provided for @pDesatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает неестественно яркие цвета в светлых местах'**
+  String get pDesatHint;
+
+  /// No description provided for @pPlacebo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Через видеокарту (libplacebo)'**
+  String get pPlacebo;
+
+  /// No description provided for @pPlaceboHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстрее и качественнее; нужна видеокарта с Vulkan'**
+  String get pPlaceboHint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

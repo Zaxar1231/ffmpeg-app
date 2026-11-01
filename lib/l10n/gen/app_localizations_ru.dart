@@ -440,7 +440,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get toolSplit => 'Разделение';
 
   @override
-  String get toolSplitDesc => 'По времени, размеру, главам, тишине или сценам.';
+  String get toolSplitDesc => 'По времени, на равные части, по главам или по отмеченным точкам.';
 
   @override
   String get toolCropScale => 'Кадр и размер';
@@ -1965,7 +1965,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pAudioFileHint => 'Можно взять звук из любого аудио- или видеофайла';
 
   @override
-  String get pShortest => 'По самой короткой дорожке';
+  String get pShortest => 'Закончить с самым коротким';
 
   @override
   String get pShortestHint => 'Обрезать результат, когда кончится видео или звук';
@@ -3435,4 +3435,1002 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get genDtmf => 'Тоны DTMF';
+
+  @override
+  String get off => 'выкл.';
+
+  @override
+  String get vertical => 'вертикальное';
+
+  @override
+  String get noAudioTag => 'без звука';
+
+  @override
+  String get addFiles => 'Добавить файлы';
+
+  @override
+  String needMoreClips(int n) {
+    return 'Нужно хотя бы $n файла';
+  }
+
+  @override
+  String get nothingChanged => 'Ничего не изменено — задайте хотя бы один параметр';
+
+  @override
+  String resultLength(String d) {
+    return 'Длительность результата: $d';
+  }
+
+  @override
+  String get groupEditOutput => 'Результат';
+
+  @override
+  String get pEditContainerHint => 'Формат файла результата';
+
+  @override
+  String get pEditQuality => 'Качество';
+
+  @override
+  String get pEditQualityHint => 'Видео перекодируется; звук копируется, если его не меняли';
+
+  @override
+  String get pEditQualityHelp =>
+      '«Высокое» — практически без видимых потерь (для x264 это CRF 18), файл крупнее. «Обычное» — значение кодировщика по умолчанию (CRF 23). «Меньше размер» — заметно меньше файл, мелкие детали могут смазаться (CRF 28). Кодек выбирается как у исходника, если формат его поддерживает.';
+
+  @override
+  String get editQualityHigh => 'Высокое';
+
+  @override
+  String get editQualityBalanced => 'Обычное';
+
+  @override
+  String get editQualitySmall => 'Меньше размер';
+
+  @override
+  String get pEditSpeedHint => 'Быстрее — крупнее файл при том же качестве';
+
+  @override
+  String get previewBefore => 'До';
+
+  @override
+  String get previewSplit => 'Шторка';
+
+  @override
+  String get previewAfter => 'После';
+
+  @override
+  String get rectHintOne => 'Выделите область мышью; тяните за угол, чтобы изменить размер';
+
+  @override
+  String get rectHintMany => 'Рисуйте области мышью (до 12); перетаскивайте их и тяните за угол';
+
+  @override
+  String get groupFragments => 'Фрагменты';
+
+  @override
+  String get pCutMode => 'Что делать с отмеченным';
+
+  @override
+  String get cutModeRemove => 'Удалить';
+
+  @override
+  String get cutModeKeep => 'Оставить только их';
+
+  @override
+  String get cutModeRemoveHint => 'Отмеченные куски вырезаются, остальное склеивается';
+
+  @override
+  String get cutModeKeepHint => 'Остаются только отмеченные куски, в порядке времени';
+
+  @override
+  String get cutHowTo =>
+      'Найдите место в плеере и нажмите «Начало», затем «Конец». Можно отметить сколько угодно фрагментов.';
+
+  @override
+  String markFragmentStart(String t) {
+    return 'Начало: $t';
+  }
+
+  @override
+  String markFragmentEnd(String t) {
+    return 'Конец: $t';
+  }
+
+  @override
+  String get playFragment => 'Воспроизвести фрагмент';
+
+  @override
+  String get cutNoRanges => 'Отметьте хотя бы один фрагмент';
+
+  @override
+  String get cutNothingLeft => 'После удаления ничего не остаётся';
+
+  @override
+  String get pLosslessCut => 'Без перекодирования';
+
+  @override
+  String get losslessCutOnHint => 'Мгновенно и без потерь, но границы — по ближайшим ключевым кадрам';
+
+  @override
+  String get losslessCutOffHint => 'Точно до кадра; видео перекодируется';
+
+  @override
+  String get pLosslessCutHelp =>
+      'Видео сжато группами кадров, и начать кусок без перекодирования можно только с ключевого кадра (обычно они идут раз в 1–10 секунд). Поэтому в быстром режиме фрагмент может начаться чуть раньше отмеченного места. Если нужна точность до кадра — выключите этот режим: файл перекодируется, это дольше.';
+
+  @override
+  String get groupClips => 'Файлы';
+
+  @override
+  String get groupJoin => 'Склейка';
+
+  @override
+  String get pLosslessJoin => 'Без перекодирования';
+
+  @override
+  String get losslessJoinOnHint => 'Мгновенно; файлы должны быть одинаковыми по кодеку и размеру';
+
+  @override
+  String get losslessJoinOffHint => 'Любые файлы: приводятся к одному размеру и частоте кадров';
+
+  @override
+  String get pLosslessJoinHelp =>
+      'Склейка без перекодирования подходит для частей одной записи (с одной камеры, одного стрима). Если у файлов разные кодеки, разрешение или параметры звука, результат может не воспроизводиться — тогда выключите этот режим.';
+
+  @override
+  String concatMismatch(String what) {
+    return 'Файлы различаются: $what. Без перекодирования результат может не воспроизводиться.';
+  }
+
+  @override
+  String get mismatchCodec => 'кодек видео';
+
+  @override
+  String get mismatchSize => 'разрешение';
+
+  @override
+  String get mismatchPixfmt => 'формат пикселей';
+
+  @override
+  String get mismatchAudio => 'наличие звука';
+
+  @override
+  String get mismatchAudioCodec => 'формат звука';
+
+  @override
+  String get mismatchVideo => 'наличие видео';
+
+  @override
+  String get groupFrame => 'Кадр';
+
+  @override
+  String get pJoinSize => 'Размер кадра';
+
+  @override
+  String get pJoinSizeHint => 'Остальные файлы вписываются с полями';
+
+  @override
+  String joinSizeFirst(String size) {
+    return 'Как у первого ($size)';
+  }
+
+  @override
+  String get groupTransition => 'Переход между файлами';
+
+  @override
+  String get pTransition => 'Эффект';
+
+  @override
+  String get pTransitionHint => 'Как один файл сменяет другой';
+
+  @override
+  String get pTransitionDuration => 'Длительность перехода';
+
+  @override
+  String get pTransitionDurationHint => 'Файлы перекрываются на это время';
+
+  @override
+  String get clipShorterThanTransition => 'Какой-то файл короче двух переходов — уменьшите длительность перехода';
+
+  @override
+  String get groupFades => 'Появление и исчезание';
+
+  @override
+  String get pFadeIn => 'Появление из чёрного';
+
+  @override
+  String get pFadeInHint => 'В начале; звук нарастает вместе с картинкой';
+
+  @override
+  String get pFadeOut => 'Уход в чёрное';
+
+  @override
+  String get pFadeOutHint => 'В конце; звук затихает вместе с картинкой';
+
+  @override
+  String get xfFade => 'Растворение';
+
+  @override
+  String get xfDissolve => 'Рассыпание';
+
+  @override
+  String get xfFadeBlack => 'Через чёрный';
+
+  @override
+  String get xfFadeWhite => 'Через белый';
+
+  @override
+  String get xfCircleOpen => 'Круг раскрывается';
+
+  @override
+  String get xfCircleClose => 'Круг закрывается';
+
+  @override
+  String get xfCircleCrop => 'Круглая шторка';
+
+  @override
+  String get xfRectCrop => 'Прямоугольная шторка';
+
+  @override
+  String get xfRadial => 'Радиальная стрелка';
+
+  @override
+  String get xfPixelize => 'Пикселизация';
+
+  @override
+  String get xfDistance => 'Перетекание';
+
+  @override
+  String get xfBlur => 'Размытие';
+
+  @override
+  String get xfZoom => 'Наезд';
+
+  @override
+  String xfWipe(String dir) {
+    return 'Шторка $dir';
+  }
+
+  @override
+  String xfSlide(String dir) {
+    return 'Сдвиг $dir';
+  }
+
+  @override
+  String xfSmooth(String dir) {
+    return 'Плавная шторка $dir';
+  }
+
+  @override
+  String xfDiagonal(String dir) {
+    return 'Диагональ $dir';
+  }
+
+  @override
+  String xfSqueeze(String dir) {
+    return 'Сжатие $dir';
+  }
+
+  @override
+  String xfOpen(String dir) {
+    return 'Раскрытие $dir';
+  }
+
+  @override
+  String get groupSplit => 'Разделение';
+
+  @override
+  String get pSplitMode => 'Как делить';
+
+  @override
+  String get pSplitModeHint => 'Части сохраняются как имя_001, имя_002…';
+
+  @override
+  String get splitEvery => 'По времени';
+
+  @override
+  String get splitParts => 'На N частей';
+
+  @override
+  String get splitChapters => 'По главам';
+
+  @override
+  String get splitTimes => 'По меткам';
+
+  @override
+  String get pSplitEvery => 'Длина части';
+
+  @override
+  String get pSplitParts => 'Число частей';
+
+  @override
+  String get pSplitPartsHint => 'Равные по длительности';
+
+  @override
+  String addCutPoint(String t) {
+    return 'Разрезать здесь: $t';
+  }
+
+  @override
+  String get splitNoPoints => 'Нет точек разреза';
+
+  @override
+  String splitFiles(int n) {
+    return 'Получится файлов: $n';
+  }
+
+  @override
+  String get pSplitPrecise => 'Точно до кадра';
+
+  @override
+  String get splitPreciseOnHint => 'Видео перекодируется, разрезы ровно в заданных местах';
+
+  @override
+  String get splitPreciseOffHint => 'Мгновенно и без потерь; разрезы по ближайшим ключевым кадрам';
+
+  @override
+  String get splitKeyframeNote =>
+      'Без перекодирования части начинаются с ключевых кадров, поэтому их длина может немного отличаться.';
+
+  @override
+  String get groupCrop => 'Кадрирование';
+
+  @override
+  String get pCropEdit => 'Выделить область';
+
+  @override
+  String get pCropEditHint => 'Включите и обведите на кадре то, что нужно оставить';
+
+  @override
+  String cropRectLabel(String size, String x, String y) {
+    return '$size от точки $x, $y';
+  }
+
+  @override
+  String get cropAutodetect => 'Найти чёрные поля';
+
+  @override
+  String get cropReset => 'Сбросить';
+
+  @override
+  String get cropNothingFound => 'Чёрных полей не найдено';
+
+  @override
+  String get groupRotate => 'Поворот и отражение';
+
+  @override
+  String get pRotate => 'Повернуть';
+
+  @override
+  String get pRotateHint => 'По часовой стрелке';
+
+  @override
+  String get pFlipH => 'Отразить по горизонтали';
+
+  @override
+  String get pFlipHHint => 'Зеркально: левое становится правым';
+
+  @override
+  String get pFlipV => 'Отразить по вертикали';
+
+  @override
+  String get pFlipVHint => 'Верх становится низом';
+
+  @override
+  String get pAngle => 'Наклон';
+
+  @override
+  String get pAngleHint => 'Выровнять заваленный горизонт; края заполняются чёрным';
+
+  @override
+  String get makeVertical => 'Вертикальное 9:16';
+
+  @override
+  String get pAspect => 'Пропорции кадра';
+
+  @override
+  String get pAspectHint => '9:16 — Shorts, Reels, TikTok; 1:1 и 4:5 — лента';
+
+  @override
+  String get pFrameHeight => 'Высота кадра';
+
+  @override
+  String get pFrameHeightHint => 'Ширина считается по пропорциям';
+
+  @override
+  String get pFit => 'Как вписать';
+
+  @override
+  String get fitFit => 'С полями';
+
+  @override
+  String get fitFill => 'Заполнить';
+
+  @override
+  String get fitBlur => 'Размытый фон';
+
+  @override
+  String get fitStretch => 'Растянуть';
+
+  @override
+  String get fitFitHint => 'Видна вся картинка, по краям чёрные полосы';
+
+  @override
+  String get fitFillHint => 'Кадр заполнен, края картинки обрезаются';
+
+  @override
+  String get fitBlurHint => 'Вся картинка поверх её же размытой копии — как в соцсетях';
+
+  @override
+  String get fitStretchHint => 'Картинка искажается под новый кадр';
+
+  @override
+  String frameSizeResult(String from, String to) {
+    return 'Кадр: $from → $to';
+  }
+
+  @override
+  String get groupSpeed => 'Скорость';
+
+  @override
+  String get pSpeedFactor => 'Множитель';
+
+  @override
+  String get pSpeedFactorHint => 'Больше 1 — быстрее, меньше 1 — замедление';
+
+  @override
+  String get pSpeedAudio => 'Звук';
+
+  @override
+  String get speedAudioKeep => 'Тот же тон';
+
+  @override
+  String get speedAudioPitch => 'Как пластинка';
+
+  @override
+  String get speedAudioMute => 'Убрать';
+
+  @override
+  String get speedAudioKeepHint => 'Темп меняется, голос не становится выше или ниже';
+
+  @override
+  String get speedAudioPitchHint => 'Ускорение повышает тон, замедление понижает';
+
+  @override
+  String get speedAudioMuteHint => 'В результате не будет звука';
+
+  @override
+  String get pReverse => 'Задом наперёд';
+
+  @override
+  String get pReverseHint => 'Видео и звук проигрываются в обратную сторону';
+
+  @override
+  String get groupFrameRate => 'Частота кадров';
+
+  @override
+  String get pSpeedFps => 'Кадров в секунду';
+
+  @override
+  String pSpeedFpsHint(String fps) {
+    return 'У исходника $fps';
+  }
+
+  @override
+  String get pInterpolate => 'Плавное движение';
+
+  @override
+  String get pInterpolateHint => 'Дорисовывает промежуточные кадры (для замедления)';
+
+  @override
+  String get pInterpolateHelp =>
+      'Фильтр minterpolate вычисляет движение и создаёт новые кадры между существующими. Замедление выглядит плавным, а не дёрганым. Работает очень медленно и на быстрых сценах может давать артефакты.';
+
+  @override
+  String get reverseMemoryWarning =>
+      'Обратное воспроизведение держит в памяти весь фрагмент: на длинных файлах может не хватить оперативной памяти. Лучше сначала вырезать короткий кусок.';
+
+  @override
+  String get interpolateSlowWarning =>
+      'Плавное движение работает очень медленно — минута видео может считаться десятки минут.';
+
+  @override
+  String get atempoQualityNote => 'При сильном изменении темпа звук с сохранением тона может звучать «металлически».';
+
+  @override
+  String get groupRestore => 'Восстановление';
+
+  @override
+  String get pDeinterlace => 'Убрать «гребёнку»';
+
+  @override
+  String get pDeinterlaceHint => 'Для записей с ТВ, видеокассет, старых камер';
+
+  @override
+  String get deinterlaceDetected => 'Файл чересстрочный — рекомендуется включить';
+
+  @override
+  String get pDeinterlaceHelp =>
+      'Чересстрочное видео показывает полукадры, и на движении видны горизонтальные полосы («гребёнка»). bwdif — современный качественный фильтр; yadif — классический, чуть быстрее.';
+
+  @override
+  String get pVideoDenoise => 'Подавление шума';
+
+  @override
+  String get pVideoDenoiseHint => 'Убирает зерно и цифровой шум';
+
+  @override
+  String get pVideoDenoiseHelp =>
+      'Слабое–сильное — быстрый фильтр hqdn3d: чем сильнее, тем чище, но картинка становится «пластиковой». NLMeans — заметно качественнее сохраняет детали, но работает в десятки раз медленнее.';
+
+  @override
+  String get levelLight => 'Слабое';
+
+  @override
+  String get levelMedium => 'Среднее';
+
+  @override
+  String get levelStrong => 'Сильное';
+
+  @override
+  String get denoiseNlmeans => 'NLMeans (качественно, медленно)';
+
+  @override
+  String get pSharpen => 'Резкость';
+
+  @override
+  String get pSharpenHint => 'Подчёркивает детали; не делает размытое чётким';
+
+  @override
+  String get sharpenCas => 'Адаптивная (CAS)';
+
+  @override
+  String get groupStabilize => 'Стабилизация';
+
+  @override
+  String get pStabilize => 'Убрать тряску';
+
+  @override
+  String get pStabilizeHint => 'Два прохода: анализ движения, затем выравнивание';
+
+  @override
+  String get pStabilizeDeshakeHint => 'В этой сборке нет vidstab — будет простой фильтр deshake';
+
+  @override
+  String get pStabilizeHelp =>
+      'Сначала программа отслеживает движение камеры по всему файлу, затем сдвигает и слегка увеличивает кадры, чтобы скрыть дрожание. Края кадра при этом немного обрезаются. Предпросмотр стабилизацию не показывает — её видно только в результате.';
+
+  @override
+  String get pShakiness => 'Сила тряски';
+
+  @override
+  String get pShakinessHint => 'Насколько сильно трясётся исходник (1–10)';
+
+  @override
+  String get pSmoothing => 'Сглаживание';
+
+  @override
+  String get pSmoothingHint => 'Больше — плавнее, но сильнее обрезка краёв';
+
+  @override
+  String get vidstabMissing =>
+      'В этой сборке ffmpeg нет libvidstab — используется более простой фильтр deshake. Для качественной стабилизации установите полную сборку в «Компонентах».';
+
+  @override
+  String get nlmeansSlowWarning => 'NLMeans очень медленный: на Full HD — около кадра в секунду.';
+
+  @override
+  String get stepAnalyzeMotion => 'анализ движения';
+
+  @override
+  String get groupColorBasic => 'Основное';
+
+  @override
+  String get pBrightness => 'Яркость';
+
+  @override
+  String get pBrightnessHint => '0 — без изменений';
+
+  @override
+  String get pContrast => 'Контраст';
+
+  @override
+  String get pContrastHint => '1 — без изменений';
+
+  @override
+  String get pSaturation => 'Насыщенность';
+
+  @override
+  String get pSaturationHint => '0 — чёрно-белое, 1 — без изменений';
+
+  @override
+  String get pGamma => 'Гамма';
+
+  @override
+  String get pGammaHint => 'Осветляет или затемняет средние тона';
+
+  @override
+  String get pHue => 'Оттенок';
+
+  @override
+  String get pHueHint => 'Сдвиг всех цветов по цветовому кругу';
+
+  @override
+  String get pTemperature => 'Цветовая температура';
+
+  @override
+  String get pTemperatureHint => 'Меньше — теплее (желтее), больше — холоднее (синее); 6500 K — нейтрально';
+
+  @override
+  String get groupLook => 'Стиль';
+
+  @override
+  String get pLook => 'Готовый стиль';
+
+  @override
+  String get pLookHint => 'Применяется после основных настроек';
+
+  @override
+  String get lookGrayscale => 'Чёрно-белое';
+
+  @override
+  String get lookSepia => 'Сепия';
+
+  @override
+  String get lookVintage => 'Винтаж';
+
+  @override
+  String get lookCrossProcess => 'Кросс-процесс';
+
+  @override
+  String get lookNegative => 'Негатив';
+
+  @override
+  String get lookStrongContrast => 'Сильный контраст';
+
+  @override
+  String get lookLighter => 'Светлее';
+
+  @override
+  String get lookDarker => 'Темнее';
+
+  @override
+  String get pVignette => 'Виньетка';
+
+  @override
+  String get pVignetteHint => 'Затемнение по краям кадра';
+
+  @override
+  String get pLut => 'LUT-файл';
+
+  @override
+  String get pLutHint => '.cube или .3dl — готовая цветокоррекция';
+
+  @override
+  String get pLutHelp =>
+      'LUT (таблица преобразования цвета) — файл с готовой цветокоррекцией из DaVinci Resolve, Premiere или от производителя камеры (например, перевод Log-профиля в обычный вид). Применяется до остальных настроек.';
+
+  @override
+  String get pLutMix => 'Сила LUT';
+
+  @override
+  String get pLutMixHint => 'Смешивание с исходными цветами';
+
+  @override
+  String get groupWatermark => 'Логотип';
+
+  @override
+  String get pWatermarkImage => 'Картинка';
+
+  @override
+  String get pWatermarkImageHint => 'PNG с прозрачностью подходит лучше всего';
+
+  @override
+  String get pPosition => 'Положение';
+
+  @override
+  String get pPositionHint => 'Угол или край кадра';
+
+  @override
+  String get pWatermarkSize => 'Размер';
+
+  @override
+  String get pWatermarkSizeHint => 'Ширина относительно ширины видео';
+
+  @override
+  String get pOpacity => 'Непрозрачность';
+
+  @override
+  String get pOpacityHint => 'Меньше — прозрачнее';
+
+  @override
+  String get groupText => 'Текст';
+
+  @override
+  String get pOverlayText => 'Надпись';
+
+  @override
+  String get pOverlayTextHint => 'Любой текст, включая символы % : , \' [ ]';
+
+  @override
+  String get pFontSize => 'Размер шрифта';
+
+  @override
+  String get pFontSizeHint => 'Относительно высоты видео';
+
+  @override
+  String get pFontColor => 'Цвет';
+
+  @override
+  String get pFontColorHint => 'Цвет букв';
+
+  @override
+  String get colorWhite => 'белый';
+
+  @override
+  String get colorBlack => 'чёрный';
+
+  @override
+  String get colorYellow => 'жёлтый';
+
+  @override
+  String get colorRed => 'красный';
+
+  @override
+  String get colorBlue => 'голубой';
+
+  @override
+  String get pTextBox => 'Подложка';
+
+  @override
+  String get pTextBoxHint => 'Полупрозрачный прямоугольник под текстом; без неё — обводка';
+
+  @override
+  String get pFontFile => 'Шрифт';
+
+  @override
+  String get pFontFileHint => 'По умолчанию — системный шрифт без засечек';
+
+  @override
+  String get pTimecode => 'Таймкод';
+
+  @override
+  String get pTimecodeHint => 'Время от начала видео на каждом кадре';
+
+  @override
+  String get pTimecodePosition => 'Положение таймкода';
+
+  @override
+  String get groupWhen => 'Отступ и время показа';
+
+  @override
+  String get pMargin => 'Отступ от края';
+
+  @override
+  String get pMarginHint => 'Относительно высоты видео';
+
+  @override
+  String get pShowFrom => 'Показывать с';
+
+  @override
+  String get pShowFromHint => 'Пусто — с начала';
+
+  @override
+  String get pShowTo => 'Показывать до';
+
+  @override
+  String get pShowToHint => 'Пусто — до конца';
+
+  @override
+  String get overlayEmpty => 'Выберите картинку, введите текст или включите таймкод';
+
+  @override
+  String get cornerTopLeft => 'слева вверху';
+
+  @override
+  String get cornerTop => 'вверху по центру';
+
+  @override
+  String get cornerTopRight => 'справа вверху';
+
+  @override
+  String get cornerLeft => 'слева по центру';
+
+  @override
+  String get cornerCenter => 'в центре';
+
+  @override
+  String get cornerRight => 'справа по центру';
+
+  @override
+  String get cornerBottomLeft => 'слева внизу';
+
+  @override
+  String get cornerBottom => 'внизу по центру';
+
+  @override
+  String get cornerBottomRight => 'справа внизу';
+
+  @override
+  String get groupBlur => 'Скрытие';
+
+  @override
+  String get pBlurMode => 'Способ';
+
+  @override
+  String get blurModeBlur => 'Размыть';
+
+  @override
+  String get blurModePixel => 'Пиксели';
+
+  @override
+  String get blurModeDelogo => 'Убрать логотип';
+
+  @override
+  String get blurModeBox => 'Закрасить';
+
+  @override
+  String get blurModeBlurHint => 'Лица, номера машин, экраны';
+
+  @override
+  String get blurModePixelHint => 'Крупные квадраты, как в новостях';
+
+  @override
+  String get blurModeDelogoHint =>
+      'Заполняет область по соседним пикселям — для небольших логотипов на однородном фоне';
+
+  @override
+  String get blurModeBoxHint => 'Чёрный прямоугольник';
+
+  @override
+  String get pStrength => 'Сила';
+
+  @override
+  String get pBlurStrengthHint => 'Насколько сильно скрывать';
+
+  @override
+  String get pBlurWhole => 'Весь кадр';
+
+  @override
+  String get pBlurWholeHint => 'Размыть всё изображение целиком';
+
+  @override
+  String get pEditRegions => 'Рисовать области';
+
+  @override
+  String get pEditRegionsHint => 'Выключите, чтобы посмотреть результат в предпросмотре';
+
+  @override
+  String get groupRegions => 'Области';
+
+  @override
+  String get regionTimeHint => 'Для каждой области можно задать время: пусто — всё видео';
+
+  @override
+  String get blurNoRegions => 'Нарисуйте на кадре хотя бы одну область';
+
+  @override
+  String get groupLayout => 'Расположение';
+
+  @override
+  String get pLayout => 'Как разместить';
+
+  @override
+  String get pLayoutHint => 'Высота или ширина подгоняется под первое видео';
+
+  @override
+  String get layoutSide => 'Рядом';
+
+  @override
+  String get layoutTop => 'Друг над другом';
+
+  @override
+  String get layoutGrid => 'Сетка 2×2';
+
+  @override
+  String get layoutPip => 'Картинка в картинке';
+
+  @override
+  String get pPipPositionHint => 'Где будет маленькое окно';
+
+  @override
+  String get pPipSize => 'Размер окна';
+
+  @override
+  String get pPipSizeHint => 'Относительно ширины основного видео';
+
+  @override
+  String get pStackAudio => 'Звук';
+
+  @override
+  String get pStackAudioHint => 'Чей звук будет в результате';
+
+  @override
+  String get stackAudioFirst => 'Первого видео';
+
+  @override
+  String get stackAudioMix => 'Смешать все';
+
+  @override
+  String get stackAudioNone => 'Без звука';
+
+  @override
+  String get shortestOnHint => 'Результат длится, пока идут все видео';
+
+  @override
+  String get shortestOffHint => 'До конца самого длинного; закончившиеся застывают на последнем кадре';
+
+  @override
+  String get groupLoop => 'Повтор';
+
+  @override
+  String get pLoopMode => 'Режим';
+
+  @override
+  String get loopRepeat => 'Повторить';
+
+  @override
+  String get loopBoomerang => 'Бумеранг';
+
+  @override
+  String get loopRepeatHint => 'Видео проигрывается несколько раз подряд';
+
+  @override
+  String get loopBoomerangHint => 'Вперёд, затем назад — бесшовная петля';
+
+  @override
+  String get pLoopTimes => 'Сколько раз';
+
+  @override
+  String get pLoopTimesHint => 'Общее число проигрываний';
+
+  @override
+  String get pBoomerangAudio => 'Со звуком';
+
+  @override
+  String get pBoomerangAudioHint => 'Звук тоже проиграется задом наперёд';
+
+  @override
+  String get groupToneMap => 'Тональная компрессия';
+
+  @override
+  String hdrSourceInfo(String trc, String prim, String bits) {
+    return 'Исходник: передаточная функция $trc, цвета $prim, $bits бит';
+  }
+
+  @override
+  String notHdrWarning(String trc) {
+    return 'Файл не похож на HDR (передаточная функция: $trc) — результат может выглядеть неверно';
+  }
+
+  @override
+  String get pToneCurve => 'Кривая';
+
+  @override
+  String get pToneCurveHelp =>
+      'HDR-видео содержит яркость, которую обычный экран показать не может. Кривая решает, как «сжать» её в обычный диапазон. Hable сохраняет детали в светах и тенях (хороший выбор по умолчанию), Möbius — точнее цвета в средних тонах, Reinhard — мягкий и светлый результат.';
+
+  @override
+  String get toneHableHint => 'Сохраняет детали в светах — хороший выбор по умолчанию';
+
+  @override
+  String get toneMobiusHint => 'Точнее цвета в средних тонах';
+
+  @override
+  String get toneReinhardHint => 'Мягкий, светлый результат';
+
+  @override
+  String get toneBt2390Hint => 'Стандарт ITU для вещания';
+
+  @override
+  String get pDesat => 'Обесцвечивание светов';
+
+  @override
+  String get pDesatHint => 'Убирает неестественно яркие цвета в светлых местах';
+
+  @override
+  String get pPlacebo => 'Через видеокарту (libplacebo)';
+
+  @override
+  String get pPlaceboHint => 'Быстрее и качественнее; нужна видеокарта с Vulkan';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../home/current_file.dart';
 import '../../core/engine/capabilities.dart';
 import '../../core/providers.dart';
 import '../../ui/l10n.dart';
@@ -115,7 +116,8 @@ class _ToolCard extends ConsumerWidget {
         color: t.colorScheme.surfaceContainerHigh,
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          onTap: () => launchTool(context, ref, tool),
+          // The file opened on Home (if any) is used by the tool.
+          onTap: () => launchTool(context, ref, tool, path: ref.read(currentFileProvider)?.path),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(

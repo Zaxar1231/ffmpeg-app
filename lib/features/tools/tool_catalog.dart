@@ -67,7 +67,22 @@ class ToolDef {
 /// current stage only once they are listed in [currentStageReady].
 const currentStage = 3;
 
-const currentStageReady = {'audioEditor'};
+const currentStageReady = {
+  'audioEditor',
+  'cutJoin',
+  'concat',
+  'transitions',
+  'split',
+  'cropScale',
+  'speed',
+  'restore',
+  'color',
+  'overlay',
+  'blur',
+  'stack',
+  'loop',
+  'hdrToSdr',
+};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 

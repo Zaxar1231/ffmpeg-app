@@ -261,6 +261,10 @@ class CropRect {
   int get hashCode => Object.hash(x, y, w, h);
   @override
   String toString() => '$w:$h:$x:$y';
+
+  /// Even position and size: 4:2:0 video cannot be cut at odd pixels.
+  CropRect get even =>
+      CropRect(x ~/ 2 * 2, y ~/ 2 * 2, w ~/ 2 * 2 < 2 ? 2 : w ~/ 2 * 2, h ~/ 2 * 2 < 2 ? 2 : h ~/ 2 * 2);
 }
 
 /// Parses the last `crop=w:h:x:y` that cropdetect printed.
@@ -325,7 +329,7 @@ class CropScaleParams {
 /// Size of the picture after crop and rotation (before fitting).
 (int, int) pictureSize(MediaInfo info, CropScaleParams p) {
   var (w, h) = displaySize(info);
-  if (p.crop != null) (w, h) = (p.crop!.w, p.crop!.h);
+  if (p.crop != null) (w, h) = (p.crop!.even.w, p.crop!.even.h);
   if (p.rotate % 180 == 90) (w, h) = (h, w);
   if (p.angle != 0) {
     final a = p.angle.abs() * math.pi / 180;
@@ -354,7 +358,7 @@ class CropScaleParams {
 /// Video chain for crop/rotate/flip/scale/pad.
 EditGraph cropScaleGraph(MediaInfo info, CropScaleParams p) {
   final pre = <String>[
-    if (p.crop != null) 'crop=${p.crop}',
+    if (p.crop != null) 'crop=${p.crop!.even}',
     if (p.rotate == 90) 'transpose=clock',
     if (p.rotate == 180) ...['hflip', 'vflip'],
     if (p.rotate == 270) 'transpose=cclock',
