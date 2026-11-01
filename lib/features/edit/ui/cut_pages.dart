@@ -27,27 +27,29 @@ String copyExtFor(MediaInfo info) {
 // ================================================================ cut/join
 
 class CutJoinPage extends ConsumerWidget {
-  const CutJoinPage({super.key, this.path});
+  const CutJoinPage({super.key, this.path, this.initial});
   final String? path;
+  final CutRanges? initial;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => ToolInputLoader(
     toolId: 'cutJoin',
     path: path,
-    builder: (info) => _CutJoinForm(key: ValueKey(info.path), info: info),
+    builder: (info) => _CutJoinForm(key: ValueKey(info.path), info: info, initial: initial),
   );
 }
 
 class _CutJoinForm extends StatefulWidget {
-  const _CutJoinForm({super.key, required this.info});
+  const _CutJoinForm({super.key, required this.info, this.initial});
   final MediaInfo info;
+  final CutRanges? initial;
   @override
   State<_CutJoinForm> createState() => _CutJoinFormState();
 }
 
 class _CutJoinFormState extends State<_CutJoinForm> {
-  final _ranges = <(Duration, Duration)>[];
-  bool _removeMarked = true;
+  late final _ranges = <(Duration, Duration)>[...?widget.initial?.ranges];
+  late bool _removeMarked = widget.initial?.remove ?? true;
   bool _lossless = false;
   Duration? _pendingStart;
   Player? _player;
@@ -509,29 +511,33 @@ String transitionName(AppLocalizations l, String t) => switch (t) {
 // =================================================================== split
 
 class SplitPage extends ConsumerWidget {
-  const SplitPage({super.key, this.path});
+  const SplitPage({super.key, this.path, this.initial});
   final String? path;
+  final SplitTimes? initial;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => ToolInputLoader(
     toolId: 'split',
     path: path,
-    builder: (info) => _SplitForm(key: ValueKey(info.path), info: info),
+    builder: (info) => _SplitForm(key: ValueKey(info.path), info: info, initial: initial),
   );
 }
 
 class _SplitForm extends StatefulWidget {
-  const _SplitForm({super.key, required this.info});
+  const _SplitForm({super.key, required this.info, this.initial});
   final MediaInfo info;
+  final SplitTimes? initial;
   @override
   State<_SplitForm> createState() => _SplitFormState();
 }
 
 class _SplitFormState extends State<_SplitForm> {
-  late SplitMode _mode = widget.info.chapters.length > 1 ? SplitMode.chapters : SplitMode.every;
+  late SplitMode _mode = widget.initial != null
+      ? SplitMode.times
+      : (widget.info.chapters.length > 1 ? SplitMode.chapters : SplitMode.every);
   Duration _every = const Duration(minutes: 1);
   int _parts = 2;
-  final _times = <Duration>[];
+  late final _times = <Duration>[...?widget.initial?.times];
   bool _precise = false;
   Duration _pos = Duration.zero;
   StreamSubscription<Duration>? _sub;

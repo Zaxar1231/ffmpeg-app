@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../analysis/analysis_pages.dart';
 import '../audio/audio_pages.dart';
 import '../audio_editor/ui/editor_page.dart';
 import '../convert/convert_page.dart';
 import '../edit/ui/cut_pages.dart';
+import '../edit/graphs.dart';
 import '../edit/ui/frame_pages.dart';
 import '../gif/gif_page.dart';
 import '../trim/trim_page.dart';
@@ -17,7 +19,8 @@ class ToolHost extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final key = ValueKey('${tool.id}|${tool.path}|${tool.presetId}');
+    final key = ValueKey('${tool.id}|${tool.path}|${tool.presetId}|${identityHashCode(tool.extra)}');
+    final extra = tool.extra;
     return switch (tool.id) {
       'convert' || 'compress' => ConvertPage(key: key, toolId: tool.id, path: tool.path, presetId: tool.presetId),
       'trim' => TrimPage(key: key, path: tool.path),
@@ -26,11 +29,11 @@ class ToolHost extends ConsumerWidget {
       'normalize' => NormalizePage(key: key, path: tool.path),
       'gif' => GifPage(key: key, path: tool.path),
       'audioEditor' => AudioEditorTool(key: key, path: tool.path),
-      'cutJoin' => CutJoinPage(key: key, path: tool.path),
+      'cutJoin' => CutJoinPage(key: key, path: tool.path, initial: extra is CutRanges ? extra : null),
       'concat' => ConcatPage(key: key, path: tool.path),
       'transitions' => ConcatPage(key: key, path: tool.path, transitions: true),
-      'split' => SplitPage(key: key, path: tool.path),
-      'cropScale' => CropScalePage(key: key, path: tool.path),
+      'split' => SplitPage(key: key, path: tool.path, initial: extra is SplitTimes ? extra : null),
+      'cropScale' => CropScalePage(key: key, path: tool.path, initialCrop: extra is CropRect ? extra : null),
       'speed' => SpeedPage(key: key, path: tool.path),
       'restore' => RestorePage(key: key, path: tool.path),
       'color' => ColorPage(key: key, path: tool.path),
@@ -39,6 +42,10 @@ class ToolHost extends ConsumerWidget {
       'stack' => StackPage(key: key, path: tool.path),
       'loop' => LoopPage(key: key, path: tool.path),
       'hdrToSdr' => HdrToSdrPage(key: key, path: tool.path),
+      'loudness' => LoudnessPage(key: key, path: tool.path),
+      'waveform' => WaveformPicPage(key: key, path: tool.path),
+      'detect' => DetectPage(key: key, path: tool.path),
+      'compareQuality' => CompareQualityPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -55,7 +62,11 @@ const screenTools = {
   'gif',
   'audioEditor',
   ...editTools,
+  ...analysisTools,
 };
+
+/// Stage 3 analysis tools.
+const analysisTools = {'loudness', 'waveform', 'detect', 'compareQuality'};
 
 /// Stage 3 video editing tools.
 const editTools = {

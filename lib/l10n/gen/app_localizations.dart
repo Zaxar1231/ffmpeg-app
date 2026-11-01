@@ -8293,6 +8293,570 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Быстрее и качественнее; нужна видеокарта с Vulkan'**
   String get pPlaceboHint;
+
+  /// No description provided for @groupResults.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результаты'**
+  String get groupResults;
+
+  /// No description provided for @groupMeasure.
+  ///
+  /// In ru, this message translates to:
+  /// **'Замер'**
+  String get groupMeasure;
+
+  /// No description provided for @measure.
+  ///
+  /// In ru, this message translates to:
+  /// **'Измерить'**
+  String get measure;
+
+  /// No description provided for @pAudioTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звуковая дорожка'**
+  String get pAudioTrack;
+
+  /// No description provided for @pAudioTrackHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какую дорожку измерять'**
+  String get pAudioTrackHint;
+
+  /// No description provided for @pLoudnessTarget.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сравнить с'**
+  String get pLoudnessTarget;
+
+  /// No description provided for @pLoudnessTargetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Норма громкости площадки'**
+  String get pLoudnessTargetHint;
+
+  /// No description provided for @groupWhatIsLufs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что означают цифры'**
+  String get groupWhatIsLufs;
+
+  /// No description provided for @lufsExplained.
+  ///
+  /// In ru, this message translates to:
+  /// **'Интегральная громкость (LUFS) — средняя громкость всего файла так, как её слышит человек. Площадки выравнивают громкость: YouTube и Spotify приводят всё к −14 LUFS, поэтому слишком громкий трек просто сделают тише, а тихий прозвучит слабее остальных.\n\nTrue Peak — настоящий пик сигнала с учётом пересчёта в аналог; выше −1 dBTP возможны искажения после сжатия в MP3/AAC.\n\nДиапазон (LRA) — насколько различаются тихие и громкие места: 5–10 LU для музыки, больше 15 — кино с тихими диалогами и взрывами.'**
+  String get lufsExplained;
+
+  /// No description provided for @statIntegratedNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'средняя за весь файл'**
+  String get statIntegratedNote;
+
+  /// No description provided for @statTruePeakNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'максимальный пик'**
+  String get statTruePeakNote;
+
+  /// No description provided for @statLraNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'разброс громкости'**
+  String get statLraNote;
+
+  /// No description provided for @statMaxMomentary.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. мгновенная'**
+  String get statMaxMomentary;
+
+  /// No description provided for @statMaxShort.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. кратковременная'**
+  String get statMaxShort;
+
+  /// No description provided for @loudnessLegend.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тонкая линия — мгновенная громкость (0,4 с), толстая — кратковременная (3 с), пунктир — норма площадки.'**
+  String get loudnessLegend;
+
+  /// No description provided for @loudnessOnTarget.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громкость соответствует норме {name}.'**
+  String loudnessOnTarget(String name);
+
+  /// No description provided for @loudnessTooLoud.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громче нормы {name} на {db} дБ — площадка сделает тише.'**
+  String loudnessTooLoud(String name, String db);
+
+  /// No description provided for @loudnessTooQuiet.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тише нормы {name} на {db} дБ — будет звучать слабее других.'**
+  String loudnessTooQuiet(String name, String db);
+
+  /// No description provided for @truePeakOver.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пик {tp} dBTP выше допустимых {limit} dBTP — возможны искажения.'**
+  String truePeakOver(String tp, String limit);
+
+  /// No description provided for @openNormalize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нормализовать громкость'**
+  String get openNormalize;
+
+  /// No description provided for @groupPicture.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинка'**
+  String get groupPicture;
+
+  /// No description provided for @pPicKind.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что рисовать'**
+  String get pPicKind;
+
+  /// No description provided for @picWave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Осциллограмма'**
+  String get picWave;
+
+  /// No description provided for @picSpectrum.
+  ///
+  /// In ru, this message translates to:
+  /// **'Спектрограмма'**
+  String get picSpectrum;
+
+  /// No description provided for @picWaveHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Форма волны: громкость во времени'**
+  String get picWaveHint;
+
+  /// No description provided for @picSpectrumHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частоты во времени: видно шум, гул, срезы'**
+  String get picSpectrumHint;
+
+  /// No description provided for @pPicSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер'**
+  String get pPicSize;
+
+  /// No description provided for @pPicSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В пикселях'**
+  String get pPicSizeHint;
+
+  /// No description provided for @pSplitChannels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каналы отдельно'**
+  String get pSplitChannels;
+
+  /// No description provided for @pSplitChannelsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Левый и правый — друг под другом'**
+  String get pSplitChannelsHint;
+
+  /// No description provided for @pWaveColorHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет волны'**
+  String get pWaveColorHint;
+
+  /// No description provided for @pWaveScale.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шкала'**
+  String get pWaveScale;
+
+  /// No description provided for @pWaveScaleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логарифмическая лучше показывает тихие места'**
+  String get pWaveScaleHint;
+
+  /// No description provided for @scaleLinear.
+  ///
+  /// In ru, this message translates to:
+  /// **'линейная'**
+  String get scaleLinear;
+
+  /// No description provided for @scaleLog.
+  ///
+  /// In ru, this message translates to:
+  /// **'логарифмическая'**
+  String get scaleLog;
+
+  /// No description provided for @scaleSqrt.
+  ///
+  /// In ru, this message translates to:
+  /// **'квадратный корень'**
+  String get scaleSqrt;
+
+  /// No description provided for @scaleCbrt.
+  ///
+  /// In ru, this message translates to:
+  /// **'кубический корень'**
+  String get scaleCbrt;
+
+  /// No description provided for @pSpectrumColors.
+  ///
+  /// In ru, this message translates to:
+  /// **'Палитра'**
+  String get pSpectrumColors;
+
+  /// No description provided for @pSpectrumColorsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвета для уровней'**
+  String get pSpectrumColorsHint;
+
+  /// No description provided for @pLogFrequency.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логарифмическая шкала частот'**
+  String get pLogFrequency;
+
+  /// No description provided for @pLogFrequencyHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше места низким частотам, как слышит ухо'**
+  String get pLogFrequencyHint;
+
+  /// No description provided for @pLegend.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подписи'**
+  String get pLegend;
+
+  /// No description provided for @pLegendHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оси времени и частот'**
+  String get pLegendHint;
+
+  /// No description provided for @savePng.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить PNG'**
+  String get savePng;
+
+  /// No description provided for @savedTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранено: {path}'**
+  String savedTo(String path);
+
+  /// No description provided for @groupDetect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Детектор'**
+  String get groupDetect;
+
+  /// No description provided for @pDetectKind.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что искать'**
+  String get pDetectKind;
+
+  /// No description provided for @detectSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тишина'**
+  String get detectSilence;
+
+  /// No description provided for @detectBlack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чёрные кадры'**
+  String get detectBlack;
+
+  /// No description provided for @detectFreeze.
+  ///
+  /// In ru, this message translates to:
+  /// **'Застывшие кадры'**
+  String get detectFreeze;
+
+  /// No description provided for @detectScenes.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смена сцен'**
+  String get detectScenes;
+
+  /// No description provided for @detectCrop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чёрные поля'**
+  String get detectCrop;
+
+  /// No description provided for @detectSilenceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Паузы в звуке — например, чтобы вырезать их'**
+  String get detectSilenceHint;
+
+  /// No description provided for @detectBlackHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Затемнения, рекламные паузы, пустое начало'**
+  String get detectBlackHint;
+
+  /// No description provided for @detectFreezeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зависшее изображение, пропавший сигнал'**
+  String get detectFreezeHint;
+
+  /// No description provided for @detectScenesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Моменты монтажных склеек'**
+  String get detectScenesHint;
+
+  /// No description provided for @detectCropHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полосы по краям кадра, которые можно обрезать'**
+  String get detectCropHint;
+
+  /// No description provided for @pSilenceLevel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Порог тишины'**
+  String get pSilenceLevel;
+
+  /// No description provided for @pSilenceLevelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Всё тише этого уровня считается тишиной'**
+  String get pSilenceLevelHint;
+
+  /// No description provided for @pBlackLevel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Порог чёрного'**
+  String get pBlackLevel;
+
+  /// No description provided for @pBlackLevelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Насколько тёмный пиксель считается чёрным'**
+  String get pBlackLevelHint;
+
+  /// No description provided for @pFreezeNoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Допустимый шум'**
+  String get pFreezeNoise;
+
+  /// No description provided for @pFreezeNoiseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше — застывшими считаются и слегка шумящие кадры'**
+  String get pFreezeNoiseHint;
+
+  /// No description provided for @pSceneThreshold.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чувствительность'**
+  String get pSceneThreshold;
+
+  /// No description provided for @pSceneThresholdHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше — находит больше склеек, в том числе ложные'**
+  String get pSceneThresholdHint;
+
+  /// No description provided for @pMinDuration.
+  ///
+  /// In ru, this message translates to:
+  /// **'Минимальная длина'**
+  String get pMinDuration;
+
+  /// No description provided for @pMinDurationHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Более короткие участки не считаются'**
+  String get pMinDurationHint;
+
+  /// No description provided for @detectRun.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти'**
+  String get detectRun;
+
+  /// No description provided for @foundCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найдено: {n}'**
+  String foundCount(int n);
+
+  /// No description provided for @moreFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'…и ещё {n}'**
+  String moreFound(int n);
+
+  /// No description provided for @sceneScore.
+  ///
+  /// In ru, this message translates to:
+  /// **'сила {v}'**
+  String sceneScore(String v);
+
+  /// No description provided for @saveCsv.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить CSV'**
+  String get saveCsv;
+
+  /// No description provided for @cutFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вырезать найденное'**
+  String get cutFound;
+
+  /// No description provided for @splitAtFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разделить в этих местах'**
+  String get splitAtFound;
+
+  /// No description provided for @cropFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Можно обрезать до {size} от точки {x}, {y}'**
+  String cropFound(String size, String x, String y);
+
+  /// No description provided for @openCropTool.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть в «Кадр и размер»'**
+  String get openCropTool;
+
+  /// No description provided for @groupCompare.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сравнение'**
+  String get groupCompare;
+
+  /// No description provided for @referenceFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оригинал'**
+  String get referenceFile;
+
+  /// No description provided for @distortedFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сжатая версия'**
+  String get distortedFile;
+
+  /// No description provided for @distortedFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите файл, качество которого нужно оценить'**
+  String get distortedFileHint;
+
+  /// No description provided for @qualityScaledNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размеры кадра разные — сжатая версия будет приведена к размеру оригинала.'**
+  String get qualityScaledNote;
+
+  /// No description provided for @vmafMissing.
+  ///
+  /// In ru, this message translates to:
+  /// **'В этой сборке нет VMAF — будут посчитаны только PSNR и SSIM. VMAF есть в полной сборке ffmpeg (раздел «Компоненты»).'**
+  String get vmafMissing;
+
+  /// No description provided for @compareRun.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сравнить'**
+  String get compareRun;
+
+  /// No description provided for @groupWhatMetrics.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что означают метрики'**
+  String get groupWhatMetrics;
+
+  /// No description provided for @metricsExplained.
+  ///
+  /// In ru, this message translates to:
+  /// **'VMAF (0–100) — оценка Netflix, лучше всего совпадает с тем, как качество видит человек: выше 93 — отличий не видно, 80–93 — хорошо, ниже 60 — заметные дефекты.\n\nPSNR (дБ) — математическая разница пикселей: выше 40 — отлично, 30–35 — заметные потери.\n\nSSIM (0–1) — похожесть структуры изображения: 0,98 и выше — почти неотличимо.\n\nФайлы сравниваются кадр за кадром с начала, поэтому они должны начинаться с одного и того же кадра.'**
+  String get metricsExplained;
+
+  /// No description provided for @psnrMin.
+  ///
+  /// In ru, this message translates to:
+  /// **'худший кадр {v} dB'**
+  String psnrMin(String v);
+
+  /// No description provided for @qualityExcellent.
+  ///
+  /// In ru, this message translates to:
+  /// **'отлично'**
+  String get qualityExcellent;
+
+  /// No description provided for @qualityGood.
+  ///
+  /// In ru, this message translates to:
+  /// **'хорошо'**
+  String get qualityGood;
+
+  /// No description provided for @qualityFair.
+  ///
+  /// In ru, this message translates to:
+  /// **'заметные потери'**
+  String get qualityFair;
+
+  /// No description provided for @qualityPoor.
+  ///
+  /// In ru, this message translates to:
+  /// **'плохо'**
+  String get qualityPoor;
+
+  /// No description provided for @vmafVerdictExcellent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сжатая версия на глаз неотличима от оригинала.'**
+  String get vmafVerdictExcellent;
+
+  /// No description provided for @vmafVerdictGood.
+  ///
+  /// In ru, this message translates to:
+  /// **'Хорошее качество: отличия видны только при внимательном сравнении.'**
+  String get vmafVerdictGood;
+
+  /// No description provided for @vmafVerdictFair.
+  ///
+  /// In ru, this message translates to:
+  /// **'Потери заметны — попробуйте качество повыше.'**
+  String get vmafVerdictFair;
+
+  /// No description provided for @vmafVerdictPoor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сильные потери качества.'**
+  String get vmafVerdictPoor;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

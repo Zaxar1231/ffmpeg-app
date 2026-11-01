@@ -4433,4 +4433,310 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pPlaceboHint => 'Быстрее и качественнее; нужна видеокарта с Vulkan';
+
+  @override
+  String get groupResults => 'Результаты';
+
+  @override
+  String get groupMeasure => 'Замер';
+
+  @override
+  String get measure => 'Измерить';
+
+  @override
+  String get pAudioTrack => 'Звуковая дорожка';
+
+  @override
+  String get pAudioTrackHint => 'Какую дорожку измерять';
+
+  @override
+  String get pLoudnessTarget => 'Сравнить с';
+
+  @override
+  String get pLoudnessTargetHint => 'Норма громкости площадки';
+
+  @override
+  String get groupWhatIsLufs => 'Что означают цифры';
+
+  @override
+  String get lufsExplained =>
+      'Интегральная громкость (LUFS) — средняя громкость всего файла так, как её слышит человек. Площадки выравнивают громкость: YouTube и Spotify приводят всё к −14 LUFS, поэтому слишком громкий трек просто сделают тише, а тихий прозвучит слабее остальных.\n\nTrue Peak — настоящий пик сигнала с учётом пересчёта в аналог; выше −1 dBTP возможны искажения после сжатия в MP3/AAC.\n\nДиапазон (LRA) — насколько различаются тихие и громкие места: 5–10 LU для музыки, больше 15 — кино с тихими диалогами и взрывами.';
+
+  @override
+  String get statIntegratedNote => 'средняя за весь файл';
+
+  @override
+  String get statTruePeakNote => 'максимальный пик';
+
+  @override
+  String get statLraNote => 'разброс громкости';
+
+  @override
+  String get statMaxMomentary => 'Макс. мгновенная';
+
+  @override
+  String get statMaxShort => 'Макс. кратковременная';
+
+  @override
+  String get loudnessLegend =>
+      'Тонкая линия — мгновенная громкость (0,4 с), толстая — кратковременная (3 с), пунктир — норма площадки.';
+
+  @override
+  String loudnessOnTarget(String name) {
+    return 'Громкость соответствует норме $name.';
+  }
+
+  @override
+  String loudnessTooLoud(String name, String db) {
+    return 'Громче нормы $name на $db дБ — площадка сделает тише.';
+  }
+
+  @override
+  String loudnessTooQuiet(String name, String db) {
+    return 'Тише нормы $name на $db дБ — будет звучать слабее других.';
+  }
+
+  @override
+  String truePeakOver(String tp, String limit) {
+    return 'Пик $tp dBTP выше допустимых $limit dBTP — возможны искажения.';
+  }
+
+  @override
+  String get openNormalize => 'Нормализовать громкость';
+
+  @override
+  String get groupPicture => 'Картинка';
+
+  @override
+  String get pPicKind => 'Что рисовать';
+
+  @override
+  String get picWave => 'Осциллограмма';
+
+  @override
+  String get picSpectrum => 'Спектрограмма';
+
+  @override
+  String get picWaveHint => 'Форма волны: громкость во времени';
+
+  @override
+  String get picSpectrumHint => 'Частоты во времени: видно шум, гул, срезы';
+
+  @override
+  String get pPicSize => 'Размер';
+
+  @override
+  String get pPicSizeHint => 'В пикселях';
+
+  @override
+  String get pSplitChannels => 'Каналы отдельно';
+
+  @override
+  String get pSplitChannelsHint => 'Левый и правый — друг под другом';
+
+  @override
+  String get pWaveColorHint => 'Цвет волны';
+
+  @override
+  String get pWaveScale => 'Шкала';
+
+  @override
+  String get pWaveScaleHint => 'Логарифмическая лучше показывает тихие места';
+
+  @override
+  String get scaleLinear => 'линейная';
+
+  @override
+  String get scaleLog => 'логарифмическая';
+
+  @override
+  String get scaleSqrt => 'квадратный корень';
+
+  @override
+  String get scaleCbrt => 'кубический корень';
+
+  @override
+  String get pSpectrumColors => 'Палитра';
+
+  @override
+  String get pSpectrumColorsHint => 'Цвета для уровней';
+
+  @override
+  String get pLogFrequency => 'Логарифмическая шкала частот';
+
+  @override
+  String get pLogFrequencyHint => 'Больше места низким частотам, как слышит ухо';
+
+  @override
+  String get pLegend => 'Подписи';
+
+  @override
+  String get pLegendHint => 'Оси времени и частот';
+
+  @override
+  String get savePng => 'Сохранить PNG';
+
+  @override
+  String savedTo(String path) {
+    return 'Сохранено: $path';
+  }
+
+  @override
+  String get groupDetect => 'Детектор';
+
+  @override
+  String get pDetectKind => 'Что искать';
+
+  @override
+  String get detectSilence => 'Тишина';
+
+  @override
+  String get detectBlack => 'Чёрные кадры';
+
+  @override
+  String get detectFreeze => 'Застывшие кадры';
+
+  @override
+  String get detectScenes => 'Смена сцен';
+
+  @override
+  String get detectCrop => 'Чёрные поля';
+
+  @override
+  String get detectSilenceHint => 'Паузы в звуке — например, чтобы вырезать их';
+
+  @override
+  String get detectBlackHint => 'Затемнения, рекламные паузы, пустое начало';
+
+  @override
+  String get detectFreezeHint => 'Зависшее изображение, пропавший сигнал';
+
+  @override
+  String get detectScenesHint => 'Моменты монтажных склеек';
+
+  @override
+  String get detectCropHint => 'Полосы по краям кадра, которые можно обрезать';
+
+  @override
+  String get pSilenceLevel => 'Порог тишины';
+
+  @override
+  String get pSilenceLevelHint => 'Всё тише этого уровня считается тишиной';
+
+  @override
+  String get pBlackLevel => 'Порог чёрного';
+
+  @override
+  String get pBlackLevelHint => 'Насколько тёмный пиксель считается чёрным';
+
+  @override
+  String get pFreezeNoise => 'Допустимый шум';
+
+  @override
+  String get pFreezeNoiseHint => 'Больше — застывшими считаются и слегка шумящие кадры';
+
+  @override
+  String get pSceneThreshold => 'Чувствительность';
+
+  @override
+  String get pSceneThresholdHint => 'Меньше — находит больше склеек, в том числе ложные';
+
+  @override
+  String get pMinDuration => 'Минимальная длина';
+
+  @override
+  String get pMinDurationHint => 'Более короткие участки не считаются';
+
+  @override
+  String get detectRun => 'Найти';
+
+  @override
+  String foundCount(int n) {
+    return 'Найдено: $n';
+  }
+
+  @override
+  String moreFound(int n) {
+    return '…и ещё $n';
+  }
+
+  @override
+  String sceneScore(String v) {
+    return 'сила $v';
+  }
+
+  @override
+  String get saveCsv => 'Сохранить CSV';
+
+  @override
+  String get cutFound => 'Вырезать найденное';
+
+  @override
+  String get splitAtFound => 'Разделить в этих местах';
+
+  @override
+  String cropFound(String size, String x, String y) {
+    return 'Можно обрезать до $size от точки $x, $y';
+  }
+
+  @override
+  String get openCropTool => 'Открыть в «Кадр и размер»';
+
+  @override
+  String get groupCompare => 'Сравнение';
+
+  @override
+  String get referenceFile => 'Оригинал';
+
+  @override
+  String get distortedFile => 'Сжатая версия';
+
+  @override
+  String get distortedFileHint => 'Выберите файл, качество которого нужно оценить';
+
+  @override
+  String get qualityScaledNote => 'Размеры кадра разные — сжатая версия будет приведена к размеру оригинала.';
+
+  @override
+  String get vmafMissing =>
+      'В этой сборке нет VMAF — будут посчитаны только PSNR и SSIM. VMAF есть в полной сборке ffmpeg (раздел «Компоненты»).';
+
+  @override
+  String get compareRun => 'Сравнить';
+
+  @override
+  String get groupWhatMetrics => 'Что означают метрики';
+
+  @override
+  String get metricsExplained =>
+      'VMAF (0–100) — оценка Netflix, лучше всего совпадает с тем, как качество видит человек: выше 93 — отличий не видно, 80–93 — хорошо, ниже 60 — заметные дефекты.\n\nPSNR (дБ) — математическая разница пикселей: выше 40 — отлично, 30–35 — заметные потери.\n\nSSIM (0–1) — похожесть структуры изображения: 0,98 и выше — почти неотличимо.\n\nФайлы сравниваются кадр за кадром с начала, поэтому они должны начинаться с одного и того же кадра.';
+
+  @override
+  String psnrMin(String v) {
+    return 'худший кадр $v dB';
+  }
+
+  @override
+  String get qualityExcellent => 'отлично';
+
+  @override
+  String get qualityGood => 'хорошо';
+
+  @override
+  String get qualityFair => 'заметные потери';
+
+  @override
+  String get qualityPoor => 'плохо';
+
+  @override
+  String get vmafVerdictExcellent => 'Сжатая версия на глаз неотличима от оригинала.';
+
+  @override
+  String get vmafVerdictGood => 'Хорошее качество: отличия видны только при внимательном сравнении.';
+
+  @override
+  String get vmafVerdictFair => 'Потери заметны — попробуйте качество повыше.';
+
+  @override
+  String get vmafVerdictPoor => 'Сильные потери качества.';
 }

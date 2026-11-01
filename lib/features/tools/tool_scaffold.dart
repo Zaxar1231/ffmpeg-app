@@ -26,7 +26,7 @@ class ToolInputLoader extends ConsumerWidget {
     final l = context.l10n;
     final path = this.path;
     if (path == null) {
-      return _ToolFrame(
+      return ToolFrame(
         toolId: toolId,
         child: EmptyState(
           icon: toolById(toolId).icon,
@@ -46,14 +46,14 @@ class ToolInputLoader extends ConsumerWidget {
     return ref
         .watch(mediaInfoProvider(path))
         .when(
-          loading: () => _ToolFrame(
+          loading: () => ToolFrame(
             toolId: toolId,
             child: const Center(child: CircularProgressIndicator()),
           ),
           error: (e, _) {
             final raw = e is ProbeException ? '${e.message}\n${e.log}' : e.toString();
             final err = translateToolError(raw.split('\n'));
-            return _ToolFrame(
+            return ToolFrame(
               toolId: toolId,
               child: EmptyState(
                 icon: Icons.error_outline,
@@ -68,8 +68,8 @@ class ToolInputLoader extends ConsumerWidget {
 }
 
 /// Header with back button and tool title.
-class _ToolFrame extends ConsumerWidget {
-  const _ToolFrame({required this.toolId, required this.child, this.subtitle, this.trailing = const []});
+class ToolFrame extends ConsumerWidget {
+  const ToolFrame({super.key, required this.toolId, required this.child, this.subtitle, this.trailing = const []});
   final String toolId;
   final Widget child;
   final String? subtitle;
@@ -236,7 +236,7 @@ class ToolScaffold extends ConsumerWidget {
       ),
     );
 
-    return _ToolFrame(
+    return ToolFrame(
       toolId: toolId,
       subtitle: '${p.basename(info.path)} · $summary',
       trailing: [

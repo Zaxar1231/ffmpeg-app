@@ -1981,5 +1981,184 @@
   "pDesat": "Обесцвечивание светов",
   "pDesatHint": "Убирает неестественно яркие цвета в светлых местах",
   "pPlacebo": "Через видеокарту (libplacebo)",
-  "pPlaceboHint": "Быстрее и качественнее; нужна видеокарта с Vulkan"
+  "pPlaceboHint": "Быстрее и качественнее; нужна видеокарта с Vulkan",
+  "groupResults": "Результаты",
+  "groupMeasure": "Замер",
+  "measure": "Измерить",
+  "pAudioTrack": "Звуковая дорожка",
+  "pAudioTrackHint": "Какую дорожку измерять",
+  "pLoudnessTarget": "Сравнить с",
+  "pLoudnessTargetHint": "Норма громкости площадки",
+  "groupWhatIsLufs": "Что означают цифры",
+  "lufsExplained": "Интегральная громкость (LUFS) — средняя громкость всего файла так, как её слышит человек. Площадки выравнивают громкость: YouTube и Spotify приводят всё к −14 LUFS, поэтому слишком громкий трек просто сделают тише, а тихий прозвучит слабее остальных.\n\nTrue Peak — настоящий пик сигнала с учётом пересчёта в аналог; выше −1 dBTP возможны искажения после сжатия в MP3/AAC.\n\nДиапазон (LRA) — насколько различаются тихие и громкие места: 5–10 LU для музыки, больше 15 — кино с тихими диалогами и взрывами.",
+  "statIntegratedNote": "средняя за весь файл",
+  "statTruePeakNote": "максимальный пик",
+  "statLraNote": "разброс громкости",
+  "statMaxMomentary": "Макс. мгновенная",
+  "statMaxShort": "Макс. кратковременная",
+  "loudnessLegend": "Тонкая линия — мгновенная громкость (0,4 с), толстая — кратковременная (3 с), пунктир — норма площадки.",
+  "loudnessOnTarget": "Громкость соответствует норме {name}.",
+  "@loudnessOnTarget": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "loudnessTooLoud": "Громче нормы {name} на {db} дБ — площадка сделает тише.",
+  "@loudnessTooLoud": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "db": {
+        "type": "String"
+      }
+    }
+  },
+  "loudnessTooQuiet": "Тише нормы {name} на {db} дБ — будет звучать слабее других.",
+  "@loudnessTooQuiet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "db": {
+        "type": "String"
+      }
+    }
+  },
+  "truePeakOver": "Пик {tp} dBTP выше допустимых {limit} dBTP — возможны искажения.",
+  "@truePeakOver": {
+    "placeholders": {
+      "tp": {
+        "type": "String"
+      },
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "openNormalize": "Нормализовать громкость",
+  "groupPicture": "Картинка",
+  "pPicKind": "Что рисовать",
+  "picWave": "Осциллограмма",
+  "picSpectrum": "Спектрограмма",
+  "picWaveHint": "Форма волны: громкость во времени",
+  "picSpectrumHint": "Частоты во времени: видно шум, гул, срезы",
+  "pPicSize": "Размер",
+  "pPicSizeHint": "В пикселях",
+  "pSplitChannels": "Каналы отдельно",
+  "pSplitChannelsHint": "Левый и правый — друг под другом",
+  "pWaveColorHint": "Цвет волны",
+  "pWaveScale": "Шкала",
+  "pWaveScaleHint": "Логарифмическая лучше показывает тихие места",
+  "scaleLinear": "линейная",
+  "scaleLog": "логарифмическая",
+  "scaleSqrt": "квадратный корень",
+  "scaleCbrt": "кубический корень",
+  "pSpectrumColors": "Палитра",
+  "pSpectrumColorsHint": "Цвета для уровней",
+  "pLogFrequency": "Логарифмическая шкала частот",
+  "pLogFrequencyHint": "Больше места низким частотам, как слышит ухо",
+  "pLegend": "Подписи",
+  "pLegendHint": "Оси времени и частот",
+  "savePng": "Сохранить PNG",
+  "savedTo": "Сохранено: {path}",
+  "@savedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "groupDetect": "Детектор",
+  "pDetectKind": "Что искать",
+  "detectSilence": "Тишина",
+  "detectBlack": "Чёрные кадры",
+  "detectFreeze": "Застывшие кадры",
+  "detectScenes": "Смена сцен",
+  "detectCrop": "Чёрные поля",
+  "detectSilenceHint": "Паузы в звуке — например, чтобы вырезать их",
+  "detectBlackHint": "Затемнения, рекламные паузы, пустое начало",
+  "detectFreezeHint": "Зависшее изображение, пропавший сигнал",
+  "detectScenesHint": "Моменты монтажных склеек",
+  "detectCropHint": "Полосы по краям кадра, которые можно обрезать",
+  "pSilenceLevel": "Порог тишины",
+  "pSilenceLevelHint": "Всё тише этого уровня считается тишиной",
+  "pBlackLevel": "Порог чёрного",
+  "pBlackLevelHint": "Насколько тёмный пиксель считается чёрным",
+  "pFreezeNoise": "Допустимый шум",
+  "pFreezeNoiseHint": "Больше — застывшими считаются и слегка шумящие кадры",
+  "pSceneThreshold": "Чувствительность",
+  "pSceneThresholdHint": "Меньше — находит больше склеек, в том числе ложные",
+  "pMinDuration": "Минимальная длина",
+  "pMinDurationHint": "Более короткие участки не считаются",
+  "detectRun": "Найти",
+  "foundCount": "Найдено: {n}",
+  "@foundCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "moreFound": "…и ещё {n}",
+  "@moreFound": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "sceneScore": "сила {v}",
+  "@sceneScore": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "saveCsv": "Сохранить CSV",
+  "cutFound": "Вырезать найденное",
+  "splitAtFound": "Разделить в этих местах",
+  "cropFound": "Можно обрезать до {size} от точки {x}, {y}",
+  "@cropFound": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "x": {
+        "type": "String"
+      },
+      "y": {
+        "type": "String"
+      }
+    }
+  },
+  "openCropTool": "Открыть в «Кадр и размер»",
+  "groupCompare": "Сравнение",
+  "referenceFile": "Оригинал",
+  "distortedFile": "Сжатая версия",
+  "distortedFileHint": "Выберите файл, качество которого нужно оценить",
+  "qualityScaledNote": "Размеры кадра разные — сжатая версия будет приведена к размеру оригинала.",
+  "vmafMissing": "В этой сборке нет VMAF — будут посчитаны только PSNR и SSIM. VMAF есть в полной сборке ffmpeg (раздел «Компоненты»).",
+  "compareRun": "Сравнить",
+  "groupWhatMetrics": "Что означают метрики",
+  "metricsExplained": "VMAF (0–100) — оценка Netflix, лучше всего совпадает с тем, как качество видит человек: выше 93 — отличий не видно, 80–93 — хорошо, ниже 60 — заметные дефекты.\n\nPSNR (дБ) — математическая разница пикселей: выше 40 — отлично, 30–35 — заметные потери.\n\nSSIM (0–1) — похожесть структуры изображения: 0,98 и выше — почти неотличимо.\n\nФайлы сравниваются кадр за кадром с начала, поэтому они должны начинаться с одного и того же кадра.",
+  "psnrMin": "худший кадр {v} dB",
+  "@psnrMin": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "qualityExcellent": "отлично",
+  "qualityGood": "хорошо",
+  "qualityFair": "заметные потери",
+  "qualityPoor": "плохо",
+  "vmafVerdictExcellent": "Сжатая версия на глаз неотличима от оригинала.",
+  "vmafVerdictGood": "Хорошее качество: отличия видны только при внимательном сравнении.",
+  "vmafVerdictFair": "Потери заметны — попробуйте качество повыше.",
+  "vmafVerdictPoor": "Сильные потери качества."
 }

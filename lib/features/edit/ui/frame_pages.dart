@@ -33,22 +33,24 @@ const _aspects = <String, double?>{
 };
 
 class CropScalePage extends ConsumerWidget {
-  const CropScalePage({super.key, this.path});
+  const CropScalePage({super.key, this.path, this.initialCrop});
   final String? path;
+  final CropRect? initialCrop;
   @override
   Widget build(BuildContext context, WidgetRef ref) =>
-      _loader('cropScale', path, (i) => _CropScaleForm(key: ValueKey(i.path), info: i));
+      _loader('cropScale', path, (i) => _CropScaleForm(key: ValueKey(i.path), info: i, initialCrop: initialCrop));
 }
 
 class _CropScaleForm extends ConsumerStatefulWidget {
-  const _CropScaleForm({super.key, required this.info});
+  const _CropScaleForm({super.key, required this.info, this.initialCrop});
   final MediaInfo info;
+  final CropRect? initialCrop;
   @override
   ConsumerState<_CropScaleForm> createState() => _CropScaleFormState();
 }
 
 class _CropScaleFormState extends ConsumerState<_CropScaleForm> {
-  CropRect? _crop;
+  late CropRect? _crop = widget.initialCrop;
   bool _editCrop = false;
   int _rotate = 0;
   double _angle = 0;

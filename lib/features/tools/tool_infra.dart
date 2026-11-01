@@ -18,9 +18,13 @@ import 'command_text.dart';
 
 /// Which tool is open in the Tools section (null = catalog).
 class OpenTool {
-  const OpenTool(this.id, {this.path, this.presetId});
+  const OpenTool(this.id, {this.path, this.presetId, this.extra});
   final String id;
   final String? path;
+
+  /// Tool-specific start data handed over by another tool (e.g. detector
+  /// findings → cut ranges). Dropped when the file changes.
+  final Object? extra;
 
   /// Convert: start from this preset (builtin id or `user:<id>`).
   final String? presetId;

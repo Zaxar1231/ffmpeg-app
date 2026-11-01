@@ -4398,4 +4398,310 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pPlaceboHint => 'Faster and better; needs a Vulkan GPU';
+
+  @override
+  String get groupResults => 'Results';
+
+  @override
+  String get groupMeasure => 'Measurement';
+
+  @override
+  String get measure => 'Measure';
+
+  @override
+  String get pAudioTrack => 'Audio track';
+
+  @override
+  String get pAudioTrackHint => 'Which track to measure';
+
+  @override
+  String get pLoudnessTarget => 'Compare with';
+
+  @override
+  String get pLoudnessTargetHint => 'Platform loudness target';
+
+  @override
+  String get groupWhatIsLufs => 'What the numbers mean';
+
+  @override
+  String get lufsExplained =>
+      'Integrated loudness (LUFS) is the average loudness of the whole file as people hear it. Platforms normalize loudness: YouTube and Spotify bring everything to −14 LUFS, so a track that is too loud is simply turned down, and a quiet one sounds weaker than the rest.\n\nTrue Peak is the real signal peak after conversion to analog; above −1 dBTP distortion may appear after MP3/AAC encoding.\n\nLoudness range (LRA) shows how different quiet and loud parts are: 5–10 LU for music, over 15 for films with quiet dialog and explosions.';
+
+  @override
+  String get statIntegratedNote => 'average of the whole file';
+
+  @override
+  String get statTruePeakNote => 'highest peak';
+
+  @override
+  String get statLraNote => 'loudness spread';
+
+  @override
+  String get statMaxMomentary => 'Max momentary';
+
+  @override
+  String get statMaxShort => 'Max short-term';
+
+  @override
+  String get loudnessLegend =>
+      'Thin line: momentary loudness (0.4 s); thick: short-term (3 s); dashed: platform target.';
+
+  @override
+  String loudnessOnTarget(String name) {
+    return 'Loudness matches the $name target.';
+  }
+
+  @override
+  String loudnessTooLoud(String name, String db) {
+    return '$db dB louder than the $name target — the platform will turn it down.';
+  }
+
+  @override
+  String loudnessTooQuiet(String name, String db) {
+    return '$db dB quieter than the $name target — it will sound weaker than others.';
+  }
+
+  @override
+  String truePeakOver(String tp, String limit) {
+    return 'Peak $tp dBTP is above the allowed $limit dBTP — distortion is possible.';
+  }
+
+  @override
+  String get openNormalize => 'Normalize loudness';
+
+  @override
+  String get groupPicture => 'Picture';
+
+  @override
+  String get pPicKind => 'What to draw';
+
+  @override
+  String get picWave => 'Waveform';
+
+  @override
+  String get picSpectrum => 'Spectrogram';
+
+  @override
+  String get picWaveHint => 'Wave shape: level over time';
+
+  @override
+  String get picSpectrumHint => 'Frequencies over time: shows noise, hum, cut-offs';
+
+  @override
+  String get pPicSize => 'Size';
+
+  @override
+  String get pPicSizeHint => 'In pixels';
+
+  @override
+  String get pSplitChannels => 'Separate channels';
+
+  @override
+  String get pSplitChannelsHint => 'Left and right one above the other';
+
+  @override
+  String get pWaveColorHint => 'Wave color';
+
+  @override
+  String get pWaveScale => 'Scale';
+
+  @override
+  String get pWaveScaleHint => 'Logarithmic shows quiet parts better';
+
+  @override
+  String get scaleLinear => 'linear';
+
+  @override
+  String get scaleLog => 'logarithmic';
+
+  @override
+  String get scaleSqrt => 'square root';
+
+  @override
+  String get scaleCbrt => 'cubic root';
+
+  @override
+  String get pSpectrumColors => 'Palette';
+
+  @override
+  String get pSpectrumColorsHint => 'Colors for levels';
+
+  @override
+  String get pLogFrequency => 'Logarithmic frequency scale';
+
+  @override
+  String get pLogFrequencyHint => 'More room for low frequencies, as the ear hears';
+
+  @override
+  String get pLegend => 'Legend';
+
+  @override
+  String get pLegendHint => 'Time and frequency axes';
+
+  @override
+  String get savePng => 'Save PNG';
+
+  @override
+  String savedTo(String path) {
+    return 'Saved: $path';
+  }
+
+  @override
+  String get groupDetect => 'Detector';
+
+  @override
+  String get pDetectKind => 'What to find';
+
+  @override
+  String get detectSilence => 'Silence';
+
+  @override
+  String get detectBlack => 'Black frames';
+
+  @override
+  String get detectFreeze => 'Frozen frames';
+
+  @override
+  String get detectScenes => 'Scene changes';
+
+  @override
+  String get detectCrop => 'Black bars';
+
+  @override
+  String get detectSilenceHint => 'Pauses in audio — e.g. to cut them out';
+
+  @override
+  String get detectBlackHint => 'Fades to black, ad breaks, empty starts';
+
+  @override
+  String get detectFreezeHint => 'Stuck picture, lost signal';
+
+  @override
+  String get detectScenesHint => 'Moments of editing cuts';
+
+  @override
+  String get detectCropHint => 'Bars at the frame edges that can be cropped';
+
+  @override
+  String get pSilenceLevel => 'Silence threshold';
+
+  @override
+  String get pSilenceLevelHint => 'Anything quieter counts as silence';
+
+  @override
+  String get pBlackLevel => 'Black threshold';
+
+  @override
+  String get pBlackLevelHint => 'How dark a pixel counts as black';
+
+  @override
+  String get pFreezeNoise => 'Noise tolerance';
+
+  @override
+  String get pFreezeNoiseHint => 'Higher also counts slightly noisy frames as frozen';
+
+  @override
+  String get pSceneThreshold => 'Sensitivity';
+
+  @override
+  String get pSceneThresholdHint => 'Lower finds more cuts, including false ones';
+
+  @override
+  String get pMinDuration => 'Minimum length';
+
+  @override
+  String get pMinDurationHint => 'Shorter parts are ignored';
+
+  @override
+  String get detectRun => 'Find';
+
+  @override
+  String foundCount(int n) {
+    return 'Found: $n';
+  }
+
+  @override
+  String moreFound(int n) {
+    return '…and $n more';
+  }
+
+  @override
+  String sceneScore(String v) {
+    return 'score $v';
+  }
+
+  @override
+  String get saveCsv => 'Save CSV';
+
+  @override
+  String get cutFound => 'Cut out the findings';
+
+  @override
+  String get splitAtFound => 'Split at these points';
+
+  @override
+  String cropFound(String size, String x, String y) {
+    return 'Can be cropped to $size at $x, $y';
+  }
+
+  @override
+  String get openCropTool => 'Open in Crop & scale';
+
+  @override
+  String get groupCompare => 'Comparison';
+
+  @override
+  String get referenceFile => 'Original';
+
+  @override
+  String get distortedFile => 'Compressed version';
+
+  @override
+  String get distortedFileHint => 'Choose the file whose quality to assess';
+
+  @override
+  String get qualityScaledNote => 'Frame sizes differ — the compressed version is scaled to the original size.';
+
+  @override
+  String get vmafMissing =>
+      'This build has no VMAF — only PSNR and SSIM are computed. VMAF is in the full ffmpeg build (Components).';
+
+  @override
+  String get compareRun => 'Compare';
+
+  @override
+  String get groupWhatMetrics => 'What the metrics mean';
+
+  @override
+  String get metricsExplained =>
+      'VMAF (0–100) is Netflix’s score that best matches how people see quality: above 93 looks identical, 80–93 is good, below 60 shows visible defects.\n\nPSNR (dB) is the mathematical pixel difference: above 40 is excellent, 30–35 shows losses.\n\nSSIM (0–1) is structural similarity: 0.98 and up is nearly identical.\n\nFiles are compared frame by frame from the start, so they must begin with the same frame.';
+
+  @override
+  String psnrMin(String v) {
+    return 'worst frame $v dB';
+  }
+
+  @override
+  String get qualityExcellent => 'excellent';
+
+  @override
+  String get qualityGood => 'good';
+
+  @override
+  String get qualityFair => 'visible losses';
+
+  @override
+  String get qualityPoor => 'poor';
+
+  @override
+  String get vmafVerdictExcellent => 'The compressed version looks identical to the original.';
+
+  @override
+  String get vmafVerdictGood => 'Good quality: differences show only on close comparison.';
+
+  @override
+  String get vmafVerdictFair => 'Losses are visible — try a higher quality.';
+
+  @override
+  String get vmafVerdictPoor => 'Heavy quality loss.';
 }

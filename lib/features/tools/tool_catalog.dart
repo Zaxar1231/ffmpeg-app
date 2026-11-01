@@ -82,6 +82,10 @@ const currentStageReady = {
   'stack',
   'loop',
   'hdrToSdr',
+  'loudness',
+  'waveform',
+  'detect',
+  'compareQuality',
 };
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
@@ -132,7 +136,7 @@ const toolCatalog = <ToolDef>[
     ToolCategory.analysis,
     Icons.manage_search,
     stage: 3,
-    filters: ['silencedetect', 'blackdetect', 'cropdetect', 'freezedetect'],
+    filters: ['silencedetect', 'blackdetect', 'cropdetect', 'freezedetect', 'scdet'],
     keywords: ['silence', 'black', 'scene', 'тишина', 'сцены'],
   ),
   ToolDef(
@@ -140,7 +144,7 @@ const toolCatalog = <ToolDef>[
     ToolCategory.analysis,
     Icons.compare,
     stage: 3,
-    filters: ['libvmaf', 'psnr', 'ssim'],
+    filters: ['psnr', 'ssim'],
     keywords: ['vmaf', 'psnr', 'ssim'],
   ),
   // 2. Convert

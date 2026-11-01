@@ -1004,3 +1004,16 @@ bool isHdr(MediaInfo info) {
   final v = info.videoStreams.firstOrNull;
   return v != null && (v.colorTransfer == 'smpte2084' || v.colorTransfer == 'arib-std-b67');
 }
+
+/// Start data for Cut/Join handed over by other tools (e.g. detectors).
+class CutRanges {
+  const CutRanges(this.ranges, {this.remove = true});
+  final List<(Duration, Duration)> ranges;
+  final bool remove;
+}
+
+/// Start data for Split: cut points.
+class SplitTimes {
+  const SplitTimes(this.times);
+  final List<Duration> times;
+}
