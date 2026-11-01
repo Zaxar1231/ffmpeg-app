@@ -1652,6 +1652,12 @@ abstract class AppLocalizations {
   /// **'Видео недоступно: удалено, приватное или заблокировано в регионе.'**
   String get errVideoUnavailable;
 
+  /// No description provided for @errLoudnessMeasure.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось измерить громкость: в файле тишина или нет звука.'**
+  String get errLoudnessMeasure;
+
   /// No description provided for @errCanceled.
   ///
   /// In ru, this message translates to:
@@ -2515,6 +2521,1680 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Перед добавлением в очередь откроется готовая команда ffmpeg: её можно скопировать, изменить и запустить. Кнопка «Показать команду» доступна у каждой задачи в любом случае. По умолчанию: выключено.'**
   String get setShowCommandHelp;
+
+  /// No description provided for @back.
+  ///
+  /// In ru, this message translates to:
+  /// **'Назад'**
+  String get back;
+
+  /// No description provided for @change.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изменить'**
+  String get change;
+
+  /// No description provided for @apply.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применить'**
+  String get apply;
+
+  /// No description provided for @rename.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переименовать'**
+  String get rename;
+
+  /// No description provided for @save.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get save;
+
+  /// No description provided for @none.
+  ///
+  /// In ru, this message translates to:
+  /// **'нет'**
+  String get none;
+
+  /// No description provided for @keepOriginal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как в исходнике'**
+  String get keepOriginal;
+
+  /// No description provided for @stereo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стерео'**
+  String get stereo;
+
+  /// No description provided for @mono.
+  ///
+  /// In ru, this message translates to:
+  /// **'Моно'**
+  String get mono;
+
+  /// No description provided for @toEnd.
+  ///
+  /// In ru, this message translates to:
+  /// **'до конца'**
+  String get toEnd;
+
+  /// No description provided for @addToQueue.
+  ///
+  /// In ru, this message translates to:
+  /// **'В очередь'**
+  String get addToQueue;
+
+  /// No description provided for @runNow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запустить'**
+  String get runNow;
+
+  /// No description provided for @otherFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Другой файл'**
+  String get otherFile;
+
+  /// No description provided for @saveTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить в: {path}'**
+  String saveTo(String path);
+
+  /// No description provided for @chooseInputTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите файл'**
+  String get chooseInputTitle;
+
+  /// No description provided for @commandEditHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Можно изменить аргументы перед запуском (путь к ffmpeg подставится сам).'**
+  String get commandEditHint;
+
+  /// No description provided for @commandParseError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Незакрытая кавычка в команде'**
+  String get commandParseError;
+
+  /// No description provided for @runCommand.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запустить'**
+  String get runCommand;
+
+  /// No description provided for @stepLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'шаг {step}'**
+  String stepLabel(String step);
+
+  /// No description provided for @secondsShort.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value} с'**
+  String secondsShort(String value);
+
+  /// No description provided for @estimateSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'≈ {size}'**
+  String estimateSize(String size);
+
+  /// No description provided for @estimateDependsOnContent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер зависит от содержимого'**
+  String get estimateDependsOnContent;
+
+  /// No description provided for @encoderLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'кодировщик {name}'**
+  String encoderLabel(String name);
+
+  /// No description provided for @issueNoEncoder.
+  ///
+  /// In ru, this message translates to:
+  /// **'В установленной сборке ffmpeg нет кодировщика для этого кодека. Выберите другой кодек или установите full-сборку.'**
+  String get issueNoEncoder;
+
+  /// No description provided for @issueVideoContainer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Этот контейнер не поддерживает выбранный видеокодек. Выберите другой кодек или MKV.'**
+  String get issueVideoContainer;
+
+  /// No description provided for @issueAudioContainer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Этот контейнер не поддерживает выбранный аудиокодек. Выберите другой кодек или MKV.'**
+  String get issueAudioContainer;
+
+  /// No description provided for @issueCopyContainer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исходный кодек нельзя скопировать в этот контейнер без перекодирования. Попробуйте MKV.'**
+  String get issueCopyContainer;
+
+  /// No description provided for @issueDurationUnknown.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность файла неизвестна, поэтому нельзя рассчитать размер или обрезку.'**
+  String get issueDurationUnknown;
+
+  /// No description provided for @issueTargetTooSmall.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слишком маленький размер для такой длительности: на видео остаётся меньше 50 кбит/с. Увеличьте размер или уменьшите длительность.'**
+  String get issueTargetTooSmall;
+
+  /// No description provided for @issueNoTenBit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Этот кодировщик не умеет 10 бит — будет 8 бит.'**
+  String get issueNoTenBit;
+
+  /// No description provided for @issueNoAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'В файле нет звуковой дорожки.'**
+  String get issueNoAudio;
+
+  /// No description provided for @issueNoVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'В файле нет видео.'**
+  String get issueNoVideo;
+
+  /// No description provided for @issueChooseAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите файл со звуком.'**
+  String get issueChooseAudio;
+
+  /// No description provided for @warnHdrSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исходник в HDR. Без 10 бит и тонмаппинга цвета будут блёклыми; полноценное HDR → SDR — в следующем этапе.'**
+  String get warnHdrSource;
+
+  /// No description provided for @warnLongGif.
+  ///
+  /// In ru, this message translates to:
+  /// **'GIF длиннее 20 секунд получится очень большим. Лучше WebP или видео.'**
+  String get warnLongGif;
+
+  /// No description provided for @groupFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get groupFormat;
+
+  /// No description provided for @groupVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео'**
+  String get groupVideo;
+
+  /// No description provided for @groupAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук'**
+  String get groupAudio;
+
+  /// No description provided for @groupOther.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прочее'**
+  String get groupOther;
+
+  /// No description provided for @groupTrim.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фрагмент'**
+  String get groupTrim;
+
+  /// No description provided for @groupLoudness.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громкость'**
+  String get groupLoudness;
+
+  /// No description provided for @groupAnimation.
+  ///
+  /// In ru, this message translates to:
+  /// **'Анимация'**
+  String get groupAnimation;
+
+  /// No description provided for @groupDownloadQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество'**
+  String get groupDownloadQuality;
+
+  /// No description provided for @groupDownloadExtras.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дополнительно'**
+  String get groupDownloadExtras;
+
+  /// No description provided for @presetsTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пресеты'**
+  String get presetsTitle;
+
+  /// No description provided for @savePreset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить как пресет'**
+  String get savePreset;
+
+  /// No description provided for @presetNameLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название пресета'**
+  String get presetNameLabel;
+
+  /// No description provided for @builtinPresets.
+  ///
+  /// In ru, this message translates to:
+  /// **'Встроенные'**
+  String get builtinPresets;
+
+  /// No description provided for @userPresets.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мои пресеты'**
+  String get userPresets;
+
+  /// No description provided for @userPresetsEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пока пусто. В «Конвертации» настройте параметры и нажмите «Сохранить как пресет».'**
+  String get userPresetsEmpty;
+
+  /// No description provided for @importPresets.
+  ///
+  /// In ru, this message translates to:
+  /// **'Импорт'**
+  String get importPresets;
+
+  /// No description provided for @exportPresets.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт'**
+  String get exportPresets;
+
+  /// No description provided for @presetsImported.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Импортирован {count} пресет} few{Импортировано {count} пресета} many{Импортировано {count} пресетов} other{Импортировано {count} пресета}}'**
+  String presetsImported(int count);
+
+  /// No description provided for @presetsExported.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Экспортирован {count} пресет} few{Экспортировано {count} пресета} many{Экспортировано {count} пресетов} other{Экспортировано {count} пресета}}'**
+  String presetsExported(int count);
+
+  /// No description provided for @presetsImportFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это не файл пресетов Kadra.'**
+  String get presetsImportFailed;
+
+  /// No description provided for @presetTelegram.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для Telegram'**
+  String get presetTelegram;
+
+  /// No description provided for @presetTelegramDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'H.264 до 1080p, быстрый старт — проигрывается прямо в чате.'**
+  String get presetTelegramDesc;
+
+  /// No description provided for @presetYoutube.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для YouTube'**
+  String get presetYoutube;
+
+  /// No description provided for @presetYoutubeDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высокое качество (CRF 18), AAC 320 кбит/с 48 кГц — YouTube всё равно перекодирует.'**
+  String get presetYoutubeDesc;
+
+  /// No description provided for @presetDiscord.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для Discord (до 10 МБ)'**
+  String get presetDiscord;
+
+  /// No description provided for @presetDiscordDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Два прохода под 9,5 МБ, до 720p — влезает в бесплатный лимит.'**
+  String get presetDiscordDesc;
+
+  /// No description provided for @presetEditProres.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для монтажа (ProRes)'**
+  String get presetEditProres;
+
+  /// No description provided for @presetEditProresDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'ProRes 422 HQ + PCM: легко монтировать, файлы большие.'**
+  String get presetEditProresDesc;
+
+  /// No description provided for @presetEditDnxhr.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для монтажа (DNxHR)'**
+  String get presetEditDnxhr;
+
+  /// No description provided for @presetEditDnxhrDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'DNxHR HQ + PCM для Avid и DaVinci Resolve.'**
+  String get presetEditDnxhrDesc;
+
+  /// No description provided for @presetArchive.
+  ///
+  /// In ru, this message translates to:
+  /// **'Архив без потерь'**
+  String get presetArchive;
+
+  /// No description provided for @presetArchiveDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'FFV1 + FLAC в MKV: бит в бит, без потери качества.'**
+  String get presetArchiveDesc;
+
+  /// No description provided for @presetMaxCompression.
+  ///
+  /// In ru, this message translates to:
+  /// **'Максимальное сжатие'**
+  String get presetMaxCompression;
+
+  /// No description provided for @presetMaxCompressionDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'AV1 10 бит + Opus: минимальный размер при хорошем качестве, но кодирует долго.'**
+  String get presetMaxCompressionDesc;
+
+  /// No description provided for @presetCompress.
+  ///
+  /// In ru, this message translates to:
+  /// **'Просто сжать'**
+  String get presetCompress;
+
+  /// No description provided for @presetCompressDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'H.264, качество чуть ниже, до 1080p — обычно в 2–5 раз меньше.'**
+  String get presetCompressDesc;
+
+  /// No description provided for @codecCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Копировать (без перекодирования)'**
+  String get codecCopy;
+
+  /// No description provided for @codecNoVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без видео'**
+  String get codecNoVideo;
+
+  /// No description provided for @codecNoAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без звука'**
+  String get codecNoAudio;
+
+  /// No description provided for @codecFfv1.
+  ///
+  /// In ru, this message translates to:
+  /// **'FFV1 (без потерь)'**
+  String get codecFfv1;
+
+  /// No description provided for @codecFlac.
+  ///
+  /// In ru, this message translates to:
+  /// **'FLAC (без потерь)'**
+  String get codecFlac;
+
+  /// No description provided for @codecAlac.
+  ///
+  /// In ru, this message translates to:
+  /// **'ALAC (без потерь)'**
+  String get codecAlac;
+
+  /// No description provided for @speedFastest.
+  ///
+  /// In ru, this message translates to:
+  /// **'очень быстро'**
+  String get speedFastest;
+
+  /// No description provided for @speedFast.
+  ///
+  /// In ru, this message translates to:
+  /// **'быстро'**
+  String get speedFast;
+
+  /// No description provided for @speedMedium.
+  ///
+  /// In ru, this message translates to:
+  /// **'средне'**
+  String get speedMedium;
+
+  /// No description provided for @speedSlow.
+  ///
+  /// In ru, this message translates to:
+  /// **'медленно'**
+  String get speedSlow;
+
+  /// No description provided for @speedSlowest.
+  ///
+  /// In ru, this message translates to:
+  /// **'очень медленно'**
+  String get speedSlowest;
+
+  /// No description provided for @rateQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество'**
+  String get rateQuality;
+
+  /// No description provided for @rateBitrate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Битрейт'**
+  String get rateBitrate;
+
+  /// No description provided for @rateCbr.
+  ///
+  /// In ru, this message translates to:
+  /// **'Постоянный'**
+  String get rateCbr;
+
+  /// No description provided for @rateTargetSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер файла'**
+  String get rateTargetSize;
+
+  /// No description provided for @zoneBetterQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'лучше качество'**
+  String get zoneBetterQuality;
+
+  /// No description provided for @zoneSmallerFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'меньше размер'**
+  String get zoneSmallerFile;
+
+  /// No description provided for @zoneSmoother.
+  ///
+  /// In ru, this message translates to:
+  /// **'плавнее'**
+  String get zoneSmoother;
+
+  /// No description provided for @pContainer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Контейнер (формат файла)'**
+  String get pContainer;
+
+  /// No description provided for @pContainerHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Во что «упаковать» видео и звук'**
+  String get pContainerHint;
+
+  /// No description provided for @pContainerHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Контейнер — это «коробка», в которой лежат дорожки. MP4 открывается везде (телефоны, браузеры, мессенджеры). MKV принимает почти любые кодеки и субтитры — хорош для архива. MOV — для Apple и монтажа. WebM — для сайтов (VP9/AV1 + Opus). Для одного звука: MP3, M4A, Opus, FLAC, WAV. По умолчанию: MP4.'**
+  String get pContainerHelp;
+
+  /// No description provided for @pVideoCodec.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видеокодек'**
+  String get pVideoCodec;
+
+  /// No description provided for @pVideoCodecHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чем сжимать картинку'**
+  String get pVideoCodecHint;
+
+  /// No description provided for @pVideoCodecHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'H.264 — максимальная совместимость. H.265 — на 30–50% меньше при том же качестве, но не везде играет. AV1 — ещё меньше, кодирует медленнее (быстро на новых видеокартах). VP9 — для WebM. ProRes и DNxHR — для монтажа (большие файлы). FFV1 — без потерь. «Копировать» — мгновенно, без потери качества, если формат подходит. По умолчанию: H.264.'**
+  String get pVideoCodecHelp;
+
+  /// No description provided for @pAudioCodec.
+  ///
+  /// In ru, this message translates to:
+  /// **'Аудиокодек'**
+  String get pAudioCodec;
+
+  /// No description provided for @pAudioCodecHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чем сжимать звук'**
+  String get pAudioCodecHint;
+
+  /// No description provided for @pHardware.
+  ///
+  /// In ru, this message translates to:
+  /// **'Аппаратное кодирование'**
+  String get pHardware;
+
+  /// No description provided for @pHardwareOn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Используется видеокарта: {name}'**
+  String pHardwareOn(String name);
+
+  /// No description provided for @pHardwareOff.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кодирует процессор: {name}'**
+  String pHardwareOff(String name);
+
+  /// No description provided for @pHardwareHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видеокарта (NVENC, Quick Sync, AMF, VAAPI) кодирует в 5–20 раз быстрее процессора, но при том же размере файла качество немного ниже. Для быстрых задач — включите, для архива и минимального размера — выключите. Если подходящей видеокарты нет, используется процессор. По умолчанию: включено.'**
+  String get pHardwareHelp;
+
+  /// No description provided for @pEncoder.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кодировщик'**
+  String get pEncoder;
+
+  /// No description provided for @pEncoderHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конкретная реализация кодека из сборки ffmpeg'**
+  String get pEncoderHint;
+
+  /// No description provided for @pRateMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Режим'**
+  String get pRateMode;
+
+  /// No description provided for @pRateModeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как управлять размером и качеством'**
+  String get pRateModeHint;
+
+  /// No description provided for @pRateModeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'«Качество» (CRF/CQ) — лучший выбор почти всегда: постоянное качество, размер подстраивается под сложность сцены. «Битрейт» — средний поток в кбит/с, предсказуемый размер. «Постоянный» — одинаковый поток для стриминга и старых плееров. «Размер файла» — укажите, сколько мегабайт должно получиться (например, лимит мессенджера), битрейт рассчитается сам, по возможности в два прохода. По умолчанию: «Качество».'**
+  String get pRateModeHelp;
+
+  /// No description provided for @pQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество ({scale})'**
+  String pQuality(String scale);
+
+  /// No description provided for @pQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше число — лучше качество и больше файл'**
+  String get pQualityHint;
+
+  /// No description provided for @pQualityHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это «постоянное качество» кодировщика: каждая сцена кодируется так, чтобы выглядеть одинаково хорошо. Шаг в 6 единиц примерно вдвое меняет размер. Для x264: 18 — визуально без потерь, 23 — стандарт, 28 — заметно хуже. У AV1/VP9 шкала до 63. Значение по умолчанию для этого кодировщика: {value}.'**
+  String pQualityHelp(int value);
+
+  /// No description provided for @pVideoBitrate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Битрейт видео'**
+  String get pVideoBitrate;
+
+  /// No description provided for @pVideoBitrateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сколько килобит в секунду на видео'**
+  String get pVideoBitrateHint;
+
+  /// No description provided for @pVideoBitrateHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ориентиры для H.264: 1080p — 4000–8000, 720p — 2500–5000, 480p — 1000–2000 кбит/с. H.265/AV1 нужно примерно на 30–50% меньше.'**
+  String get pVideoBitrateHelp;
+
+  /// No description provided for @pTargetSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер файла'**
+  String get pTargetSize;
+
+  /// No description provided for @pTargetSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Итоговый файл будет не больше этого'**
+  String get pTargetSizeHint;
+
+  /// No description provided for @pTargetSizeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Битрейт рассчитывается из длительности: (размер × 8) / секунды − звук, с запасом 3% на контейнер. Слишком маленький размер для длинного видео даст «мыло» — уменьшите разрешение. Discord: 10 МБ (ставьте 9,5), Telegram для ботов: 50 МБ.'**
+  String get pTargetSizeHelp;
+
+  /// No description provided for @pTwoPass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Два прохода'**
+  String get pTwoPass;
+
+  /// No description provided for @pTwoPassHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точнее попадает в размер, но вдвое дольше'**
+  String get pTwoPassHint;
+
+  /// No description provided for @pTwoPassHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Первый проход анализирует видео, второй распределяет биты: сложным сценам больше, простым меньше. Даёт лучшее качество при заданном размере. Для режима «Качество» не нужен. По умолчанию: включено.'**
+  String get pTwoPassHelp;
+
+  /// No description provided for @pSpeed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скорость кодирования'**
+  String get pSpeed;
+
+  /// No description provided for @pSpeedHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Медленнее — меньше файл при том же качестве'**
+  String get pSpeedHint;
+
+  /// No description provided for @pSpeedHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пресет скорости кодировщика (x264: veryfast…veryslow, NVENC: p1…p7, SVT-AV1: 12…4). Качество задаётся отдельно; медленный пресет лишь лучше сжимает. «Средне» — разумный баланс; «медленно» даёт −5–10% размера за ×2–3 времени. По умолчанию: средне.'**
+  String get pSpeedHelp;
+
+  /// No description provided for @pResolution.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разрешение'**
+  String get pResolution;
+
+  /// No description provided for @pResolutionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить до этой высоты (не увеличивает)'**
+  String get pResolutionHint;
+
+  /// No description provided for @pResolutionHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пропорции сохраняются, ширина округляется до чётной. Уменьшение разрешения — самый эффективный способ сжать: 1080p → 720p уменьшает файл примерно вдвое. По умолчанию: как в исходнике.'**
+  String get pResolutionHelp;
+
+  /// No description provided for @pFps.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота кадров'**
+  String get pFps;
+
+  /// No description provided for @pFpsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадров в секунду'**
+  String get pFpsHint;
+
+  /// No description provided for @pTenBit.
+  ///
+  /// In ru, this message translates to:
+  /// **'10 бит'**
+  String get pTenBit;
+
+  /// No description provided for @pTenBitHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше полос на градиентах, нужно для HDR'**
+  String get pTenBitHint;
+
+  /// No description provided for @pTenBitHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'10 бит на канал убирают «ступеньки» на небе и в тенях и немного улучшают сжатие у H.265/AV1. Старые устройства и некоторые браузеры H.264 10 бит не воспроизводят. По умолчанию: выключено.'**
+  String get pTenBitHelp;
+
+  /// No description provided for @pProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиль'**
+  String get pProfile;
+
+  /// No description provided for @pProfileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ограничения совместимости кодека'**
+  String get pProfileHint;
+
+  /// No description provided for @pIntermediateProfileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество и размер монтажного формата'**
+  String get pIntermediateProfileHint;
+
+  /// No description provided for @pIntermediateProfileHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'ProRes: proxy < lt < standard < hq < 4444 < 4444xq. DNxHR: lb < sq < hq < hqx (10 бит) < 444. Для монтажа обычно хватает HQ. По умолчанию: HQ.'**
+  String get pIntermediateProfileHelp;
+
+  /// No description provided for @pTune.
+  ///
+  /// In ru, this message translates to:
+  /// **'Настройка под содержимое'**
+  String get pTune;
+
+  /// No description provided for @pTuneHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оптимизация под тип видео'**
+  String get pTuneHint;
+
+  /// No description provided for @pTuneHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'film — живое видео, animation — мультфильмы, grain — сохранить зерно плёнки, stillimage — слайд-шоу, zerolatency — стриминг с минимальной задержкой. По умолчанию: нет.'**
+  String get pTuneHelp;
+
+  /// No description provided for @pKeyint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Интервал ключевых кадров'**
+  String get pKeyint;
+
+  /// No description provided for @pKeyintHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как часто можно начать воспроизведение с любого места'**
+  String get pKeyintHint;
+
+  /// No description provided for @pKeyintHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чем чаще ключевые кадры, тем быстрее перемотка и точнее быстрая обрезка, но файл больше. Для YouTube и стриминга рекомендуют 2 секунды. По умолчанию: авто (решает кодировщик).'**
+  String get pKeyintHelp;
+
+  /// No description provided for @pAudioBitrate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Битрейт звука'**
+  String get pAudioBitrate;
+
+  /// No description provided for @pAudioBitrateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше — лучше звук и больше файл'**
+  String get pAudioBitrateHint;
+
+  /// No description provided for @pAudioBitrateHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ориентиры: AAC 128 — нормально для речи и музыки, 192–256 — для музыки, 320 — максимум. Opus звучит хорошо уже на 96. MP3 320 — предел формата. По умолчанию: зависит от кодека.'**
+  String get pAudioBitrateHelp;
+
+  /// No description provided for @pChannels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каналы'**
+  String get pChannels;
+
+  /// No description provided for @pChannelsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Например, свести 5.1 в стерео'**
+  String get pChannelsHint;
+
+  /// No description provided for @pSampleRate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота дискретизации'**
+  String get pSampleRate;
+
+  /// No description provided for @pSampleRateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'48 кГц — видео, 44,1 кГц — музыка'**
+  String get pSampleRateHint;
+
+  /// No description provided for @pFaststart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстрый старт (faststart)'**
+  String get pFaststart;
+
+  /// No description provided for @pFaststartHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео начинает играть в браузере до полной загрузки'**
+  String get pFaststartHint;
+
+  /// No description provided for @pFaststartHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переносит индекс (moov) в начало MP4/MOV. Нужен для сайтов и мессенджеров, ничего не стоит. По умолчанию: включено.'**
+  String get pFaststartHelp;
+
+  /// No description provided for @pKeepSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить субтитры'**
+  String get pKeepSubs;
+
+  /// No description provided for @pKeepSubsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скопировать дорожки субтитров как есть'**
+  String get pKeepSubsHint;
+
+  /// No description provided for @pKeepMetadata.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить метаданные'**
+  String get pKeepMetadata;
+
+  /// No description provided for @pKeepMetadataHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Теги, главы, дата съёмки. Выключите, чтобы удалить'**
+  String get pKeepMetadataHint;
+
+  /// No description provided for @pTrimMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Способ обрезки'**
+  String get pTrimMode;
+
+  /// No description provided for @trimFast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстро'**
+  String get trimFast;
+
+  /// No description provided for @trimPrecise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точно до кадра'**
+  String get trimPrecise;
+
+  /// No description provided for @trimFastHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мгновенно, без потери качества; начало — по ближайшему ключевому кадру'**
+  String get trimFastHint;
+
+  /// No description provided for @trimPreciseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перекодирует фрагмент: точные границы, но дольше'**
+  String get trimPreciseHint;
+
+  /// No description provided for @pTrimModeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео хранится группами кадров, которые начинаются с ключевого кадра. Быстрая обрезка копирует данные как есть, поэтому может начаться чуть раньше выбранной точки — до ближайшего ключевого кадра (обычно 0–5 секунд). Точная перекодирует фрагмент и режет ровно по кадру; качество почти не страдает.'**
+  String get pTrimModeHelp;
+
+  /// No description provided for @pStart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало'**
+  String get pStart;
+
+  /// No description provided for @pStartHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЧЧ:ММ:СС.мс или секунды'**
+  String get pStartHint;
+
+  /// No description provided for @pEnd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конец'**
+  String get pEnd;
+
+  /// No description provided for @pEndHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность файла: {total}'**
+  String pEndHint(String total);
+
+  /// No description provided for @keyframeStartHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фактически начнётся с {time} (ключевой кадр)'**
+  String keyframeStartHint(String time);
+
+  /// No description provided for @setStartHere.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало = {time}'**
+  String setStartHere(String time);
+
+  /// No description provided for @setEndHere.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конец = {time}'**
+  String setEndHere(String time);
+
+  /// No description provided for @trimLength.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фрагмент: {time}'**
+  String trimLength(String time);
+
+  /// No description provided for @pTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дорожка'**
+  String get pTrack;
+
+  /// No description provided for @pTrackHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какую звуковую дорожку извлечь'**
+  String get pTrackHint;
+
+  /// No description provided for @pExtractFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pExtractFormat;
+
+  /// No description provided for @pExtractFormatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перекодировать в выбранный формат'**
+  String get pExtractFormatHint;
+
+  /// No description provided for @pExtractFormatHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'«Как есть» копирует звук без изменений — мгновенно и без потерь, формат файла подбирается под кодек. Выберите MP3/AAC/Opus, если нужен конкретный формат для плеера, FLAC/WAV — для обработки без потерь.'**
+  String get pExtractFormatHelp;
+
+  /// No description provided for @extractAsIs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как есть (без перекодирования)'**
+  String get extractAsIs;
+
+  /// No description provided for @extractCopyHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Будет файл .{ext} без потери качества'**
+  String extractCopyHint(String ext);
+
+  /// No description provided for @pTrackMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что сделать'**
+  String get pTrackMode;
+
+  /// No description provided for @trackReplace.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заменить'**
+  String get trackReplace;
+
+  /// No description provided for @trackAdd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить'**
+  String get trackAdd;
+
+  /// No description provided for @trackRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить звук'**
+  String get trackRemove;
+
+  /// No description provided for @trackReplaceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать старый звук и поставить новый'**
+  String get trackReplaceHint;
+
+  /// No description provided for @trackAddHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить старые дорожки и добавить ещё одну (например, перевод)'**
+  String get trackAddHint;
+
+  /// No description provided for @trackRemoveHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сделать видео без звука'**
+  String get trackRemoveHint;
+
+  /// No description provided for @pAudioFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл со звуком'**
+  String get pAudioFile;
+
+  /// No description provided for @pAudioFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Можно взять звук из любого аудио- или видеофайла'**
+  String get pAudioFileHint;
+
+  /// No description provided for @pShortest.
+  ///
+  /// In ru, this message translates to:
+  /// **'По самой короткой дорожке'**
+  String get pShortest;
+
+  /// No description provided for @pShortestHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обрезать результат, когда кончится видео или звук'**
+  String get pShortestHint;
+
+  /// No description provided for @pLanguage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Язык дорожки'**
+  String get pLanguage;
+
+  /// No description provided for @pLanguageHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плееры покажут его при выборе дорожки'**
+  String get pLanguageHint;
+
+  /// No description provided for @losslessVideoTag.
+  ///
+  /// In ru, this message translates to:
+  /// **'видео без перекодирования'**
+  String get losslessVideoTag;
+
+  /// No description provided for @videoCopiedNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео копируется — быстро и без потери качества'**
+  String get videoCopiedNote;
+
+  /// No description provided for @pLoudTarget.
+  ///
+  /// In ru, this message translates to:
+  /// **'Целевая громкость'**
+  String get pLoudTarget;
+
+  /// No description provided for @pLoudTargetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'{lufs} LUFS, пики не выше {tp} dBTP'**
+  String pLoudTargetHint(String lufs, String tp);
+
+  /// No description provided for @pLoudTargetHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'LUFS — воспринимаемая громкость. Площадки сами приглушают слишком громкое, поэтому лучше сразу попасть в их цель: YouTube и Spotify −14, подкасты (Apple) −16, ТВ по EBU R128 −23. True Peak ограничивает пики, чтобы не было искажений после сжатия в MP3/AAC.'**
+  String get pLoudTargetHelp;
+
+  /// No description provided for @loudStreaming.
+  ///
+  /// In ru, this message translates to:
+  /// **'YouTube, Spotify'**
+  String get loudStreaming;
+
+  /// No description provided for @loudPodcast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подкаст'**
+  String get loudPodcast;
+
+  /// No description provided for @loudBroadcast.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТВ (EBU R128)'**
+  String get loudBroadcast;
+
+  /// No description provided for @loudApple.
+  ///
+  /// In ru, this message translates to:
+  /// **'Apple Music'**
+  String get loudApple;
+
+  /// No description provided for @pTwoPassLoud.
+  ///
+  /// In ru, this message translates to:
+  /// **'Двухпроходная нормализация'**
+  String get pTwoPassLoud;
+
+  /// No description provided for @pTwoPassLoudOn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сначала измерить, затем точно привести громкость'**
+  String get pTwoPassLoudOn;
+
+  /// No description provided for @pTwoPassLoudOff.
+  ///
+  /// In ru, this message translates to:
+  /// **'Один проход: быстрее, но с динамической подстройкой'**
+  String get pTwoPassLoudOff;
+
+  /// No description provided for @pTwoPassLoudHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Первый проход измеряет громкость всего файла, второй применяет одно и то же усиление ко всему — динамика не меняется, результат точно в цели. Однопроходный режим подстраивает громкость на лету и может «качать» звук. По умолчанию: два прохода.'**
+  String get pTwoPassLoudHelp;
+
+  /// No description provided for @normalizeNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук будет перекодирован ({codec}), видео скопировано'**
+  String normalizeNote(String codec);
+
+  /// No description provided for @pAnimFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pAnimFormat;
+
+  /// No description provided for @pAnimFormatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'GIF работает везде, WebP и APNG — качественнее и меньше'**
+  String get pAnimFormatHint;
+
+  /// No description provided for @pAnimFormatHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'GIF ограничен 256 цветами, поэтому для него строится оптимальная палитра под конкретное видео. WebP даёт полноцветную анимацию в 2–5 раз меньше. APNG — без потерь, но тяжёлый. По умолчанию: GIF.'**
+  String get pAnimFormatHelp;
+
+  /// No description provided for @pDuration.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность'**
+  String get pDuration;
+
+  /// No description provided for @pDurationHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пусто — до конца файла'**
+  String get pDurationHint;
+
+  /// No description provided for @pGifFps.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадров в секунду'**
+  String get pGifFps;
+
+  /// No description provided for @pGifFpsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'10–15 обычно достаточно'**
+  String get pGifFpsHint;
+
+  /// No description provided for @pGifWidth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина'**
+  String get pGifWidth;
+
+  /// No description provided for @pGifWidthHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота подберётся по пропорциям'**
+  String get pGifWidthHint;
+
+  /// No description provided for @pDither.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дизеринг'**
+  String get pDither;
+
+  /// No description provided for @pDitherHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как имитировать недостающие цвета'**
+  String get pDitherHint;
+
+  /// No description provided for @pDitherHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Sierra — мягкий и аккуратный (по умолчанию). Floyd–Steinberg — больше деталей, больше «шума». Bayer — регулярный узор, хорошо сжимается. Без дизеринга — полосы на градиентах, но меньше файл.'**
+  String get pDitherHelp;
+
+  /// No description provided for @pStaticBg.
+  ///
+  /// In ru, this message translates to:
+  /// **'Статичный фон'**
+  String get pStaticBg;
+
+  /// No description provided for @pStaticBgHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучше цвета, если двигается только часть кадра'**
+  String get pStaticBgHint;
+
+  /// No description provided for @pWebpQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество WebP'**
+  String get pWebpQuality;
+
+  /// No description provided for @pWebpQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'75 — хороший баланс'**
+  String get pWebpQualityHint;
+
+  /// No description provided for @pLoop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зациклить'**
+  String get pLoop;
+
+  /// No description provided for @pLoopHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторять анимацию бесконечно'**
+  String get pLoopHint;
+
+  /// No description provided for @gifFrames.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count} кадров'**
+  String gifFrames(int count);
+
+  /// No description provided for @urlsLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ссылки'**
+  String get urlsLabel;
+
+  /// No description provided for @urlsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставьте одну или несколько ссылок (на видео, плейлист или канал)'**
+  String get urlsHint;
+
+  /// No description provided for @pasteFromClipboard.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить из буфера: {url}'**
+  String pasteFromClipboard(String url);
+
+  /// No description provided for @analyzeLinks.
+  ///
+  /// In ru, this message translates to:
+  /// **'Получить информацию'**
+  String get analyzeLinks;
+
+  /// No description provided for @downloadWithoutAnalysis.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачать сразу'**
+  String get downloadWithoutAnalysis;
+
+  /// No description provided for @download.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачать'**
+  String get download;
+
+  /// No description provided for @downloadN.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачать ({count})'**
+  String downloadN(int count);
+
+  /// No description provided for @downloadsQueued.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{В очередь добавлена {count} загрузка} few{В очередь добавлено {count} загрузки} many{В очередь добавлено {count} загрузок} other{В очередь добавлено {count} загрузки}}'**
+  String downloadsQueued(int count);
+
+  /// No description provided for @downloadsNeedYtdlpTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нужен yt-dlp'**
+  String get downloadsNeedYtdlpTitle;
+
+  /// No description provided for @denoHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Совет: для YouTube установите Deno в «Компонентах» — без него часть форматов недоступна.'**
+  String get denoHint;
+
+  /// No description provided for @selectedOf.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выбрано {selected} из {total}'**
+  String selectedOf(int selected, int total);
+
+  /// No description provided for @selectAll.
+  ///
+  /// In ru, this message translates to:
+  /// **'Все'**
+  String get selectAll;
+
+  /// No description provided for @selectNone.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ни одного'**
+  String get selectNone;
+
+  /// No description provided for @rangesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Номера: 1,3,5-10'**
+  String get rangesHint;
+
+  /// No description provided for @availableQualities.
+  ///
+  /// In ru, this message translates to:
+  /// **'Есть: {list}'**
+  String availableQualities(String list);
+
+  /// No description provided for @exactFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Точный формат (необязательно)'**
+  String get exactFormat;
+
+  /// No description provided for @exactFormatAuto.
+  ///
+  /// In ru, this message translates to:
+  /// **'Автоматически по качеству ниже'**
+  String get exactFormatAuto;
+
+  /// No description provided for @videoOnly.
+  ///
+  /// In ru, this message translates to:
+  /// **'только видео'**
+  String get videoOnly;
+
+  /// No description provided for @pYtQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество'**
+  String get pYtQuality;
+
+  /// No description provided for @pYtQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучшее доступное или не выше выбранного'**
+  String get pYtQualityHint;
+
+  /// No description provided for @ytBest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучшее'**
+  String get ytBest;
+
+  /// No description provided for @ytUpTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'до {height}'**
+  String ytUpTo(String height);
+
+  /// No description provided for @ytAudioOnly.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только звук'**
+  String get ytAudioOnly;
+
+  /// No description provided for @pYtAudioFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат звука'**
+  String get pYtAudioFormat;
+
+  /// No description provided for @pYtAudioFormatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'В какой формат сохранить звук'**
+  String get pYtAudioFormatHint;
+
+  /// No description provided for @pYtContainerHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'MP4 — для совместимости, MKV — без ограничений'**
+  String get pYtContainerHint;
+
+  /// No description provided for @pYtContainerHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сайты часто отдают видео и звук отдельно; yt-dlp склеивает их через ffmpeg в выбранный контейнер. Для MP4 предпочитаются H.264/AAC, чтобы не перекодировать. «Как на сайте» сохраняет исходный формат (часто WebM).'**
+  String get pYtContainerHelp;
+
+  /// No description provided for @ytContainerAuto.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как на сайте'**
+  String get ytContainerAuto;
+
+  /// No description provided for @pYtSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Субтитры'**
+  String get pYtSubs;
+
+  /// No description provided for @pYtSubsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачать и вшить субтитры авторов'**
+  String get pYtSubsHint;
+
+  /// No description provided for @pYtAutoSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Автоматические субтитры'**
+  String get pYtAutoSubs;
+
+  /// No description provided for @pYtAutoSubsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сгенерированные сайтом (например, YouTube)'**
+  String get pYtAutoSubsHint;
+
+  /// No description provided for @pYtSubLangs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Языки субтитров'**
+  String get pYtSubLangs;
+
+  /// No description provided for @pYtSubLangsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Через запятую: ru,en или all'**
+  String get pYtSubLangsHint;
+
+  /// No description provided for @pYtEmbed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обложка, метаданные и главы'**
+  String get pYtEmbed;
+
+  /// No description provided for @pYtEmbedHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вшить в файл'**
+  String get pYtEmbedHint;
+
+  /// No description provided for @pSponsorBlock.
+  ///
+  /// In ru, this message translates to:
+  /// **'SponsorBlock'**
+  String get pSponsorBlock;
+
+  /// No description provided for @pSponsorBlockHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рекламные вставки авторов'**
+  String get pSponsorBlockHint;
+
+  /// No description provided for @pSponsorBlockHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Использует базу sponsor.ajay.app. «Отметить» добавляет главы, «Вырезать» удаляет спонсорские вставки, саморекламу и просьбы подписаться (требует перекодирования фрагментов).'**
+  String get pSponsorBlockHelp;
+
+  /// No description provided for @sbOff.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не трогать'**
+  String get sbOff;
+
+  /// No description provided for @sbMark.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отметить главами'**
+  String get sbMark;
+
+  /// No description provided for @sbRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вырезать'**
+  String get sbRemove;
+
+  /// No description provided for @pCookies.
+  ///
+  /// In ru, this message translates to:
+  /// **'Cookies из браузера'**
+  String get pCookies;
+
+  /// No description provided for @pCookiesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для приватных, 18+ и «подтвердите, что вы не бот»'**
+  String get pCookiesHint;
+
+  /// No description provided for @pCookiesHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'yt-dlp прочитает cookies входа из выбранного браузера, как будто видео открыли в нём. Браузер лучше закрыть (Chrome блокирует файл cookies). Cookies никуда не отправляются, кроме самого сайта.'**
+  String get pCookiesHelp;
+
+  /// No description provided for @pArchive.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не качать повторно'**
+  String get pArchive;
+
+  /// No description provided for @pArchiveHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вести список скачанного в папке загрузок'**
+  String get pArchiveHint;
+
+  /// No description provided for @pTemplate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шаблон имени файла'**
+  String get pTemplate;
+
+  /// No description provided for @pTemplateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поля yt-dlp: %(title)s, %(id)s, %(uploader)s…'**
+  String get pTemplateHint;
+
+  /// No description provided for @pTemplateHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Например: «%(uploader)s/%(title)s.%(ext)s» разложит видео по папкам каналов. Полный список полей — в документации yt-dlp (OUTPUT TEMPLATE).'**
+  String get pTemplateHelp;
+
+  /// No description provided for @pRateLimit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ограничение скорости'**
+  String get pRateLimit;
+
+  /// No description provided for @pRateLimitHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Например 5M = 5 МБ/с; пусто — без ограничения'**
+  String get pRateLimitHint;
+
+  /// No description provided for @pProxy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прокси'**
+  String get pProxy;
+
+  /// No description provided for @pProxyHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'http://, https:// или socks5://'**
+  String get pProxyHint;
+
+  /// No description provided for @setNextToSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранять рядом с исходным'**
+  String get setNextToSource;
+
+  /// No description provided for @setNextToSourceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат в той же папке, что и исходный файл'**
+  String get setNextToSourceHint;
+
+  /// No description provided for @setAria2.
+  ///
+  /// In ru, this message translates to:
+  /// **'Загрузка через aria2c'**
+  String get setAria2;
+
+  /// No description provided for @setAria2Hint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Многопоточная загрузка, если aria2c установлен'**
+  String get setAria2Hint;
+
+  /// No description provided for @setAria2Help.
+  ///
+  /// In ru, this message translates to:
+  /// **'aria2c открывает несколько соединений к серверу и часто качает быстрее на медленных серверах. Для YouTube обычно хватает встроенных параллельных фрагментов. По умолчанию: выключено.'**
+  String get setAria2Help;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

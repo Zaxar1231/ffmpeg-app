@@ -26,6 +26,7 @@ String toolErrorText(AppLocalizations l, ToolErrorKind kind, String? detail) {
     ToolErrorKind.ytdlpUnsupportedUrl => l.errUnsupportedUrl,
     ToolErrorKind.ytdlpLoginRequired => l.errLoginRequired,
     ToolErrorKind.ytdlpUnavailable => l.errVideoUnavailable,
+    ToolErrorKind.loudnessMeasureFailed => l.errLoudnessMeasure,
     ToolErrorKind.canceled => l.errCanceled,
     ToolErrorKind.unknown => l.errUnknown,
   };

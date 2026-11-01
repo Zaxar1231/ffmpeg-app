@@ -286,6 +286,23 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
       // Paths
       _Item(
         _Section.paths,
+        l.setNextToSource,
+        l.setNextToSourceHint,
+        null,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          Switch(
+            value: s.outputNextToSource,
+            onChanged: (v) => up((a) => a.copyWith(outputNextToSource: v)),
+          ),
+          isDefault: s.outputNextToSource == d.outputNextToSource,
+          reset: () => up((a) => a.copyWith(outputNextToSource: d.outputNextToSource)),
+        ),
+      ),
+      _Item(
+        _Section.paths,
         l.setOutputDir,
         l.setOutputDirHint,
         l.setOutputDirHelp,
@@ -374,6 +391,23 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         ),
       ),
       // Downloads
+      _Item(
+        _Section.downloads,
+        l.setAria2,
+        l.setAria2Hint,
+        l.setAria2Help,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          Switch(
+            value: s.ytdlpUseAria2,
+            onChanged: (v) => up((a) => a.copyWith(ytdlpUseAria2: v)),
+          ),
+          isDefault: s.ytdlpUseAria2 == d.ytdlpUseAria2,
+          reset: () => up((a) => a.copyWith(ytdlpUseAria2: d.ytdlpUseAria2)),
+        ),
+      ),
       _Item(
         _Section.downloads,
         l.setFragments,
@@ -544,11 +578,15 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
       ),
       _Section.paths => a.copyWith(
         outputDir: () => null,
+        outputNextToSource: d.outputNextToSource,
         customFfmpegPath: () => null,
         customFfprobePath: () => null,
         customYtdlpPath: () => null,
       ),
-      _Section.downloads => a.copyWith(ytdlpConcurrentFragments: d.ytdlpConcurrentFragments),
+      _Section.downloads => a.copyWith(
+        ytdlpConcurrentFragments: d.ytdlpConcurrentFragments,
+        ytdlpUseAria2: d.ytdlpUseAria2,
+      ),
       _Section.updates => a.copyWith(
         ffmpegUpdatePolicy: d.ffmpegUpdatePolicy,
         ytdlpUpdatePolicy: d.ytdlpUpdatePolicy,

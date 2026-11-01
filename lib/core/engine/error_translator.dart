@@ -22,6 +22,7 @@ enum ToolErrorKind {
   ytdlpUnsupportedUrl,
   ytdlpLoginRequired,
   ytdlpUnavailable,
+  loudnessMeasureFailed,
   canceled,
   unknown,
 }

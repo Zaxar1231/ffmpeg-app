@@ -11,6 +11,7 @@ import '../engine/error_translator.dart';
 import '../engine/process_runner.dart';
 import '../engine/progress.dart';
 import '../providers.dart';
+import 'job_steps.dart';
 import 'queue_models.dart';
 
 class QueueState {
@@ -59,7 +60,7 @@ class QueueController extends Notifier<QueueState> {
       kind: r.kind,
       title: r.title,
       tool: r.tool.name,
-      argsJson: jsonEncode(r.args),
+      argsJson: encodeSteps(r.effectiveSteps),
       inputPath: r.inputPath,
       outputPath: r.outputPath,
       durationUs: r.totalDuration?.inMicroseconds,
@@ -126,66 +127,129 @@ class QueueController extends Notifier<QueueState> {
       errorDetail: const Value(null),
     );
     await _saveJob(job);
-    _replace(job.id, (i) => i.copyWith(progress: () => null, attemptLog: const []));
+    _replace(job.id, (i) => i.copyWith(progress: () => null, attemptLog: const [], step: 0));
 
-    final exe = _executableFor(item.tool);
-    if (exe == null) {
-      await _finish(job, JobStatus.failed, error: const ToolError(ToolErrorKind.toolMissing), log: const []);
-      return;
-    }
+    final steps = item.steps;
     final out = job.outputPath;
     if (out != null) {
       await Directory(File(out).parent.path).create(recursive: true);
     }
+    final tmp = await Directory.systemTemp.createTemp('kadra_job_');
+    final vars = <String, String>{'tmp': tmp.path};
+    final allLog = <String>[];
+    RunResult? result;
+    ToolError? failure;
+    var canceled = false;
 
-    final handle = await ref
-        .read(processRunnerProvider)
-        .start(
-          ToolInvocation(
-            executable: exe,
-            args: item.args,
-            totalDuration: item.totalDuration,
-            parseFfmpegProgress: item.tool == JobTool.ffmpeg,
-          ),
+    try {
+      for (var i = 0; i < steps.length; i++) {
+        final step = steps[i];
+        final exe = _executableFor(step.tool);
+        if (exe == null) {
+          failure = const ToolError(ToolErrorKind.toolMissing);
+          break;
+        }
+        final List<String> args;
+        try {
+          args = substitute(step.args, vars);
+        } on StateError catch (e) {
+          failure = ToolError(ToolErrorKind.unknown, line: e.message);
+          break;
+        }
+        _replace(job.id, (it) => it.copyWith(step: i));
+        final handle = await ref
+            .read(processRunnerProvider)
+            .start(
+              ToolInvocation(
+                executable: exe,
+                args: args,
+                workingDirectory: substituteOpt(step.workingDirectory, vars),
+                totalDuration: step.totalDuration ?? item.totalDuration,
+                progress: switch (step.tool) {
+                  JobTool.ffmpeg => ProgressKind.ffmpeg,
+                  JobTool.ytdlp => ProgressKind.ytdlp,
+                  JobTool.ffprobe => ProgressKind.none,
+                },
+              ),
+            );
+        _handles[job.id] = handle;
+        final progressSub = handle.progress.listen(
+          (p) =>
+              _onProgress(job.id, p.withFraction(p.fraction == null ? null : overallFraction(steps, i, p.fraction!))),
         );
-    _handles[job.id] = handle;
-    final progressSub = handle.progress.listen((p) => _onProgress(job.id, p));
-    final logSub = handle.logLines.listen((l) {
-      final cur = state.byId(job.id);
-      if (cur == null) return;
-      final log = [...cur.attemptLog, l];
-      _replace(job.id, (i) => i.copyWith(attemptLog: log.length > 200 ? log.sublist(log.length - 200) : log));
-    });
-    final result = await handle.done;
-    await progressSub.cancel();
-    await logSub.cancel();
-    _handles.remove(job.id);
+        final logSub = handle.logLines.listen((l) {
+          final cur = state.byId(job.id);
+          if (cur == null) return;
+          final log = [...cur.attemptLog, l];
+          _replace(job.id, (it) => it.copyWith(attemptLog: log.length > 200 ? log.sublist(log.length - 200) : log));
+        });
+        result = await handle.done;
+        await progressSub.cancel();
+        await logSub.cancel();
+        _handles.remove(job.id);
+        if (steps.length > 1) allLog.add('── ${step.label ?? '${i + 1}/${steps.length}'} ──');
+        allLog.addAll(result.log);
+        if (!ref.mounted) return;
+        if (result.canceled) {
+          canceled = true;
+          break;
+        }
+        if (!result.success) {
+          failure = translateToolError(result.log, startError: result.startError);
+          break;
+        }
+        switch (step.capture) {
+          case StepCapture.none:
+            break;
+          case StepCapture.loudnorm:
+            final m = parseLoudnormJson(result.log);
+            if (m == null) {
+              failure = const ToolError(ToolErrorKind.loudnessMeasureFailed);
+              break;
+            }
+            vars.addAll(m);
+          case StepCapture.ytdlpFilePath:
+            final path = parseYtdlpFilePath(result.log);
+            if (path != null) {
+              job = (state.byId(job.id)?.job ?? job).copyWith(outputPath: Value(path));
+              await _saveJob(job);
+            }
+        }
+        if (failure != null) break;
+      }
+    } finally {
+      try {
+        await tmp.delete(recursive: true);
+      } on FileSystemException {
+        // ignore
+      }
+    }
     if (!ref.mounted) return;
 
-    // Status may have changed (e.g. canceled) while running.
+    // Status may have changed (e.g. priority) while running.
     job = state.byId(job.id)?.job ?? job;
     final logIsResult = (QueueItem(job: job).extra['logIsResult'] as bool?) ?? false;
+    final outNow = job.outputPath;
 
-    if (result.canceled) {
-      await _deletePartial(out);
-      await _finish(job, JobStatus.canceled, log: result.log);
-    } else if (result.success) {
+    if (canceled) {
+      await _deletePartial(outNow);
+      await _finish(job, JobStatus.canceled, log: allLog);
+    } else if (failure == null) {
       int? size;
-      if (out != null && await File(out).exists()) size = await File(out).length();
+      if (outNow != null && await File(outNow).exists()) size = await File(outNow).length();
       await _finish(
         job,
         JobStatus.completed,
-        log: result.log,
+        log: allLog,
         outputSize: size,
-        findings: logIsResult ? result.log.length : null,
+        findings: logIsResult ? (result?.log.length ?? 0) : null,
       );
     } else {
-      final err = translateToolError(result.log, startError: result.startError);
-      if (job.attempts <= job.maxRetries && err.kind != ToolErrorKind.toolMissing) {
-        await _saveJob(job.copyWith(status: JobStatus.queued.name, log: Value(result.logText)));
+      if (job.attempts <= job.maxRetries && failure.kind != ToolErrorKind.toolMissing) {
+        await _saveJob(job.copyWith(status: JobStatus.queued.name, log: Value(allLog.join('\n'))));
       } else {
-        await _deletePartial(out);
-        await _finish(job, JobStatus.failed, error: err, log: result.log);
+        await _deletePartial(outNow);
+        await _finish(job, JobStatus.failed, error: failure, log: allLog);
       }
     }
   }

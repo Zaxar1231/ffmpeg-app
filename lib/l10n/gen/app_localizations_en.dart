@@ -832,6 +832,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errVideoUnavailable => 'The video is unavailable: removed, private or region-blocked.';
 
   @override
+  String get errLoudnessMeasure => 'Could not measure loudness: the audio is silent or missing.';
+
+  @override
   String get errCanceled => 'Canceled.';
 
   @override
@@ -1312,4 +1315,942 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get setShowCommandHelp =>
       'Before queueing, the generated ffmpeg command opens so you can copy, edit and run it. \"Show command\" is available on every job regardless. Default: off.';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get apply => 'Apply';
+
+  @override
+  String get rename => 'Rename';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get none => 'none';
+
+  @override
+  String get keepOriginal => 'Keep original';
+
+  @override
+  String get stereo => 'Stereo';
+
+  @override
+  String get mono => 'Mono';
+
+  @override
+  String get toEnd => 'to the end';
+
+  @override
+  String get addToQueue => 'Add to queue';
+
+  @override
+  String get runNow => 'Run now';
+
+  @override
+  String get otherFile => 'Other file';
+
+  @override
+  String saveTo(String path) {
+    return 'Save to: $path';
+  }
+
+  @override
+  String get chooseInputTitle => 'Choose a file';
+
+  @override
+  String get commandEditHint => 'You can edit the arguments before running (the ffmpeg path is added automatically).';
+
+  @override
+  String get commandParseError => 'Unterminated quote in the command';
+
+  @override
+  String get runCommand => 'Run';
+
+  @override
+  String stepLabel(String step) {
+    return 'step $step';
+  }
+
+  @override
+  String secondsShort(String value) {
+    return '$value s';
+  }
+
+  @override
+  String estimateSize(String size) {
+    return '≈ $size';
+  }
+
+  @override
+  String get estimateDependsOnContent => 'Size depends on the content';
+
+  @override
+  String encoderLabel(String name) {
+    return 'encoder $name';
+  }
+
+  @override
+  String get issueNoEncoder =>
+      'The installed ffmpeg build has no encoder for this codec. Pick another codec or install a full build.';
+
+  @override
+  String get issueVideoContainer =>
+      'This container does not support the selected video codec. Pick another codec or MKV.';
+
+  @override
+  String get issueAudioContainer =>
+      'This container does not support the selected audio codec. Pick another codec or MKV.';
+
+  @override
+  String get issueCopyContainer => 'The source codec cannot be copied into this container. Try MKV.';
+
+  @override
+  String get issueDurationUnknown => 'The file duration is unknown, so size or trim cannot be calculated.';
+
+  @override
+  String get issueTargetTooSmall =>
+      'The size is too small for this duration: less than 50 kb/s would remain for video. Increase the size or shorten the video.';
+
+  @override
+  String get issueNoTenBit => 'This encoder cannot do 10-bit; 8-bit will be used.';
+
+  @override
+  String get issueNoAudio => 'The file has no audio track.';
+
+  @override
+  String get issueNoVideo => 'The file has no video.';
+
+  @override
+  String get issueChooseAudio => 'Choose an audio file.';
+
+  @override
+  String get warnHdrSource =>
+      'The source is HDR. Without 10-bit and tone mapping colors will look washed out; proper HDR → SDR comes in the next stage.';
+
+  @override
+  String get warnLongGif => 'A GIF longer than 20 seconds will be huge. WebP or video is better.';
+
+  @override
+  String get groupFormat => 'Format';
+
+  @override
+  String get groupVideo => 'Video';
+
+  @override
+  String get groupAudio => 'Audio';
+
+  @override
+  String get groupOther => 'Other';
+
+  @override
+  String get groupTrim => 'Fragment';
+
+  @override
+  String get groupLoudness => 'Loudness';
+
+  @override
+  String get groupAnimation => 'Animation';
+
+  @override
+  String get groupDownloadQuality => 'Quality';
+
+  @override
+  String get groupDownloadExtras => 'Extras';
+
+  @override
+  String get presetsTitle => 'Presets';
+
+  @override
+  String get savePreset => 'Save as preset';
+
+  @override
+  String get presetNameLabel => 'Preset name';
+
+  @override
+  String get builtinPresets => 'Built-in';
+
+  @override
+  String get userPresets => 'My presets';
+
+  @override
+  String get userPresetsEmpty => 'Nothing yet. Set up Convert and press \"Save as preset\".';
+
+  @override
+  String get importPresets => 'Import';
+
+  @override
+  String get exportPresets => 'Export';
+
+  @override
+  String presetsImported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Imported $count presets',
+      one: 'Imported $count preset',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String presetsExported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Exported $count presets',
+      one: 'Exported $count preset',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get presetsImportFailed => 'This is not a Kadra presets file.';
+
+  @override
+  String get presetTelegram => 'For Telegram';
+
+  @override
+  String get presetTelegramDesc => 'H.264 up to 1080p with fast start; plays right in the chat.';
+
+  @override
+  String get presetYoutube => 'For YouTube';
+
+  @override
+  String get presetYoutubeDesc => 'High quality (CRF 18), AAC 320 kb/s 48 kHz; YouTube re-encodes anyway.';
+
+  @override
+  String get presetDiscord => 'For Discord (≤10 MB)';
+
+  @override
+  String get presetDiscordDesc => 'Two-pass to 9.5 MB, up to 720p; fits the free limit.';
+
+  @override
+  String get presetEditProres => 'For editing (ProRes)';
+
+  @override
+  String get presetEditProresDesc => 'ProRes 422 HQ + PCM: easy to edit, large files.';
+
+  @override
+  String get presetEditDnxhr => 'For editing (DNxHR)';
+
+  @override
+  String get presetEditDnxhrDesc => 'DNxHR HQ + PCM for Avid and DaVinci Resolve.';
+
+  @override
+  String get presetArchive => 'Lossless archive';
+
+  @override
+  String get presetArchiveDesc => 'FFV1 + FLAC in MKV: bit-exact, no quality loss.';
+
+  @override
+  String get presetMaxCompression => 'Maximum compression';
+
+  @override
+  String get presetMaxCompressionDesc => 'AV1 10-bit + Opus: smallest files at good quality, but slow to encode.';
+
+  @override
+  String get presetCompress => 'Just compress';
+
+  @override
+  String get presetCompressDesc => 'H.264, slightly lower quality, up to 1080p; usually 2–5× smaller.';
+
+  @override
+  String get codecCopy => 'Copy (no re-encode)';
+
+  @override
+  String get codecNoVideo => 'No video';
+
+  @override
+  String get codecNoAudio => 'No audio';
+
+  @override
+  String get codecFfv1 => 'FFV1 (lossless)';
+
+  @override
+  String get codecFlac => 'FLAC (lossless)';
+
+  @override
+  String get codecAlac => 'ALAC (lossless)';
+
+  @override
+  String get speedFastest => 'fastest';
+
+  @override
+  String get speedFast => 'fast';
+
+  @override
+  String get speedMedium => 'medium';
+
+  @override
+  String get speedSlow => 'slow';
+
+  @override
+  String get speedSlowest => 'slowest';
+
+  @override
+  String get rateQuality => 'Quality';
+
+  @override
+  String get rateBitrate => 'Bitrate';
+
+  @override
+  String get rateCbr => 'Constant';
+
+  @override
+  String get rateTargetSize => 'File size';
+
+  @override
+  String get zoneBetterQuality => 'better quality';
+
+  @override
+  String get zoneSmallerFile => 'smaller file';
+
+  @override
+  String get zoneSmoother => 'smoother';
+
+  @override
+  String get pContainer => 'Container (file format)';
+
+  @override
+  String get pContainerHint => 'What wraps the video and audio';
+
+  @override
+  String get pContainerHelp =>
+      'The container is the \"box\" holding the tracks. MP4 plays everywhere (phones, browsers, messengers). MKV accepts almost any codec and subtitles; good for archiving. MOV is for Apple and editing. WebM is for the web (VP9/AV1 + Opus). Audio only: MP3, M4A, Opus, FLAC, WAV. Default: MP4.';
+
+  @override
+  String get pVideoCodec => 'Video codec';
+
+  @override
+  String get pVideoCodecHint => 'How the picture is compressed';
+
+  @override
+  String get pVideoCodecHelp =>
+      'H.264: maximum compatibility. H.265: 30–50% smaller at the same quality but not supported everywhere. AV1: smaller still, slower to encode (fast on new GPUs). VP9: for WebM. ProRes and DNxHR: for editing (large files). FFV1: lossless. \"Copy\": instant and lossless if the container fits. Default: H.264.';
+
+  @override
+  String get pAudioCodec => 'Audio codec';
+
+  @override
+  String get pAudioCodecHint => 'How the audio is compressed';
+
+  @override
+  String get pHardware => 'Hardware encoding';
+
+  @override
+  String pHardwareOn(String name) {
+    return 'Using the GPU: $name';
+  }
+
+  @override
+  String pHardwareOff(String name) {
+    return 'Encoding on the CPU: $name';
+  }
+
+  @override
+  String get pHardwareHelp =>
+      'The GPU (NVENC, Quick Sync, AMF, VAAPI) encodes 5–20× faster than the CPU, but quality per file size is slightly lower. Turn on for quick jobs, off for archiving and smallest size. Without a suitable GPU the CPU is used. Default: on.';
+
+  @override
+  String get pEncoder => 'Encoder';
+
+  @override
+  String get pEncoderHint => 'A specific implementation from the ffmpeg build';
+
+  @override
+  String get pRateMode => 'Mode';
+
+  @override
+  String get pRateModeHint => 'How size and quality are controlled';
+
+  @override
+  String get pRateModeHelp =>
+      '\"Quality\" (CRF/CQ) is nearly always best: constant quality, size adapts to scene complexity. \"Bitrate\": average kb/s, predictable size. \"Constant\": the same rate throughout, for streaming and old players. \"File size\": enter the megabytes you need (e.g. a messenger limit); bitrate is computed, two-pass when possible. Default: Quality.';
+
+  @override
+  String pQuality(String scale) {
+    return 'Quality ($scale)';
+  }
+
+  @override
+  String get pQualityHint => 'Lower number: better quality, bigger file';
+
+  @override
+  String pQualityHelp(int value) {
+    return 'This is the encoder\'s \"constant quality\": every scene is encoded to look equally good. A change of 6 roughly doubles or halves the size. For x264: 18 is visually lossless, 23 is standard, 28 is noticeably worse. AV1/VP9 use a scale up to 63. Default for this encoder: $value.';
+  }
+
+  @override
+  String get pVideoBitrate => 'Video bitrate';
+
+  @override
+  String get pVideoBitrateHint => 'Kilobits per second for video';
+
+  @override
+  String get pVideoBitrateHelp =>
+      'H.264 guide: 1080p 4000–8000, 720p 2500–5000, 480p 1000–2000 kb/s. H.265/AV1 need about 30–50% less.';
+
+  @override
+  String get pTargetSize => 'File size';
+
+  @override
+  String get pTargetSizeHint => 'The result will not exceed this';
+
+  @override
+  String get pTargetSizeHelp =>
+      'The bitrate is computed from duration: (size × 8) / seconds − audio, with 3% headroom for the container. Too small a size for a long video looks blurry; lower the resolution. Discord: 10 MB (use 9.5), Telegram bots: 50 MB.';
+
+  @override
+  String get pTwoPass => 'Two-pass';
+
+  @override
+  String get pTwoPassHint => 'Hits the size more precisely, takes twice as long';
+
+  @override
+  String get pTwoPassHelp =>
+      'The first pass analyzes the video, the second distributes bits: more to complex scenes, less to simple ones. Best quality at a given size. Not needed in Quality mode. Default: on.';
+
+  @override
+  String get pSpeed => 'Encoding speed';
+
+  @override
+  String get pSpeedHint => 'Slower: smaller file at the same quality';
+
+  @override
+  String get pSpeedHelp =>
+      'The encoder speed preset (x264 veryfast…veryslow, NVENC p1…p7, SVT-AV1 12…4). Quality is set separately; a slower preset just compresses better. \"Medium\" is a good balance; \"slow\" saves 5–10% for 2–3× the time. Default: medium.';
+
+  @override
+  String get pResolution => 'Resolution';
+
+  @override
+  String get pResolutionHint => 'Downscale to this height (never upscales)';
+
+  @override
+  String get pResolutionHelp =>
+      'The aspect ratio is kept and the width rounded to even. Lowering the resolution is the most effective way to shrink: 1080p → 720p roughly halves the file. Default: keep original.';
+
+  @override
+  String get pFps => 'Frame rate';
+
+  @override
+  String get pFpsHint => 'Frames per second';
+
+  @override
+  String get pTenBit => '10-bit';
+
+  @override
+  String get pTenBitHint => 'Less banding on gradients, needed for HDR';
+
+  @override
+  String get pTenBitHelp =>
+      '10 bits per channel remove banding in skies and shadows and slightly improve H.265/AV1 compression. Old devices and some browsers cannot play 10-bit H.264. Default: off.';
+
+  @override
+  String get pProfile => 'Profile';
+
+  @override
+  String get pProfileHint => 'Codec compatibility constraints';
+
+  @override
+  String get pIntermediateProfileHint => 'Quality and size of the editing format';
+
+  @override
+  String get pIntermediateProfileHelp =>
+      'ProRes: proxy < lt < standard < hq < 4444 < 4444xq. DNxHR: lb < sq < hq < hqx (10-bit) < 444. HQ is usually enough for editing. Default: HQ.';
+
+  @override
+  String get pTune => 'Tune';
+
+  @override
+  String get pTuneHint => 'Optimize for the type of content';
+
+  @override
+  String get pTuneHelp =>
+      'film: live action, animation: cartoons, grain: keep film grain, stillimage: slideshows, zerolatency: low-latency streaming. Default: none.';
+
+  @override
+  String get pKeyint => 'Keyframe interval';
+
+  @override
+  String get pKeyintHint => 'How often playback can start from any point';
+
+  @override
+  String get pKeyintHelp =>
+      'More frequent keyframes mean faster seeking and more precise fast trims, but larger files. YouTube and streaming recommend 2 seconds. Default: auto (encoder decides).';
+
+  @override
+  String get pAudioBitrate => 'Audio bitrate';
+
+  @override
+  String get pAudioBitrateHint => 'Higher: better sound, bigger file';
+
+  @override
+  String get pAudioBitrateHelp =>
+      'Guide: AAC 128 is fine for speech and music, 192–256 for music, 320 is the maximum. Opus already sounds good at 96. MP3 320 is the format limit. Default: depends on the codec.';
+
+  @override
+  String get pChannels => 'Channels';
+
+  @override
+  String get pChannelsHint => 'E.g. downmix 5.1 to stereo';
+
+  @override
+  String get pSampleRate => 'Sample rate';
+
+  @override
+  String get pSampleRateHint => '48 kHz for video, 44.1 kHz for music';
+
+  @override
+  String get pFaststart => 'Fast start';
+
+  @override
+  String get pFaststartHint => 'Starts playing in a browser before fully downloaded';
+
+  @override
+  String get pFaststartHelp =>
+      'Moves the index (moov) to the start of MP4/MOV. Needed for websites and messengers, costs nothing. Default: on.';
+
+  @override
+  String get pKeepSubs => 'Keep subtitles';
+
+  @override
+  String get pKeepSubsHint => 'Copy subtitle tracks as is';
+
+  @override
+  String get pKeepMetadata => 'Keep metadata';
+
+  @override
+  String get pKeepMetadataHint => 'Tags, chapters, capture date. Turn off to strip them';
+
+  @override
+  String get pTrimMode => 'Trim method';
+
+  @override
+  String get trimFast => 'Fast';
+
+  @override
+  String get trimPrecise => 'Frame-accurate';
+
+  @override
+  String get trimFastHint => 'Instant and lossless; starts at the nearest keyframe';
+
+  @override
+  String get trimPreciseHint => 'Re-encodes: exact boundaries, takes longer';
+
+  @override
+  String get pTrimModeHelp =>
+      'Video is stored in groups of frames that start with a keyframe. Fast trimming copies data as is, so it may start slightly before your point, at the nearest keyframe (usually 0–5 s). Frame-accurate re-encodes the fragment and cuts exactly; quality is barely affected.';
+
+  @override
+  String get pStart => 'Start';
+
+  @override
+  String get pStartHint => 'HH:MM:SS.ms or seconds';
+
+  @override
+  String get pEnd => 'End';
+
+  @override
+  String pEndHint(String total) {
+    return 'File duration: $total';
+  }
+
+  @override
+  String keyframeStartHint(String time) {
+    return 'Will actually start at $time (keyframe)';
+  }
+
+  @override
+  String setStartHere(String time) {
+    return 'Start = $time';
+  }
+
+  @override
+  String setEndHere(String time) {
+    return 'End = $time';
+  }
+
+  @override
+  String trimLength(String time) {
+    return 'Fragment: $time';
+  }
+
+  @override
+  String get pTrack => 'Track';
+
+  @override
+  String get pTrackHint => 'Which audio track to extract';
+
+  @override
+  String get pExtractFormat => 'Format';
+
+  @override
+  String get pExtractFormatHint => 'Re-encode to the chosen format';
+
+  @override
+  String get pExtractFormatHelp =>
+      '\"As is\" copies the audio unchanged: instant and lossless, the file type matches the codec. Choose MP3/AAC/Opus for a specific player format, FLAC/WAV for lossless editing.';
+
+  @override
+  String get extractAsIs => 'As is (no re-encode)';
+
+  @override
+  String extractCopyHint(String ext) {
+    return 'You will get a lossless .$ext file';
+  }
+
+  @override
+  String get pTrackMode => 'Action';
+
+  @override
+  String get trackReplace => 'Replace';
+
+  @override
+  String get trackAdd => 'Add';
+
+  @override
+  String get trackRemove => 'Remove audio';
+
+  @override
+  String get trackReplaceHint => 'Drop the old audio and use the new one';
+
+  @override
+  String get trackAddHint => 'Keep existing tracks and add another (e.g. a dub)';
+
+  @override
+  String get trackRemoveHint => 'Make the video silent';
+
+  @override
+  String get pAudioFile => 'Audio file';
+
+  @override
+  String get pAudioFileHint => 'Audio can come from any audio or video file';
+
+  @override
+  String get pShortest => 'Stop at the shortest track';
+
+  @override
+  String get pShortestHint => 'End the result when video or audio ends';
+
+  @override
+  String get pLanguage => 'Track language';
+
+  @override
+  String get pLanguageHint => 'Players show it in the track menu';
+
+  @override
+  String get losslessVideoTag => 'video not re-encoded';
+
+  @override
+  String get videoCopiedNote => 'Video is copied: fast and lossless';
+
+  @override
+  String get pLoudTarget => 'Target loudness';
+
+  @override
+  String pLoudTargetHint(String lufs, String tp) {
+    return '$lufs LUFS, peaks at most $tp dBTP';
+  }
+
+  @override
+  String get pLoudTargetHelp =>
+      'LUFS is perceived loudness. Platforms turn down anything too loud, so it is best to hit their target: YouTube and Spotify −14, podcasts (Apple) −16, TV per EBU R128 −23. True Peak limits peaks so MP3/AAC compression does not distort.';
+
+  @override
+  String get loudStreaming => 'YouTube, Spotify';
+
+  @override
+  String get loudPodcast => 'Podcast';
+
+  @override
+  String get loudBroadcast => 'TV (EBU R128)';
+
+  @override
+  String get loudApple => 'Apple Music';
+
+  @override
+  String get pTwoPassLoud => 'Two-pass normalization';
+
+  @override
+  String get pTwoPassLoudOn => 'Measure first, then adjust precisely';
+
+  @override
+  String get pTwoPassLoudOff => 'One pass: faster, but adjusts dynamically';
+
+  @override
+  String get pTwoPassLoudHelp =>
+      'The first pass measures the whole file, the second applies one gain everywhere: dynamics are preserved and the result hits the target. One-pass mode adjusts on the fly and may pump. Default: two-pass.';
+
+  @override
+  String normalizeNote(String codec) {
+    return 'Audio will be re-encoded ($codec), video copied';
+  }
+
+  @override
+  String get pAnimFormat => 'Format';
+
+  @override
+  String get pAnimFormatHint => 'GIF works everywhere; WebP and APNG look better and are smaller';
+
+  @override
+  String get pAnimFormatHelp =>
+      'GIF is limited to 256 colors, so an optimal palette is built for the clip. WebP gives full-color animation 2–5× smaller. APNG is lossless but heavy. Default: GIF.';
+
+  @override
+  String get pDuration => 'Duration';
+
+  @override
+  String get pDurationHint => 'Empty means to the end';
+
+  @override
+  String get pGifFps => 'Frames per second';
+
+  @override
+  String get pGifFpsHint => '10–15 is usually enough';
+
+  @override
+  String get pGifWidth => 'Width';
+
+  @override
+  String get pGifWidthHint => 'Height follows the aspect ratio';
+
+  @override
+  String get pDither => 'Dithering';
+
+  @override
+  String get pDitherHint => 'How missing colors are simulated';
+
+  @override
+  String get pDitherHelp =>
+      'Sierra: soft and clean (default). Floyd–Steinberg: more detail, more noise. Bayer: regular pattern, compresses well. None: banding on gradients but smaller files.';
+
+  @override
+  String get pStaticBg => 'Static background';
+
+  @override
+  String get pStaticBgHint => 'Better colors when only part of the frame moves';
+
+  @override
+  String get pWebpQuality => 'WebP quality';
+
+  @override
+  String get pWebpQualityHint => '75 is a good balance';
+
+  @override
+  String get pLoop => 'Loop';
+
+  @override
+  String get pLoopHint => 'Repeat the animation forever';
+
+  @override
+  String gifFrames(int count) {
+    return '$count frames';
+  }
+
+  @override
+  String get urlsLabel => 'Links';
+
+  @override
+  String get urlsHint => 'Paste one or more links (video, playlist or channel)';
+
+  @override
+  String pasteFromClipboard(String url) {
+    return 'Paste from clipboard: $url';
+  }
+
+  @override
+  String get analyzeLinks => 'Get info';
+
+  @override
+  String get downloadWithoutAnalysis => 'Download now';
+
+  @override
+  String get download => 'Download';
+
+  @override
+  String downloadN(int count) {
+    return 'Download ($count)';
+  }
+
+  @override
+  String downloadsQueued(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count downloads queued',
+      one: '$count download queued',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get downloadsNeedYtdlpTitle => 'yt-dlp is required';
+
+  @override
+  String get denoHint => 'Tip: install Deno in Components for YouTube; without it some formats are unavailable.';
+
+  @override
+  String selectedOf(int selected, int total) {
+    return '$selected of $total selected';
+  }
+
+  @override
+  String get selectAll => 'All';
+
+  @override
+  String get selectNone => 'None';
+
+  @override
+  String get rangesHint => 'Numbers: 1,3,5-10';
+
+  @override
+  String availableQualities(String list) {
+    return 'Available: $list';
+  }
+
+  @override
+  String get exactFormat => 'Exact format (optional)';
+
+  @override
+  String get exactFormatAuto => 'Automatic from quality below';
+
+  @override
+  String get videoOnly => 'video only';
+
+  @override
+  String get pYtQuality => 'Quality';
+
+  @override
+  String get pYtQualityHint => 'Best available or at most the chosen height';
+
+  @override
+  String get ytBest => 'Best';
+
+  @override
+  String ytUpTo(String height) {
+    return 'up to $height';
+  }
+
+  @override
+  String get ytAudioOnly => 'Audio only';
+
+  @override
+  String get pYtAudioFormat => 'Audio format';
+
+  @override
+  String get pYtAudioFormatHint => 'Format to save the audio in';
+
+  @override
+  String get pYtContainerHint => 'MP4 for compatibility, MKV without limits';
+
+  @override
+  String get pYtContainerHelp =>
+      'Sites often serve video and audio separately; yt-dlp merges them with ffmpeg into the chosen container. For MP4, H.264/AAC is preferred to avoid re-encoding. \"As on the site\" keeps the original format (often WebM).';
+
+  @override
+  String get ytContainerAuto => 'As on the site';
+
+  @override
+  String get pYtSubs => 'Subtitles';
+
+  @override
+  String get pYtSubsHint => 'Download and embed creator subtitles';
+
+  @override
+  String get pYtAutoSubs => 'Automatic subtitles';
+
+  @override
+  String get pYtAutoSubsHint => 'Generated by the site (e.g. YouTube)';
+
+  @override
+  String get pYtSubLangs => 'Subtitle languages';
+
+  @override
+  String get pYtSubLangsHint => 'Comma-separated: ru,en or all';
+
+  @override
+  String get pYtEmbed => 'Cover, metadata and chapters';
+
+  @override
+  String get pYtEmbedHint => 'Embed into the file';
+
+  @override
+  String get pSponsorBlock => 'SponsorBlock';
+
+  @override
+  String get pSponsorBlockHint => 'Creator sponsor segments';
+
+  @override
+  String get pSponsorBlockHelp =>
+      'Uses the sponsor.ajay.app database. \"Mark\" adds chapters; \"Remove\" cuts sponsor segments, self-promotion and subscribe reminders (re-encodes around cuts).';
+
+  @override
+  String get sbOff => 'Off';
+
+  @override
+  String get sbMark => 'Mark as chapters';
+
+  @override
+  String get sbRemove => 'Remove';
+
+  @override
+  String get pCookies => 'Browser cookies';
+
+  @override
+  String get pCookiesHint => 'For private, age-restricted and \"confirm you are not a bot\"';
+
+  @override
+  String get pCookiesHelp =>
+      'yt-dlp reads your login cookies from the chosen browser, as if the video were opened there. Close the browser first (Chrome locks its cookie file). Cookies go nowhere except to the site itself.';
+
+  @override
+  String get pArchive => 'Skip already downloaded';
+
+  @override
+  String get pArchiveHint => 'Keep a list of downloaded videos in the output folder';
+
+  @override
+  String get pTemplate => 'File name template';
+
+  @override
+  String get pTemplateHint => 'yt-dlp fields: %(title)s, %(id)s, %(uploader)s…';
+
+  @override
+  String get pTemplateHelp =>
+      'E.g. \"%(uploader)s/%(title)s.%(ext)s\" sorts videos into channel folders. All fields are in the yt-dlp docs (OUTPUT TEMPLATE).';
+
+  @override
+  String get pRateLimit => 'Rate limit';
+
+  @override
+  String get pRateLimitHint => 'E.g. 5M = 5 MB/s; empty means unlimited';
+
+  @override
+  String get pProxy => 'Proxy';
+
+  @override
+  String get pProxyHint => 'http://, https:// or socks5://';
+
+  @override
+  String get setNextToSource => 'Save next to the source';
+
+  @override
+  String get setNextToSourceHint => 'Put results in the same folder as the source file';
+
+  @override
+  String get setAria2 => 'Download with aria2c';
+
+  @override
+  String get setAria2Hint => 'Multi-connection downloads when aria2c is installed';
+
+  @override
+  String get setAria2Help =>
+      'aria2c opens several connections and is often faster with slow servers. For YouTube the built-in concurrent fragments are usually enough. Default: off.';
 }

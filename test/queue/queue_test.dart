@@ -28,7 +28,7 @@ void main() {
 
   test('QueueItem decodes args and flags', () {
     final i = item('x');
-    expect(i.args, ['-version']);
+    expect(i.steps.single.args, ['-version']);
     expect(i.tool, JobTool.ffmpeg);
     expect(i.isFinished, isFalse);
     expect(i.extra, isEmpty);

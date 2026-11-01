@@ -5,13 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/engine/error_translator.dart';
-import '../../core/engine/shell_quote.dart';
-import '../../core/platform/host.dart';
 import '../../core/providers.dart';
 import '../../core/queue/queue_models.dart';
 import '../../core/util/format.dart';
 import '../../ui/l10n.dart';
 import '../../ui/widgets/common.dart';
+import '../tools/command_text.dart';
 
 class QueuePage extends ConsumerWidget {
   const QueuePage({super.key});
@@ -105,8 +104,14 @@ class _JobCard extends ConsumerWidget {
       errorText = toolErrorText(l, kind, job.errorDetail);
     }
 
+    final steps = item.isActive ? item.steps : const [];
     final stats = <String>[
+      if (steps.length > 1)
+        l.stepLabel(steps[item.step.clamp(0, steps.length - 1)].label ?? '${item.step + 1}/${steps.length}'),
       if (p?.fraction != null) '${(p!.fraction! * 100).toStringAsFixed(1)}%',
+      if (p?.downloadedBytes != null)
+        '${formatBytes(p!.downloadedBytes, units: byteUnits(l))}${p.totalBytes != null ? ' / ${formatBytes(p.totalBytes, units: byteUnits(l))}' : ''}',
+      if (p?.bytesPerSecond != null) '${formatBytes(p!.bytesPerSecond!.round(), units: byteUnits(l))}/${l.unitSecond}',
       if (p?.outTime != null)
         '${formatDuration(p!.outTime)}${item.totalDuration != null ? ' / ${formatDuration(item.totalDuration)}' : ''}',
       if (p?.fps != null && p!.fps! > 0) '${p.fps!.toStringAsFixed(0)} ${l.unitFps}',
@@ -200,17 +205,10 @@ class _JobCard extends ConsumerWidget {
               final log = item.isActive ? item.attemptLog.join('\n') : (job.log ?? '');
               await showTextDialog(context, title: l.logTitle, text: log);
             case 'cmd':
-              final tc = ref.read(toolchainProvider);
-              final exe = switch (item.tool) {
-                JobTool.ffmpeg => tc.ffmpeg.path ?? 'ffmpeg',
-                JobTool.ffprobe => tc.ffprobe.path ?? 'ffprobe',
-                JobTool.ytdlp => tc.ytdlp.path ?? 'yt-dlp',
-              };
-              if (!context.mounted) return;
               await showTextDialog(
                 context,
                 title: l.commandTitle,
-                text: quoteCommand([exe, ...item.args], windows: HostPlatform.current.isWindows),
+                text: stepsCommandText(item.steps, ref.read(toolchainProvider)),
               );
             case 'remove':
               await c.remove(item.id);

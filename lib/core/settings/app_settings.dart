@@ -22,6 +22,7 @@ class AppSettings {
     this.useHwAccel = true,
     this.ffmpegThreads = 0,
     this.outputDir,
+    this.outputNextToSource = false,
     this.customFfmpegPath,
     this.customFfprobePath,
     this.customYtdlpPath,
@@ -35,6 +36,7 @@ class AppSettings {
     this.otherUpdatePolicy = ComponentUpdatePolicy.ask,
     this.keepPreviousVersions = 2,
     this.ytdlpConcurrentFragments = 4,
+    this.ytdlpUseAria2 = false,
     this.notifyOnFinish = true,
     this.showCommandBeforeRun = false,
   });
@@ -55,6 +57,9 @@ class AppSettings {
   final int ffmpegThreads;
 
   final String? outputDir;
+
+  /// Save results next to the source file instead of [outputDir].
+  final bool outputNextToSource;
   final String? customFfmpegPath;
   final String? customFfprobePath;
   final String? customYtdlpPath;
@@ -70,6 +75,9 @@ class AppSettings {
   final int keepPreviousVersions;
 
   final int ytdlpConcurrentFragments;
+
+  /// Use aria2c as yt-dlp's external downloader when available.
+  final bool ytdlpUseAria2;
   final bool notifyOnFinish;
   final bool showCommandBeforeRun;
 
@@ -90,6 +98,7 @@ class AppSettings {
     bool? useHwAccel,
     int? ffmpegThreads,
     String? Function()? outputDir,
+    bool? outputNextToSource,
     String? Function()? customFfmpegPath,
     String? Function()? customFfprobePath,
     String? Function()? customYtdlpPath,
@@ -103,6 +112,7 @@ class AppSettings {
     ComponentUpdatePolicy? otherUpdatePolicy,
     int? keepPreviousVersions,
     int? ytdlpConcurrentFragments,
+    bool? ytdlpUseAria2,
     bool? notifyOnFinish,
     bool? showCommandBeforeRun,
   }) => AppSettings(
@@ -116,6 +126,7 @@ class AppSettings {
     useHwAccel: useHwAccel ?? this.useHwAccel,
     ffmpegThreads: ffmpegThreads ?? this.ffmpegThreads,
     outputDir: outputDir != null ? outputDir() : this.outputDir,
+    outputNextToSource: outputNextToSource ?? this.outputNextToSource,
     customFfmpegPath: customFfmpegPath != null ? customFfmpegPath() : this.customFfmpegPath,
     customFfprobePath: customFfprobePath != null ? customFfprobePath() : this.customFfprobePath,
     customYtdlpPath: customYtdlpPath != null ? customYtdlpPath() : this.customYtdlpPath,
@@ -129,6 +140,7 @@ class AppSettings {
     otherUpdatePolicy: otherUpdatePolicy ?? this.otherUpdatePolicy,
     keepPreviousVersions: keepPreviousVersions ?? this.keepPreviousVersions,
     ytdlpConcurrentFragments: ytdlpConcurrentFragments ?? this.ytdlpConcurrentFragments,
+    ytdlpUseAria2: ytdlpUseAria2 ?? this.ytdlpUseAria2,
     notifyOnFinish: notifyOnFinish ?? this.notifyOnFinish,
     showCommandBeforeRun: showCommandBeforeRun ?? this.showCommandBeforeRun,
   );
@@ -157,6 +169,7 @@ class AppSettings {
     'otherUpdatePolicy': otherUpdatePolicy.name,
     'keepPreviousVersions': keepPreviousVersions,
     'ytdlpConcurrentFragments': ytdlpConcurrentFragments,
+    'ytdlpUseAria2': ytdlpUseAria2,
     'notifyOnFinish': notifyOnFinish,
     'showCommandBeforeRun': showCommandBeforeRun,
   };
@@ -179,6 +192,7 @@ class AppSettings {
       useHwAccel: b(m['useHwAccel'], d.useHwAccel),
       ffmpegThreads: i(m['ffmpegThreads'], d.ffmpegThreads, min: 0, max: 128),
       outputDir: s(m['outputDir']),
+      outputNextToSource: b(m['outputNextToSource'], d.outputNextToSource),
       customFfmpegPath: s(m['customFfmpegPath']),
       customFfprobePath: s(m['customFfprobePath']),
       customYtdlpPath: s(m['customYtdlpPath']),
@@ -193,6 +207,7 @@ class AppSettings {
       keepPreviousVersions: i(m['keepPreviousVersions'], d.keepPreviousVersions, min: 0, max: 5),
       ytdlpConcurrentFragments: i(m['ytdlpConcurrentFragments'], d.ytdlpConcurrentFragments, min: 1, max: 32),
       notifyOnFinish: b(m['notifyOnFinish'], d.notifyOnFinish),
+      ytdlpUseAria2: b(m['ytdlpUseAria2'], d.ytdlpUseAria2),
       showCommandBeforeRun: b(m['showCommandBeforeRun'], d.showCommandBeforeRun),
     );
   }

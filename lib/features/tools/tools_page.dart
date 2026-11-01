@@ -6,6 +6,8 @@ import '../../core/providers.dart';
 import '../../ui/l10n.dart';
 import '../../ui/widgets/common.dart';
 import 'tool_catalog.dart';
+import 'tool_host.dart';
+import 'tool_infra.dart';
 import 'tool_launcher.dart';
 
 class ToolsPage extends ConsumerStatefulWidget {
@@ -26,6 +28,8 @@ class _ToolsPageState extends ConsumerState<ToolsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final open = ref.watch(openToolProvider);
+    if (open != null) return ToolHost(tool: open);
     final l = context.l10n;
     final caps = ref.watch(capabilitiesProvider).value ?? FfmpegCapabilities.empty;
     final q = _search.text;

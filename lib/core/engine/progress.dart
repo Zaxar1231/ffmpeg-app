@@ -17,6 +17,11 @@ class FfmpegProgress {
     this.fraction,
     this.eta,
     this.ended = false,
+    this.downloadedBytes,
+    this.totalBytes,
+    this.bytesPerSecond,
+    this.fragment,
+    this.fragmentCount,
   });
 
   final int? frame;
@@ -34,6 +39,33 @@ class FfmpegProgress {
   final double? fraction;
   final Duration? eta;
   final bool ended;
+
+  // Downloads (yt-dlp).
+  final int? downloadedBytes;
+  final int? totalBytes;
+  final double? bytesPerSecond;
+  final int? fragment;
+  final int? fragmentCount;
+
+  /// Same snapshot with the fraction rescaled to the whole multi-step job.
+  FfmpegProgress withFraction(double? f) => FfmpegProgress(
+    frame: frame,
+    fps: fps,
+    bitrateKbps: bitrateKbps,
+    totalSize: totalSize,
+    outTime: outTime,
+    speed: speed,
+    dupFrames: dupFrames,
+    dropFrames: dropFrames,
+    fraction: f,
+    eta: eta,
+    ended: ended,
+    downloadedBytes: downloadedBytes,
+    totalBytes: totalBytes,
+    bytesPerSecond: bytesPerSecond,
+    fragment: fragment,
+    fragmentCount: fragmentCount,
+  );
 
   Map<String, Object?> toJson() => {
     'frame': frame,
@@ -152,4 +184,44 @@ Duration? parseFfmpegTime(String value) {
   }
   final d = Duration(microseconds: (seconds * 1e6).round());
   return negative ? -d : d;
+}
+
+/// yt-dlp progress via
+/// `--progress-template "download:[kadra] %(progress.downloaded_bytes)s|..."`
+/// (see [ytdlpProgressTemplate]). Values may be `NA` or floats.
+const ytdlpProgressMarker = '[kadra] ';
+const ytdlpProgressTemplate =
+    'download:$ytdlpProgressMarker%(progress.downloaded_bytes)s|%(progress.total_bytes)s|'
+    '%(progress.total_bytes_estimate)s|%(progress.speed)s|%(progress.eta)s|'
+    '%(progress.fragment_index)s|%(progress.fragment_count)s|%(progress.status)s';
+
+FfmpegProgress? parseYtdlpProgressLine(String line) {
+  final i = line.indexOf(ytdlpProgressMarker);
+  if (i < 0) return null;
+  final parts = line.substring(i + ytdlpProgressMarker.length).trim().split('|');
+  if (parts.length < 7) return null;
+  double? d(String s) => double.tryParse(s.trim());
+  int? n(String s) => d(s)?.round();
+  final done = n(parts[0]);
+  final total = n(parts[1]) ?? n(parts[2]);
+  final speed = d(parts[3]);
+  final eta = n(parts[4]);
+  final frag = n(parts[5]);
+  final fragCount = n(parts[6]);
+  double? fraction;
+  if (done != null && total != null && total > 0) {
+    fraction = (done / total).clamp(0.0, 1.0);
+  } else if (frag != null && fragCount != null && fragCount > 0) {
+    fraction = (frag / fragCount).clamp(0.0, 1.0);
+  }
+  final finished = parts.length > 7 && parts[7].trim() == 'finished';
+  return FfmpegProgress(
+    downloadedBytes: done,
+    totalBytes: total,
+    bytesPerSecond: speed,
+    eta: eta == null ? null : Duration(seconds: eta),
+    fragment: frag,
+    fragmentCount: fragCount,
+    fraction: finished ? 1 : fraction,
+  );
 }

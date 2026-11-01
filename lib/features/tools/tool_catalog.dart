@@ -64,7 +64,7 @@ class ToolDef {
 }
 
 /// Stage in progress. Tools with `stage <= currentStage` are enabled.
-const currentStage = 1;
+const currentStage = 2;
 
 const _v = {MediaCategory.video};
 const _a = {MediaCategory.audio};
@@ -248,7 +248,8 @@ const toolCatalog = <ToolDef>[
     Icons.swap_horiz,
     stage: 2,
     lossless: true,
-    keywords: ['track', 'дорожка', 'заменить'],
+    keywords: ['track', 'дорожка', 'заменить', 'удалить звук', 'mute'],
+    forKinds: _v,
   ),
   ToolDef(
     'normalize',

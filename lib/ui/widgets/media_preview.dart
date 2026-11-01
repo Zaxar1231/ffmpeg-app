@@ -4,9 +4,12 @@ import 'package:media_kit_video/media_kit_video.dart';
 
 /// libmpv-backed preview for a local file (video or audio).
 class MediaPreview extends StatefulWidget {
-  const MediaPreview({super.key, required this.path, this.aspectRatio = 16 / 9});
+  const MediaPreview({super.key, required this.path, this.aspectRatio = 16 / 9, this.onPlayer});
   final String path;
   final double aspectRatio;
+
+  /// Gives the owner access to the player (seek, position) — used by Trim.
+  final ValueChanged<Player>? onPlayer;
 
   @override
   State<MediaPreview> createState() => _MediaPreviewState();
@@ -20,6 +23,7 @@ class _MediaPreviewState extends State<MediaPreview> {
   void initState() {
     super.initState();
     _player.open(Media(widget.path), play: false);
+    widget.onPlayer?.call(_player);
   }
 
   @override

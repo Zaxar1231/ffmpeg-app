@@ -9,6 +9,8 @@ import '../analysis/integrity.dart';
 import '../home/current_file.dart';
 import '../shell/app_shell.dart';
 import 'tool_catalog.dart';
+import 'tool_host.dart';
+import 'tool_infra.dart';
 
 /// Starts a tool, optionally for an already opened file.
 Future<void> launchTool(BuildContext context, WidgetRef ref, ToolDef tool, {String? path, MediaInfo? info}) async {
@@ -18,7 +20,7 @@ Future<void> launchTool(BuildContext context, WidgetRef ref, ToolDef tool, {Stri
     messenger.showSnackBar(SnackBar(content: Text(l.toolComingSoon(tool.stage))));
     return;
   }
-  if (!ref.read(toolchainProvider).hasFfmpeg) {
+  if (tool.id != 'download' && !ref.read(toolchainProvider).hasFfmpeg) {
     messenger.showSnackBar(
       SnackBar(
         persist: false,
@@ -31,7 +33,14 @@ Future<void> launchTool(BuildContext context, WidgetRef ref, ToolDef tool, {Stri
     );
     return;
   }
+  if (screenTools.contains(tool.id)) {
+    ref.read(openToolProvider.notifier).open(OpenTool(tool.id, path: path));
+    ref.read(navProvider.notifier).go(Destination.tools);
+    return;
+  }
   switch (tool.id) {
+    case 'download':
+      ref.read(navProvider.notifier).go(Destination.downloads);
     case 'mediaInfo':
       ref.read(navProvider.notifier).go(Destination.home);
       if (path != null) {

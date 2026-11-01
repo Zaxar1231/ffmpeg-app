@@ -5,6 +5,8 @@ import 'dart:io';
 
 import 'progress.dart';
 
+enum ProgressKind { ffmpeg, ytdlp, none }
+
 /// What to run. External tools are always separate processes.
 class ToolInvocation {
   const ToolInvocation({
@@ -12,7 +14,7 @@ class ToolInvocation {
     required this.args,
     this.workingDirectory,
     this.totalDuration,
-    this.parseFfmpegProgress = true,
+    this.progress = ProgressKind.ffmpeg,
     this.environment,
   });
 
@@ -23,8 +25,8 @@ class ToolInvocation {
   /// Expected output duration, for percent/ETA.
   final Duration? totalDuration;
 
-  /// When true, stdout is parsed as `-progress pipe:1` output.
-  final bool parseFfmpegProgress;
+  /// How to read progress from stdout.
+  final ProgressKind progress;
   final Map<String, String>? environment;
 }
 
@@ -156,13 +158,21 @@ class ProcessRunner {
         .transform(const Utf8Decoder(allowMalformed: true))
         .transform(const LineSplitter())
         .listen((line) {
-          if (inv.parseFfmpegProgress) {
-            final snap = parser.addLine(line);
-            if (snap != null) handle._progress.add(snap);
-            // Progress lines are key=value; anything else is real output.
-            if (!line.contains('=')) handle._addLog(line);
-          } else {
-            handle._addLog(line);
+          switch (inv.progress) {
+            case ProgressKind.ffmpeg:
+              final snap = parser.addLine(line);
+              if (snap != null) handle._progress.add(snap);
+              // Progress lines are key=value; anything else is real output.
+              if (!line.contains('=')) handle._addLog(line);
+            case ProgressKind.ytdlp:
+              final snap = parseYtdlpProgressLine(line);
+              if (snap != null) {
+                handle._progress.add(snap);
+              } else {
+                handle._addLog(line);
+              }
+            case ProgressKind.none:
+              handle._addLog(line);
           }
         })
         .asFuture<void>();
@@ -170,7 +180,15 @@ class ProcessRunner {
     final stderrDone = process.stderr
         .transform(const Utf8Decoder(allowMalformed: true))
         .transform(const LineSplitter())
-        .listen(handle._addLog)
+        .listen((line) {
+          // yt-dlp may print progress on stderr in quiet mode.
+          final snap = inv.progress == ProgressKind.ytdlp ? parseYtdlpProgressLine(line) : null;
+          if (snap != null) {
+            handle._progress.add(snap);
+          } else {
+            handle._addLog(line);
+          }
+        })
         .asFuture<void>();
 
     unawaited(() async {
