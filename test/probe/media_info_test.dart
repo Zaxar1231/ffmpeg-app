@@ -5,13 +5,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:kadra/core/probe/media_info.dart';
 import 'package:kadra/core/probe/probe_service.dart';
 
-MediaInfo load(String name) =>
-    MediaInfo.fromJson(name, (jsonDecode(File('test/fixtures/$name').readAsStringSync()) as Map).cast<String, dynamic>());
+MediaInfo load(String name) => MediaInfo.fromJson(
+  name,
+  (jsonDecode(File('test/fixtures/$name').readAsStringSync()) as Map).cast<String, dynamic>(),
+);
 
 void main() {
   test('probe args', () {
-    expect(probeArgs('a b.mp4'),
-        ['-v', 'error', '-print_format', 'json', '-show_format', '-show_streams', '-show_chapters', 'a b.mp4']);
+    expect(probeArgs('a b.mp4'), [
+      '-v',
+      'error',
+      '-print_format',
+      'json',
+      '-show_format',
+      '-show_streams',
+      '-show_chapters',
+      'a b.mp4',
+    ]);
   });
 
   test('mkv with video, audio, chapters, tags', () {
@@ -93,7 +103,12 @@ void main() {
       'format': {'duration': '120.0'},
       'streams': [
         {'index': 0, 'codec_type': 'audio', 'codec_name': 'mp3'},
-        {'index': 1, 'codec_type': 'video', 'codec_name': 'mjpeg', 'disposition': {'attached_pic': 1}},
+        {
+          'index': 1,
+          'codec_type': 'video',
+          'codec_name': 'mjpeg',
+          'disposition': {'attached_pic': 1},
+        },
       ],
     });
     expect(m.category, MediaCategory.audio);

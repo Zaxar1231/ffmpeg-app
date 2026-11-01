@@ -50,15 +50,17 @@ class GithubRelease {
 
 class ComponentResolver {
   ComponentResolver({http.Client? client, HostPlatform? host, this.userAgent = 'Kadra'})
-      : _client = client ?? http.Client(),
-        host = host ?? HostPlatform.current;
+    : _client = client ?? http.Client(),
+      host = host ?? HostPlatform.current;
 
   final http.Client _client;
   final HostPlatform host;
   final String userAgent;
 
   Future<String> _getText(String url) async {
-    final r = await _client.get(Uri.parse(url), headers: {'User-Agent': userAgent}).timeout(const Duration(seconds: 30));
+    final r = await _client
+        .get(Uri.parse(url), headers: {'User-Agent': userAgent})
+        .timeout(const Duration(seconds: 30));
     if (r.statusCode != 200) throw ResolveException('HTTP ${r.statusCode}: $url');
     return utf8.decode(r.bodyBytes, allowMalformed: true);
   }
@@ -67,10 +69,12 @@ class ComponentResolver {
   Future<GithubRelease?> latestGithubRelease(String repo, {String? tag}) async {
     try {
       final path = tag == null ? 'releases/latest' : 'releases/tags/$tag';
-      final r = await _client.get(
-        Uri.parse('https://api.github.com/repos/$repo/$path'),
-        headers: {'User-Agent': userAgent, 'Accept': 'application/vnd.github+json'},
-      ).timeout(const Duration(seconds: 15));
+      final r = await _client
+          .get(
+            Uri.parse('https://api.github.com/repos/$repo/$path'),
+            headers: {'User-Agent': userAgent, 'Accept': 'application/vnd.github+json'},
+          )
+          .timeout(const Duration(seconds: 15));
       if (r.statusCode != 200) return null;
       return GithubRelease.fromJson((jsonDecode(r.body) as Map).cast<String, dynamic>());
     } catch (_) {

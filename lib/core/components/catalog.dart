@@ -132,12 +132,12 @@ Map<String, String> parseChecksums(String text, {String? singleName}) {
 // ---------------------------------------------------------------- BtbN
 
 String? btbnPlatformTag(HostPlatform h) => switch ((h.os, h.arch)) {
-      (HostOs.windows, HostArch.x64) => 'win64',
-      (HostOs.windows, HostArch.arm64) => 'winarm64',
-      (HostOs.linux, HostArch.x64) => 'linux64',
-      (HostOs.linux, HostArch.arm64) => 'linuxarm64',
-      _ => null,
-    };
+  (HostOs.windows, HostArch.x64) => 'win64',
+  (HostOs.windows, HostArch.arm64) => 'winarm64',
+  (HostOs.linux, HostArch.x64) => 'linux64',
+  (HostOs.linux, HostArch.arm64) => 'linuxarm64',
+  _ => null,
+};
 
 const btbnDownloadBase = 'https://github.com/BtbN/FFmpeg-Builds/releases/latest/download';
 
@@ -182,9 +182,9 @@ const gyanReleaseVersionUrl = '$gyanBase/release-version';
 /// The full build is only a .7z there, so we take the .zip mirror from
 /// github.com/GyanD/codexffmpeg (same build, same author).
 String gyanUrl(GyanFlavor flavor, String version) => switch (flavor) {
-      GyanFlavor.essentials => '$gyanBase/ffmpeg-release-essentials.zip',
-      GyanFlavor.full => 'https://github.com/GyanD/codexffmpeg/releases/download/$version/ffmpeg-$version-full_build.zip',
-    };
+  GyanFlavor.essentials => '$gyanBase/ffmpeg-release-essentials.zip',
+  GyanFlavor.full => 'https://github.com/GyanD/codexffmpeg/releases/download/$version/ffmpeg-$version-full_build.zip',
+};
 
 // ---------------------------------------------------------------- yt-dlp
 
@@ -192,21 +192,21 @@ String ytdlpRepo(UpdateChannel c) => c == UpdateChannel.nightly ? 'yt-dlp/yt-dlp
 
 /// Standalone single-file builds (no Python needed).
 String? ytdlpAssetName(HostPlatform h) => switch ((h.os, h.arch)) {
-      (HostOs.windows, HostArch.x64) => 'yt-dlp.exe',
-      (HostOs.windows, HostArch.arm64) => 'yt-dlp_arm64.exe',
-      (HostOs.linux, HostArch.x64) => 'yt-dlp_linux',
-      (HostOs.linux, HostArch.arm64) => 'yt-dlp_linux_aarch64',
-      _ => null,
-    };
+  (HostOs.windows, HostArch.x64) => 'yt-dlp.exe',
+  (HostOs.windows, HostArch.arm64) => 'yt-dlp_arm64.exe',
+  (HostOs.linux, HostArch.x64) => 'yt-dlp_linux',
+  (HostOs.linux, HostArch.arm64) => 'yt-dlp_linux_aarch64',
+  _ => null,
+};
 
 // ---------------------------------------------------------------- deno
 
 String? denoAssetName(HostPlatform h) => switch ((h.os, h.arch)) {
-      (HostOs.windows, HostArch.x64) => 'deno-x86_64-pc-windows-msvc.zip',
-      (HostOs.windows, HostArch.arm64) => 'deno-aarch64-pc-windows-msvc.zip',
-      (HostOs.linux, HostArch.x64) => 'deno-x86_64-unknown-linux-gnu.zip',
-      (HostOs.linux, HostArch.arm64) => 'deno-aarch64-unknown-linux-gnu.zip',
-      _ => null,
-    };
+  (HostOs.windows, HostArch.x64) => 'deno-x86_64-pc-windows-msvc.zip',
+  (HostOs.windows, HostArch.arm64) => 'deno-aarch64-pc-windows-msvc.zip',
+  (HostOs.linux, HostArch.x64) => 'deno-x86_64-unknown-linux-gnu.zip',
+  (HostOs.linux, HostArch.arm64) => 'deno-aarch64-unknown-linux-gnu.zip',
+  _ => null,
+};
 
 String githubLatestDownload(String repo, String asset) => 'https://github.com/$repo/releases/latest/download/$asset';

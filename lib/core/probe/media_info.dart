@@ -6,12 +6,7 @@ library;
 import '../engine/capabilities.dart' show MediaKind;
 
 class MediaInfo {
-  const MediaInfo({
-    required this.path,
-    required this.format,
-    required this.streams,
-    required this.chapters,
-  });
+  const MediaInfo({required this.path, required this.format, required this.streams, required this.chapters});
 
   final String path;
   final FormatInfo format;
@@ -19,15 +14,15 @@ class MediaInfo {
   final List<ChapterInfo> chapters;
 
   factory MediaInfo.fromJson(String path, Map<String, dynamic> json) => MediaInfo(
-        path: path,
-        format: FormatInfo.fromJson((json['format'] as Map?)?.cast<String, dynamic>() ?? const {}),
-        streams: [
-          for (final s in (json['streams'] as List? ?? const [])) StreamInfo.fromJson((s as Map).cast<String, dynamic>()),
-        ],
-        chapters: [
-          for (final c in (json['chapters'] as List? ?? const [])) ChapterInfo.fromJson((c as Map).cast<String, dynamic>()),
-        ],
-      );
+    path: path,
+    format: FormatInfo.fromJson((json['format'] as Map?)?.cast<String, dynamic>() ?? const {}),
+    streams: [
+      for (final s in (json['streams'] as List? ?? const [])) StreamInfo.fromJson((s as Map).cast<String, dynamic>()),
+    ],
+    chapters: [
+      for (final c in (json['chapters'] as List? ?? const [])) ChapterInfo.fromJson((c as Map).cast<String, dynamic>()),
+    ],
+  );
 
   Iterable<StreamInfo> get videoStreams => streams.where((s) => s.kind == MediaKind.video && !s.isAttachedPicture);
   Iterable<StreamInfo> get audioStreams => streams.where((s) => s.kind == MediaKind.audio);
@@ -51,7 +46,8 @@ class MediaInfo {
     final hasAudio = audioStreams.isNotEmpty;
     if (hasVideo) {
       final v = videoStreams.first;
-      final singleFrame = (v.frameCount ?? 0) <= 1 && (duration == null || duration! <= const Duration(milliseconds: 100));
+      final singleFrame =
+          (v.frameCount ?? 0) <= 1 && (duration == null || duration! <= const Duration(milliseconds: 100));
       if (!hasAudio && (_imageCodecs.contains(v.codecName) || singleFrame)) {
         return (v.frameCount ?? 1) > 1 ? MediaCategory.animation : MediaCategory.image;
       }
@@ -63,7 +59,20 @@ class MediaInfo {
   }
 }
 
-const _imageCodecs = {'png', 'mjpeg', 'jpegls', 'webp', 'bmp', 'tiff', 'gif', 'jpeg2000', 'av1_image', 'qoi', 'jpegxl', 'apng'};
+const _imageCodecs = {
+  'png',
+  'mjpeg',
+  'jpegls',
+  'webp',
+  'bmp',
+  'tiff',
+  'gif',
+  'jpeg2000',
+  'av1_image',
+  'qoi',
+  'jpegxl',
+  'apng',
+};
 
 enum MediaCategory { video, audio, image, animation, subtitle, other }
 
@@ -89,15 +98,15 @@ class FormatInfo {
   final Map<String, String> tags;
 
   factory FormatInfo.fromJson(Map<String, dynamic> j) => FormatInfo(
-        formatName: j['format_name'] as String?,
-        formatLongName: j['format_long_name'] as String?,
-        duration: parseSeconds(j['duration']),
-        size: parseIntField(j['size']),
-        bitRate: parseIntField(j['bit_rate']),
-        startTime: parseSeconds(j['start_time']),
-        probeScore: parseIntField(j['probe_score']),
-        tags: _tags(j['tags']),
-      );
+    formatName: j['format_name'] as String?,
+    formatLongName: j['format_long_name'] as String?,
+    duration: parseSeconds(j['duration']),
+    size: parseIntField(j['size']),
+    bitRate: parseIntField(j['bit_rate']),
+    startTime: parseSeconds(j['start_time']),
+    probeScore: parseIntField(j['probe_score']),
+    tags: _tags(j['tags']),
+  );
 }
 
 class StreamInfo {
@@ -170,9 +179,7 @@ class StreamInfo {
   final int? rotation;
 
   factory StreamInfo.fromJson(Map<String, dynamic> j) {
-    final side = [
-      for (final s in (j['side_data_list'] as List? ?? const [])) (s as Map).cast<String, dynamic>(),
-    ];
+    final side = [for (final s in (j['side_data_list'] as List? ?? const [])) (s as Map).cast<String, dynamic>()];
     int? rotation;
     for (final s in side) {
       final r = s['rotation'];
@@ -268,11 +275,11 @@ class ChapterInfo {
   final String? title;
 
   factory ChapterInfo.fromJson(Map<String, dynamic> j) => ChapterInfo(
-        id: parseIntField(j['id']) ?? 0,
-        start: parseSeconds(j['start_time']) ?? Duration.zero,
-        end: parseSeconds(j['end_time']) ?? Duration.zero,
-        title: _tags(j['tags'])['title'],
-      );
+    id: parseIntField(j['id']) ?? 0,
+    start: parseSeconds(j['start_time']) ?? Duration.zero,
+    end: parseSeconds(j['end_time']) ?? Duration.zero,
+    title: _tags(j['tags'])['title'],
+  );
 }
 
 Map<String, String> _tags(Object? raw) {

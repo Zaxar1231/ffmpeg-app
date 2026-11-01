@@ -7,7 +7,8 @@ import 'package:path_provider/path_provider.dart';
 class AppPaths {
   AppPaths(this.root);
 
-  /// Per-user app data (Windows: %APPDATA%\dev.kadra\kadra, Linux: ~/.local/share/dev.kadra.kadra).
+  /// Per-user app data. Windows: `%APPDATA%\Kadra\Kadra` (from the exe version
+  /// resources CompanyName/ProductName); Linux: `~/.local/share/dev.kadra.kadra`.
   final String root;
 
   String get components => p.join(root, 'components');

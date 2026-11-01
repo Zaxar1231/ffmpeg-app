@@ -58,10 +58,10 @@ class QueueItem {
       job.extraJson == null ? const {} : (jsonDecode(job.extraJson!) as Map).cast<String, dynamic>();
 
   QueueItem copyWith({Job? job, FfmpegProgress? Function()? progress, List<String>? attemptLog}) => QueueItem(
-        job: job ?? this.job,
-        progress: progress != null ? progress() : this.progress,
-        attemptLog: attemptLog ?? this.attemptLog,
-      );
+    job: job ?? this.job,
+    progress: progress != null ? progress() : this.progress,
+    attemptLog: attemptLog ?? this.attemptLog,
+  );
 }
 
 /// Picks the next job: highest priority first, then oldest.

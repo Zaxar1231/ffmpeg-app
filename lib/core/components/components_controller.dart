@@ -60,16 +60,15 @@ class ComponentsState {
     Map<ComponentId, String>? errors,
     bool? checking,
     DateTime? lastCheck,
-  }) =>
-      ComponentsState(
-        loaded: loaded ?? this.loaded,
-        records: records ?? this.records,
-        tasks: tasks ?? this.tasks,
-        latest: latest ?? this.latest,
-        errors: errors ?? this.errors,
-        checking: checking ?? this.checking,
-        lastCheck: lastCheck ?? this.lastCheck,
-      );
+  }) => ComponentsState(
+    loaded: loaded ?? this.loaded,
+    records: records ?? this.records,
+    tasks: tasks ?? this.tasks,
+    latest: latest ?? this.latest,
+    errors: errors ?? this.errors,
+    checking: checking ?? this.checking,
+    lastCheck: lastCheck ?? this.lastCheck,
+  );
 }
 
 /// Installs, updates, rolls back and removes external tools.
@@ -137,16 +136,18 @@ class ComponentsController extends Notifier<ComponentsState> {
     final latest = Map.of(state.latest);
     final errors = Map.of(state.errors);
     final ids = only ?? ComponentId.values;
-    await Future.wait(ids.map((id) async {
-      try {
-        latest[id] = await resolve(id);
-        errors.remove(id);
-      } catch (e) {
-        // A missing build for this platform (e.g. aria2 on Linux) is not an
-        // error worth shouting about unless the component is installed.
-        if (state.records[id]?.activeInstall != null) errors[id] = e.toString();
-      }
-    }));
+    await Future.wait(
+      ids.map((id) async {
+        try {
+          latest[id] = await resolve(id);
+          errors.remove(id);
+        } catch (e) {
+          // A missing build for this platform (e.g. aria2 on Linux) is not an
+          // error worth shouting about unless the component is installed.
+          if (state.records[id]?.activeInstall != null) errors[id] = e.toString();
+        }
+      }),
+    );
     if (!ref.mounted) return;
     state = state.copyWith(checking: false, latest: latest, errors: errors, lastCheck: DateTime.now());
   }
@@ -194,7 +195,8 @@ class ComponentsController extends Notifier<ComponentsState> {
         expectedSha256: pkg.sha256,
         cancel: token,
         onProgress: (pr) {
-          if (ref.mounted) _setTask(id, ComponentTask(TaskPhase.downloading, progress: pr.fraction, bytesPerSecond: pr.bytesPerSecond));
+          if (!ref.mounted) return;
+          _setTask(id, ComponentTask(TaskPhase.downloading, progress: pr.fraction, bytesPerSecond: pr.bytesPerSecond));
         },
       );
       if (!ref.mounted) return false;

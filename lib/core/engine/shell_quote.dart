@@ -60,7 +60,10 @@ List<String> splitCommandLine(String input) {
         current.clear();
         hasToken = false;
       }
-    } else if (c == r'\' && i + 1 < input.length && input[i + 1] != r'\' && RegExp(r"""[\s'"]""").hasMatch(input[i + 1])) {
+    } else if (c == r'\' &&
+        i + 1 < input.length &&
+        input[i + 1] != r'\' &&
+        RegExp(r"""[\s'"]""").hasMatch(input[i + 1])) {
       current.write(input[++i]);
       hasToken = true;
     } else {

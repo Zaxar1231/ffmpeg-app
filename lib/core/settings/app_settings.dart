@@ -74,10 +74,10 @@ class AppSettings {
   final bool showCommandBeforeRun;
 
   ComponentUpdatePolicy policyFor(ComponentId id) => switch (id) {
-        ComponentId.ffmpeg => ffmpegUpdatePolicy,
-        ComponentId.ytdlp => ytdlpUpdatePolicy,
-        _ => otherUpdatePolicy,
-      };
+    ComponentId.ffmpeg => ffmpegUpdatePolicy,
+    ComponentId.ytdlp => ytdlpUpdatePolicy,
+    _ => otherUpdatePolicy,
+  };
 
   AppSettings copyWith({
     ThemeMode? themeMode,
@@ -105,68 +105,66 @@ class AppSettings {
     int? ytdlpConcurrentFragments,
     bool? notifyOnFinish,
     bool? showCommandBeforeRun,
-  }) =>
-      AppSettings(
-        themeMode: themeMode ?? this.themeMode,
-        accentSource: accentSource ?? this.accentSource,
-        accentColor: accentColor ?? this.accentColor,
-        locale: locale != null ? locale() : this.locale,
-        advancedMode: advancedMode ?? this.advancedMode,
-        maxParallelJobs: maxParallelJobs ?? this.maxParallelJobs,
-        retryCount: retryCount ?? this.retryCount,
-        useHwAccel: useHwAccel ?? this.useHwAccel,
-        ffmpegThreads: ffmpegThreads ?? this.ffmpegThreads,
-        outputDir: outputDir != null ? outputDir() : this.outputDir,
-        customFfmpegPath: customFfmpegPath != null ? customFfmpegPath() : this.customFfmpegPath,
-        customFfprobePath: customFfprobePath != null ? customFfprobePath() : this.customFfprobePath,
-        customYtdlpPath: customYtdlpPath != null ? customYtdlpPath() : this.customYtdlpPath,
-        ffmpegSource: ffmpegSource ?? this.ffmpegSource,
-        ffmpegLicense: ffmpegLicense ?? this.ffmpegLicense,
-        gyanFlavor: gyanFlavor ?? this.gyanFlavor,
-        ffmpegChannel: ffmpegChannel ?? this.ffmpegChannel,
-        ytdlpChannel: ytdlpChannel ?? this.ytdlpChannel,
-        ffmpegUpdatePolicy: ffmpegUpdatePolicy ?? this.ffmpegUpdatePolicy,
-        ytdlpUpdatePolicy: ytdlpUpdatePolicy ?? this.ytdlpUpdatePolicy,
-        otherUpdatePolicy: otherUpdatePolicy ?? this.otherUpdatePolicy,
-        keepPreviousVersions: keepPreviousVersions ?? this.keepPreviousVersions,
-        ytdlpConcurrentFragments: ytdlpConcurrentFragments ?? this.ytdlpConcurrentFragments,
-        notifyOnFinish: notifyOnFinish ?? this.notifyOnFinish,
-        showCommandBeforeRun: showCommandBeforeRun ?? this.showCommandBeforeRun,
-      );
+  }) => AppSettings(
+    themeMode: themeMode ?? this.themeMode,
+    accentSource: accentSource ?? this.accentSource,
+    accentColor: accentColor ?? this.accentColor,
+    locale: locale != null ? locale() : this.locale,
+    advancedMode: advancedMode ?? this.advancedMode,
+    maxParallelJobs: maxParallelJobs ?? this.maxParallelJobs,
+    retryCount: retryCount ?? this.retryCount,
+    useHwAccel: useHwAccel ?? this.useHwAccel,
+    ffmpegThreads: ffmpegThreads ?? this.ffmpegThreads,
+    outputDir: outputDir != null ? outputDir() : this.outputDir,
+    customFfmpegPath: customFfmpegPath != null ? customFfmpegPath() : this.customFfmpegPath,
+    customFfprobePath: customFfprobePath != null ? customFfprobePath() : this.customFfprobePath,
+    customYtdlpPath: customYtdlpPath != null ? customYtdlpPath() : this.customYtdlpPath,
+    ffmpegSource: ffmpegSource ?? this.ffmpegSource,
+    ffmpegLicense: ffmpegLicense ?? this.ffmpegLicense,
+    gyanFlavor: gyanFlavor ?? this.gyanFlavor,
+    ffmpegChannel: ffmpegChannel ?? this.ffmpegChannel,
+    ytdlpChannel: ytdlpChannel ?? this.ytdlpChannel,
+    ffmpegUpdatePolicy: ffmpegUpdatePolicy ?? this.ffmpegUpdatePolicy,
+    ytdlpUpdatePolicy: ytdlpUpdatePolicy ?? this.ytdlpUpdatePolicy,
+    otherUpdatePolicy: otherUpdatePolicy ?? this.otherUpdatePolicy,
+    keepPreviousVersions: keepPreviousVersions ?? this.keepPreviousVersions,
+    ytdlpConcurrentFragments: ytdlpConcurrentFragments ?? this.ytdlpConcurrentFragments,
+    notifyOnFinish: notifyOnFinish ?? this.notifyOnFinish,
+    showCommandBeforeRun: showCommandBeforeRun ?? this.showCommandBeforeRun,
+  );
 
   Map<String, Object?> toMap() => {
-        'themeMode': themeMode.name,
-        'accentSource': accentSource.name,
-        'accentColor': accentColor,
-        'locale': locale,
-        'advancedMode': advancedMode,
-        'maxParallelJobs': maxParallelJobs,
-        'retryCount': retryCount,
-        'useHwAccel': useHwAccel,
-        'ffmpegThreads': ffmpegThreads,
-        'outputDir': outputDir,
-        'customFfmpegPath': customFfmpegPath,
-        'customFfprobePath': customFfprobePath,
-        'customYtdlpPath': customYtdlpPath,
-        'ffmpegSource': ffmpegSource.name,
-        'ffmpegLicense': ffmpegLicense.name,
-        'gyanFlavor': gyanFlavor.name,
-        'ffmpegChannel': ffmpegChannel.name,
-        'ytdlpChannel': ytdlpChannel.name,
-        'ffmpegUpdatePolicy': ffmpegUpdatePolicy.name,
-        'ytdlpUpdatePolicy': ytdlpUpdatePolicy.name,
-        'otherUpdatePolicy': otherUpdatePolicy.name,
-        'keepPreviousVersions': keepPreviousVersions,
-        'ytdlpConcurrentFragments': ytdlpConcurrentFragments,
-        'notifyOnFinish': notifyOnFinish,
-        'showCommandBeforeRun': showCommandBeforeRun,
-      };
+    'themeMode': themeMode.name,
+    'accentSource': accentSource.name,
+    'accentColor': accentColor,
+    'locale': locale,
+    'advancedMode': advancedMode,
+    'maxParallelJobs': maxParallelJobs,
+    'retryCount': retryCount,
+    'useHwAccel': useHwAccel,
+    'ffmpegThreads': ffmpegThreads,
+    'outputDir': outputDir,
+    'customFfmpegPath': customFfmpegPath,
+    'customFfprobePath': customFfprobePath,
+    'customYtdlpPath': customYtdlpPath,
+    'ffmpegSource': ffmpegSource.name,
+    'ffmpegLicense': ffmpegLicense.name,
+    'gyanFlavor': gyanFlavor.name,
+    'ffmpegChannel': ffmpegChannel.name,
+    'ytdlpChannel': ytdlpChannel.name,
+    'ffmpegUpdatePolicy': ffmpegUpdatePolicy.name,
+    'ytdlpUpdatePolicy': ytdlpUpdatePolicy.name,
+    'otherUpdatePolicy': otherUpdatePolicy.name,
+    'keepPreviousVersions': keepPreviousVersions,
+    'ytdlpConcurrentFragments': ytdlpConcurrentFragments,
+    'notifyOnFinish': notifyOnFinish,
+    'showCommandBeforeRun': showCommandBeforeRun,
+  };
 
   /// Tolerant: unknown/invalid values fall back to defaults.
   factory AppSettings.fromMap(Map<String, Object?> m) {
     const d = AppSettings();
-    T e<T extends Enum>(List<T> values, Object? v, T def) =>
-        values.where((x) => x.name == v).firstOrNull ?? def;
+    T e<T extends Enum>(List<T> values, Object? v, T def) => values.where((x) => x.name == v).firstOrNull ?? def;
     int i(Object? v, int def, {int min = -1 << 31, int max = 1 << 31}) => v is int ? v.clamp(min, max) : def;
     bool b(Object? v, bool def) => v is bool ? v : def;
     String? s(Object? v) => v is String && v.isNotEmpty ? v : null;

@@ -24,7 +24,9 @@ void main() {
       inputs: [FfmpegInput('testsrc2=s=160x120:r=25:d=2', format: 'lavfi')],
       outputs: [FfmpegOutput('-', format: 'null')],
     );
-    final h = await runner.start(ToolInvocation(executable: ffmpeg!, args: cmd.toArgs(), totalDuration: const Duration(seconds: 2)));
+    final h = await runner.start(
+      ToolInvocation(executable: ffmpeg!, args: cmd.toArgs(), totalDuration: const Duration(seconds: 2)),
+    );
     final snaps = <FfmpegProgress>[];
     h.progress.listen(snaps.add);
     final r = await h.done;
@@ -37,7 +39,9 @@ void main() {
 
   test('cancel stops a long job', () async {
     const cmd = FfmpegCommand(
-      inputs: [FfmpegInput('testsrc2=s=640x480:r=25', format: 'lavfi', options: ['-re'])],
+      inputs: [
+        FfmpegInput('testsrc2=s=640x480:r=25', format: 'lavfi', options: ['-re']),
+      ],
       outputs: [FfmpegOutput('-', format: 'null')],
     );
     final h = await runner.start(ToolInvocation(executable: ffmpeg!, args: cmd.toArgs()));
@@ -50,7 +54,9 @@ void main() {
 
   test('pause and resume (POSIX)', () async {
     const cmd = FfmpegCommand(
-      inputs: [FfmpegInput('testsrc2=s=160x120:r=25:d=1.5', format: 'lavfi', options: ['-re'])],
+      inputs: [
+        FfmpegInput('testsrc2=s=160x120:r=25:d=1.5', format: 'lavfi', options: ['-re']),
+      ],
       outputs: [FfmpegOutput('-', format: 'null')],
     );
     final h = await runner.start(ToolInvocation(executable: ffmpeg!, args: cmd.toArgs()));

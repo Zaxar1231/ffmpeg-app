@@ -57,7 +57,14 @@ class CodecEntry {
 }
 
 class FilterEntry {
-  const FilterEntry(this.name, this.io, this.description, {this.timeline = false, this.sliceThreads = false, this.commands = false});
+  const FilterEntry(
+    this.name,
+    this.io,
+    this.description, {
+    this.timeline = false,
+    this.sliceThreads = false,
+    this.commands = false,
+  });
   final String name;
 
   /// e.g. `V->V`, `A->A`, `VV->V`, `N->V`, `|->A`.
@@ -69,21 +76,19 @@ class FilterEntry {
 }
 
 MediaKind _kindFromFlag(String c) => switch (c) {
-      'V' => MediaKind.video,
-      'A' => MediaKind.audio,
-      'S' => MediaKind.subtitle,
-      'D' => MediaKind.data,
-      'T' => MediaKind.attachment,
-      _ => MediaKind.unknown,
-    };
+  'V' => MediaKind.video,
+  'A' => MediaKind.audio,
+  'S' => MediaKind.subtitle,
+  'D' => MediaKind.data,
+  'T' => MediaKind.attachment,
+  _ => MediaKind.unknown,
+};
 
 /// Parses `ffmpeg -version` → (version, configure flags).
 ({String? version, List<String> configuration}) parseVersionOutput(String out) {
   final m = RegExp(r'^ffmpeg version (\S+)', multiLine: true).firstMatch(out);
   final c = RegExp(r'^configuration:(.*)$', multiLine: true).firstMatch(out);
-  final config = c == null
-      ? <String>[]
-      : c.group(1)!.trim().split(RegExp(r'\s+')).where((s) => s.isNotEmpty).toList();
+  final config = c == null ? <String>[] : c.group(1)!.trim().split(RegExp(r'\s+')).where((s) => s.isNotEmpty).toList();
   return (version: m?.group(1), configuration: config);
 }
 

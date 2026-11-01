@@ -1,0 +1,589 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Kadra",
+  "navHome": "Главная",
+  "navTools": "Инструменты",
+  "navDownloads": "Загрузки",
+  "navQueue": "Очередь",
+  "navPresets": "Пресеты",
+  "navComponents": "Компоненты",
+  "navSettings": "Настройки",
+  "cancel": "Отмена",
+  "close": "Закрыть",
+  "copy": "Копировать",
+  "copied": "Скопировано",
+  "choose": "Выбрать",
+  "search": "Поиск",
+  "more": "Ещё",
+  "auto": "авто",
+  "notSet": "Не задано",
+  "nothingFound": "Ничего не найдено",
+  "helpTooltip": "Подробнее",
+  "resetTooltip": "Сбросить",
+  "resetSection": "Сбросить раздел",
+  "resetAll": "Сбросить все настройки",
+  "install": "Установить",
+  "update": "Обновить",
+  "reinstall": "Переустановить",
+  "rollback": "Откатить",
+  "remove": "Удалить",
+  "activate": "Сделать активной",
+  "reload": "Перечитать файл",
+  "pause": "Пауза",
+  "resume": "Продолжить",
+  "retry": "Повторить",
+  "openFolder": "Открыть папку",
+  "showLog": "Показать лог",
+  "showCommand": "Показать команду",
+  "removeFromList": "Убрать из списка",
+  "logTitle": "Полный лог",
+  "commandTitle": "Команда",
+  "unitB": "Б",
+  "unitKB": "КБ",
+  "unitMB": "МБ",
+  "unitGB": "ГБ",
+  "unitTB": "ТБ",
+  "unitKbps": "кбит/с",
+  "unitMbps": "Мбит/с",
+  "unitFps": "к/с",
+  "unitHz": "Гц",
+  "unitSecond": "с",
+  "homeTitle": "Главная",
+  "openFile": "Открыть файл",
+  "closeFile": "Закрыть файл",
+  "dropTitle": "Перетащите файл сюда",
+  "dropSubtitle": "или нажмите, чтобы выбрать: видео, аудио, картинка",
+  "shortcutOpenHint": "Ctrl+O — открыть файл, Ctrl+1…7 — разделы",
+  "probeFailed": "Не удалось прочитать файл",
+  "openAnother": "Открыть другой",
+  "quickActions": "Быстрые действия",
+  "ffmpegMissingTitle": "ffmpeg не найден",
+  "ffmpegMissingBody": "Без него приложение не может работать с файлами. Установите ffmpeg в разделе «Компоненты» — это займёт минуту.",
+  "openComponents": "Открыть «Компоненты»",
+  "addedToQueue": "Задача добавлена в очередь",
+  "openQueue": "Открыть очередь",
+  "infoContainer": "Контейнер",
+  "infoFormat": "Формат",
+  "infoDuration": "Длительность",
+  "infoSize": "Размер",
+  "infoBitrate": "Битрейт",
+  "infoStartTime": "Начало",
+  "infoStreams": "Потоков",
+  "infoChapters": "{count, plural, one{{count} глава} few{{count} главы} many{{count} глав} other{{count} главы}}",
+  "@infoChapters": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "infoTags": "Теги",
+  "infoCodec": "Кодек",
+  "infoResolution": "Разрешение",
+  "infoFrameRate": "Частота кадров",
+  "infoPixelFormat": "Пиксельный формат",
+  "infoBits": "{bits} бит",
+  "@infoBits": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "infoColor": "Цвет",
+  "infoFieldOrder": "Развёртка",
+  "infoRotation": "Поворот",
+  "infoMastering": "Мастеринг HDR",
+  "infoContentLight": "Уровни яркости",
+  "infoSampleRate": "Частота дискретизации",
+  "infoChannels": "Каналы",
+  "infoSampleFormat": "Формат сэмплов",
+  "infoFrames": "Кадров",
+  "infoVersion": "Версия",
+  "streamVideo": "Видео",
+  "streamAudio": "Аудио",
+  "streamSubtitle": "Субтитры",
+  "streamCover": "Обложка",
+  "streamAttachment": "Вложение",
+  "streamData": "Данные",
+  "dispositionDefault": "по умолчанию",
+  "dispositionForced": "принудительные",
+  "toolsSearchHint": "Найти инструмент: «сжать», «gif», «субтитры»…",
+  "toolComingSoon": "Появится на этапе {stage} разработки",
+  "@toolComingSoon": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "stageLabel": "этап {stage}",
+  "@stageLabel": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "losslessTag": "мгновенно, без потери качества",
+  "needsOtherBuild": "нужна другая сборка",
+  "needsBuildTooltip": "В установленной сборке ffmpeg нет: {names}. Установите full-сборку в «Компонентах».",
+  "@needsBuildTooltip": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "catAnalysis": "Анализ и информация",
+  "catConvert": "Конвертация и сжатие",
+  "catEdit": "Монтаж и редактирование",
+  "catAudio": "Аудио",
+  "catSubtitles": "Субтитры",
+  "catImages": "Изображения и анимация",
+  "catMetadata": "Метаданные и главы",
+  "catCapture": "Запись и стриминг",
+  "catRepair": "Ремонт файлов",
+  "catDownload": "Загрузка видео",
+  "catAutomation": "Пакетная обработка",
+  "catExpert": "Режим эксперта",
+  "toolMediaInfo": "Информация о файле",
+  "toolMediaInfoDesc": "Контейнер, потоки, кодеки, битрейт, HDR, главы и теги.",
+  "toolIntegrity": "Проверка целостности",
+  "toolIntegrityDesc": "Декодирует файл целиком и перечисляет все найденные ошибки.",
+  "toolLoudness": "Замер громкости",
+  "toolLoudnessDesc": "LUFS, True Peak и LRA по стандарту EBU R128.",
+  "toolWaveform": "Осциллограмма и спектр",
+  "toolWaveformDesc": "Картинка с формой волны или спектрограммой звука.",
+  "toolDetect": "Детекторы",
+  "toolDetectDesc": "Тишина, чёрные и замершие кадры, смена сцен, чёрные поля.",
+  "toolCompareQuality": "Сравнение качества",
+  "toolCompareQualityDesc": "VMAF, PSNR и SSIM между оригиналом и результатом.",
+  "toolConvert": "Конвертация",
+  "toolConvertDesc": "Любой контейнер и кодек: MP4, MKV, WebM, MP3, FLAC и другие.",
+  "toolCompress": "Сжатие",
+  "toolCompressDesc": "Уменьшить размер: по качеству или до заданного размера файла.",
+  "toolHdrToSdr": "HDR → SDR",
+  "toolHdrToSdrDesc": "Тонмаппинг HDR-видео для обычных экранов.",
+  "toolTrim": "Обрезка",
+  "toolTrimDesc": "Быстро по ключевым кадрам или точно до кадра.",
+  "toolCutJoin": "Вырезать фрагменты",
+  "toolCutJoinDesc": "Удалить лишние куски или оставить только нужные.",
+  "toolConcat": "Склейка",
+  "toolConcatDesc": "Соединить несколько файлов в один.",
+  "toolSplit": "Разделение",
+  "toolSplitDesc": "По времени, размеру, главам, тишине или сценам.",
+  "toolCropScale": "Кадр и размер",
+  "toolCropScaleDesc": "Кадрирование, масштаб, поворот, вертикальное видео.",
+  "toolSpeed": "Скорость и FPS",
+  "toolSpeedDesc": "Ускорение, замедление, реверс, интерполяция кадров.",
+  "toolRestore": "Улучшение видео",
+  "toolRestoreDesc": "Деинтерлейс, стабилизация, шумоподавление, резкость.",
+  "toolColor": "Цвет",
+  "toolColorDesc": "Яркость, контраст, кривые, 3D LUT, ч/б и сепия.",
+  "toolOverlay": "Водяной знак и текст",
+  "toolOverlayDesc": "Картинка, текст или таймкод поверх видео.",
+  "toolBlur": "Размытие и логотипы",
+  "toolBlurDesc": "Размыть или пикселизовать область, убрать логотип.",
+  "toolStack": "Картинка в картинке",
+  "toolStackDesc": "PiP, сетка, сравнение бок о бок.",
+  "toolTransitions": "Затухания и переходы",
+  "toolTransitionsDesc": "Fade in/out и все виды переходов xfade.",
+  "toolLoop": "Кольцевание",
+  "toolLoopDesc": "Повтор видео и бумеранг.",
+  "toolExtractAudio": "Извлечь звук",
+  "toolExtractAudioDesc": "Сохранить звуковую дорожку отдельным файлом.",
+  "toolReplaceAudio": "Дорожки звука",
+  "toolReplaceAudioDesc": "Заменить, добавить, удалить дорожку или выбрать основную.",
+  "toolNormalize": "Нормализация громкости",
+  "toolNormalizeDesc": "Двухпроходная loudnorm: YouTube −14, подкаст −16, ТВ −23 LUFS.",
+  "toolDenoise": "Шумоподавление",
+  "toolDenoiseDesc": "afftdn, anlmdn, RNNoise, удаление щелчков и клиппинга.",
+  "toolAudioFx": "Обработка звука",
+  "toolAudioFxDesc": "Эквалайзер, компрессор, лимитер, темп и тон, каналы.",
+  "toolMix": "Смешивание",
+  "toolMixDesc": "Несколько дорожек вместе, автоприглушение музыки под голос.",
+  "toolTranscribe": "Транскрипция",
+  "toolTranscribeDesc": "Распознать речь в субтитры через whisper.",
+  "toolBurnSubs": "Вшить субтитры",
+  "toolBurnSubsDesc": "Субтитры прямо в картинке, со стилями.",
+  "toolSoftSubs": "Дорожки субтитров",
+  "toolSoftSubsDesc": "Добавить, извлечь или удалить отдельную дорожку.",
+  "toolConvertSubs": "Конвертация субтитров",
+  "toolConvertSubsDesc": "SRT ↔ ASS ↔ VTT, сдвиг таймингов, кодировка.",
+  "toolGif": "GIF и анимации",
+  "toolGifDesc": "Качественный GIF с палитрой, анимированные WebP и APNG.",
+  "toolFrames": "Извлечь кадры",
+  "toolFramesDesc": "Каждый N-й кадр, по сценам или в заданное время.",
+  "toolContactSheet": "Раскадровка",
+  "toolContactSheetDesc": "Сетка миниатюр из видео.",
+  "toolSlideshow": "Слайд-шоу",
+  "toolSlideshowDesc": "Видео из картинок с переходами.",
+  "toolAudioToVideo": "Картинка + звук",
+  "toolAudioToVideoDesc": "Видео из обложки и аудио, например для YouTube.",
+  "toolVisualizer": "Визуализатор звука",
+  "toolVisualizerDesc": "Волна, спектр или вектороскоп в видео.",
+  "toolImageConvert": "Конвертация картинок",
+  "toolImageConvertDesc": "JPEG, PNG, WebP, AVIF: сжатие и смена формата.",
+  "toolTags": "Теги",
+  "toolTagsDesc": "Название, исполнитель, альбом, год и прочее.",
+  "toolCover": "Обложка",
+  "toolCoverDesc": "Добавить, заменить или извлечь обложку.",
+  "toolChapters": "Главы",
+  "toolChaptersDesc": "Добавить, переименовать, импорт и экспорт глав.",
+  "toolScreenRecord": "Запись экрана",
+  "toolScreenRecordDesc": "Весь экран, область или окно.",
+  "toolWebcam": "Камера и микрофон",
+  "toolWebcamDesc": "Запись с веб-камеры и микрофона.",
+  "toolStream": "Стрим",
+  "toolStreamDesc": "RTMP / SRT на YouTube, Twitch или свой сервер.",
+  "toolHls": "HLS / DASH",
+  "toolHlsDesc": "Упаковка для воспроизведения в браузере.",
+  "toolRepair": "Ремонт",
+  "toolRepairDesc": "Ремукс битых файлов, таймстемпы, рассинхрон.",
+  "toolFaststart": "Faststart для MP4",
+  "toolFaststartDesc": "Быстрый старт видео в браузере.",
+  "toolDownload": "Загрузка по ссылке",
+  "toolDownloadDesc": "Видео и аудио с сайтов через yt-dlp.",
+  "toolBatch": "Пакетная обработка",
+  "toolBatchDesc": "Одна операция для папки или набора файлов.",
+  "toolRecipes": "Рецепты",
+  "toolRecipesDesc": "Цепочки операций: обрезать → нормализовать → сжать.",
+  "toolWatchFolder": "Наблюдение за папкой",
+  "toolWatchFolderDesc": "Новые файлы обрабатываются автоматически.",
+  "toolCommandEditor": "Редактор команд",
+  "toolCommandEditorDesc": "Своя команда ffmpeg с автодополнением.",
+  "toolFilterGraph": "Конструктор фильтров",
+  "toolFilterGraphDesc": "Цепочка фильтров списком с параметрами.",
+  "toolCommandLog": "Журнал команд",
+  "toolCommandLogDesc": "Все запущенные команды с логами.",
+  "queueEmptyTitle": "Очередь пуста",
+  "queueEmptyBody": "Задачи из инструментов появятся здесь с прогрессом, скоростью и оставшимся временем.",
+  "queueActive": "В работе и в очереди",
+  "queueHistory": "История",
+  "clearFinished": "Очистить завершённые",
+  "parallelJobsShort": "Параллельно: {count}",
+  "@parallelJobsShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statusQueued": "В очереди",
+  "statusRunning": "Выполняется",
+  "statusPaused": "Пауза",
+  "statusCompleted": "Готово",
+  "statusCompletedWithFindings": "{count, plural, one{Найдена {count} проблема} few{Найдено {count} проблемы} many{Найдено {count} проблем} other{Найдено {count} проблемы}}",
+  "@statusCompletedWithFindings": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statusNoProblems": "Ошибок не найдено",
+  "statusFailed": "Ошибка",
+  "statusCanceled": "Отменено",
+  "etaLabel": "осталось {time}",
+  "@etaLabel": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tookLabel": "заняло {time}",
+  "@tookLabel": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attemptsLabel": "{count, plural, one{{count} попытка} few{{count} попытки} many{{count} попыток} other{{count} попытки}}",
+  "@attemptsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "priorityHigh": "Высокий приоритет",
+  "priorityRaise": "Поднять приоритет",
+  "priorityNormal": "Обычный приоритет",
+  "errToolMissing": "Не найден нужный инструмент. Установите его в разделе «Компоненты».",
+  "errFileNotFound": "Файл не найден: {path}",
+  "@errFileNotFound": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "errPermissionDenied": "Нет доступа к файлу или папке: {path}. Выберите другую папку для сохранения.",
+  "@errPermissionDenied": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "errDiskFull": "Закончилось место на диске.",
+  "errInvalidData": "Файл повреждён или его формат не поддерживается. Попробуйте «Ремонт» или «Проверку целостности».",
+  "errEncoderMissing": "В этой сборке ffmpeg нет кодировщика «{name}». Выберите другой кодек или установите full-сборку.",
+  "@errEncoderMissing": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errDecoderMissing": "В этой сборке ffmpeg нет декодера «{name}».",
+  "@errDecoderMissing": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errFilterMissing": "В этой сборке ffmpeg нет фильтра «{name}». Установите full-сборку в «Компонентах».",
+  "@errFilterMissing": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errCodecContainer": "Кодек не поддерживается этим контейнером. Попробуйте MKV — он принимает почти всё.",
+  "errOddDimensions": "Ширина и высота должны быть чётными для этого кодека. Включите округление размера.",
+  "errHwUnavailable": "Аппаратный кодировщик недоступен (нет видеокарты или драйвера). Отключите ускорение или выберите программный кодек.",
+  "errInvalidArgument": "Неверный параметр: {arg}",
+  "@errInvalidArgument": {
+    "placeholders": {
+      "arg": {
+        "type": "String"
+      }
+    }
+  },
+  "errStreamNotFound": "В файле нет выбранной дорожки.",
+  "errSameAsInput": "Результат нельзя записать поверх исходного файла. Выберите другое имя.",
+  "errNetwork": "Проблема с сетью. Проверьте подключение и попробуйте снова.",
+  "errUnsupportedUrl": "Этот сайт или ссылка не поддерживаются.",
+  "errLoginRequired": "Нужен вход в аккаунт. Включите cookies из браузера в настройках загрузок.",
+  "errVideoUnavailable": "Видео недоступно: удалено, приватное или заблокировано в регионе.",
+  "errCanceled": "Отменено.",
+  "errUnknown": "Не получилось. Подробности в полном логе.",
+  "checkUpdates": "Проверить обновления",
+  "lastChecked": "Проверено в {time}",
+  "@lastChecked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "compFfmpeg": "ffmpeg и ffprobe",
+  "compFfmpegDesc": "Основной движок: конвертация, фильтры, анализ. Обязателен.",
+  "compYtdlp": "yt-dlp",
+  "compYtdlpDesc": "Загрузка видео и аудио с YouTube и тысяч других сайтов.",
+  "compDeno": "Deno",
+  "compDenoDesc": "JavaScript-рантайм, который нужен yt-dlp для YouTube.",
+  "compAria2": "aria2c",
+  "compAria2Desc": "Ускоренная многопоточная загрузка для yt-dlp.",
+  "originCustom": "свой путь",
+  "originManaged": "установлен приложением",
+  "originSystem": "системный",
+  "originNone": "не найден",
+  "updateAvailable": "есть обновление",
+  "inUse": "Используется",
+  "installedVersion": "Версия",
+  "sourceLabel": "Источник",
+  "latestAvailable": "Доступно",
+  "noChecksum": "издатель не публикует SHA-256",
+  "removeComponentConfirm": "Удалить «{name}» и все сохранённые версии?",
+  "@removeComponentConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "componentError": "Ошибка: {error}",
+  "@componentError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "versionHistory": "{count, plural, one{Установленные версии ({count})} other{Установленные версии ({count})}}",
+  "@versionHistory": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "phaseResolving": "Поиск последней версии…",
+  "phaseDownloading": "Скачивание",
+  "phaseVerifying": "Проверка SHA-256…",
+  "phaseExtracting": "Распаковка…",
+  "phaseTesting": "Проверка запуска…",
+  "flavorFull": "full",
+  "flavorEssentials": "essentials",
+  "channelRelease": "релиз",
+  "channelNightly": "nightly",
+  "channelStable": "stable",
+  "btbnHint": "Статические сборки BtbN. GPL — всё, включая x264/x265; LGPL — без GPL-кодеков.",
+  "gyanHint": "Сборки gyan.dev для Windows. full — максимум фильтров и кодеков (whisper, vmaf, frei0r).",
+  "customPathNone": "Можно указать свой бинарник вместо загруженного.",
+  "customPathValue": "Используется свой путь: {path}",
+  "@customPathValue": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "useCustomBinary": "Указать свой",
+  "installViaPackageManager": "Установите пакет «{pkg}» через менеджер пакетов системы.",
+  "@installViaPackageManager": {
+    "placeholders": {
+      "pkg": {
+        "type": "String"
+      }
+    }
+  },
+  "buildInfoTitle": "Возможности сборки ffmpeg",
+  "licenseLabel": "Лицензия",
+  "encoders": "Кодировщики",
+  "decoders": "Декодеры",
+  "filters": "Фильтры",
+  "muxers": "Контейнеры",
+  "configuration": "Конфигурация",
+  "hwTitle": "Аппаратное ускорение",
+  "redetect": "Перепроверить",
+  "hwDetecting": "Пробное кодирование на каждом ускорителе…",
+  "hwDecode": "Декодирование",
+  "hwBestDecode": "Лучшее для декодирования",
+  "hwEncoders": "Рабочие кодировщики",
+  "hwSoftwareOnly": "только программно",
+  "hwNoneWorking": "не найдено, кодирование будет на процессоре",
+  "hwFailed": "{count, plural, one{Не прошёл проверку: {count}} other{Не прошли проверку: {count}}}",
+  "@hwFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "plannedComponents": "Скоро",
+  "compRnnoise": "Модели RNNoise (шумоподавление голоса)",
+  "compVmaf": "Модели VMAF (оценка качества)",
+  "compWhisper": "Модели whisper.cpp (транскрипция)",
+  "compFrei0r": "frei0r и LADSPA/LV2 плагины",
+  "compLuts": "3D LUT-пакеты (.cube)",
+  "compFonts": "Шрифты для субтитров и текста",
+  "downloadsSoonTitle": "Загрузка по ссылкам — на этапе 2",
+  "downloadsReady": "yt-dlp готов: {path}",
+  "@downloadsReady": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsNeedYtdlp": "Для загрузки понадобится yt-dlp. Его можно установить уже сейчас.",
+  "presetsSoonTitle": "Пресеты появятся вместе с конвертацией",
+  "presetsSoonBody": "«Для Telegram», «Для YouTube», «Для Discord (до 10 МБ)», «Для монтажа», «Архив без потерь» и свои пресеты с экспортом в JSON.",
+  "settingsSearchHint": "Поиск по настройкам",
+  "showAdvanced": "{count, plural, one{Показать ещё {count} расширенную настройку} few{Показать ещё {count} расширенные настройки} many{Показать ещё {count} расширенных настроек} other{Показать ещё {count} расширенной настройки}}",
+  "@showAdvanced": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "secGeneral": "Общие",
+  "secAppearance": "Внешний вид",
+  "secPerformance": "Производительность",
+  "secPaths": "Пути и папки",
+  "secDownloads": "Загрузки (yt-dlp)",
+  "secUpdates": "Компоненты и обновления",
+  "secNotifications": "Уведомления",
+  "secExpert": "Для экспертов",
+  "setLanguage": "Язык интерфейса",
+  "setLanguageHint": "По умолчанию — как в системе",
+  "languageSystem": "Как в системе",
+  "setAdvancedMode": "Расширенный режим",
+  "setAdvancedModeHint": "Показывать все параметры, а не только главные",
+  "setAdvancedModeHelp": "В простом режиме у инструментов и в настройках видны только параметры, которые нужны в 90% случаев; остальные берут разумные значения по умолчанию. Расширенный режим открывает всё: профили и уровни кодеков, пиксельные форматы, число потоков и т. п. Поиск находит расширенные настройки в любом режиме. По умолчанию: выключен.",
+  "setTheme": "Тема",
+  "setThemeHint": "Светлая, тёмная или как в системе",
+  "themeSystem": "Системная",
+  "themeLight": "Светлая",
+  "themeDark": "Тёмная",
+  "setAccent": "Акцентный цвет",
+  "setAccentHint": "Цвет кнопок и выделений",
+  "setAccentHelp": "«Системный» берёт акцент из настроек Windows или GNOME/KDE (Material You). Если система цвет не сообщает, используется выбранный ниже. По умолчанию: системный.",
+  "accentSystem": "Системный",
+  "accentCustom": "Свой",
+  "setParallel": "Параллельные задачи",
+  "setParallelHint": "Сколько задач очереди выполнять одновременно",
+  "setParallelHelp": "ffmpeg и так использует все ядра процессора, поэтому для перекодирования обычно лучше 1–2 задачи: каждая закончится быстрее. Больше задач выгодно для лёгких операций (ремукс, обрезка без перекодирования, загрузки) и при аппаратном кодировании, где видеокарта может вести несколько потоков. Рекомендуется: 1–2. По умолчанию: 1.",
+  "zoneFasterEach": "каждая быстрее",
+  "zoneMoreAtOnce": "больше сразу",
+  "setHwAccel": "Аппаратное ускорение",
+  "setHwAccelHint": "Кодировать на видеокарте, если она найдена",
+  "setHwAccelHelp": "NVENC (NVIDIA), Quick Sync (Intel), AMF (AMD), VAAPI и Vulkan кодируют в разы быстрее процессора, но при том же размере файла качество немного ниже. Для архива и максимального качества выключите. Что именно найдено, видно в «Компонентах». По умолчанию: включено.",
+  "setRetries": "Повторы при ошибке",
+  "setRetriesHint": "Сколько раз перезапускать упавшую задачу",
+  "setRetriesHelp": "Полезно для загрузок и сетевых источников, где сбои бывают временными. Для локальных файлов ошибка обычно повторяется, поэтому по умолчанию: 0.",
+  "setThreads": "Потоки ffmpeg",
+  "setThreadsHint": "Ограничить число потоков процессора на задачу",
+  "setThreadsHelp": "«авто» позволяет ffmpeg самому выбрать оптимум. Ограничение нужно, если вы хотите оставить процессор свободным для других программ во время кодирования. По умолчанию: авто.",
+  "setOutputDir": "Папка для результатов",
+  "setOutputDirHint": "Куда сохранять готовые файлы",
+  "setOutputDirHelp": "Если не задана, результаты сохраняются в папку «Kadra» внутри «Видео» (или домашней папки). Каждый инструмент также позволяет выбрать место вручную.",
+  "outputDirDefault": "По умолчанию: {path}",
+  "@outputDirDefault": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "setCustomFfmpeg": "Свой ffmpeg",
+  "setCustomFfmpegHint": "Путь к уже установленному ffmpeg",
+  "setCustomFfmpegHelp": "Имеет приоритет над загруженным компонентом и системным PATH. ffprobe ищется рядом автоматически. Полезно, если у вас своя сборка с нестандартными библиотеками.",
+  "setCustomFfprobe": "Свой ffprobe",
+  "setCustomFfprobeHint": "Если он лежит не рядом с ffmpeg",
+  "setCustomYtdlp": "Свой yt-dlp",
+  "setCustomYtdlpHint": "Путь к уже установленному yt-dlp",
+  "setFragments": "Параллельные фрагменты",
+  "setFragmentsHint": "Сколько частей видео качать одновременно",
+  "setFragmentsHelp": "yt-dlp --concurrent-fragments. Ускоряет загрузку потоковых форматов (DASH/HLS) с YouTube и других сайтов. Слишком большое значение может привести к временной блокировке со стороны сайта. Рекомендуется: 4–8. По умолчанию: 4.",
+  "zoneGentle": "бережнее к сайту",
+  "zoneFaster": "быстрее",
+  "setPolicyFfmpeg": "Обновления ffmpeg",
+  "setPolicyHint": "Что делать, когда вышла новая версия",
+  "setPolicyYtdlp": "Обновления yt-dlp",
+  "setPolicyYtdlpHint": "Сайты часто меняются — лучше обновлять автоматически",
+  "setPolicyOther": "Обновления остальных компонентов",
+  "setPolicyHelp": "«Автоматически» — проверить и установить при запуске; «Спрашивать» — показать значок обновления в «Компонентах»; «Никогда» — не проверять. Предыдущая версия сохраняется, к ней можно откатиться. По умолчанию: yt-dlp — автоматически, остальное — спрашивать.",
+  "policyAuto": "Автоматически",
+  "policyAsk": "Спрашивать",
+  "policyNever": "Никогда",
+  "setKeepVersions": "Хранить предыдущие версии",
+  "setKeepVersionsHint": "Сколько старых версий оставить для отката",
+  "setKeepVersionsHelp": "Каждая версия ffmpeg занимает 100–250 МБ. 0 — откат будет невозможен. По умолчанию: 2.",
+  "zoneLessDisk": "меньше места",
+  "zoneMoreRollback": "больше откатов",
+  "setNotify": "Уведомлять о завершении",
+  "setNotifyHint": "Системное уведомление, когда задача готова",
+  "setShowCommand": "Показывать команду перед запуском",
+  "setShowCommandHint": "Можно проверить и отредактировать команду ffmpeg",
+  "setShowCommandHelp": "Перед добавлением в очередь откроется готовая команда ffmpeg: её можно скопировать, изменить и запустить. Кнопка «Показать команду» доступна у каждой задачи в любом случае. По умолчанию: выключено."
+}

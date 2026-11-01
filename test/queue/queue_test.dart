@@ -4,19 +4,19 @@ import 'package:kadra/core/queue/queue_models.dart';
 import 'package:kadra/core/settings/app_settings.dart';
 
 QueueItem item(String id, {int priority = 0, int minute = 0, JobStatus status = JobStatus.queued}) => QueueItem(
-      job: Job(
-        id: id,
-        kind: 'test',
-        title: id,
-        tool: 'ffmpeg',
-        argsJson: '["-version"]',
-        status: status.name,
-        priority: priority,
-        attempts: 0,
-        maxRetries: 0,
-        createdAt: DateTime(2026, 1, 1, 0, minute),
-      ),
-    );
+  job: Job(
+    id: id,
+    kind: 'test',
+    title: id,
+    tool: 'ffmpeg',
+    argsJson: '["-version"]',
+    status: status.name,
+    priority: priority,
+    attempts: 0,
+    maxRetries: 0,
+    createdAt: DateTime(2026, 1, 1, 0, minute),
+  ),
+);
 
 void main() {
   test('pickNext: priority first, then FIFO, only queued', () {

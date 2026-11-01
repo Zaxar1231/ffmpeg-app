@@ -16,8 +16,11 @@ void main() {
   });
 
   test('container mismatch suggests another container', () {
-    expect(t('[mp4 @ 0x1] Could not find tag for codec pcm_s16le in stream #1, codec not currently supported in container').kind,
-        ToolErrorKind.codecContainerMismatch);
+    expect(
+      t('[mp4 @ 0x1] Could not find tag for codec pcm_s16le in stream #1, codec not currently supported in container')
+          .kind,
+      ToolErrorKind.codecContainerMismatch,
+    );
   });
 
   test('file errors', () {
@@ -31,12 +34,17 @@ void main() {
   });
 
   test('hardware encoder problems win over generic lines', () {
-    final e = t('[h264_nvenc @ 0x1] Cannot load nvcuda.dll\n'
-        "[vost#0:0/h264_nvenc @ 0x1] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height\n"
-        'Conversion failed!');
+    final e = t(
+      '[h264_nvenc @ 0x1] Cannot load nvcuda.dll\n'
+      "[vost#0:0/h264_nvenc @ 0x1] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height\n"
+      'Conversion failed!',
+    );
     expect(e.kind, ToolErrorKind.hwEncoderUnavailable);
     expect(e.detail, 'nvcuda.dll');
-    expect(t('[h264_nvenc @ 0x1] OpenEncodeSessionEx failed: unsupported device (2)').kind, ToolErrorKind.hwEncoderUnavailable);
+    expect(
+      t('[h264_nvenc @ 0x1] OpenEncodeSessionEx failed: unsupported device (2)').kind,
+      ToolErrorKind.hwEncoderUnavailable,
+    );
   });
 
   test('odd dimensions', () {

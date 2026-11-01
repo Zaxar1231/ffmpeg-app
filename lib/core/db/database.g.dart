@@ -44,9 +44,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _argsJsonMeta = const VerificationMeta(
-    'argsJson',
-  );
+  static const VerificationMeta _argsJsonMeta = const VerificationMeta('argsJson');
   @override
   late final GeneratedColumn<String> argsJson = GeneratedColumn<String>(
     'args_json',
@@ -55,9 +53,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _inputPathMeta = const VerificationMeta(
-    'inputPath',
-  );
+  static const VerificationMeta _inputPathMeta = const VerificationMeta('inputPath');
   @override
   late final GeneratedColumn<String> inputPath = GeneratedColumn<String>(
     'input_path',
@@ -66,9 +62,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _outputPathMeta = const VerificationMeta(
-    'outputPath',
-  );
+  static const VerificationMeta _outputPathMeta = const VerificationMeta('outputPath');
   @override
   late final GeneratedColumn<String> outputPath = GeneratedColumn<String>(
     'output_path',
@@ -77,9 +71,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _durationUsMeta = const VerificationMeta(
-    'durationUs',
-  );
+  static const VerificationMeta _durationUsMeta = const VerificationMeta('durationUs');
   @override
   late final GeneratedColumn<int> durationUs = GeneratedColumn<int>(
     'duration_us',
@@ -97,9 +89,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _priorityMeta = const VerificationMeta(
-    'priority',
-  );
+  static const VerificationMeta _priorityMeta = const VerificationMeta('priority');
   @override
   late final GeneratedColumn<int> priority = GeneratedColumn<int>(
     'priority',
@@ -109,9 +99,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _attemptsMeta = const VerificationMeta(
-    'attempts',
-  );
+  static const VerificationMeta _attemptsMeta = const VerificationMeta('attempts');
   @override
   late final GeneratedColumn<int> attempts = GeneratedColumn<int>(
     'attempts',
@@ -121,9 +109,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _maxRetriesMeta = const VerificationMeta(
-    'maxRetries',
-  );
+  static const VerificationMeta _maxRetriesMeta = const VerificationMeta('maxRetries');
   @override
   late final GeneratedColumn<int> maxRetries = GeneratedColumn<int>(
     'max_retries',
@@ -133,9 +119,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _createdAtMeta = const VerificationMeta(
-    'createdAt',
-  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta('createdAt');
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
     'created_at',
@@ -144,9 +128,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.dateTime,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _startedAtMeta = const VerificationMeta(
-    'startedAt',
-  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta('startedAt');
   @override
   late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
     'started_at',
@@ -155,9 +137,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.dateTime,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _finishedAtMeta = const VerificationMeta(
-    'finishedAt',
-  );
+  static const VerificationMeta _finishedAtMeta = const VerificationMeta('finishedAt');
   @override
   late final GeneratedColumn<DateTime> finishedAt = GeneratedColumn<DateTime>(
     'finished_at',
@@ -166,9 +146,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.dateTime,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _errorKindMeta = const VerificationMeta(
-    'errorKind',
-  );
+  static const VerificationMeta _errorKindMeta = const VerificationMeta('errorKind');
   @override
   late final GeneratedColumn<String> errorKind = GeneratedColumn<String>(
     'error_kind',
@@ -177,9 +155,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _errorDetailMeta = const VerificationMeta(
-    'errorDetail',
-  );
+  static const VerificationMeta _errorDetailMeta = const VerificationMeta('errorDetail');
   @override
   late final GeneratedColumn<String> errorDetail = GeneratedColumn<String>(
     'error_detail',
@@ -197,9 +173,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _outputSizeMeta = const VerificationMeta(
-    'outputSize',
-  );
+  static const VerificationMeta _outputSizeMeta = const VerificationMeta('outputSize');
   @override
   late final GeneratedColumn<int> outputSize = GeneratedColumn<int>(
     'output_size',
@@ -208,9 +182,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
     type: DriftSqlType.int,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _extraJsonMeta = const VerificationMeta(
-    'extraJson',
-  );
+  static const VerificationMeta _extraJsonMeta = const VerificationMeta('extraJson');
   @override
   late final GeneratedColumn<String> extraJson = GeneratedColumn<String>(
     'extra_json',
@@ -248,10 +220,7 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
   String get actualTableName => $name;
   static const String $name = 'jobs';
   @override
-  VerificationContext validateIntegrity(
-    Insertable<Job> instance, {
-    bool isInserting = false,
-  }) {
+  VerificationContext validateIntegrity(Insertable<Job> instance, {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -260,133 +229,73 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
       context.missing(_idMeta);
     }
     if (data.containsKey('kind')) {
-      context.handle(
-        _kindMeta,
-        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
-      );
+      context.handle(_kindMeta, kind.isAcceptableOrUnknown(data['kind']!, _kindMeta));
     } else if (isInserting) {
       context.missing(_kindMeta);
     }
     if (data.containsKey('title')) {
-      context.handle(
-        _titleMeta,
-        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
-      );
+      context.handle(_titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
     } else if (isInserting) {
       context.missing(_titleMeta);
     }
     if (data.containsKey('tool')) {
-      context.handle(
-        _toolMeta,
-        tool.isAcceptableOrUnknown(data['tool']!, _toolMeta),
-      );
+      context.handle(_toolMeta, tool.isAcceptableOrUnknown(data['tool']!, _toolMeta));
     } else if (isInserting) {
       context.missing(_toolMeta);
     }
     if (data.containsKey('args_json')) {
-      context.handle(
-        _argsJsonMeta,
-        argsJson.isAcceptableOrUnknown(data['args_json']!, _argsJsonMeta),
-      );
+      context.handle(_argsJsonMeta, argsJson.isAcceptableOrUnknown(data['args_json']!, _argsJsonMeta));
     } else if (isInserting) {
       context.missing(_argsJsonMeta);
     }
     if (data.containsKey('input_path')) {
-      context.handle(
-        _inputPathMeta,
-        inputPath.isAcceptableOrUnknown(data['input_path']!, _inputPathMeta),
-      );
+      context.handle(_inputPathMeta, inputPath.isAcceptableOrUnknown(data['input_path']!, _inputPathMeta));
     }
     if (data.containsKey('output_path')) {
-      context.handle(
-        _outputPathMeta,
-        outputPath.isAcceptableOrUnknown(data['output_path']!, _outputPathMeta),
-      );
+      context.handle(_outputPathMeta, outputPath.isAcceptableOrUnknown(data['output_path']!, _outputPathMeta));
     }
     if (data.containsKey('duration_us')) {
-      context.handle(
-        _durationUsMeta,
-        durationUs.isAcceptableOrUnknown(data['duration_us']!, _durationUsMeta),
-      );
+      context.handle(_durationUsMeta, durationUs.isAcceptableOrUnknown(data['duration_us']!, _durationUsMeta));
     }
     if (data.containsKey('status')) {
-      context.handle(
-        _statusMeta,
-        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
-      );
+      context.handle(_statusMeta, status.isAcceptableOrUnknown(data['status']!, _statusMeta));
     } else if (isInserting) {
       context.missing(_statusMeta);
     }
     if (data.containsKey('priority')) {
-      context.handle(
-        _priorityMeta,
-        priority.isAcceptableOrUnknown(data['priority']!, _priorityMeta),
-      );
+      context.handle(_priorityMeta, priority.isAcceptableOrUnknown(data['priority']!, _priorityMeta));
     }
     if (data.containsKey('attempts')) {
-      context.handle(
-        _attemptsMeta,
-        attempts.isAcceptableOrUnknown(data['attempts']!, _attemptsMeta),
-      );
+      context.handle(_attemptsMeta, attempts.isAcceptableOrUnknown(data['attempts']!, _attemptsMeta));
     }
     if (data.containsKey('max_retries')) {
-      context.handle(
-        _maxRetriesMeta,
-        maxRetries.isAcceptableOrUnknown(data['max_retries']!, _maxRetriesMeta),
-      );
+      context.handle(_maxRetriesMeta, maxRetries.isAcceptableOrUnknown(data['max_retries']!, _maxRetriesMeta));
     }
     if (data.containsKey('created_at')) {
-      context.handle(
-        _createdAtMeta,
-        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
-      );
+      context.handle(_createdAtMeta, createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
     } else if (isInserting) {
       context.missing(_createdAtMeta);
     }
     if (data.containsKey('started_at')) {
-      context.handle(
-        _startedAtMeta,
-        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
-      );
+      context.handle(_startedAtMeta, startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta));
     }
     if (data.containsKey('finished_at')) {
-      context.handle(
-        _finishedAtMeta,
-        finishedAt.isAcceptableOrUnknown(data['finished_at']!, _finishedAtMeta),
-      );
+      context.handle(_finishedAtMeta, finishedAt.isAcceptableOrUnknown(data['finished_at']!, _finishedAtMeta));
     }
     if (data.containsKey('error_kind')) {
-      context.handle(
-        _errorKindMeta,
-        errorKind.isAcceptableOrUnknown(data['error_kind']!, _errorKindMeta),
-      );
+      context.handle(_errorKindMeta, errorKind.isAcceptableOrUnknown(data['error_kind']!, _errorKindMeta));
     }
     if (data.containsKey('error_detail')) {
-      context.handle(
-        _errorDetailMeta,
-        errorDetail.isAcceptableOrUnknown(
-          data['error_detail']!,
-          _errorDetailMeta,
-        ),
-      );
+      context.handle(_errorDetailMeta, errorDetail.isAcceptableOrUnknown(data['error_detail']!, _errorDetailMeta));
     }
     if (data.containsKey('log')) {
-      context.handle(
-        _logMeta,
-        log.isAcceptableOrUnknown(data['log']!, _logMeta),
-      );
+      context.handle(_logMeta, log.isAcceptableOrUnknown(data['log']!, _logMeta));
     }
     if (data.containsKey('output_size')) {
-      context.handle(
-        _outputSizeMeta,
-        outputSize.isAcceptableOrUnknown(data['output_size']!, _outputSizeMeta),
-      );
+      context.handle(_outputSizeMeta, outputSize.isAcceptableOrUnknown(data['output_size']!, _outputSizeMeta));
     }
     if (data.containsKey('extra_json')) {
-      context.handle(
-        _extraJsonMeta,
-        extraJson.isAcceptableOrUnknown(data['extra_json']!, _extraJsonMeta),
-      );
+      context.handle(_extraJsonMeta, extraJson.isAcceptableOrUnknown(data['extra_json']!, _extraJsonMeta));
     }
     return context;
   }
@@ -397,86 +306,26 @@ class $JobsTable extends Jobs with TableInfo<$JobsTable, Job> {
   Job map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Job(
-      id: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}id'],
-      )!,
-      kind: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}kind'],
-      )!,
-      title: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}title'],
-      )!,
-      tool: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}tool'],
-      )!,
-      argsJson: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}args_json'],
-      )!,
-      inputPath: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}input_path'],
-      ),
-      outputPath: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}output_path'],
-      ),
-      durationUs: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}duration_us'],
-      ),
-      status: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}status'],
-      )!,
-      priority: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}priority'],
-      )!,
-      attempts: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}attempts'],
-      )!,
-      maxRetries: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}max_retries'],
-      )!,
-      createdAt: attachedDatabase.typeMapping.read(
-        DriftSqlType.dateTime,
-        data['${effectivePrefix}created_at'],
-      )!,
-      startedAt: attachedDatabase.typeMapping.read(
-        DriftSqlType.dateTime,
-        data['${effectivePrefix}started_at'],
-      ),
-      finishedAt: attachedDatabase.typeMapping.read(
-        DriftSqlType.dateTime,
-        data['${effectivePrefix}finished_at'],
-      ),
-      errorKind: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}error_kind'],
-      ),
-      errorDetail: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}error_detail'],
-      ),
-      log: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}log'],
-      ),
-      outputSize: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}output_size'],
-      ),
-      extraJson: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}extra_json'],
-      ),
+      id: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      kind: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}kind'])!,
+      title: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+      tool: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}tool'])!,
+      argsJson: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}args_json'])!,
+      inputPath: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}input_path']),
+      outputPath: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}output_path']),
+      durationUs: attachedDatabase.typeMapping.read(DriftSqlType.int, data['${effectivePrefix}duration_us']),
+      status: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}status'])!,
+      priority: attachedDatabase.typeMapping.read(DriftSqlType.int, data['${effectivePrefix}priority'])!,
+      attempts: attachedDatabase.typeMapping.read(DriftSqlType.int, data['${effectivePrefix}attempts'])!,
+      maxRetries: attachedDatabase.typeMapping.read(DriftSqlType.int, data['${effectivePrefix}max_retries'])!,
+      createdAt: attachedDatabase.typeMapping.read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      startedAt: attachedDatabase.typeMapping.read(DriftSqlType.dateTime, data['${effectivePrefix}started_at']),
+      finishedAt: attachedDatabase.typeMapping.read(DriftSqlType.dateTime, data['${effectivePrefix}finished_at']),
+      errorKind: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}error_kind']),
+      errorDetail: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}error_detail']),
+      log: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}log']),
+      outputSize: attachedDatabase.typeMapping.read(DriftSqlType.int, data['${effectivePrefix}output_size']),
+      extraJson: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}extra_json']),
     );
   }
 
@@ -592,46 +441,25 @@ class Job extends DataClass implements Insertable<Job> {
       title: Value(title),
       tool: Value(tool),
       argsJson: Value(argsJson),
-      inputPath: inputPath == null && nullToAbsent
-          ? const Value.absent()
-          : Value(inputPath),
-      outputPath: outputPath == null && nullToAbsent
-          ? const Value.absent()
-          : Value(outputPath),
-      durationUs: durationUs == null && nullToAbsent
-          ? const Value.absent()
-          : Value(durationUs),
+      inputPath: inputPath == null && nullToAbsent ? const Value.absent() : Value(inputPath),
+      outputPath: outputPath == null && nullToAbsent ? const Value.absent() : Value(outputPath),
+      durationUs: durationUs == null && nullToAbsent ? const Value.absent() : Value(durationUs),
       status: Value(status),
       priority: Value(priority),
       attempts: Value(attempts),
       maxRetries: Value(maxRetries),
       createdAt: Value(createdAt),
-      startedAt: startedAt == null && nullToAbsent
-          ? const Value.absent()
-          : Value(startedAt),
-      finishedAt: finishedAt == null && nullToAbsent
-          ? const Value.absent()
-          : Value(finishedAt),
-      errorKind: errorKind == null && nullToAbsent
-          ? const Value.absent()
-          : Value(errorKind),
-      errorDetail: errorDetail == null && nullToAbsent
-          ? const Value.absent()
-          : Value(errorDetail),
+      startedAt: startedAt == null && nullToAbsent ? const Value.absent() : Value(startedAt),
+      finishedAt: finishedAt == null && nullToAbsent ? const Value.absent() : Value(finishedAt),
+      errorKind: errorKind == null && nullToAbsent ? const Value.absent() : Value(errorKind),
+      errorDetail: errorDetail == null && nullToAbsent ? const Value.absent() : Value(errorDetail),
       log: log == null && nullToAbsent ? const Value.absent() : Value(log),
-      outputSize: outputSize == null && nullToAbsent
-          ? const Value.absent()
-          : Value(outputSize),
-      extraJson: extraJson == null && nullToAbsent
-          ? const Value.absent()
-          : Value(extraJson),
+      outputSize: outputSize == null && nullToAbsent ? const Value.absent() : Value(outputSize),
+      extraJson: extraJson == null && nullToAbsent ? const Value.absent() : Value(extraJson),
     );
   }
 
-  factory Job.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
+  factory Job.fromJson(Map<String, dynamic> json, {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Job(
       id: serializer.fromJson<String>(json['id']),
@@ -734,31 +562,19 @@ class Job extends DataClass implements Insertable<Job> {
       tool: data.tool.present ? data.tool.value : this.tool,
       argsJson: data.argsJson.present ? data.argsJson.value : this.argsJson,
       inputPath: data.inputPath.present ? data.inputPath.value : this.inputPath,
-      outputPath: data.outputPath.present
-          ? data.outputPath.value
-          : this.outputPath,
-      durationUs: data.durationUs.present
-          ? data.durationUs.value
-          : this.durationUs,
+      outputPath: data.outputPath.present ? data.outputPath.value : this.outputPath,
+      durationUs: data.durationUs.present ? data.durationUs.value : this.durationUs,
       status: data.status.present ? data.status.value : this.status,
       priority: data.priority.present ? data.priority.value : this.priority,
       attempts: data.attempts.present ? data.attempts.value : this.attempts,
-      maxRetries: data.maxRetries.present
-          ? data.maxRetries.value
-          : this.maxRetries,
+      maxRetries: data.maxRetries.present ? data.maxRetries.value : this.maxRetries,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
-      finishedAt: data.finishedAt.present
-          ? data.finishedAt.value
-          : this.finishedAt,
+      finishedAt: data.finishedAt.present ? data.finishedAt.value : this.finishedAt,
       errorKind: data.errorKind.present ? data.errorKind.value : this.errorKind,
-      errorDetail: data.errorDetail.present
-          ? data.errorDetail.value
-          : this.errorDetail,
+      errorDetail: data.errorDetail.present ? data.errorDetail.value : this.errorDetail,
       log: data.log.present ? data.log.value : this.log,
-      outputSize: data.outputSize.present
-          ? data.outputSize.value
-          : this.outputSize,
+      outputSize: data.outputSize.present ? data.outputSize.value : this.outputSize,
       extraJson: data.extraJson.present ? data.extraJson.value : this.extraJson,
     );
   }
@@ -1139,9 +955,7 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _paramsJsonMeta = const VerificationMeta(
-    'paramsJson',
-  );
+  static const VerificationMeta _paramsJsonMeta = const VerificationMeta('paramsJson');
   @override
   late final GeneratedColumn<String> paramsJson = GeneratedColumn<String>(
     'params_json',
@@ -1150,9 +964,7 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _builtInMeta = const VerificationMeta(
-    'builtIn',
-  );
+  static const VerificationMeta _builtInMeta = const VerificationMeta('builtIn');
   @override
   late final GeneratedColumn<bool> builtIn = GeneratedColumn<bool>(
     'built_in',
@@ -1160,14 +972,10 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
     false,
     type: DriftSqlType.bool,
     requiredDuringInsert: false,
-    defaultConstraints: GeneratedColumn.constraintIsAlways(
-      'CHECK ("built_in" IN (0, 1))',
-    ),
+    defaultConstraints: GeneratedColumn.constraintIsAlways('CHECK ("built_in" IN (0, 1))'),
     defaultValue: const Constant(false),
   );
-  static const VerificationMeta _createdAtMeta = const VerificationMeta(
-    'createdAt',
-  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta('createdAt');
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
     'created_at',
@@ -1177,24 +985,14 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
     requiredDuringInsert: true,
   );
   @override
-  List<GeneratedColumn> get $columns => [
-    id,
-    toolId,
-    name,
-    paramsJson,
-    builtIn,
-    createdAt,
-  ];
+  List<GeneratedColumn> get $columns => [id, toolId, name, paramsJson, builtIn, createdAt];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'presets';
   @override
-  VerificationContext validateIntegrity(
-    Insertable<Preset> instance, {
-    bool isInserting = false,
-  }) {
+  VerificationContext validateIntegrity(Insertable<Preset> instance, {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -1203,40 +1001,25 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
       context.missing(_idMeta);
     }
     if (data.containsKey('tool_id')) {
-      context.handle(
-        _toolIdMeta,
-        toolId.isAcceptableOrUnknown(data['tool_id']!, _toolIdMeta),
-      );
+      context.handle(_toolIdMeta, toolId.isAcceptableOrUnknown(data['tool_id']!, _toolIdMeta));
     } else if (isInserting) {
       context.missing(_toolIdMeta);
     }
     if (data.containsKey('name')) {
-      context.handle(
-        _nameMeta,
-        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
-      );
+      context.handle(_nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('params_json')) {
-      context.handle(
-        _paramsJsonMeta,
-        paramsJson.isAcceptableOrUnknown(data['params_json']!, _paramsJsonMeta),
-      );
+      context.handle(_paramsJsonMeta, paramsJson.isAcceptableOrUnknown(data['params_json']!, _paramsJsonMeta));
     } else if (isInserting) {
       context.missing(_paramsJsonMeta);
     }
     if (data.containsKey('built_in')) {
-      context.handle(
-        _builtInMeta,
-        builtIn.isAcceptableOrUnknown(data['built_in']!, _builtInMeta),
-      );
+      context.handle(_builtInMeta, builtIn.isAcceptableOrUnknown(data['built_in']!, _builtInMeta));
     }
     if (data.containsKey('created_at')) {
-      context.handle(
-        _createdAtMeta,
-        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
-      );
+      context.handle(_createdAtMeta, createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
     } else if (isInserting) {
       context.missing(_createdAtMeta);
     }
@@ -1249,30 +1032,12 @@ class $PresetsTable extends Presets with TableInfo<$PresetsTable, Preset> {
   Preset map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Preset(
-      id: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}id'],
-      )!,
-      toolId: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}tool_id'],
-      )!,
-      name: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}name'],
-      )!,
-      paramsJson: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}params_json'],
-      )!,
-      builtIn: attachedDatabase.typeMapping.read(
-        DriftSqlType.bool,
-        data['${effectivePrefix}built_in'],
-      )!,
-      createdAt: attachedDatabase.typeMapping.read(
-        DriftSqlType.dateTime,
-        data['${effectivePrefix}created_at'],
-      )!,
+      id: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      toolId: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}tool_id'])!,
+      name: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+      paramsJson: attachedDatabase.typeMapping.read(DriftSqlType.string, data['${effectivePrefix}params_json'])!,
+      builtIn: attachedDatabase.typeMapping.read(DriftSqlType.bool, data['${effectivePrefix}built_in'])!,
+      createdAt: attachedDatabase.typeMapping.read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
     );
   }
 
@@ -1320,10 +1085,7 @@ class Preset extends DataClass implements Insertable<Preset> {
     );
   }
 
-  factory Preset.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
+  factory Preset.fromJson(Map<String, dynamic> json, {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Preset(
       id: serializer.fromJson<String>(json['id']),
@@ -1347,29 +1109,21 @@ class Preset extends DataClass implements Insertable<Preset> {
     };
   }
 
-  Preset copyWith({
-    String? id,
-    String? toolId,
-    String? name,
-    String? paramsJson,
-    bool? builtIn,
-    DateTime? createdAt,
-  }) => Preset(
-    id: id ?? this.id,
-    toolId: toolId ?? this.toolId,
-    name: name ?? this.name,
-    paramsJson: paramsJson ?? this.paramsJson,
-    builtIn: builtIn ?? this.builtIn,
-    createdAt: createdAt ?? this.createdAt,
-  );
+  Preset copyWith({String? id, String? toolId, String? name, String? paramsJson, bool? builtIn, DateTime? createdAt}) =>
+      Preset(
+        id: id ?? this.id,
+        toolId: toolId ?? this.toolId,
+        name: name ?? this.name,
+        paramsJson: paramsJson ?? this.paramsJson,
+        builtIn: builtIn ?? this.builtIn,
+        createdAt: createdAt ?? this.createdAt,
+      );
   Preset copyWithCompanion(PresetsCompanion data) {
     return Preset(
       id: data.id.present ? data.id.value : this.id,
       toolId: data.toolId.present ? data.toolId.value : this.toolId,
       name: data.name.present ? data.name.value : this.name,
-      paramsJson: data.paramsJson.present
-          ? data.paramsJson.value
-          : this.paramsJson,
+      paramsJson: data.paramsJson.present ? data.paramsJson.value : this.paramsJson,
       builtIn: data.builtIn.present ? data.builtIn.value : this.builtIn,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
     );
@@ -1389,8 +1143,7 @@ class Preset extends DataClass implements Insertable<Preset> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, toolId, name, paramsJson, builtIn, createdAt);
+  int get hashCode => Object.hash(id, toolId, name, paramsJson, builtIn, createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1521,8 +1274,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $JobsTable jobs = $JobsTable(this);
   late final $PresetsTable presets = $PresetsTable(this);
   @override
-  Iterable<TableInfo<Table, Object?>> get allTables =>
-      allSchemaEntities.whereType<TableInfo<Table, Object?>>();
+  Iterable<TableInfo<Table, Object?>> get allTables => allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [jobs, presets];
 }
@@ -1582,105 +1334,61 @@ class $$JobsTableFilterComposer extends Composer<_$AppDatabase, $JobsTable> {
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get id => $composableBuilder(column: $table.id, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get kind => $composableBuilder(
-    column: $table.kind,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get kind => $composableBuilder(column: $table.kind, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get title => $composableBuilder(
-    column: $table.title,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get tool => $composableBuilder(
-    column: $table.tool,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get tool => $composableBuilder(column: $table.tool, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get argsJson => $composableBuilder(
-    column: $table.argsJson,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get argsJson =>
+      $composableBuilder(column: $table.argsJson, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get inputPath => $composableBuilder(
-    column: $table.inputPath,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get inputPath =>
+      $composableBuilder(column: $table.inputPath, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get outputPath => $composableBuilder(
-    column: $table.outputPath,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get outputPath =>
+      $composableBuilder(column: $table.outputPath, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get durationUs => $composableBuilder(
-    column: $table.durationUs,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<int> get durationUs =>
+      $composableBuilder(column: $table.durationUs, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get status => $composableBuilder(
-    column: $table.status,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get priority => $composableBuilder(
-    column: $table.priority,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<int> get priority =>
+      $composableBuilder(column: $table.priority, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get attempts => $composableBuilder(
-    column: $table.attempts,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<int> get attempts =>
+      $composableBuilder(column: $table.attempts, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get maxRetries => $composableBuilder(
-    column: $table.maxRetries,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<int> get maxRetries =>
+      $composableBuilder(column: $table.maxRetries, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get startedAt => $composableBuilder(
-    column: $table.startedAt,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get finishedAt => $composableBuilder(
-    column: $table.finishedAt,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<DateTime> get finishedAt =>
+      $composableBuilder(column: $table.finishedAt, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get errorKind => $composableBuilder(
-    column: $table.errorKind,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get errorKind =>
+      $composableBuilder(column: $table.errorKind, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get errorDetail => $composableBuilder(
-    column: $table.errorDetail,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get errorDetail =>
+      $composableBuilder(column: $table.errorDetail, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get log => $composableBuilder(
-    column: $table.log,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get log => $composableBuilder(column: $table.log, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get outputSize => $composableBuilder(
-    column: $table.outputSize,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<int> get outputSize =>
+      $composableBuilder(column: $table.outputSize, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get extraJson => $composableBuilder(
-    column: $table.extraJson,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get extraJson =>
+      $composableBuilder(column: $table.extraJson, builder: (column) => ColumnFilters(column));
 }
 
 class $$JobsTableOrderingComposer extends Composer<_$AppDatabase, $JobsTable> {
@@ -1691,109 +1399,67 @@ class $$JobsTableOrderingComposer extends Composer<_$AppDatabase, $JobsTable> {
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get id => $composableBuilder(column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get kind => $composableBuilder(
-    column: $table.kind,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get title => $composableBuilder(
-    column: $table.title,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get tool => $composableBuilder(
-    column: $table.tool,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get tool =>
+      $composableBuilder(column: $table.tool, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get argsJson => $composableBuilder(
-    column: $table.argsJson,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get argsJson =>
+      $composableBuilder(column: $table.argsJson, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get inputPath => $composableBuilder(
-    column: $table.inputPath,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get inputPath =>
+      $composableBuilder(column: $table.inputPath, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get outputPath => $composableBuilder(
-    column: $table.outputPath,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get outputPath =>
+      $composableBuilder(column: $table.outputPath, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get durationUs => $composableBuilder(
-    column: $table.durationUs,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<int> get durationUs =>
+      $composableBuilder(column: $table.durationUs, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get status => $composableBuilder(
-    column: $table.status,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get priority => $composableBuilder(
-    column: $table.priority,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<int> get priority =>
+      $composableBuilder(column: $table.priority, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get attempts => $composableBuilder(
-    column: $table.attempts,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<int> get attempts =>
+      $composableBuilder(column: $table.attempts, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get maxRetries => $composableBuilder(
-    column: $table.maxRetries,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<int> get maxRetries =>
+      $composableBuilder(column: $table.maxRetries, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
-    column: $table.startedAt,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get finishedAt => $composableBuilder(
-    column: $table.finishedAt,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<DateTime> get finishedAt =>
+      $composableBuilder(column: $table.finishedAt, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get errorKind => $composableBuilder(
-    column: $table.errorKind,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get errorKind =>
+      $composableBuilder(column: $table.errorKind, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get errorDetail => $composableBuilder(
-    column: $table.errorDetail,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get errorDetail =>
+      $composableBuilder(column: $table.errorDetail, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get log => $composableBuilder(
-    column: $table.log,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get log =>
+      $composableBuilder(column: $table.log, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get outputSize => $composableBuilder(
-    column: $table.outputSize,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<int> get outputSize =>
+      $composableBuilder(column: $table.outputSize, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get extraJson => $composableBuilder(
-    column: $table.extraJson,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get extraJson =>
+      $composableBuilder(column: $table.extraJson, builder: (column) => ColumnOrderings(column));
 }
 
-class $$JobsTableAnnotationComposer
-    extends Composer<_$AppDatabase, $JobsTable> {
+class $$JobsTableAnnotationComposer extends Composer<_$AppDatabase, $JobsTable> {
   $$JobsTableAnnotationComposer({
     required super.$db,
     required super.$table,
@@ -1801,77 +1467,47 @@ class $$JobsTableAnnotationComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  GeneratedColumn<String> get id =>
-      $composableBuilder(column: $table.id, builder: (column) => column);
+  GeneratedColumn<String> get id => $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<String> get kind =>
-      $composableBuilder(column: $table.kind, builder: (column) => column);
+  GeneratedColumn<String> get kind => $composableBuilder(column: $table.kind, builder: (column) => column);
 
-  GeneratedColumn<String> get title =>
-      $composableBuilder(column: $table.title, builder: (column) => column);
+  GeneratedColumn<String> get title => $composableBuilder(column: $table.title, builder: (column) => column);
 
-  GeneratedColumn<String> get tool =>
-      $composableBuilder(column: $table.tool, builder: (column) => column);
+  GeneratedColumn<String> get tool => $composableBuilder(column: $table.tool, builder: (column) => column);
 
-  GeneratedColumn<String> get argsJson =>
-      $composableBuilder(column: $table.argsJson, builder: (column) => column);
+  GeneratedColumn<String> get argsJson => $composableBuilder(column: $table.argsJson, builder: (column) => column);
 
-  GeneratedColumn<String> get inputPath =>
-      $composableBuilder(column: $table.inputPath, builder: (column) => column);
+  GeneratedColumn<String> get inputPath => $composableBuilder(column: $table.inputPath, builder: (column) => column);
 
-  GeneratedColumn<String> get outputPath => $composableBuilder(
-    column: $table.outputPath,
-    builder: (column) => column,
-  );
+  GeneratedColumn<String> get outputPath => $composableBuilder(column: $table.outputPath, builder: (column) => column);
 
-  GeneratedColumn<int> get durationUs => $composableBuilder(
-    column: $table.durationUs,
-    builder: (column) => column,
-  );
+  GeneratedColumn<int> get durationUs => $composableBuilder(column: $table.durationUs, builder: (column) => column);
 
-  GeneratedColumn<String> get status =>
-      $composableBuilder(column: $table.status, builder: (column) => column);
+  GeneratedColumn<String> get status => $composableBuilder(column: $table.status, builder: (column) => column);
 
-  GeneratedColumn<int> get priority =>
-      $composableBuilder(column: $table.priority, builder: (column) => column);
+  GeneratedColumn<int> get priority => $composableBuilder(column: $table.priority, builder: (column) => column);
 
-  GeneratedColumn<int> get attempts =>
-      $composableBuilder(column: $table.attempts, builder: (column) => column);
+  GeneratedColumn<int> get attempts => $composableBuilder(column: $table.attempts, builder: (column) => column);
 
-  GeneratedColumn<int> get maxRetries => $composableBuilder(
-    column: $table.maxRetries,
-    builder: (column) => column,
-  );
+  GeneratedColumn<int> get maxRetries => $composableBuilder(column: $table.maxRetries, builder: (column) => column);
 
-  GeneratedColumn<DateTime> get createdAt =>
-      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+  GeneratedColumn<DateTime> get createdAt => $composableBuilder(column: $table.createdAt, builder: (column) => column);
 
-  GeneratedColumn<DateTime> get startedAt =>
-      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+  GeneratedColumn<DateTime> get startedAt => $composableBuilder(column: $table.startedAt, builder: (column) => column);
 
-  GeneratedColumn<DateTime> get finishedAt => $composableBuilder(
-    column: $table.finishedAt,
-    builder: (column) => column,
-  );
+  GeneratedColumn<DateTime> get finishedAt =>
+      $composableBuilder(column: $table.finishedAt, builder: (column) => column);
 
-  GeneratedColumn<String> get errorKind =>
-      $composableBuilder(column: $table.errorKind, builder: (column) => column);
+  GeneratedColumn<String> get errorKind => $composableBuilder(column: $table.errorKind, builder: (column) => column);
 
-  GeneratedColumn<String> get errorDetail => $composableBuilder(
-    column: $table.errorDetail,
-    builder: (column) => column,
-  );
+  GeneratedColumn<String> get errorDetail =>
+      $composableBuilder(column: $table.errorDetail, builder: (column) => column);
 
-  GeneratedColumn<String> get log =>
-      $composableBuilder(column: $table.log, builder: (column) => column);
+  GeneratedColumn<String> get log => $composableBuilder(column: $table.log, builder: (column) => column);
 
-  GeneratedColumn<int> get outputSize => $composableBuilder(
-    column: $table.outputSize,
-    builder: (column) => column,
-  );
+  GeneratedColumn<int> get outputSize => $composableBuilder(column: $table.outputSize, builder: (column) => column);
 
-  GeneratedColumn<String> get extraJson =>
-      $composableBuilder(column: $table.extraJson, builder: (column) => column);
+  GeneratedColumn<String> get extraJson => $composableBuilder(column: $table.extraJson, builder: (column) => column);
 }
 
 class $$JobsTableTableManager
@@ -1894,12 +1530,9 @@ class $$JobsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$JobsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$JobsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$JobsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () => $$JobsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () => $$JobsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () => $$JobsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -1994,10 +1627,8 @@ class $$JobsTableTableManager
               ),
           withReferenceMapper: (p0) => p0
               .map(
-                (e) => (
-                  e.readTable<$JobsTable, Job>(table),
-                  BaseReferences<_$AppDatabase, $JobsTable, Job>(db, table, e),
-                ),
+                (e) =>
+                    (e.readTable<$JobsTable, Job>(table), BaseReferences<_$AppDatabase, $JobsTable, Job>(db, table, e)),
               )
               .toList(),
           prefetchHooksCallback: null,
@@ -2038,8 +1669,7 @@ typedef $$PresetsTableUpdateCompanionBuilder = PresetsCompanion Function({
   Value<int> rowid,
 });
 
-class $$PresetsTableFilterComposer
-    extends Composer<_$AppDatabase, $PresetsTable> {
+class $$PresetsTableFilterComposer extends Composer<_$AppDatabase, $PresetsTable> {
   $$PresetsTableFilterComposer({
     required super.$db,
     required super.$table,
@@ -2047,39 +1677,24 @@ class $$PresetsTableFilterComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get id => $composableBuilder(column: $table.id, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get toolId => $composableBuilder(
-    column: $table.toolId,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get toolId =>
+      $composableBuilder(column: $table.toolId, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get name => $composableBuilder(
-    column: $table.name,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get name => $composableBuilder(column: $table.name, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get paramsJson => $composableBuilder(
-    column: $table.paramsJson,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<String> get paramsJson =>
+      $composableBuilder(column: $table.paramsJson, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<bool> get builtIn => $composableBuilder(
-    column: $table.builtIn,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<bool> get builtIn =>
+      $composableBuilder(column: $table.builtIn, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnFilters(column),
-  );
+  ColumnFilters<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => ColumnFilters(column));
 }
 
-class $$PresetsTableOrderingComposer
-    extends Composer<_$AppDatabase, $PresetsTable> {
+class $$PresetsTableOrderingComposer extends Composer<_$AppDatabase, $PresetsTable> {
   $$PresetsTableOrderingComposer({
     required super.$db,
     required super.$table,
@@ -2087,39 +1702,25 @@ class $$PresetsTableOrderingComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get id => $composableBuilder(column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get toolId => $composableBuilder(
-    column: $table.toolId,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get toolId =>
+      $composableBuilder(column: $table.toolId, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get name => $composableBuilder(
-    column: $table.name,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get paramsJson => $composableBuilder(
-    column: $table.paramsJson,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<String> get paramsJson =>
+      $composableBuilder(column: $table.paramsJson, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<bool> get builtIn => $composableBuilder(
-    column: $table.builtIn,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<bool> get builtIn =>
+      $composableBuilder(column: $table.builtIn, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnOrderings(column),
-  );
+  ColumnOrderings<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => ColumnOrderings(column));
 }
 
-class $$PresetsTableAnnotationComposer
-    extends Composer<_$AppDatabase, $PresetsTable> {
+class $$PresetsTableAnnotationComposer extends Composer<_$AppDatabase, $PresetsTable> {
   $$PresetsTableAnnotationComposer({
     required super.$db,
     required super.$table,
@@ -2127,25 +1728,17 @@ class $$PresetsTableAnnotationComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  GeneratedColumn<String> get id =>
-      $composableBuilder(column: $table.id, builder: (column) => column);
+  GeneratedColumn<String> get id => $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<String> get toolId =>
-      $composableBuilder(column: $table.toolId, builder: (column) => column);
+  GeneratedColumn<String> get toolId => $composableBuilder(column: $table.toolId, builder: (column) => column);
 
-  GeneratedColumn<String> get name =>
-      $composableBuilder(column: $table.name, builder: (column) => column);
+  GeneratedColumn<String> get name => $composableBuilder(column: $table.name, builder: (column) => column);
 
-  GeneratedColumn<String> get paramsJson => $composableBuilder(
-    column: $table.paramsJson,
-    builder: (column) => column,
-  );
+  GeneratedColumn<String> get paramsJson => $composableBuilder(column: $table.paramsJson, builder: (column) => column);
 
-  GeneratedColumn<bool> get builtIn =>
-      $composableBuilder(column: $table.builtIn, builder: (column) => column);
+  GeneratedColumn<bool> get builtIn => $composableBuilder(column: $table.builtIn, builder: (column) => column);
 
-  GeneratedColumn<DateTime> get createdAt =>
-      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+  GeneratedColumn<DateTime> get createdAt => $composableBuilder(column: $table.createdAt, builder: (column) => column);
 }
 
 class $$PresetsTableTableManager
@@ -2168,12 +1761,9 @@ class $$PresetsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$PresetsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$PresetsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$PresetsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () => $$PresetsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () => $$PresetsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () => $$PresetsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -2214,11 +1804,7 @@ class $$PresetsTableTableManager
               .map(
                 (e) => (
                   e.readTable<$PresetsTable, Preset>(table),
-                  BaseReferences<_$AppDatabase, $PresetsTable, Preset>(
-                    db,
-                    table,
-                    e,
-                  ),
+                  BaseReferences<_$AppDatabase, $PresetsTable, Preset>(db, table, e),
                 ),
               )
               .toList(),
@@ -2246,6 +1832,5 @@ class $AppDatabaseManager {
   final _$AppDatabase _db;
   $AppDatabaseManager(this._db);
   $$JobsTableTableManager get jobs => $$JobsTableTableManager(_db, _db.jobs);
-  $$PresetsTableTableManager get presets =>
-      $$PresetsTableTableManager(_db, _db.presets);
+  $$PresetsTableTableManager get presets => $$PresetsTableTableManager(_db, _db.presets);
 }

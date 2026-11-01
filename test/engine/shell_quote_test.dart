@@ -17,8 +17,14 @@ void main() {
   });
 
   test('splitCommandLine handles quotes and escapes', () {
-    expect(splitCommandLine('ffmpeg -i "my file.mp4" -vf \'scale=1:2\' out.mkv'),
-        ['ffmpeg', '-i', 'my file.mp4', '-vf', 'scale=1:2', 'out.mkv']);
+    expect(splitCommandLine('ffmpeg -i "my file.mp4" -vf \'scale=1:2\' out.mkv'), [
+      'ffmpeg',
+      '-i',
+      'my file.mp4',
+      '-vf',
+      'scale=1:2',
+      'out.mkv',
+    ]);
     expect(splitCommandLine(r'a\ b c'), ['a b', 'c']);
     expect(splitCommandLine(r'C:\Users\me\in.mp4 ""'), [r'C:\Users\me\in.mp4', '']);
     expect(splitCommandLine('  spaced   out  '), ['spaced', 'out']);

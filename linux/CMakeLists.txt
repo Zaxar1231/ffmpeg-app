@@ -72,6 +72,13 @@ set_target_properties(${BINARY_NAME}
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.
+# media_kit downloads and builds mimalloc from GitHub by default. Offline or
+# sandboxed builds (e.g. Flatpak) can link the distro's libmimalloc instead:
+#   KADRA_SYSTEM_MIMALLOC=1 flutter build linux
+if(DEFINED ENV{KADRA_SYSTEM_MIMALLOC})
+  set(MIMALLOC_USE_STATIC_LIBS OFF CACHE BOOL "" FORCE)
+endif()
+
 include(flutter/generated_plugins.cmake)
 
 

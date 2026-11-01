@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "dev.kadra" "\0"
-            VALUE "FileDescription", "kadra" "\0"
+            VALUE "CompanyName", "Kadra" "\0"
+            VALUE "FileDescription", "Kadra" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "kadra" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 dev.kadra. All rights reserved." "\0"
             VALUE "OriginalFilename", "kadra.exe" "\0"
-            VALUE "ProductName", "kadra" "\0"
+            VALUE "ProductName", "Kadra" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

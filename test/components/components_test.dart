@@ -46,11 +46,16 @@ void main() {
     });
 
     test('newest version wins numerically', () {
-      final r = selectBtbnAsset([
-        'ffmpeg-n9.0-latest-linux64-gpl-9.0.tar.xz',
-        'ffmpeg-n10.1-latest-linux64-gpl-10.1.tar.xz',
-        'ffmpeg-n9.10-latest-linux64-gpl-9.10.tar.xz',
-      ], host: linux, license: FfmpegLicense.gpl, channel: UpdateChannel.stable)!;
+      final r = selectBtbnAsset(
+        [
+          'ffmpeg-n9.0-latest-linux64-gpl-9.0.tar.xz',
+          'ffmpeg-n10.1-latest-linux64-gpl-10.1.tar.xz',
+          'ffmpeg-n9.10-latest-linux64-gpl-9.10.tar.xz',
+        ],
+        host: linux,
+        license: FfmpegLicense.gpl,
+        channel: UpdateChannel.stable,
+      )!;
       expect(r.version, 'n10.1');
     });
 
@@ -61,8 +66,15 @@ void main() {
     });
 
     test('unsupported platform', () {
-      expect(selectBtbnAsset(names, host: const HostPlatform(HostOs.macos, HostArch.arm64), license: FfmpegLicense.gpl, channel: UpdateChannel.stable),
-          isNull);
+      expect(
+        selectBtbnAsset(
+          names,
+          host: const HostPlatform(HostOs.macos, HostArch.arm64),
+          license: FfmpegLicense.gpl,
+          channel: UpdateChannel.stable,
+        ),
+        isNull,
+      );
     });
   });
 
@@ -79,8 +91,10 @@ void main() {
         expect(req.url.toString(), '$btbnDownloadBase/checksums.sha256');
         return http.Response(fx('btbn_checksums.sha256'), 200);
       });
-      final spec = await ComponentResolver(client: client, host: linux)
-          .resolveFfmpegBtbn(license: FfmpegLicense.gpl, channel: UpdateChannel.nightly);
+      final spec = await ComponentResolver(
+        client: client,
+        host: linux,
+      ).resolveFfmpegBtbn(license: FfmpegLicense.gpl, channel: UpdateChannel.nightly);
       expect(spec.url, '$btbnDownloadBase/ffmpeg-master-latest-linux64-gpl.tar.xz');
       expect(spec.archive, ArchiveType.tarXz);
       expect(spec.sha256, hasLength(64));
@@ -111,7 +125,10 @@ void main() {
       expect(spec.url, '$gyanBase/ffmpeg-release-essentials.zip');
       expect(spec.sha256, 'c' * 64);
       expect(spec.versionLabel, '9.0.2');
-      expect(gyanUrl(GyanFlavor.full, '9.0.2'), 'https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-full_build.zip');
+      expect(
+        gyanUrl(GyanFlavor.full, '9.0.2'),
+        'https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-full_build.zip',
+      );
     });
 
     test('github release json', () {
@@ -134,7 +151,9 @@ void main() {
     test('streams, hashes and verifies', () async {
       final dir = await Directory.systemTemp.createTemp('kadra');
       final body = List<int>.generate(100000, (i) => i % 251);
-      final client = MockClient.streaming((req, _) async => http.StreamedResponse(Stream.value(body), 200, contentLength: body.length));
+      final client = MockClient.streaming(
+        (req, _) async => http.StreamedResponse(Stream.value(body), 200, contentLength: body.length),
+      );
       final dest = p.join(dir.path, 'f.bin');
       final sha = await downloadFile('https://x/f.bin', dest, client: client);
       expect(await File(dest).length(), body.length);
@@ -151,7 +170,10 @@ void main() {
     test('HTTP errors fail', () async {
       final dir = await Directory.systemTemp.createTemp('kadra');
       final client = MockClient((_) async => http.Response('nope', 404));
-      await expectLater(downloadFile('https://x/f', p.join(dir.path, 'f'), client: client), throwsA(isA<HttpException>()));
+      await expectLater(
+        downloadFile('https://x/f', p.join(dir.path, 'f'), client: client),
+        throwsA(isA<HttpException>()),
+      );
       await dir.delete(recursive: true);
     });
   });
@@ -195,7 +217,10 @@ void main() {
 
     test('version parsing per component', () {
       expect(parseComponentVersion(ComponentId.ytdlp, '2026.10.22\n'), '2026.10.22');
-      expect(parseComponentVersion(ComponentId.deno, 'deno 2.5.1 (stable, release, x86_64-unknown-linux-gnu)\nv8 14'), '2.5.1');
+      expect(
+        parseComponentVersion(ComponentId.deno, 'deno 2.5.1 (stable, release, x86_64-unknown-linux-gnu)\nv8 14'),
+        '2.5.1',
+      );
       expect(parseComponentVersion(ComponentId.aria2, 'aria2 version 1.37.0\nCopyright'), '1.37.0');
       expect(parseComponentVersion(ComponentId.ffmpeg, 'ffmpeg version n8.1-3-gabc Copyright'), 'n8.1-3-gabc');
     });
@@ -207,11 +232,25 @@ void main() {
       final store = ComponentStore(p.join(dir.path, 'state.json'));
       expect(await store.load(), isEmpty);
       final a = InstalledVersion(
-          key: '2', source: ComponentSource.btbn, channel: UpdateChannel.stable, variant: 'gpl', version: 'n9.0',
-          sha256: 'x', installedAt: DateTime(2026), binaries: const {'ffmpeg': 'bin/ffmpeg'});
+        key: '2',
+        source: ComponentSource.btbn,
+        channel: UpdateChannel.stable,
+        variant: 'gpl',
+        version: 'n9.0',
+        sha256: 'x',
+        installedAt: DateTime(2026),
+        binaries: const {'ffmpeg': 'bin/ffmpeg'},
+      );
       final b = InstalledVersion(
-          key: '1', source: ComponentSource.btbn, channel: UpdateChannel.stable, installedAt: DateTime(2025), binaries: const {});
-      await store.save({ComponentId.ffmpeg: ComponentRecord(active: '2', installs: [a, b])});
+        key: '1',
+        source: ComponentSource.btbn,
+        channel: UpdateChannel.stable,
+        installedAt: DateTime(2025),
+        binaries: const {},
+      );
+      await store.save({
+        ComponentId.ffmpeg: ComponentRecord(active: '2', installs: [a, b]),
+      });
       final loaded = await store.load();
       final rec = loaded[ComponentId.ffmpeg]!;
       expect(rec.activeInstall!.version, 'n9.0');
@@ -227,23 +266,30 @@ void main() {
 
   group('toolchain', () {
     final records = {
-      ComponentId.ffmpeg: ComponentRecord(active: 'k', installs: [
-        InstalledVersion(
-            key: 'k', source: ComponentSource.btbn, channel: UpdateChannel.stable, installedAt: DateTime(2026),
-            binaries: const {'ffmpeg': 'bin/ffmpeg', 'ffprobe': 'bin/ffprobe'}),
-      ]),
+      ComponentId.ffmpeg: ComponentRecord(
+        active: 'k',
+        installs: [
+          InstalledVersion(
+            key: 'k',
+            source: ComponentSource.btbn,
+            channel: UpdateChannel.stable,
+            installedAt: DateTime(2026),
+            binaries: const {'ffmpeg': 'bin/ffmpeg', 'ffprobe': 'bin/ffprobe'},
+          ),
+        ],
+      ),
     };
 
     test('custom > managed > system', () {
       final existing = {'/c/ffmpeg', '/c/ffprobe', '/root/ffmpeg/k/bin/ffmpeg', '/root/ffmpeg/k/bin/ffprobe'};
       Toolchain r(AppSettings s) => Toolchain.resolve(
-            settings: s,
-            records: records,
-            componentsRoot: '/root',
-            host: linux,
-            exists: existing.contains,
-            which: (n) => '/usr/bin/$n',
-          );
+        settings: s,
+        records: records,
+        componentsRoot: '/root',
+        host: linux,
+        exists: existing.contains,
+        which: (n) => '/usr/bin/$n',
+      );
       final managed = r(const AppSettings());
       expect(managed.ffmpeg.origin, ToolOrigin.managed);
       expect(managed.ffmpeg.path, '/root/ffmpeg/k/bin/ffmpeg');
@@ -256,7 +302,13 @@ void main() {
 
     test('nothing installed', () {
       final t = Toolchain.resolve(
-          settings: const AppSettings(), records: const {}, componentsRoot: '/r', host: linux, exists: (_) => false, which: (_) => null);
+        settings: const AppSettings(),
+        records: const {},
+        componentsRoot: '/r',
+        host: linux,
+        exists: (_) => false,
+        which: (_) => null,
+      );
       expect(t.hasFfmpeg, isFalse);
       expect(t.ffmpeg.origin, ToolOrigin.none);
     });

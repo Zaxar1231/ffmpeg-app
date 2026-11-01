@@ -57,8 +57,11 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   factory AppDatabase.open(String path) => AppDatabase(
-        driftDatabase(name: 'kadra', native: DriftNativeOptions(databasePath: () async => path)),
-      );
+    driftDatabase(
+      name: 'kadra',
+      native: DriftNativeOptions(databasePath: () async => path),
+    ),
+  );
 
   @override
   int get schemaVersion => 1;
@@ -69,10 +72,10 @@ class AppDatabase extends _$AppDatabase {
 
   Future<void> deleteJob(String id) => (delete(jobs)..where((j) => j.id.equals(id))).go();
 
-  Future<int> deleteFinished() =>
-      (delete(jobs)..where((j) => j.status.isIn(['completed', 'failed', 'canceled']))).go();
+  Future<int> deleteFinished() => (delete(jobs)..where((j) => j.status.isIn(['completed', 'failed', 'canceled']))).go();
 
   /// After a crash or restart nothing is running: requeue interrupted jobs.
-  Future<int> recoverInterrupted() =>
-      (update(jobs)..where((j) => j.status.isIn(['running', 'paused']))).write(const JobsCompanion(status: Value('queued')));
+  Future<int> recoverInterrupted() => (update(
+    jobs,
+  )..where((j) => j.status.isIn(['running', 'paused']))).write(const JobsCompanion(status: Value('queued')));
 }

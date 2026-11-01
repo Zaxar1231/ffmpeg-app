@@ -112,9 +112,11 @@ class RunHandle {
       p.kill();
     } else {
       p.kill(ProcessSignal.sigint);
-      unawaited(Future<void>.delayed(grace).then((_) {
-        if (!_done.isCompleted) p.kill(ProcessSignal.sigkill);
-      }));
+      unawaited(
+        Future<void>.delayed(grace).then((_) {
+          if (!_done.isCompleted) p.kill(ProcessSignal.sigkill);
+        }),
+      );
     }
     await done;
   }
@@ -139,12 +141,9 @@ class ProcessRunner {
       );
     } on ProcessException catch (e) {
       final handle = RunHandle._(null, inv, maxLogLines);
-      handle._done.complete(RunResult(
-        exitCode: -1,
-        log: [e.message],
-        elapsed: Duration.zero,
-        startError: '${e.executable}: ${e.message}',
-      ));
+      handle._done.complete(
+        RunResult(exitCode: -1, log: [e.message], elapsed: Duration.zero, startError: '${e.executable}: ${e.message}'),
+      );
       unawaited(handle._progress.close());
       unawaited(handle._logLines.close());
       return handle;
@@ -157,15 +156,16 @@ class ProcessRunner {
         .transform(const Utf8Decoder(allowMalformed: true))
         .transform(const LineSplitter())
         .listen((line) {
-      if (inv.parseFfmpegProgress) {
-        final snap = parser.addLine(line);
-        if (snap != null) handle._progress.add(snap);
-        // Progress lines are key=value; anything else is real output.
-        if (!line.contains('=')) handle._addLog(line);
-      } else {
-        handle._addLog(line);
-      }
-    }).asFuture<void>();
+          if (inv.parseFfmpegProgress) {
+            final snap = parser.addLine(line);
+            if (snap != null) handle._progress.add(snap);
+            // Progress lines are key=value; anything else is real output.
+            if (!line.contains('=')) handle._addLog(line);
+          } else {
+            handle._addLog(line);
+          }
+        })
+        .asFuture<void>();
 
     final stderrDone = process.stderr
         .transform(const Utf8Decoder(allowMalformed: true))
@@ -177,12 +177,14 @@ class ProcessRunner {
       final code = await process.exitCode;
       await Future.wait([stdoutDone, stderrDone]).catchError((_) => <void>[]);
       handle._stopwatch.stop();
-      handle._done.complete(RunResult(
-        exitCode: code,
-        log: List.of(handle._log),
-        elapsed: handle._stopwatch.elapsed,
-        canceled: handle._canceled,
-      ));
+      handle._done.complete(
+        RunResult(
+          exitCode: code,
+          log: List.of(handle._log),
+          elapsed: handle._stopwatch.elapsed,
+          canceled: handle._canceled,
+        ),
+      );
       await handle._progress.close();
       await handle._logLines.close();
     }());
@@ -202,10 +204,13 @@ class ProcessRunner {
       final out = p.stdout.transform(const Utf8Decoder(allowMalformed: true)).join();
       final err = p.stderr.transform(const Utf8Decoder(allowMalformed: true)).join();
       await p.stdin.close();
-      final code = await p.exitCode.timeout(timeout, onTimeout: () {
-        p.kill(ProcessSignal.sigkill);
-        return -2;
-      });
+      final code = await p.exitCode.timeout(
+        timeout,
+        onTimeout: () {
+          p.kill(ProcessSignal.sigkill);
+          return -2;
+        },
+      );
       return CapturedResult(code, await out, await err);
     } on ProcessException catch (e) {
       return CapturedResult(-1, '', '${e.executable}: ${e.message}', startFailed: true);

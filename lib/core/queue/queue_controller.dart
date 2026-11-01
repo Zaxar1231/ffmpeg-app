@@ -71,16 +71,19 @@ class QueueController extends Notifier<QueueState> {
       extraJson: r.logIsResult ? jsonEncode({'logIsResult': true}) : null,
     );
     await _db.upsertJob(job.toCompanion(true));
-    state = QueueState(items: [...state.items, QueueItem(job: job)], loaded: state.loaded);
+    state = QueueState(
+      items: [
+        ...state.items,
+        QueueItem(job: job),
+      ],
+      loaded: state.loaded,
+    );
     _schedule();
     return id;
   }
 
   void _replace(String id, QueueItem Function(QueueItem) f) {
-    state = QueueState(
-      items: [for (final i in state.items) i.id == id ? f(i) : i],
-      loaded: state.loaded,
-    );
+    state = QueueState(items: [for (final i in state.items) i.id == id ? f(i) : i], loaded: state.loaded);
   }
 
   Future<void> _saveJob(Job job) async {
@@ -95,10 +98,12 @@ class QueueController extends Notifier<QueueState> {
       final next = pickNext(state.items.where((i) => !_starting.contains(i.id)));
       if (next == null) return;
       _starting.add(next.id);
-      unawaited(_run(next).whenComplete(() {
-        _starting.remove(next.id);
-        if (ref.mounted) _schedule();
-      }));
+      unawaited(
+        _run(next).whenComplete(() {
+          _starting.remove(next.id);
+          if (ref.mounted) _schedule();
+        }),
+      );
     }
   }
 
@@ -133,12 +138,16 @@ class QueueController extends Notifier<QueueState> {
       await Directory(File(out).parent.path).create(recursive: true);
     }
 
-    final handle = await ref.read(processRunnerProvider).start(ToolInvocation(
-          executable: exe,
-          args: item.args,
-          totalDuration: item.totalDuration,
-          parseFfmpegProgress: item.tool == JobTool.ffmpeg,
-        ));
+    final handle = await ref
+        .read(processRunnerProvider)
+        .start(
+          ToolInvocation(
+            executable: exe,
+            args: item.args,
+            totalDuration: item.totalDuration,
+            parseFfmpegProgress: item.tool == JobTool.ffmpeg,
+          ),
+        );
     _handles[job.id] = handle;
     final progressSub = handle.progress.listen((p) => _onProgress(job.id, p));
     final logSub = handle.logLines.listen((l) {
@@ -163,7 +172,13 @@ class QueueController extends Notifier<QueueState> {
     } else if (result.success) {
       int? size;
       if (out != null && await File(out).exists()) size = await File(out).length();
-      await _finish(job, JobStatus.completed, log: result.log, outputSize: size, findings: logIsResult ? result.log.length : null);
+      await _finish(
+        job,
+        JobStatus.completed,
+        log: result.log,
+        outputSize: size,
+        findings: logIsResult ? result.log.length : null,
+      );
     } else {
       final err = translateToolError(result.log, startError: result.startError);
       if (job.attempts <= job.maxRetries && err.kind != ToolErrorKind.toolMissing) {
@@ -183,18 +198,26 @@ class QueueController extends Notifier<QueueState> {
     _replace(id, (i) => i.copyWith(progress: () => p));
   }
 
-  Future<void> _finish(Job job, JobStatus status,
-      {ToolError? error, required List<String> log, int? outputSize, int? findings}) async {
+  Future<void> _finish(
+    Job job,
+    JobStatus status, {
+    ToolError? error,
+    required List<String> log,
+    int? outputSize,
+    int? findings,
+  }) async {
     final extra = {...QueueItem(job: job).extra, 'findings': ?findings};
-    await _saveJob(job.copyWith(
-      status: status.name,
-      finishedAt: Value(DateTime.now()),
-      errorKind: Value(error?.kind.name),
-      errorDetail: Value(error?.detail ?? error?.line),
-      log: Value(log.join('\n')),
-      outputSize: Value(outputSize),
-      extraJson: Value(extra.isEmpty ? null : jsonEncode(extra)),
-    ));
+    await _saveJob(
+      job.copyWith(
+        status: status.name,
+        finishedAt: Value(DateTime.now()),
+        errorKind: Value(error?.kind.name),
+        errorDetail: Value(error?.detail ?? error?.line),
+        log: Value(log.join('\n')),
+        outputSize: Value(outputSize),
+        extraJson: Value(extra.isEmpty ? null : jsonEncode(extra)),
+      ),
+    );
     _lastUiUpdate.remove(job.id);
   }
 
@@ -241,13 +264,15 @@ class QueueController extends Notifier<QueueState> {
   Future<void> retry(String id) async {
     final item = state.byId(id);
     if (item == null || !item.isFinished) return;
-    await _saveJob(item.job.copyWith(
-      status: JobStatus.queued.name,
-      attempts: 0,
-      errorKind: const Value(null),
-      errorDetail: const Value(null),
-      finishedAt: const Value(null),
-    ));
+    await _saveJob(
+      item.job.copyWith(
+        status: JobStatus.queued.name,
+        attempts: 0,
+        errorKind: const Value(null),
+        errorDetail: const Value(null),
+        finishedAt: const Value(null),
+      ),
+    );
     _schedule();
   }
 

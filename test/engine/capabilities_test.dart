@@ -28,9 +28,24 @@ void main() {
 
   test('git build has no major version', () {
     const caps = FfmpegCapabilities(
-        version: 'N-121000-g1234abcd-20251101', configuration: [], encoders: {}, decoders: {}, filters: {}, muxers: {}, hwaccels: {});
+      version: 'N-121000-g1234abcd-20251101',
+      configuration: [],
+      encoders: {},
+      decoders: {},
+      filters: {},
+      muxers: {},
+      hwaccels: {},
+    );
     expect(caps.majorVersion, isNull);
-    const n8 = FfmpegCapabilities(version: 'n8.1-12-gabc', configuration: [], encoders: {}, decoders: {}, filters: {}, muxers: {}, hwaccels: {});
+    const n8 = FfmpegCapabilities(
+      version: 'n8.1-12-gabc',
+      configuration: [],
+      encoders: {},
+      decoders: {},
+      filters: {},
+      muxers: {},
+      hwaccels: {},
+    );
     expect(n8.majorVersion, 8);
   });
 
@@ -69,7 +84,8 @@ void main() {
   });
 
   test('muxers in ffmpeg 7 three-column layout', () {
-    const out = 'File formats:\n D.. = Demuxing supported\n .E. = Muxing supported\n ..d = Is a device\n ---\n'
+    const out =
+        'File formats:\n D.. = Demuxing supported\n .E. = Muxing supported\n ..d = Is a device\n ---\n'
         '  E  3g2             3GP2\n DE  matroska        Matroska\n  Ed alsa            ALSA audio output\n D   aa   Audible\n';
     final m = parseMuxerList(out);
     expect(m.keys, containsAll(['3g2', 'matroska', 'alsa']));
@@ -84,7 +100,20 @@ void main() {
   group('hwaccel', () {
     test('trial args for plain, vaapi and vulkan encoders', () {
       final nv = trialEncodeArgs('h264_nvenc');
-      expect(nv, containsAllInOrder(['-f', 'lavfi', '-i', 'color=c=black:s=256x256:r=25:d=0.2', '-c:v', 'h264_nvenc', '-f', 'null', '-']));
+      expect(
+        nv,
+        containsAllInOrder([
+          '-f',
+          'lavfi',
+          '-i',
+          'color=c=black:s=256x256:r=25:d=0.2',
+          '-c:v',
+          'h264_nvenc',
+          '-f',
+          'null',
+          '-',
+        ]),
+      );
       expect(nv, isNot(contains('-vf')));
       final va = trialEncodeArgs('hevc_vaapi');
       expect(va, containsAllInOrder(['-vaapi_device', '/dev/dri/renderD128', '-i']));

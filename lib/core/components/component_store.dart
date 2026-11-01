@@ -23,7 +23,7 @@ class InstalledVersion {
     this.fileName,
   });
 
-  /// Folder name under components/<id>/.
+  /// Folder name under `components/<id>/`.
   final String key;
   final ComponentSource source;
   final UpdateChannel channel;
@@ -35,32 +35,32 @@ class InstalledVersion {
   final String? fileName;
   final DateTime installedAt;
 
-  /// binary name -> path relative to the install folder.
+  /// Binary name -> path relative to the install folder.
   final Map<String, String> binaries;
 
   Map<String, Object?> toJson() => {
-        'key': key,
-        'source': source.name,
-        'channel': channel.name,
-        'variant': variant,
-        'version': version,
-        'sha256': sha256,
-        'fileName': fileName,
-        'installedAt': installedAt.toIso8601String(),
-        'binaries': binaries,
-      };
+    'key': key,
+    'source': source.name,
+    'channel': channel.name,
+    'variant': variant,
+    'version': version,
+    'sha256': sha256,
+    'fileName': fileName,
+    'installedAt': installedAt.toIso8601String(),
+    'binaries': binaries,
+  };
 
   factory InstalledVersion.fromJson(Map<String, dynamic> j) => InstalledVersion(
-        key: j['key'] as String,
-        source: ComponentSource.values.byName(j['source'] as String),
-        channel: UpdateChannel.values.byName(j['channel'] as String? ?? 'stable'),
-        variant: j['variant'] as String?,
-        version: j['version'] as String?,
-        sha256: j['sha256'] as String?,
-        fileName: j['fileName'] as String?,
-        installedAt: DateTime.tryParse(j['installedAt'] as String? ?? '') ?? DateTime.fromMillisecondsSinceEpoch(0),
-        binaries: (j['binaries'] as Map? ?? const {}).cast<String, String>(),
-      );
+    key: j['key'] as String,
+    source: ComponentSource.values.byName(j['source'] as String),
+    channel: UpdateChannel.values.byName(j['channel'] as String? ?? 'stable'),
+    variant: j['variant'] as String?,
+    version: j['version'] as String?,
+    sha256: j['sha256'] as String?,
+    fileName: j['fileName'] as String?,
+    installedAt: DateTime.tryParse(j['installedAt'] as String? ?? '') ?? DateTime.fromMillisecondsSinceEpoch(0),
+    binaries: (j['binaries'] as Map? ?? const {}).cast<String, String>(),
+  );
 }
 
 class ComponentRecord {
@@ -83,12 +83,12 @@ class ComponentRecord {
   Map<String, Object?> toJson() => {'active': active, 'installs': installs.map((i) => i.toJson()).toList()};
 
   factory ComponentRecord.fromJson(Map<String, dynamic> j) => ComponentRecord(
-        active: j['active'] as String?,
-        installs: [
-          for (final i in (j['installs'] as List? ?? const []))
-            InstalledVersion.fromJson((i as Map).cast<String, dynamic>()),
-        ],
-      );
+    active: j['active'] as String?,
+    installs: [
+      for (final i in (j['installs'] as List? ?? const []))
+        InstalledVersion.fromJson((i as Map).cast<String, dynamic>()),
+    ],
+  );
 }
 
 class ComponentStore {
@@ -117,9 +117,9 @@ class ComponentStore {
     final f = File(path);
     await f.parent.create(recursive: true);
     final tmp = File('$path.tmp');
-    await tmp.writeAsString(const JsonEncoder.withIndent('  ').convert({
-      for (final e in state.entries) e.key.name: e.value.toJson(),
-    }));
+    await tmp.writeAsString(
+      const JsonEncoder.withIndent('  ').convert({for (final e in state.entries) e.key.name: e.value.toJson()}),
+    );
     await tmp.rename(path);
   }
 }

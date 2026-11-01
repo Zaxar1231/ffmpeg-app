@@ -36,28 +36,28 @@ class FfmpegProgress {
   final bool ended;
 
   Map<String, Object?> toJson() => {
-        'frame': frame,
-        'fps': fps,
-        'bitrateKbps': bitrateKbps,
-        'totalSize': totalSize,
-        'outTimeUs': outTime?.inMicroseconds,
-        'speed': speed,
-        'fraction': fraction,
-        'etaMs': eta?.inMilliseconds,
-        'ended': ended,
-      };
+    'frame': frame,
+    'fps': fps,
+    'bitrateKbps': bitrateKbps,
+    'totalSize': totalSize,
+    'outTimeUs': outTime?.inMicroseconds,
+    'speed': speed,
+    'fraction': fraction,
+    'etaMs': eta?.inMilliseconds,
+    'ended': ended,
+  };
 
   factory FfmpegProgress.fromJson(Map<String, Object?> j) => FfmpegProgress(
-        frame: j['frame'] as int?,
-        fps: (j['fps'] as num?)?.toDouble(),
-        bitrateKbps: (j['bitrateKbps'] as num?)?.toDouble(),
-        totalSize: j['totalSize'] as int?,
-        outTime: j['outTimeUs'] == null ? null : Duration(microseconds: j['outTimeUs'] as int),
-        speed: (j['speed'] as num?)?.toDouble(),
-        fraction: (j['fraction'] as num?)?.toDouble(),
-        eta: j['etaMs'] == null ? null : Duration(milliseconds: j['etaMs'] as int),
-        ended: j['ended'] as bool? ?? false,
-      );
+    frame: j['frame'] as int?,
+    fps: (j['fps'] as num?)?.toDouble(),
+    bitrateKbps: (j['bitrateKbps'] as num?)?.toDouble(),
+    totalSize: j['totalSize'] as int?,
+    outTime: j['outTimeUs'] == null ? null : Duration(microseconds: j['outTimeUs'] as int),
+    speed: (j['speed'] as num?)?.toDouble(),
+    fraction: (j['fraction'] as num?)?.toDouble(),
+    eta: j['etaMs'] == null ? null : Duration(milliseconds: j['etaMs'] as int),
+    ended: j['ended'] as bool? ?? false,
+  );
 }
 
 /// Stateful line consumer; emits a snapshot at the end of each block.

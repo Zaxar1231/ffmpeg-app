@@ -75,11 +75,7 @@ List<String> trialEncodeArgs(String encoder, {String vaapiDevice = defaultVaapiD
 }
 
 class HwAccelReport {
-  const HwAccelReport({
-    required this.hwaccels,
-    required this.working,
-    required this.failed,
-  });
+  const HwAccelReport({required this.hwaccels, required this.working, required this.failed});
 
   static const none = HwAccelReport(hwaccels: {}, working: [], failed: {});
 
@@ -109,10 +105,10 @@ class HwAccelReport {
   Set<HwVendor> get vendors => {for (final e in working) e.vendor};
 
   Map<String, Object?> toJson() => {
-        'hwaccels': hwaccels.toList(),
-        'working': working.map((e) => e.name).toList(),
-        'failed': failed,
-      };
+    'hwaccels': hwaccels.toList(),
+    'working': working.map((e) => e.name).toList(),
+    'failed': failed,
+  };
 
   factory HwAccelReport.fromJson(Map<String, Object?> j) {
     final working = (j['working'] as List? ?? const []).cast<String>().toSet();
@@ -136,10 +132,12 @@ Future<HwAccelReport> detectHwAccel({
     return true;
   }).toList();
 
-  final results = await Future.wait(candidates.map((e) async {
-    final r = await runner.capture(ffmpegPath, trialEncodeArgs(e.name), timeout: perTrialTimeout);
-    return (e, r);
-  }));
+  final results = await Future.wait(
+    candidates.map((e) async {
+      final r = await runner.capture(ffmpegPath, trialEncodeArgs(e.name), timeout: perTrialTimeout);
+      return (e, r);
+    }),
+  );
 
   final working = <HwEncoderInfo>[];
   final failed = <String, String>{};
@@ -149,7 +147,10 @@ Future<HwAccelReport> detectHwAccel({
     } else {
       final msg = r.timedOut
           ? 'timeout'
-          : r.stderr.split('\n').map((l) => l.trim()).firstWhere((l) => l.isNotEmpty, orElse: () => 'exit ${r.exitCode}');
+          : r.stderr
+                .split('\n')
+                .map((l) => l.trim())
+                .firstWhere((l) => l.isNotEmpty, orElse: () => 'exit ${r.exitCode}');
       failed[e.name] = msg;
     }
   }

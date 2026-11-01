@@ -4,24 +4,27 @@ import '../engine/process_runner.dart';
 import 'media_info.dart';
 
 class ProbeException implements Exception {
-  ProbeException(this.message, {this.log = ''});
+  ProbeException(this.message, {this.log = '', this.toolMissing = false});
   final String message;
   final String log;
+
+  /// ffprobe itself is not installed or could not be started.
+  final bool toolMissing;
   @override
   String toString() => 'ProbeException: $message';
 }
 
 /// `ffprobe -v error -print_format json -show_format -show_streams -show_chapters <file>`
 List<String> probeArgs(String path) => [
-      '-v',
-      'error',
-      '-print_format',
-      'json',
-      '-show_format',
-      '-show_streams',
-      '-show_chapters',
-      path,
-    ];
+  '-v',
+  'error',
+  '-print_format',
+  'json',
+  '-show_format',
+  '-show_streams',
+  '-show_chapters',
+  path,
+];
 
 class ProbeService {
   const ProbeService({required this.runner, required this.ffprobePath});
@@ -31,8 +34,11 @@ class ProbeService {
 
   Future<MediaInfo> probe(String path) async {
     final r = await runner.capture(ffprobePath, probeArgs(path), timeout: const Duration(seconds: 60));
-    if (r.startFailed) throw ProbeException('ffprobe not found', log: r.stderr);
-    if (!r.ok) throw ProbeException(r.stderr.trim().isEmpty ? 'ffprobe exit ${r.exitCode}' : r.stderr.trim(), log: r.stderr);
+    if (r.startFailed) throw ProbeException('ffprobe not found', log: r.stderr, toolMissing: true);
+    if (!r.ok) {
+      final msg = r.stderr.trim().isEmpty ? 'ffprobe exit ${r.exitCode}' : r.stderr.trim();
+      throw ProbeException(msg, log: r.stderr);
+    }
     final Object? json;
     try {
       json = jsonDecode(r.stdout);
