@@ -2258,4 +2258,1150 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get setAria2Help =>
       'aria2c opens several connections and is often faster with slow servers. For YouTube the built-in concurrent fragments are usually enough. Default: off.';
+
+  @override
+  String get toolAudioEditor => 'Audio editor';
+
+  @override
+  String get toolAudioEditorDesc => 'Multitrack editor: editing, effects, generators, analysis, recording.';
+
+  @override
+  String get cut => 'Cut';
+
+  @override
+  String get paste => 'Paste';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get redo => 'Redo';
+
+  @override
+  String undoX(String action) {
+    return 'Undo $action';
+  }
+
+  @override
+  String redoX(String action) {
+    return 'Redo $action';
+  }
+
+  @override
+  String get preview => 'Preview';
+
+  @override
+  String get generate => 'Generate';
+
+  @override
+  String get export => 'Export';
+
+  @override
+  String get record => 'Record';
+
+  @override
+  String get stop => 'Stop';
+
+  @override
+  String get mute => 'Mute';
+
+  @override
+  String get solo => 'Solo';
+
+  @override
+  String get moveUp => 'Move up';
+
+  @override
+  String get moveDown => 'Move down';
+
+  @override
+  String get zoomIn => 'Zoom in (Ctrl+=)';
+
+  @override
+  String get zoomOut => 'Zoom out (Ctrl+−)';
+
+  @override
+  String get zoomSelection => 'Zoom to selection (Ctrl+E)';
+
+  @override
+  String get zoomFit => 'Fit project (Ctrl+F)';
+
+  @override
+  String get unitDb => 'dB';
+
+  @override
+  String get unitMs => 'ms';
+
+  @override
+  String get unitSemitones => 'semitones';
+
+  @override
+  String get unitBpm => 'BPM';
+
+  @override
+  String get unitDbOct => 'dB/oct';
+
+  @override
+  String get menuFile => 'File';
+
+  @override
+  String get menuEdit => 'Edit';
+
+  @override
+  String get menuGenerate => 'Generate';
+
+  @override
+  String get menuEffects => 'Effects';
+
+  @override
+  String get menuAnalyze => 'Analyze';
+
+  @override
+  String get menuTracks => 'Tracks';
+
+  @override
+  String get aeNew => 'New project';
+
+  @override
+  String get aeOpenProject => 'Open project…';
+
+  @override
+  String get aeSaveProject => 'Save project';
+
+  @override
+  String get aeSaveProjectAs => 'Save project as…';
+
+  @override
+  String get aeImport => 'Import audio…';
+
+  @override
+  String get aeImportLabels => 'Import labels…';
+
+  @override
+  String get aeExportLabels => 'Export labels…';
+
+  @override
+  String get aeDelete => 'Delete';
+
+  @override
+  String get aeSilence => 'Silence audio';
+
+  @override
+  String get aeTrim => 'Trim to selection';
+
+  @override
+  String get aeDuplicate => 'Duplicate to new track';
+
+  @override
+  String get aeSplitNew => 'Split to new track';
+
+  @override
+  String get aeCrossfade => 'Crossfade at cursor';
+
+  @override
+  String get aeSelectAll => 'Select all';
+
+  @override
+  String get aeNoiseProfile => 'Get noise profile from selection';
+
+  @override
+  String get addLabel => 'Add label';
+
+  @override
+  String get editLabel => 'Edit label';
+
+  @override
+  String get labelText => 'Label text';
+
+  @override
+  String get labelHint => 'Click: select, double-click: rename, right-click: delete';
+
+  @override
+  String get labelsTrack => 'Labels';
+
+  @override
+  String labelsAdded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count labels added',
+      one: '$count label added',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get aeAddTrack => 'Add track from file…';
+
+  @override
+  String get aeMixRender => 'Mix and render to new track';
+
+  @override
+  String get aeSplitStereo => 'Split stereo to mono';
+
+  @override
+  String get aeSpectrogramView => 'Show spectrogram';
+
+  @override
+  String get aeWaveformView => 'Show waveform';
+
+  @override
+  String get aeClearEnvelope => 'Clear envelope';
+
+  @override
+  String get aeRemoveTrack => 'Remove track';
+
+  @override
+  String get trackName => 'Track name';
+
+  @override
+  String get trackGain => 'Track gain';
+
+  @override
+  String get trackPan => 'Pan';
+
+  @override
+  String get aePlayHint => 'Play / pause (Space)';
+
+  @override
+  String get aePlaySelection => 'Play selection (Shift+Space)';
+
+  @override
+  String get aeLoop => 'Loop selection';
+
+  @override
+  String get toolSelect => 'Selection tool';
+
+  @override
+  String get toolShift => 'Time shift tool';
+
+  @override
+  String get toolEnvelope => 'Envelope tool';
+
+  @override
+  String aeCursorAt(String time) {
+    return 'Cursor: $time';
+  }
+
+  @override
+  String aeSelectionInfo(String start, String end, String length) {
+    return 'Selection: $start – $end ($length)';
+  }
+
+  @override
+  String get aeEmptyTitle => 'Audio editor';
+
+  @override
+  String get aeEmptyBody => 'Drop audio or video here, open a project or start recording.';
+
+  @override
+  String get aeNeedSelection => 'Select a region first.';
+
+  @override
+  String get aeStatusHint =>
+      'Drag on the waveform to select; Ctrl+wheel zooms, Shift+wheel scrolls; click a track name to select it.';
+
+  @override
+  String applyToSelection(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Applies to the selection on $count tracks',
+      one: 'Applies to the selection on $count track',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String applyToWholeTracks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'No selection: applies to $count whole tracks',
+      one: 'No selection: applies to the whole track',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get fxBrokenInBuild =>
+      'This filter crashes in the installed ffmpeg build. Choose another build or roll back in Components.';
+
+  @override
+  String get fxStereoOnly => 'This effect needs stereo; mono tracks are skipped.';
+
+  @override
+  String get fxDartDsp => 'ffmpeg has no such effect; Kadra processes it with its own DSP.';
+
+  @override
+  String get useNoiseProfile => 'Use the noise profile';
+
+  @override
+  String get noNoiseProfile => 'No profile: select a noise-only part and choose Edit → Get noise profile.';
+
+  @override
+  String noiseProfileReady(String seconds) {
+    return 'Noise profile: $seconds s';
+  }
+
+  @override
+  String get noiseProfileShort => 'noise profile';
+
+  @override
+  String get controlTrack => 'Control track (voice)';
+
+  @override
+  String get chooseTrack => 'Choose a track';
+
+  @override
+  String get flatten => 'Flatten';
+
+  @override
+  String get generateReplaces => 'The selection will be replaced with the generated audio.';
+
+  @override
+  String get generateInserts => 'The audio will be inserted at the cursor.';
+
+  @override
+  String get dtmfDigits => 'Digits and symbols (0–9, *, #, A–D)';
+
+  @override
+  String get anStats => 'Statistics and loudness';
+
+  @override
+  String get anSpectrum => 'Plot spectrum';
+
+  @override
+  String get anSounds => 'Label sounds';
+
+  @override
+  String get anSilence => 'Find silence';
+
+  @override
+  String get anBeats => 'Beat finder';
+
+  @override
+  String get anClipping => 'Find clipping';
+
+  @override
+  String get findAndLabel => 'Find and label';
+
+  @override
+  String channelN(int n) {
+    return 'Channel $n';
+  }
+
+  @override
+  String get statPeak => 'Peak';
+
+  @override
+  String get statRms => 'RMS';
+
+  @override
+  String get statDc => 'DC offset';
+
+  @override
+  String get statClipped => 'Clipped samples';
+
+  @override
+  String get statIntegrated => 'Integrated loudness';
+
+  @override
+  String get statLra => 'Loudness range';
+
+  @override
+  String get statTruePeak => 'True peak';
+
+  @override
+  String get exportAudio => 'Export audio…';
+
+  @override
+  String get exportAll => 'Whole project';
+
+  @override
+  String get exportSelection => 'Selection';
+
+  @override
+  String get exportByLabels => 'By labels (multiple files)';
+
+  @override
+  String get aeExportSelection => 'Export selection…';
+
+  @override
+  String get aeExportByLabels => 'Export by labels…';
+
+  @override
+  String get metadataTitle => 'Metadata';
+
+  @override
+  String get metaTitle => 'Title';
+
+  @override
+  String get metaArtist => 'Artist';
+
+  @override
+  String get metaAlbum => 'Album';
+
+  @override
+  String get metaYear => 'Year';
+
+  @override
+  String get metaGenre => 'Genre';
+
+  @override
+  String get metaTrack => 'Track number';
+
+  @override
+  String get metaComment => 'Comment';
+
+  @override
+  String get recordTitle => 'Recording';
+
+  @override
+  String get noRecordingDevices => 'No recording devices found.';
+
+  @override
+  String get recordHint => 'The recording becomes a new track at the cursor.';
+
+  @override
+  String get histImport => 'import';
+
+  @override
+  String get histDelete => 'delete';
+
+  @override
+  String get histSilence => 'silence';
+
+  @override
+  String get histTrim => 'trim';
+
+  @override
+  String get histPaste => 'paste';
+
+  @override
+  String get histDuplicate => 'duplicate';
+
+  @override
+  String get histSplitNew => 'split to new track';
+
+  @override
+  String get histCrossfade => 'crossfade';
+
+  @override
+  String get histRemoveTrack => 'remove track';
+
+  @override
+  String get histMoveTrack => 'move track';
+
+  @override
+  String get histMixRender => 'mix and render';
+
+  @override
+  String get histSplitStereo => 'split stereo';
+
+  @override
+  String get histLabels => 'labels';
+
+  @override
+  String get histRecord => 'recording';
+
+  @override
+  String get histTrack => 'track change';
+
+  @override
+  String get fxcVolume => 'Volume and compression';
+
+  @override
+  String get fxcFades => 'Fading';
+
+  @override
+  String get fxcEq => 'EQ and filters';
+
+  @override
+  String get fxcNoise => 'Noise removal and repair';
+
+  @override
+  String get fxcPitchTempo => 'Pitch and tempo';
+
+  @override
+  String get fxcDelayReverb => 'Delay and reverb';
+
+  @override
+  String get fxcDistortion => 'Distortion and modulation';
+
+  @override
+  String get fxcSpecial => 'Special';
+
+  @override
+  String get fxAmplify => 'Amplify';
+
+  @override
+  String get fxAmplifyDesc => 'Makes the audio louder or quieter by a number of decibels.';
+
+  @override
+  String get fxNormalize => 'Normalize';
+
+  @override
+  String get fxNormalizeDesc => 'Raises the level so the peak hits the target; can remove DC offset.';
+
+  @override
+  String get fxLoudness => 'Loudness normalization';
+
+  @override
+  String get fxLoudnessDesc => 'Brings perceived loudness to an EBU R128 target (two passes).';
+
+  @override
+  String get fxCompressor => 'Compressor';
+
+  @override
+  String get fxCompressorDesc => 'Reduces the difference between loud and quiet parts.';
+
+  @override
+  String get fxLimiter => 'Limiter';
+
+  @override
+  String get fxLimiterDesc => 'Keeps peaks below a ceiling.';
+
+  @override
+  String get fxGate => 'Noise gate';
+
+  @override
+  String get fxGateDesc => 'Mutes audio below a threshold (pauses between phrases).';
+
+  @override
+  String get fxAutoDuck => 'Auto duck';
+
+  @override
+  String get fxAutoDuckDesc => 'Lowers music while the voice on another track plays.';
+
+  @override
+  String get fxDynamicNormalizer => 'Dynamic normalizer';
+
+  @override
+  String get fxDynamicNormalizerDesc => 'Evens out loudness over time while keeping short-term dynamics.';
+
+  @override
+  String get fxSpeechNormalizer => 'Speech normalizer';
+
+  @override
+  String get fxSpeechNormalizerDesc => 'Evens out speech: quiet phrases louder, loud ones quieter.';
+
+  @override
+  String get fxFadeIn => 'Fade in';
+
+  @override
+  String get fxFadeOut => 'Fade out';
+
+  @override
+  String get fxStudioFadeOut => 'Studio fade out';
+
+  @override
+  String get fxAdjustableFade => 'Adjustable fade';
+
+  @override
+  String get fxAdjustableFadeDesc => 'Changes volume from one percentage to another across the selection.';
+
+  @override
+  String get fxBassTreble => 'Bass and treble';
+
+  @override
+  String get fxBassTrebleDesc => 'Boosts or cuts low and high frequencies.';
+
+  @override
+  String get fxGraphicEq => 'Graphic EQ';
+
+  @override
+  String get fxGraphicEqDesc => '18 bands from 65 Hz to 20 kHz.';
+
+  @override
+  String get fxParametricEq => 'Parametric EQ';
+
+  @override
+  String get fxParametricEqDesc => 'Four bands, each with frequency, gain and Q.';
+
+  @override
+  String get fxHighPass => 'High-pass filter';
+
+  @override
+  String get fxLowPass => 'Low-pass filter';
+
+  @override
+  String get fxBandPass => 'Band-pass filter';
+
+  @override
+  String get fxNotch => 'Notch filter';
+
+  @override
+  String get fxNotchDesc => 'Removes a narrow frequency band (e.g. a whistle).';
+
+  @override
+  String get fxHumRemoval => 'Hum removal';
+
+  @override
+  String get fxHumRemovalDesc => 'Removes 50/60 Hz mains hum and its harmonics.';
+
+  @override
+  String get fxDeesser => 'De-esser';
+
+  @override
+  String get fxDeesserDesc => 'Softens harsh \"s\" and \"sh\" sounds.';
+
+  @override
+  String get fxExciter => 'Exciter';
+
+  @override
+  String get fxExciterDesc => 'Adds brightness and clarity to the highs.';
+
+  @override
+  String get fxNoiseReduction => 'Noise reduction';
+
+  @override
+  String get fxNoiseReductionDesc =>
+      'Removes steady noise (hiss, hum). Works best with a noise profile from a part without speech.';
+
+  @override
+  String get fxNlmDenoise => 'NLM denoise';
+
+  @override
+  String get fxNlmDenoiseDesc => 'Non-local means denoising: gentler but slower.';
+
+  @override
+  String get fxClickRemoval => 'Click removal';
+
+  @override
+  String get fxClickRemovalDesc => 'Removes clicks and crackle (vinyl recordings).';
+
+  @override
+  String get fxClipFix => 'Clip fix';
+
+  @override
+  String get fxClipFixDesc => 'Reconstructs clipped peaks.';
+
+  @override
+  String get fxChangePitch => 'Change pitch';
+
+  @override
+  String get fxChangePitchDesc => 'Changes pitch without changing tempo.';
+
+  @override
+  String get fxChangeTempo => 'Change tempo';
+
+  @override
+  String get fxChangeTempoDesc => 'Changes tempo without changing pitch.';
+
+  @override
+  String get fxChangeSpeed => 'Change speed';
+
+  @override
+  String get fxChangeSpeedDesc => 'Changes speed and pitch together, like a tape deck.';
+
+  @override
+  String get fxSlidingSpeed => 'Sliding speed';
+
+  @override
+  String get fxSlidingSpeedDesc => 'Speed changes smoothly from the start to the end of the selection.';
+
+  @override
+  String get fxPaulstretch => 'Paulstretch';
+
+  @override
+  String get fxPaulstretchDesc => 'Extreme time stretching: turns sound into ambient textures.';
+
+  @override
+  String get fxEcho => 'Echo';
+
+  @override
+  String get fxEchoDesc => 'Repeats the sound with decay.';
+
+  @override
+  String get fxReverb => 'Reverb';
+
+  @override
+  String get fxReverbDesc => 'The sound of a space, from a room to a cathedral.';
+
+  @override
+  String get fxDistortion => 'Distortion';
+
+  @override
+  String get fxDistortionDesc => 'Overdrive of different kinds: soft tube-like or hard.';
+
+  @override
+  String get fxBitcrusher => 'Bitcrusher';
+
+  @override
+  String get fxBitcrusherDesc => 'Reduces bit depth and sample rate for an 8-bit sound.';
+
+  @override
+  String get fxPhaser => 'Phaser';
+
+  @override
+  String get fxFlanger => 'Flanger';
+
+  @override
+  String get fxChorus => 'Chorus';
+
+  @override
+  String get fxTremolo => 'Tremolo';
+
+  @override
+  String get fxTremoloDesc => 'Periodically changes volume.';
+
+  @override
+  String get fxVibrato => 'Vibrato';
+
+  @override
+  String get fxVibratoDesc => 'Periodically changes pitch.';
+
+  @override
+  String get fxWahwah => 'Wahwah';
+
+  @override
+  String get fxWahwahDesc => 'A sweeping resonant filter, like a guitar pedal.';
+
+  @override
+  String get fxAutoPan => 'Auto pan';
+
+  @override
+  String get fxAutoPanDesc => 'Sound moves between the channels.';
+
+  @override
+  String get fxInvert => 'Invert';
+
+  @override
+  String get fxInvertDesc => 'Flips the waveform (phase).';
+
+  @override
+  String get fxReverse => 'Reverse';
+
+  @override
+  String get fxReverseDesc => 'Plays the selection backwards.';
+
+  @override
+  String get fxRepeat => 'Repeat';
+
+  @override
+  String get fxRepeatDesc => 'Repeats the selection a number of times.';
+
+  @override
+  String get fxTruncateSilence => 'Truncate silence';
+
+  @override
+  String get fxTruncateSilenceDesc => 'Shortens long pauses.';
+
+  @override
+  String get fxVocalRemove => 'Vocal reduction';
+
+  @override
+  String get fxVocalRemoveDesc => 'Removes centre-panned audio (usually vocals) while keeping the bass.';
+
+  @override
+  String get fxVocalIsolate => 'Vocal isolation';
+
+  @override
+  String get fxVocalIsolateDesc => 'Keeps the centre of the stereo image in the voice range.';
+
+  @override
+  String get fxSwapChannels => 'Swap channels';
+
+  @override
+  String get fxMonoMix => 'Mono mix';
+
+  @override
+  String get fxStereoWiden => 'Stereo widener';
+
+  @override
+  String get fxStereoWidenDesc => 'Makes the stereo image wider.';
+
+  @override
+  String get fxBalance => 'Balance';
+
+  @override
+  String get fxHaas => 'Haas effect';
+
+  @override
+  String get fxHaasDesc => 'Turns mono into wide stereo by slightly delaying one channel.';
+
+  @override
+  String get fxFadeDesc => 'Smoothly changes volume across the selection.';
+
+  @override
+  String get fxPassDesc => 'Lets only the wanted frequencies through; the slope sets how sharply the rest is cut.';
+
+  @override
+  String get fxModulationDesc => 'A classic delay-modulation effect.';
+
+  @override
+  String get fxChannelsDesc => 'Stereo channel tools.';
+
+  @override
+  String get fxpGain => 'Gain';
+
+  @override
+  String get fxpPeak => 'Peak';
+
+  @override
+  String get fxpRemoveDc => 'Remove DC offset';
+
+  @override
+  String get fxpIndependent => 'Channels independently';
+
+  @override
+  String get fxpLufs => 'Target loudness';
+
+  @override
+  String get fxpTruePeak => 'True peak ceiling';
+
+  @override
+  String get fxpThreshold => 'Threshold';
+
+  @override
+  String get fxpRatio => 'Ratio';
+
+  @override
+  String get fxpAttack => 'Attack';
+
+  @override
+  String get fxpRelease => 'Release';
+
+  @override
+  String get fxpMakeup => 'Make-up gain';
+
+  @override
+  String get fxpKnee => 'Knee';
+
+  @override
+  String get fxpLimit => 'Limit';
+
+  @override
+  String get fxpReduction => 'Reduction';
+
+  @override
+  String get fxpGateReduction => 'Reduction below threshold';
+
+  @override
+  String get fxpDuck => 'Duck amount';
+
+  @override
+  String get fxpFrame => 'Frame length';
+
+  @override
+  String get fxpGauss => 'Smoothing (frames)';
+
+  @override
+  String get fxpPeakLin => 'Target peak';
+
+  @override
+  String get fxpMaxGain => 'Max gain';
+
+  @override
+  String get fxpExpansion => 'Max expansion';
+
+  @override
+  String get fxpCompression => 'Max compression';
+
+  @override
+  String get fxpCurve => 'Curve';
+
+  @override
+  String get fxpFrom => 'Initial volume';
+
+  @override
+  String get fxpTo => 'Final volume';
+
+  @override
+  String get fxpShape => 'Scale';
+
+  @override
+  String get fxpBass => 'Bass';
+
+  @override
+  String get fxpTreble => 'Treble';
+
+  @override
+  String get fxpFreq => 'Frequency';
+
+  @override
+  String get fxpSlope => 'Roll-off';
+
+  @override
+  String get fxpOctaves => 'Width, octaves';
+
+  @override
+  String get fxpQ => 'Q';
+
+  @override
+  String get fxpMains => 'Mains frequency';
+
+  @override
+  String get fxpHarmonics => 'Harmonics';
+
+  @override
+  String get fxpIntensity => 'Intensity';
+
+  @override
+  String get fxpMaxReduction => 'Max reduction';
+
+  @override
+  String get fxpFreqPos => 'Frequency position';
+
+  @override
+  String get fxpAmount => 'Amount';
+
+  @override
+  String get fxpDrive => 'Drive';
+
+  @override
+  String get fxpFloor => 'Noise floor';
+
+  @override
+  String get fxpTrackNoise => 'Track changing noise';
+
+  @override
+  String get fxpStrength => 'Strength';
+
+  @override
+  String get fxpWindow => 'Window';
+
+  @override
+  String get fxpSemitones => 'Shift';
+
+  @override
+  String get fxpFormants => 'Preserve formants (voice)';
+
+  @override
+  String get fxpHq => 'High quality';
+
+  @override
+  String get fxpPercent => 'Change';
+
+  @override
+  String get fxpStretch => 'Stretch factor';
+
+  @override
+  String get fxpDelay => 'Delay';
+
+  @override
+  String get fxpDecay => 'Decay';
+
+  @override
+  String get fxpReverbTime => 'Reverb time';
+
+  @override
+  String get fxpPredelay => 'Pre-delay';
+
+  @override
+  String get fxpDamping => 'Damping';
+
+  @override
+  String get fxpWet => 'Wet level';
+
+  @override
+  String get fxpDry => 'Dry level';
+
+  @override
+  String get fxpType => 'Type';
+
+  @override
+  String get fxpOutput => 'Output level';
+
+  @override
+  String get fxpBits => 'Bit depth';
+
+  @override
+  String get fxpDownsample => 'Sample reduction';
+
+  @override
+  String get fxpMix => 'Mix';
+
+  @override
+  String get fxpSpeed => 'Speed';
+
+  @override
+  String get fxpDepth => 'Depth';
+
+  @override
+  String get fxpRegen => 'Feedback';
+
+  @override
+  String get fxpResonance => 'Resonance';
+
+  @override
+  String get fxpOffset => 'Frequency offset';
+
+  @override
+  String get fxpTimes => 'Times';
+
+  @override
+  String get fxpMinSilence => 'Minimum silence';
+
+  @override
+  String get fxpKeep => 'Keep pause';
+
+  @override
+  String get fxpKeepBass => 'Keep bass below';
+
+  @override
+  String get fxpLow => 'Low cut';
+
+  @override
+  String get fxpHigh => 'High cut';
+
+  @override
+  String get fxpBalance => 'Balance';
+
+  @override
+  String get fxpWaveform => 'Waveform';
+
+  @override
+  String get fxpAmp => 'Amplitude';
+
+  @override
+  String get fxpFreqStart => 'Start frequency';
+
+  @override
+  String get fxpFreqEnd => 'End frequency';
+
+  @override
+  String get fxpLog => 'Logarithmic sweep';
+
+  @override
+  String get fxpColor => 'Noise color';
+
+  @override
+  String get fxpBpm => 'Tempo';
+
+  @override
+  String get fxpBeats => 'Beats per bar';
+
+  @override
+  String fxpBandFreq(int n) {
+    return 'Band $n: frequency';
+  }
+
+  @override
+  String fxpBandGain(int n) {
+    return 'Band $n: gain';
+  }
+
+  @override
+  String fxpBandQ(int n) {
+    return 'Band $n: Q';
+  }
+
+  @override
+  String get curveLinear => 'linear';
+
+  @override
+  String get curveQsin => 'quarter sine';
+
+  @override
+  String get curveHsin => 'half sine';
+
+  @override
+  String get curveEsin => 'exponential sine';
+
+  @override
+  String get curveLog => 'logarithmic';
+
+  @override
+  String get curveIpar => 'inverted parabola';
+
+  @override
+  String get curveQua => 'quadratic';
+
+  @override
+  String get curveCub => 'cubic';
+
+  @override
+  String get curveSqu => 'square root';
+
+  @override
+  String get curveCbr => 'cubic root';
+
+  @override
+  String get curvePar => 'parabola';
+
+  @override
+  String get curveExp => 'exponential';
+
+  @override
+  String get shapeLinear => 'linear';
+
+  @override
+  String get shapeDb => 'in decibels';
+
+  @override
+  String get waveSine => 'sine';
+
+  @override
+  String get waveSquare => 'square';
+
+  @override
+  String get waveSawtooth => 'sawtooth';
+
+  @override
+  String get waveTriangle => 'triangle';
+
+  @override
+  String get noiseWhite => 'white';
+
+  @override
+  String get noisePink => 'pink';
+
+  @override
+  String get noiseBrown => 'brown';
+
+  @override
+  String get noiseBlue => 'blue';
+
+  @override
+  String get noiseViolet => 'violet';
+
+  @override
+  String get noiseVelvet => 'velvet';
+
+  @override
+  String get clipHard => 'hard clip';
+
+  @override
+  String get clipTanh => 'tanh';
+
+  @override
+  String get clipAtan => 'arctangent';
+
+  @override
+  String get clipCubic => 'cubic';
+
+  @override
+  String get clipExp => 'exponential';
+
+  @override
+  String get clipAlg => 'algebraic';
+
+  @override
+  String get clipQuintic => 'quintic';
+
+  @override
+  String get clipSin => 'sine';
+
+  @override
+  String get clipErf => 'error function';
+
+  @override
+  String get genTone => 'Tone';
+
+  @override
+  String get genChirp => 'Chirp';
+
+  @override
+  String get genNoise => 'Noise';
+
+  @override
+  String get genSilence => 'Silence';
+
+  @override
+  String get genMetronome => 'Rhythm track';
+
+  @override
+  String get genDtmf => 'DTMF tones';
 }

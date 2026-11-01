@@ -63,8 +63,13 @@ class ToolDef {
   }
 }
 
-/// Stage in progress. Tools with `stage <= currentStage` are enabled.
-const currentStage = 2;
+/// Stage in progress. Tools of earlier stages are enabled; tools of the
+/// current stage only once they are listed in [currentStageReady].
+const currentStage = 3;
+
+const currentStageReady = {'audioEditor'};
+
+bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 
 const _v = {MediaCategory.video};
 const _a = {MediaCategory.audio};
@@ -233,6 +238,14 @@ const toolCatalog = <ToolDef>[
   ),
   ToolDef('loop', ToolCategory.edit, Icons.loop, stage: 3, keywords: ['boomerang', 'бумеранг']),
   // 4. Audio
+  ToolDef(
+    'audioEditor',
+    ToolCategory.audio,
+    Icons.graphic_eq,
+    stage: 3,
+    keywords: ['audacity', 'редактор', 'editor', 'waveform', 'волна', 'запись', 'record', 'эффекты', 'effects'],
+    forKinds: _av,
+  ),
   ToolDef(
     'extractAudio',
     ToolCategory.audio,
@@ -461,6 +474,7 @@ String toolTitle(AppLocalizations l, String id) => switch (id) {
   'stack' => l.toolStack,
   'transitions' => l.toolTransitions,
   'loop' => l.toolLoop,
+  'audioEditor' => l.toolAudioEditor,
   'extractAudio' => l.toolExtractAudio,
   'replaceAudio' => l.toolReplaceAudio,
   'normalize' => l.toolNormalize,
@@ -543,6 +557,7 @@ String toolDescription(AppLocalizations l, String id) => switch (id) {
   'stack' => l.toolStackDesc,
   'transitions' => l.toolTransitionsDesc,
   'loop' => l.toolLoopDesc,
+  'audioEditor' => l.toolAudioEditorDesc,
   'extractAudio' => l.toolExtractAudioDesc,
   'replaceAudio' => l.toolReplaceAudioDesc,
   'normalize' => l.toolNormalizeDesc,

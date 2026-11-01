@@ -16,7 +16,7 @@ import 'tool_infra.dart';
 Future<void> launchTool(BuildContext context, WidgetRef ref, ToolDef tool, {String? path, MediaInfo? info}) async {
   final l = context.l10n;
   final messenger = ScaffoldMessenger.of(context);
-  if (tool.stage > currentStage) {
+  if (!toolReady(tool)) {
     messenger.showSnackBar(SnackBar(content: Text(l.toolComingSoon(tool.stage))));
     return;
   }

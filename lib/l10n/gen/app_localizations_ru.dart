@@ -2286,4 +2286,1153 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get setAria2Help =>
       'aria2c открывает несколько соединений к серверу и часто качает быстрее на медленных серверах. Для YouTube обычно хватает встроенных параллельных фрагментов. По умолчанию: выключено.';
+
+  @override
+  String get toolAudioEditor => 'Аудиоредактор';
+
+  @override
+  String get toolAudioEditorDesc => 'Многодорожечный редактор: правка, эффекты, генераторы, анализ, запись.';
+
+  @override
+  String get cut => 'Вырезать';
+
+  @override
+  String get paste => 'Вставить';
+
+  @override
+  String get undo => 'Отменить';
+
+  @override
+  String get redo => 'Повторить';
+
+  @override
+  String undoX(String action) {
+    return 'Отменить: $action';
+  }
+
+  @override
+  String redoX(String action) {
+    return 'Повторить: $action';
+  }
+
+  @override
+  String get preview => 'Прослушать';
+
+  @override
+  String get generate => 'Создать';
+
+  @override
+  String get export => 'Экспорт';
+
+  @override
+  String get record => 'Запись';
+
+  @override
+  String get stop => 'Стоп';
+
+  @override
+  String get mute => 'Заглушить';
+
+  @override
+  String get solo => 'Соло';
+
+  @override
+  String get moveUp => 'Выше';
+
+  @override
+  String get moveDown => 'Ниже';
+
+  @override
+  String get zoomIn => 'Приблизить (Ctrl+=)';
+
+  @override
+  String get zoomOut => 'Отдалить (Ctrl+−)';
+
+  @override
+  String get zoomSelection => 'По выделению (Ctrl+E)';
+
+  @override
+  String get zoomFit => 'Весь проект (Ctrl+F)';
+
+  @override
+  String get unitDb => 'дБ';
+
+  @override
+  String get unitMs => 'мс';
+
+  @override
+  String get unitSemitones => 'полутонов';
+
+  @override
+  String get unitBpm => 'уд/мин';
+
+  @override
+  String get unitDbOct => 'дБ/окт';
+
+  @override
+  String get menuFile => 'Файл';
+
+  @override
+  String get menuEdit => 'Правка';
+
+  @override
+  String get menuGenerate => 'Создать';
+
+  @override
+  String get menuEffects => 'Эффекты';
+
+  @override
+  String get menuAnalyze => 'Анализ';
+
+  @override
+  String get menuTracks => 'Дорожки';
+
+  @override
+  String get aeNew => 'Новый проект';
+
+  @override
+  String get aeOpenProject => 'Открыть проект…';
+
+  @override
+  String get aeSaveProject => 'Сохранить проект';
+
+  @override
+  String get aeSaveProjectAs => 'Сохранить проект как…';
+
+  @override
+  String get aeImport => 'Импорт аудио…';
+
+  @override
+  String get aeImportLabels => 'Импорт меток…';
+
+  @override
+  String get aeExportLabels => 'Экспорт меток…';
+
+  @override
+  String get aeDelete => 'Удалить';
+
+  @override
+  String get aeSilence => 'Заполнить тишиной';
+
+  @override
+  String get aeTrim => 'Оставить только выделенное';
+
+  @override
+  String get aeDuplicate => 'Дублировать в новую дорожку';
+
+  @override
+  String get aeSplitNew => 'Отделить в новую дорожку';
+
+  @override
+  String get aeCrossfade => 'Плавный переход в точке курсора';
+
+  @override
+  String get aeSelectAll => 'Выделить всё';
+
+  @override
+  String get aeNoiseProfile => 'Взять профиль шума из выделения';
+
+  @override
+  String get addLabel => 'Добавить метку';
+
+  @override
+  String get editLabel => 'Изменить метку';
+
+  @override
+  String get labelText => 'Текст метки';
+
+  @override
+  String get labelHint => 'Клик — выделить, двойной клик — переименовать, правый клик — удалить';
+
+  @override
+  String get labelsTrack => 'Метки';
+
+  @override
+  String labelsAdded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Добавлено $count метки',
+      many: 'Добавлено $count меток',
+      few: 'Добавлено $count метки',
+      one: 'Добавлена $count метка',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get aeAddTrack => 'Добавить дорожку из файла…';
+
+  @override
+  String get aeMixRender => 'Свести в новую дорожку';
+
+  @override
+  String get aeSplitStereo => 'Разделить стерео на моно';
+
+  @override
+  String get aeSpectrogramView => 'Показать спектрограмму';
+
+  @override
+  String get aeWaveformView => 'Показать волну';
+
+  @override
+  String get aeClearEnvelope => 'Сбросить огибающую';
+
+  @override
+  String get aeRemoveTrack => 'Удалить дорожку';
+
+  @override
+  String get trackName => 'Имя дорожки';
+
+  @override
+  String get trackGain => 'Громкость дорожки';
+
+  @override
+  String get trackPan => 'Панорама';
+
+  @override
+  String get aePlayHint => 'Воспроизвести / пауза (Пробел)';
+
+  @override
+  String get aePlaySelection => 'Воспроизвести выделение (Shift+Пробел)';
+
+  @override
+  String get aeLoop => 'Повтор выделения';
+
+  @override
+  String get toolSelect => 'Выделение';
+
+  @override
+  String get toolShift => 'Сдвиг во времени';
+
+  @override
+  String get toolEnvelope => 'Огибающая громкости';
+
+  @override
+  String aeCursorAt(String time) {
+    return 'Курсор: $time';
+  }
+
+  @override
+  String aeSelectionInfo(String start, String end, String length) {
+    return 'Выделение: $start – $end ($length)';
+  }
+
+  @override
+  String get aeEmptyTitle => 'Аудиоредактор';
+
+  @override
+  String get aeEmptyBody => 'Перетащите сюда аудио или видео, откройте проект или начните запись с микрофона.';
+
+  @override
+  String get aeNeedSelection => 'Сначала выделите фрагмент.';
+
+  @override
+  String get aeStatusHint =>
+      'Перетаскивайте по волне, чтобы выделить; Ctrl+колесо — масштаб, Shift+колесо — прокрутка; клик по имени дорожки — выбрать её.';
+
+  @override
+  String applyToSelection(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Применится к выделению на $count дорожках',
+      one: 'Применится к выделению на $count дорожке',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String applyToWholeTracks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Выделения нет — применится к $count дорожкам целиком',
+      one: 'Выделения нет — применится ко всей дорожке',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get fxBrokenInBuild =>
+      'Этот фильтр аварийно завершается в установленной сборке ffmpeg. Выберите другую сборку или откатитесь в «Компонентах».';
+
+  @override
+  String get fxStereoOnly => 'Эффект работает только со стерео — моно-дорожки будут пропущены.';
+
+  @override
+  String get fxDartDsp => 'Этого эффекта нет в ffmpeg, он выполняется встроенным обработчиком Kadra.';
+
+  @override
+  String get useNoiseProfile => 'Использовать профиль шума';
+
+  @override
+  String get noNoiseProfile =>
+      'Профиля нет: выделите участок, где только шум, и выберите «Правка → Взять профиль шума».';
+
+  @override
+  String noiseProfileReady(String seconds) {
+    return 'Профиль шума: $seconds с';
+  }
+
+  @override
+  String get noiseProfileShort => 'профиль шума';
+
+  @override
+  String get controlTrack => 'Управляющая дорожка (голос)';
+
+  @override
+  String get chooseTrack => 'Выберите дорожку';
+
+  @override
+  String get flatten => 'Сбросить в ноль';
+
+  @override
+  String get generateReplaces => 'Есть выделение — оно будет заменено сгенерированным звуком.';
+
+  @override
+  String get generateInserts => 'Звук будет вставлен в позицию курсора.';
+
+  @override
+  String get dtmfDigits => 'Цифры и символы (0–9, *, #, A–D)';
+
+  @override
+  String get anStats => 'Статистика и громкость';
+
+  @override
+  String get anSpectrum => 'Спектр частот';
+
+  @override
+  String get anSounds => 'Найти звуки';
+
+  @override
+  String get anSilence => 'Найти тишину';
+
+  @override
+  String get anBeats => 'Найти сильные доли';
+
+  @override
+  String get anClipping => 'Найти перегрузку (клиппинг)';
+
+  @override
+  String get findAndLabel => 'Найти и отметить';
+
+  @override
+  String channelN(int n) {
+    return 'Канал $n';
+  }
+
+  @override
+  String get statPeak => 'Пиковый уровень';
+
+  @override
+  String get statRms => 'Средний уровень (RMS)';
+
+  @override
+  String get statDc => 'Смещение постоянной составляющей';
+
+  @override
+  String get statClipped => 'Сэмплов в перегрузке';
+
+  @override
+  String get statIntegrated => 'Интегральная громкость';
+
+  @override
+  String get statLra => 'Диапазон громкости';
+
+  @override
+  String get statTruePeak => 'Истинный пик';
+
+  @override
+  String get exportAudio => 'Экспорт аудио…';
+
+  @override
+  String get exportAll => 'Весь проект';
+
+  @override
+  String get exportSelection => 'Выделение';
+
+  @override
+  String get exportByLabels => 'По меткам (несколько файлов)';
+
+  @override
+  String get aeExportSelection => 'Экспорт выделения…';
+
+  @override
+  String get aeExportByLabels => 'Экспорт по меткам…';
+
+  @override
+  String get metadataTitle => 'Метаданные';
+
+  @override
+  String get metaTitle => 'Название';
+
+  @override
+  String get metaArtist => 'Исполнитель';
+
+  @override
+  String get metaAlbum => 'Альбом';
+
+  @override
+  String get metaYear => 'Год';
+
+  @override
+  String get metaGenre => 'Жанр';
+
+  @override
+  String get metaTrack => 'Номер трека';
+
+  @override
+  String get metaComment => 'Комментарий';
+
+  @override
+  String get recordTitle => 'Запись';
+
+  @override
+  String get noRecordingDevices => 'Устройства записи не найдены.';
+
+  @override
+  String get recordHint => 'Запись появится новой дорожкой с позиции курсора.';
+
+  @override
+  String get histImport => 'импорт';
+
+  @override
+  String get histDelete => 'удаление';
+
+  @override
+  String get histSilence => 'тишина';
+
+  @override
+  String get histTrim => 'обрезка';
+
+  @override
+  String get histPaste => 'вставка';
+
+  @override
+  String get histDuplicate => 'дублирование';
+
+  @override
+  String get histSplitNew => 'отделение';
+
+  @override
+  String get histCrossfade => 'плавный переход';
+
+  @override
+  String get histRemoveTrack => 'удаление дорожки';
+
+  @override
+  String get histMoveTrack => 'перемещение дорожки';
+
+  @override
+  String get histMixRender => 'сведение';
+
+  @override
+  String get histSplitStereo => 'разделение стерео';
+
+  @override
+  String get histLabels => 'метки';
+
+  @override
+  String get histRecord => 'запись';
+
+  @override
+  String get histTrack => 'изменение дорожки';
+
+  @override
+  String get fxcVolume => 'Громкость и динамика';
+
+  @override
+  String get fxcFades => 'Затухания';
+
+  @override
+  String get fxcEq => 'Эквалайзер и фильтры';
+
+  @override
+  String get fxcNoise => 'Шум и ремонт';
+
+  @override
+  String get fxcPitchTempo => 'Высота и темп';
+
+  @override
+  String get fxcDelayReverb => 'Задержка и реверберация';
+
+  @override
+  String get fxcDistortion => 'Искажение и модуляция';
+
+  @override
+  String get fxcSpecial => 'Специальные';
+
+  @override
+  String get fxAmplify => 'Усиление';
+
+  @override
+  String get fxAmplifyDesc => 'Делает звук громче или тише на заданное число децибел.';
+
+  @override
+  String get fxNormalize => 'Нормализация пика';
+
+  @override
+  String get fxNormalizeDesc => 'Поднимает уровень так, чтобы пик достиг заданного значения; может убрать смещение DC.';
+
+  @override
+  String get fxLoudness => 'Нормализация громкости (LUFS)';
+
+  @override
+  String get fxLoudnessDesc => 'Приводит воспринимаемую громкость к цели по EBU R128 (два прохода).';
+
+  @override
+  String get fxCompressor => 'Компрессор';
+
+  @override
+  String get fxCompressorDesc => 'Уменьшает разницу между громкими и тихими местами.';
+
+  @override
+  String get fxLimiter => 'Лимитер';
+
+  @override
+  String get fxLimiterDesc => 'Не даёт пикам превысить заданный уровень.';
+
+  @override
+  String get fxGate => 'Шумовой гейт';
+
+  @override
+  String get fxGateDesc => 'Приглушает звук, когда он тише порога (паузы между фразами).';
+
+  @override
+  String get fxAutoDuck => 'Автоприглушение';
+
+  @override
+  String get fxAutoDuckDesc => 'Приглушает музыку, когда звучит голос на другой дорожке.';
+
+  @override
+  String get fxDynamicNormalizer => 'Динамический нормализатор';
+
+  @override
+  String get fxDynamicNormalizerDesc => 'Выравнивает громкость по ходу записи, не трогая короткую динамику.';
+
+  @override
+  String get fxSpeechNormalizer => 'Нормализатор речи';
+
+  @override
+  String get fxSpeechNormalizerDesc => 'Выравнивает громкость речи: тихие фразы громче, громкие тише.';
+
+  @override
+  String get fxFadeIn => 'Плавное нарастание';
+
+  @override
+  String get fxFadeOut => 'Плавное затухание';
+
+  @override
+  String get fxStudioFadeOut => 'Студийное затухание';
+
+  @override
+  String get fxAdjustableFade => 'Настраиваемое затухание';
+
+  @override
+  String get fxAdjustableFadeDesc => 'Меняет громкость от одного процента до другого по выделению.';
+
+  @override
+  String get fxBassTreble => 'Басы и высокие';
+
+  @override
+  String get fxBassTrebleDesc => 'Поднимает или срезает низкие и высокие частоты.';
+
+  @override
+  String get fxGraphicEq => 'Графический эквалайзер';
+
+  @override
+  String get fxGraphicEqDesc => '18 полос от 65 Гц до 20 кГц.';
+
+  @override
+  String get fxParametricEq => 'Параметрический эквалайзер';
+
+  @override
+  String get fxParametricEqDesc => 'Четыре полосы: частота, усиление и добротность каждой.';
+
+  @override
+  String get fxHighPass => 'Фильтр высоких частот';
+
+  @override
+  String get fxLowPass => 'Фильтр низких частот';
+
+  @override
+  String get fxBandPass => 'Полосовой фильтр';
+
+  @override
+  String get fxNotch => 'Режекторный фильтр';
+
+  @override
+  String get fxNotchDesc => 'Вырезает узкую полосу частот (например, писк).';
+
+  @override
+  String get fxHumRemoval => 'Удаление фона сети';
+
+  @override
+  String get fxHumRemovalDesc => 'Убирает гул 50/60 Гц и его гармоники.';
+
+  @override
+  String get fxDeesser => 'Де-эссер';
+
+  @override
+  String get fxDeesserDesc => 'Смягчает резкие «с» и «ш».';
+
+  @override
+  String get fxExciter => 'Эксайтер';
+
+  @override
+  String get fxExciterDesc => 'Добавляет яркости и разборчивости высоким частотам.';
+
+  @override
+  String get fxNoiseReduction => 'Подавление шума';
+
+  @override
+  String get fxNoiseReductionDesc =>
+      'Убирает постоянный шум (шипение, гул). Лучше всего — с профилем шума из участка без речи.';
+
+  @override
+  String get fxNlmDenoise => 'Шумоподавление NLM';
+
+  @override
+  String get fxNlmDenoiseDesc => 'Шумоподавление по нелокальным средним: мягче, но медленнее.';
+
+  @override
+  String get fxClickRemoval => 'Удаление щелчков';
+
+  @override
+  String get fxClickRemovalDesc => 'Убирает щелчки и треск (виниловые записи).';
+
+  @override
+  String get fxClipFix => 'Восстановление перегрузки';
+
+  @override
+  String get fxClipFixDesc => 'Восстанавливает срезанные вершины волны.';
+
+  @override
+  String get fxChangePitch => 'Смена высоты тона';
+
+  @override
+  String get fxChangePitchDesc => 'Меняет высоту без изменения темпа.';
+
+  @override
+  String get fxChangeTempo => 'Смена темпа';
+
+  @override
+  String get fxChangeTempoDesc => 'Меняет темп без изменения высоты тона.';
+
+  @override
+  String get fxChangeSpeed => 'Смена скорости';
+
+  @override
+  String get fxChangeSpeedDesc => 'Меняет скорость и высоту вместе, как на магнитофоне.';
+
+  @override
+  String get fxSlidingSpeed => 'Плавное изменение скорости';
+
+  @override
+  String get fxSlidingSpeedDesc => 'Скорость плавно меняется от начала к концу выделения.';
+
+  @override
+  String get fxPaulstretch => 'Paulstretch';
+
+  @override
+  String get fxPaulstretchDesc => 'Экстремальное растяжение во времени: превращает звук в атмосферный эмбиент.';
+
+  @override
+  String get fxEcho => 'Эхо';
+
+  @override
+  String get fxEchoDesc => 'Повторения звука с затуханием.';
+
+  @override
+  String get fxReverb => 'Реверберация';
+
+  @override
+  String get fxReverbDesc => 'Звучание помещения: от комнаты до собора.';
+
+  @override
+  String get fxDistortion => 'Искажение';
+
+  @override
+  String get fxDistortionDesc => 'Перегруз разных типов: мягкий ламповый или жёсткий.';
+
+  @override
+  String get fxBitcrusher => 'Биткрашер';
+
+  @override
+  String get fxBitcrusherDesc => 'Снижает разрядность и частоту — «8-битный» звук.';
+
+  @override
+  String get fxPhaser => 'Фейзер';
+
+  @override
+  String get fxFlanger => 'Флэнжер';
+
+  @override
+  String get fxChorus => 'Хорус';
+
+  @override
+  String get fxTremolo => 'Тремоло';
+
+  @override
+  String get fxTremoloDesc => 'Периодически меняет громкость.';
+
+  @override
+  String get fxVibrato => 'Вибрато';
+
+  @override
+  String get fxVibratoDesc => 'Периодически меняет высоту тона.';
+
+  @override
+  String get fxWahwah => 'Вау-вау';
+
+  @override
+  String get fxWahwahDesc => 'Плавающий резонансный фильтр, как педаль у гитариста.';
+
+  @override
+  String get fxAutoPan => 'Автопанорама';
+
+  @override
+  String get fxAutoPanDesc => 'Звук плавно перемещается между каналами.';
+
+  @override
+  String get fxInvert => 'Инверсия';
+
+  @override
+  String get fxInvertDesc => 'Переворачивает волну (фазу).';
+
+  @override
+  String get fxReverse => 'Реверс';
+
+  @override
+  String get fxReverseDesc => 'Проигрывает выделение задом наперёд.';
+
+  @override
+  String get fxRepeat => 'Повтор';
+
+  @override
+  String get fxRepeatDesc => 'Повторяет выделение заданное число раз.';
+
+  @override
+  String get fxTruncateSilence => 'Сокращение тишины';
+
+  @override
+  String get fxTruncateSilenceDesc => 'Укорачивает длинные паузы.';
+
+  @override
+  String get fxVocalRemove => 'Удаление вокала';
+
+  @override
+  String get fxVocalRemoveDesc => 'Убирает звук из центра стереопанорамы (обычно вокал), сохраняя басы.';
+
+  @override
+  String get fxVocalIsolate => 'Выделение вокала';
+
+  @override
+  String get fxVocalIsolateDesc => 'Оставляет центр панорамы в полосе голоса.';
+
+  @override
+  String get fxSwapChannels => 'Поменять каналы местами';
+
+  @override
+  String get fxMonoMix => 'Свести в моно';
+
+  @override
+  String get fxStereoWiden => 'Расширение стерео';
+
+  @override
+  String get fxStereoWidenDesc => 'Делает стереобазу шире.';
+
+  @override
+  String get fxBalance => 'Баланс';
+
+  @override
+  String get fxHaas => 'Эффект Хааса';
+
+  @override
+  String get fxHaasDesc => 'Превращает моно в объёмное стерео за счёт небольшой задержки одного канала.';
+
+  @override
+  String get fxFadeDesc => 'Плавно меняет громкость на выделении.';
+
+  @override
+  String get fxPassDesc => 'Пропускает только нужные частоты; крутизна задаёт, насколько резко срезаются остальные.';
+
+  @override
+  String get fxModulationDesc => 'Классический эффект модуляции задержкой.';
+
+  @override
+  String get fxChannelsDesc => 'Работа с каналами стерео.';
+
+  @override
+  String get fxpGain => 'Усиление';
+
+  @override
+  String get fxpPeak => 'Пик';
+
+  @override
+  String get fxpRemoveDc => 'Убрать смещение DC';
+
+  @override
+  String get fxpIndependent => 'Каналы независимо';
+
+  @override
+  String get fxpLufs => 'Целевая громкость';
+
+  @override
+  String get fxpTruePeak => 'Истинный пик, не выше';
+
+  @override
+  String get fxpThreshold => 'Порог';
+
+  @override
+  String get fxpRatio => 'Степень сжатия';
+
+  @override
+  String get fxpAttack => 'Атака';
+
+  @override
+  String get fxpRelease => 'Восстановление';
+
+  @override
+  String get fxpMakeup => 'Компенсация усиления';
+
+  @override
+  String get fxpKnee => 'Мягкость перегиба';
+
+  @override
+  String get fxpLimit => 'Предел';
+
+  @override
+  String get fxpReduction => 'Подавление';
+
+  @override
+  String get fxpGateReduction => 'Ослабление ниже порога';
+
+  @override
+  String get fxpDuck => 'Насколько приглушать';
+
+  @override
+  String get fxpFrame => 'Длина окна';
+
+  @override
+  String get fxpGauss => 'Сглаживание (окон)';
+
+  @override
+  String get fxpPeakLin => 'Целевой пик';
+
+  @override
+  String get fxpMaxGain => 'Макс. усиление';
+
+  @override
+  String get fxpExpansion => 'Макс. расширение';
+
+  @override
+  String get fxpCompression => 'Макс. сжатие';
+
+  @override
+  String get fxpCurve => 'Форма кривой';
+
+  @override
+  String get fxpFrom => 'Начальная громкость';
+
+  @override
+  String get fxpTo => 'Конечная громкость';
+
+  @override
+  String get fxpShape => 'Шкала';
+
+  @override
+  String get fxpBass => 'Басы';
+
+  @override
+  String get fxpTreble => 'Высокие';
+
+  @override
+  String get fxpFreq => 'Частота';
+
+  @override
+  String get fxpSlope => 'Крутизна';
+
+  @override
+  String get fxpOctaves => 'Ширина, октав';
+
+  @override
+  String get fxpQ => 'Добротность (Q)';
+
+  @override
+  String get fxpMains => 'Частота сети';
+
+  @override
+  String get fxpHarmonics => 'Гармоник';
+
+  @override
+  String get fxpIntensity => 'Интенсивность';
+
+  @override
+  String get fxpMaxReduction => 'Макс. подавление';
+
+  @override
+  String get fxpFreqPos => 'Частота срабатывания';
+
+  @override
+  String get fxpAmount => 'Сила';
+
+  @override
+  String get fxpDrive => 'Драйв';
+
+  @override
+  String get fxpFloor => 'Уровень шума';
+
+  @override
+  String get fxpTrackNoise => 'Следить за изменением шума';
+
+  @override
+  String get fxpStrength => 'Сила';
+
+  @override
+  String get fxpWindow => 'Окно';
+
+  @override
+  String get fxpSemitones => 'Сдвиг';
+
+  @override
+  String get fxpFormants => 'Сохранять форманты (голос)';
+
+  @override
+  String get fxpHq => 'Высокое качество';
+
+  @override
+  String get fxpPercent => 'Изменение';
+
+  @override
+  String get fxpStretch => 'Растяжение';
+
+  @override
+  String get fxpDelay => 'Задержка';
+
+  @override
+  String get fxpDecay => 'Затухание';
+
+  @override
+  String get fxpReverbTime => 'Время реверберации';
+
+  @override
+  String get fxpPredelay => 'Предзадержка';
+
+  @override
+  String get fxpDamping => 'Демпфирование';
+
+  @override
+  String get fxpWet => 'Уровень эффекта';
+
+  @override
+  String get fxpDry => 'Исходный звук';
+
+  @override
+  String get fxpType => 'Тип';
+
+  @override
+  String get fxpOutput => 'Выходной уровень';
+
+  @override
+  String get fxpBits => 'Разрядность';
+
+  @override
+  String get fxpDownsample => 'Понижение частоты';
+
+  @override
+  String get fxpMix => 'Смешивание';
+
+  @override
+  String get fxpSpeed => 'Скорость';
+
+  @override
+  String get fxpDepth => 'Глубина';
+
+  @override
+  String get fxpRegen => 'Обратная связь';
+
+  @override
+  String get fxpResonance => 'Резонанс';
+
+  @override
+  String get fxpOffset => 'Смещение частоты';
+
+  @override
+  String get fxpTimes => 'Число повторов';
+
+  @override
+  String get fxpMinSilence => 'Мин. длина тишины';
+
+  @override
+  String get fxpKeep => 'Оставить паузу';
+
+  @override
+  String get fxpKeepBass => 'Сохранять басы ниже';
+
+  @override
+  String get fxpLow => 'Нижняя граница';
+
+  @override
+  String get fxpHigh => 'Верхняя граница';
+
+  @override
+  String get fxpBalance => 'Баланс';
+
+  @override
+  String get fxpWaveform => 'Форма волны';
+
+  @override
+  String get fxpAmp => 'Амплитуда';
+
+  @override
+  String get fxpFreqStart => 'Начальная частота';
+
+  @override
+  String get fxpFreqEnd => 'Конечная частота';
+
+  @override
+  String get fxpLog => 'Логарифмическая развёртка';
+
+  @override
+  String get fxpColor => 'Цвет шума';
+
+  @override
+  String get fxpBpm => 'Темп';
+
+  @override
+  String get fxpBeats => 'Долей в такте';
+
+  @override
+  String fxpBandFreq(int n) {
+    return 'Полоса $n: частота';
+  }
+
+  @override
+  String fxpBandGain(int n) {
+    return 'Полоса $n: усиление';
+  }
+
+  @override
+  String fxpBandQ(int n) {
+    return 'Полоса $n: добротность';
+  }
+
+  @override
+  String get curveLinear => 'линейная';
+
+  @override
+  String get curveQsin => 'четверть синуса';
+
+  @override
+  String get curveHsin => 'половина синуса';
+
+  @override
+  String get curveEsin => 'экспонента синуса';
+
+  @override
+  String get curveLog => 'логарифмическая';
+
+  @override
+  String get curveIpar => 'обратная парабола';
+
+  @override
+  String get curveQua => 'квадратичная';
+
+  @override
+  String get curveCub => 'кубическая';
+
+  @override
+  String get curveSqu => 'квадратный корень';
+
+  @override
+  String get curveCbr => 'кубический корень';
+
+  @override
+  String get curvePar => 'парабола';
+
+  @override
+  String get curveExp => 'экспоненциальная';
+
+  @override
+  String get shapeLinear => 'линейная';
+
+  @override
+  String get shapeDb => 'в децибелах';
+
+  @override
+  String get waveSine => 'синус';
+
+  @override
+  String get waveSquare => 'меандр';
+
+  @override
+  String get waveSawtooth => 'пила';
+
+  @override
+  String get waveTriangle => 'треугольник';
+
+  @override
+  String get noiseWhite => 'белый';
+
+  @override
+  String get noisePink => 'розовый';
+
+  @override
+  String get noiseBrown => 'коричневый';
+
+  @override
+  String get noiseBlue => 'синий';
+
+  @override
+  String get noiseViolet => 'фиолетовый';
+
+  @override
+  String get noiseVelvet => 'бархатный';
+
+  @override
+  String get clipHard => 'жёсткое ограничение';
+
+  @override
+  String get clipTanh => 'гиперболический тангенс';
+
+  @override
+  String get clipAtan => 'арктангенс';
+
+  @override
+  String get clipCubic => 'кубическое';
+
+  @override
+  String get clipExp => 'экспоненциальное';
+
+  @override
+  String get clipAlg => 'алгебраическое';
+
+  @override
+  String get clipQuintic => 'пятой степени';
+
+  @override
+  String get clipSin => 'синусоидальное';
+
+  @override
+  String get clipErf => 'функция ошибок';
+
+  @override
+  String get genTone => 'Тон';
+
+  @override
+  String get genChirp => 'Чирп (качающийся тон)';
+
+  @override
+  String get genNoise => 'Шум';
+
+  @override
+  String get genSilence => 'Тишина';
+
+  @override
+  String get genMetronome => 'Метроном';
+
+  @override
+  String get genDtmf => 'Тоны DTMF';
 }

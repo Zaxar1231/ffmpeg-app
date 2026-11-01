@@ -107,7 +107,7 @@ class _ToolCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l = context.l10n;
     final t = Theme.of(context);
-    final soon = tool.stage > currentStage;
+    final soon = !toolReady(tool);
     final missing = tool.missingIn(caps);
     return Opacity(
       opacity: soon ? 0.6 : 1,

@@ -4201,6 +4201,2208 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'aria2c открывает несколько соединений к серверу и часто качает быстрее на медленных серверах. Для YouTube обычно хватает встроенных параллельных фрагментов. По умолчанию: выключено.'**
   String get setAria2Help;
+
+  /// No description provided for @toolAudioEditor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Аудиоредактор'**
+  String get toolAudioEditor;
+
+  /// No description provided for @toolAudioEditorDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Многодорожечный редактор: правка, эффекты, генераторы, анализ, запись.'**
+  String get toolAudioEditorDesc;
+
+  /// No description provided for @cut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вырезать'**
+  String get cut;
+
+  /// No description provided for @paste.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить'**
+  String get paste;
+
+  /// No description provided for @undo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отменить'**
+  String get undo;
+
+  /// No description provided for @redo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить'**
+  String get redo;
+
+  /// No description provided for @undoX.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отменить: {action}'**
+  String undoX(String action);
+
+  /// No description provided for @redoX.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить: {action}'**
+  String redoX(String action);
+
+  /// No description provided for @preview.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прослушать'**
+  String get preview;
+
+  /// No description provided for @generate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Создать'**
+  String get generate;
+
+  /// No description provided for @export.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт'**
+  String get export;
+
+  /// No description provided for @record.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запись'**
+  String get record;
+
+  /// No description provided for @stop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стоп'**
+  String get stop;
+
+  /// No description provided for @mute.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заглушить'**
+  String get mute;
+
+  /// No description provided for @solo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Соло'**
+  String get solo;
+
+  /// No description provided for @moveUp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выше'**
+  String get moveUp;
+
+  /// No description provided for @moveDown.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ниже'**
+  String get moveDown;
+
+  /// No description provided for @zoomIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приблизить (Ctrl+=)'**
+  String get zoomIn;
+
+  /// No description provided for @zoomOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отдалить (Ctrl+−)'**
+  String get zoomOut;
+
+  /// No description provided for @zoomSelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'По выделению (Ctrl+E)'**
+  String get zoomSelection;
+
+  /// No description provided for @zoomFit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Весь проект (Ctrl+F)'**
+  String get zoomFit;
+
+  /// No description provided for @unitDb.
+  ///
+  /// In ru, this message translates to:
+  /// **'дБ'**
+  String get unitDb;
+
+  /// No description provided for @unitMs.
+  ///
+  /// In ru, this message translates to:
+  /// **'мс'**
+  String get unitMs;
+
+  /// No description provided for @unitSemitones.
+  ///
+  /// In ru, this message translates to:
+  /// **'полутонов'**
+  String get unitSemitones;
+
+  /// No description provided for @unitBpm.
+  ///
+  /// In ru, this message translates to:
+  /// **'уд/мин'**
+  String get unitBpm;
+
+  /// No description provided for @unitDbOct.
+  ///
+  /// In ru, this message translates to:
+  /// **'дБ/окт'**
+  String get unitDbOct;
+
+  /// No description provided for @menuFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл'**
+  String get menuFile;
+
+  /// No description provided for @menuEdit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Правка'**
+  String get menuEdit;
+
+  /// No description provided for @menuGenerate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Создать'**
+  String get menuGenerate;
+
+  /// No description provided for @menuEffects.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эффекты'**
+  String get menuEffects;
+
+  /// No description provided for @menuAnalyze.
+  ///
+  /// In ru, this message translates to:
+  /// **'Анализ'**
+  String get menuAnalyze;
+
+  /// No description provided for @menuTracks.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дорожки'**
+  String get menuTracks;
+
+  /// No description provided for @aeNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый проект'**
+  String get aeNew;
+
+  /// No description provided for @aeOpenProject.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть проект…'**
+  String get aeOpenProject;
+
+  /// No description provided for @aeSaveProject.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить проект'**
+  String get aeSaveProject;
+
+  /// No description provided for @aeSaveProjectAs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить проект как…'**
+  String get aeSaveProjectAs;
+
+  /// No description provided for @aeImport.
+  ///
+  /// In ru, this message translates to:
+  /// **'Импорт аудио…'**
+  String get aeImport;
+
+  /// No description provided for @aeImportLabels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Импорт меток…'**
+  String get aeImportLabels;
+
+  /// No description provided for @aeExportLabels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт меток…'**
+  String get aeExportLabels;
+
+  /// No description provided for @aeDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get aeDelete;
+
+  /// No description provided for @aeSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заполнить тишиной'**
+  String get aeSilence;
+
+  /// No description provided for @aeTrim.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить только выделенное'**
+  String get aeTrim;
+
+  /// No description provided for @aeDuplicate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дублировать в новую дорожку'**
+  String get aeDuplicate;
+
+  /// No description provided for @aeSplitNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отделить в новую дорожку'**
+  String get aeSplitNew;
+
+  /// No description provided for @aeCrossfade.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавный переход в точке курсора'**
+  String get aeCrossfade;
+
+  /// No description provided for @aeSelectAll.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделить всё'**
+  String get aeSelectAll;
+
+  /// No description provided for @aeNoiseProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Взять профиль шума из выделения'**
+  String get aeNoiseProfile;
+
+  /// No description provided for @addLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить метку'**
+  String get addLabel;
+
+  /// No description provided for @editLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изменить метку'**
+  String get editLabel;
+
+  /// No description provided for @labelText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текст метки'**
+  String get labelText;
+
+  /// No description provided for @labelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Клик — выделить, двойной клик — переименовать, правый клик — удалить'**
+  String get labelHint;
+
+  /// No description provided for @labelsTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Метки'**
+  String get labelsTrack;
+
+  /// No description provided for @labelsAdded.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Добавлена {count} метка} few{Добавлено {count} метки} many{Добавлено {count} меток} other{Добавлено {count} метки}}'**
+  String labelsAdded(int count);
+
+  /// No description provided for @aeAddTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить дорожку из файла…'**
+  String get aeAddTrack;
+
+  /// No description provided for @aeMixRender.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свести в новую дорожку'**
+  String get aeMixRender;
+
+  /// No description provided for @aeSplitStereo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разделить стерео на моно'**
+  String get aeSplitStereo;
+
+  /// No description provided for @aeSpectrogramView.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показать спектрограмму'**
+  String get aeSpectrogramView;
+
+  /// No description provided for @aeWaveformView.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показать волну'**
+  String get aeWaveformView;
+
+  /// No description provided for @aeClearEnvelope.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сбросить огибающую'**
+  String get aeClearEnvelope;
+
+  /// No description provided for @aeRemoveTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить дорожку'**
+  String get aeRemoveTrack;
+
+  /// No description provided for @trackName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя дорожки'**
+  String get trackName;
+
+  /// No description provided for @trackGain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громкость дорожки'**
+  String get trackGain;
+
+  /// No description provided for @trackPan.
+  ///
+  /// In ru, this message translates to:
+  /// **'Панорама'**
+  String get trackPan;
+
+  /// No description provided for @aePlayHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Воспроизвести / пауза (Пробел)'**
+  String get aePlayHint;
+
+  /// No description provided for @aePlaySelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Воспроизвести выделение (Shift+Пробел)'**
+  String get aePlaySelection;
+
+  /// No description provided for @aeLoop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повтор выделения'**
+  String get aeLoop;
+
+  /// No description provided for @toolSelect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделение'**
+  String get toolSelect;
+
+  /// No description provided for @toolShift.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг во времени'**
+  String get toolShift;
+
+  /// No description provided for @toolEnvelope.
+  ///
+  /// In ru, this message translates to:
+  /// **'Огибающая громкости'**
+  String get toolEnvelope;
+
+  /// No description provided for @aeCursorAt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Курсор: {time}'**
+  String aeCursorAt(String time);
+
+  /// No description provided for @aeSelectionInfo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделение: {start} – {end} ({length})'**
+  String aeSelectionInfo(String start, String end, String length);
+
+  /// No description provided for @aeEmptyTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Аудиоредактор'**
+  String get aeEmptyTitle;
+
+  /// No description provided for @aeEmptyBody.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перетащите сюда аудио или видео, откройте проект или начните запись с микрофона.'**
+  String get aeEmptyBody;
+
+  /// No description provided for @aeNeedSelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сначала выделите фрагмент.'**
+  String get aeNeedSelection;
+
+  /// No description provided for @aeStatusHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перетаскивайте по волне, чтобы выделить; Ctrl+колесо — масштаб, Shift+колесо — прокрутка; клик по имени дорожки — выбрать её.'**
+  String get aeStatusHint;
+
+  /// No description provided for @applyToSelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Применится к выделению на {count} дорожке} other{Применится к выделению на {count} дорожках}}'**
+  String applyToSelection(int count);
+
+  /// No description provided for @applyToWholeTracks.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Выделения нет — применится ко всей дорожке} other{Выделения нет — применится к {count} дорожкам целиком}}'**
+  String applyToWholeTracks(int count);
+
+  /// No description provided for @fxBrokenInBuild.
+  ///
+  /// In ru, this message translates to:
+  /// **'Этот фильтр аварийно завершается в установленной сборке ffmpeg. Выберите другую сборку или откатитесь в «Компонентах».'**
+  String get fxBrokenInBuild;
+
+  /// No description provided for @fxStereoOnly.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эффект работает только со стерео — моно-дорожки будут пропущены.'**
+  String get fxStereoOnly;
+
+  /// No description provided for @fxDartDsp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Этого эффекта нет в ffmpeg, он выполняется встроенным обработчиком Kadra.'**
+  String get fxDartDsp;
+
+  /// No description provided for @useNoiseProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Использовать профиль шума'**
+  String get useNoiseProfile;
+
+  /// No description provided for @noNoiseProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиля нет: выделите участок, где только шум, и выберите «Правка → Взять профиль шума».'**
+  String get noNoiseProfile;
+
+  /// No description provided for @noiseProfileReady.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиль шума: {seconds} с'**
+  String noiseProfileReady(String seconds);
+
+  /// No description provided for @noiseProfileShort.
+  ///
+  /// In ru, this message translates to:
+  /// **'профиль шума'**
+  String get noiseProfileShort;
+
+  /// No description provided for @controlTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Управляющая дорожка (голос)'**
+  String get controlTrack;
+
+  /// No description provided for @chooseTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите дорожку'**
+  String get chooseTrack;
+
+  /// No description provided for @flatten.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сбросить в ноль'**
+  String get flatten;
+
+  /// No description provided for @generateReplaces.
+  ///
+  /// In ru, this message translates to:
+  /// **'Есть выделение — оно будет заменено сгенерированным звуком.'**
+  String get generateReplaces;
+
+  /// No description provided for @generateInserts.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук будет вставлен в позицию курсора.'**
+  String get generateInserts;
+
+  /// No description provided for @dtmfDigits.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цифры и символы (0–9, *, #, A–D)'**
+  String get dtmfDigits;
+
+  /// No description provided for @anStats.
+  ///
+  /// In ru, this message translates to:
+  /// **'Статистика и громкость'**
+  String get anStats;
+
+  /// No description provided for @anSpectrum.
+  ///
+  /// In ru, this message translates to:
+  /// **'Спектр частот'**
+  String get anSpectrum;
+
+  /// No description provided for @anSounds.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти звуки'**
+  String get anSounds;
+
+  /// No description provided for @anSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти тишину'**
+  String get anSilence;
+
+  /// No description provided for @anBeats.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти сильные доли'**
+  String get anBeats;
+
+  /// No description provided for @anClipping.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти перегрузку (клиппинг)'**
+  String get anClipping;
+
+  /// No description provided for @findAndLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найти и отметить'**
+  String get findAndLabel;
+
+  /// No description provided for @channelN.
+  ///
+  /// In ru, this message translates to:
+  /// **'Канал {n}'**
+  String channelN(int n);
+
+  /// No description provided for @statPeak.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пиковый уровень'**
+  String get statPeak;
+
+  /// No description provided for @statRms.
+  ///
+  /// In ru, this message translates to:
+  /// **'Средний уровень (RMS)'**
+  String get statRms;
+
+  /// No description provided for @statDc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смещение постоянной составляющей'**
+  String get statDc;
+
+  /// No description provided for @statClipped.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сэмплов в перегрузке'**
+  String get statClipped;
+
+  /// No description provided for @statIntegrated.
+  ///
+  /// In ru, this message translates to:
+  /// **'Интегральная громкость'**
+  String get statIntegrated;
+
+  /// No description provided for @statLra.
+  ///
+  /// In ru, this message translates to:
+  /// **'Диапазон громкости'**
+  String get statLra;
+
+  /// No description provided for @statTruePeak.
+  ///
+  /// In ru, this message translates to:
+  /// **'Истинный пик'**
+  String get statTruePeak;
+
+  /// No description provided for @exportAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт аудио…'**
+  String get exportAudio;
+
+  /// No description provided for @exportAll.
+  ///
+  /// In ru, this message translates to:
+  /// **'Весь проект'**
+  String get exportAll;
+
+  /// No description provided for @exportSelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделение'**
+  String get exportSelection;
+
+  /// No description provided for @exportByLabels.
+  ///
+  /// In ru, this message translates to:
+  /// **'По меткам (несколько файлов)'**
+  String get exportByLabels;
+
+  /// No description provided for @aeExportSelection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт выделения…'**
+  String get aeExportSelection;
+
+  /// No description provided for @aeExportByLabels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экспорт по меткам…'**
+  String get aeExportByLabels;
+
+  /// No description provided for @metadataTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Метаданные'**
+  String get metadataTitle;
+
+  /// No description provided for @metaTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get metaTitle;
+
+  /// No description provided for @metaArtist.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исполнитель'**
+  String get metaArtist;
+
+  /// No description provided for @metaAlbum.
+  ///
+  /// In ru, this message translates to:
+  /// **'Альбом'**
+  String get metaAlbum;
+
+  /// No description provided for @metaYear.
+  ///
+  /// In ru, this message translates to:
+  /// **'Год'**
+  String get metaYear;
+
+  /// No description provided for @metaGenre.
+  ///
+  /// In ru, this message translates to:
+  /// **'Жанр'**
+  String get metaGenre;
+
+  /// No description provided for @metaTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Номер трека'**
+  String get metaTrack;
+
+  /// No description provided for @metaComment.
+  ///
+  /// In ru, this message translates to:
+  /// **'Комментарий'**
+  String get metaComment;
+
+  /// No description provided for @recordTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запись'**
+  String get recordTitle;
+
+  /// No description provided for @noRecordingDevices.
+  ///
+  /// In ru, this message translates to:
+  /// **'Устройства записи не найдены.'**
+  String get noRecordingDevices;
+
+  /// No description provided for @recordHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запись появится новой дорожкой с позиции курсора.'**
+  String get recordHint;
+
+  /// No description provided for @histImport.
+  ///
+  /// In ru, this message translates to:
+  /// **'импорт'**
+  String get histImport;
+
+  /// No description provided for @histDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'удаление'**
+  String get histDelete;
+
+  /// No description provided for @histSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'тишина'**
+  String get histSilence;
+
+  /// No description provided for @histTrim.
+  ///
+  /// In ru, this message translates to:
+  /// **'обрезка'**
+  String get histTrim;
+
+  /// No description provided for @histPaste.
+  ///
+  /// In ru, this message translates to:
+  /// **'вставка'**
+  String get histPaste;
+
+  /// No description provided for @histDuplicate.
+  ///
+  /// In ru, this message translates to:
+  /// **'дублирование'**
+  String get histDuplicate;
+
+  /// No description provided for @histSplitNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'отделение'**
+  String get histSplitNew;
+
+  /// No description provided for @histCrossfade.
+  ///
+  /// In ru, this message translates to:
+  /// **'плавный переход'**
+  String get histCrossfade;
+
+  /// No description provided for @histRemoveTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'удаление дорожки'**
+  String get histRemoveTrack;
+
+  /// No description provided for @histMoveTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'перемещение дорожки'**
+  String get histMoveTrack;
+
+  /// No description provided for @histMixRender.
+  ///
+  /// In ru, this message translates to:
+  /// **'сведение'**
+  String get histMixRender;
+
+  /// No description provided for @histSplitStereo.
+  ///
+  /// In ru, this message translates to:
+  /// **'разделение стерео'**
+  String get histSplitStereo;
+
+  /// No description provided for @histLabels.
+  ///
+  /// In ru, this message translates to:
+  /// **'метки'**
+  String get histLabels;
+
+  /// No description provided for @histRecord.
+  ///
+  /// In ru, this message translates to:
+  /// **'запись'**
+  String get histRecord;
+
+  /// No description provided for @histTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'изменение дорожки'**
+  String get histTrack;
+
+  /// No description provided for @fxcVolume.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громкость и динамика'**
+  String get fxcVolume;
+
+  /// No description provided for @fxcFades.
+  ///
+  /// In ru, this message translates to:
+  /// **'Затухания'**
+  String get fxcFades;
+
+  /// No description provided for @fxcEq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эквалайзер и фильтры'**
+  String get fxcEq;
+
+  /// No description provided for @fxcNoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шум и ремонт'**
+  String get fxcNoise;
+
+  /// No description provided for @fxcPitchTempo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота и темп'**
+  String get fxcPitchTempo;
+
+  /// No description provided for @fxcDelayReverb.
+  ///
+  /// In ru, this message translates to:
+  /// **'Задержка и реверберация'**
+  String get fxcDelayReverb;
+
+  /// No description provided for @fxcDistortion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Искажение и модуляция'**
+  String get fxcDistortion;
+
+  /// No description provided for @fxcSpecial.
+  ///
+  /// In ru, this message translates to:
+  /// **'Специальные'**
+  String get fxcSpecial;
+
+  /// No description provided for @fxAmplify.
+  ///
+  /// In ru, this message translates to:
+  /// **'Усиление'**
+  String get fxAmplify;
+
+  /// No description provided for @fxAmplifyDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Делает звук громче или тише на заданное число децибел.'**
+  String get fxAmplifyDesc;
+
+  /// No description provided for @fxNormalize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нормализация пика'**
+  String get fxNormalize;
+
+  /// No description provided for @fxNormalizeDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поднимает уровень так, чтобы пик достиг заданного значения; может убрать смещение DC.'**
+  String get fxNormalizeDesc;
+
+  /// No description provided for @fxLoudness.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нормализация громкости (LUFS)'**
+  String get fxLoudness;
+
+  /// No description provided for @fxLoudnessDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приводит воспринимаемую громкость к цели по EBU R128 (два прохода).'**
+  String get fxLoudnessDesc;
+
+  /// No description provided for @fxCompressor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Компрессор'**
+  String get fxCompressor;
+
+  /// No description provided for @fxCompressorDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшает разницу между громкими и тихими местами.'**
+  String get fxCompressorDesc;
+
+  /// No description provided for @fxLimiter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лимитер'**
+  String get fxLimiter;
+
+  /// No description provided for @fxLimiterDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не даёт пикам превысить заданный уровень.'**
+  String get fxLimiterDesc;
+
+  /// No description provided for @fxGate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шумовой гейт'**
+  String get fxGate;
+
+  /// No description provided for @fxGateDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приглушает звук, когда он тише порога (паузы между фразами).'**
+  String get fxGateDesc;
+
+  /// No description provided for @fxAutoDuck.
+  ///
+  /// In ru, this message translates to:
+  /// **'Автоприглушение'**
+  String get fxAutoDuck;
+
+  /// No description provided for @fxAutoDuckDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приглушает музыку, когда звучит голос на другой дорожке.'**
+  String get fxAutoDuckDesc;
+
+  /// No description provided for @fxDynamicNormalizer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Динамический нормализатор'**
+  String get fxDynamicNormalizer;
+
+  /// No description provided for @fxDynamicNormalizerDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выравнивает громкость по ходу записи, не трогая короткую динамику.'**
+  String get fxDynamicNormalizerDesc;
+
+  /// No description provided for @fxSpeechNormalizer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нормализатор речи'**
+  String get fxSpeechNormalizer;
+
+  /// No description provided for @fxSpeechNormalizerDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выравнивает громкость речи: тихие фразы громче, громкие тише.'**
+  String get fxSpeechNormalizerDesc;
+
+  /// No description provided for @fxFadeIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавное нарастание'**
+  String get fxFadeIn;
+
+  /// No description provided for @fxFadeOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавное затухание'**
+  String get fxFadeOut;
+
+  /// No description provided for @fxStudioFadeOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Студийное затухание'**
+  String get fxStudioFadeOut;
+
+  /// No description provided for @fxAdjustableFade.
+  ///
+  /// In ru, this message translates to:
+  /// **'Настраиваемое затухание'**
+  String get fxAdjustableFade;
+
+  /// No description provided for @fxAdjustableFadeDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меняет громкость от одного процента до другого по выделению.'**
+  String get fxAdjustableFadeDesc;
+
+  /// No description provided for @fxBassTreble.
+  ///
+  /// In ru, this message translates to:
+  /// **'Басы и высокие'**
+  String get fxBassTreble;
+
+  /// No description provided for @fxBassTrebleDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поднимает или срезает низкие и высокие частоты.'**
+  String get fxBassTrebleDesc;
+
+  /// No description provided for @fxGraphicEq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Графический эквалайзер'**
+  String get fxGraphicEq;
+
+  /// No description provided for @fxGraphicEqDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'18 полос от 65 Гц до 20 кГц.'**
+  String get fxGraphicEqDesc;
+
+  /// No description provided for @fxParametricEq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Параметрический эквалайзер'**
+  String get fxParametricEq;
+
+  /// No description provided for @fxParametricEqDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Четыре полосы: частота, усиление и добротность каждой.'**
+  String get fxParametricEqDesc;
+
+  /// No description provided for @fxHighPass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтр высоких частот'**
+  String get fxHighPass;
+
+  /// No description provided for @fxLowPass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтр низких частот'**
+  String get fxLowPass;
+
+  /// No description provided for @fxBandPass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полосовой фильтр'**
+  String get fxBandPass;
+
+  /// No description provided for @fxNotch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Режекторный фильтр'**
+  String get fxNotch;
+
+  /// No description provided for @fxNotchDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вырезает узкую полосу частот (например, писк).'**
+  String get fxNotchDesc;
+
+  /// No description provided for @fxHumRemoval.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удаление фона сети'**
+  String get fxHumRemoval;
+
+  /// No description provided for @fxHumRemovalDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает гул 50/60 Гц и его гармоники.'**
+  String get fxHumRemovalDesc;
+
+  /// No description provided for @fxDeesser.
+  ///
+  /// In ru, this message translates to:
+  /// **'Де-эссер'**
+  String get fxDeesser;
+
+  /// No description provided for @fxDeesserDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смягчает резкие «с» и «ш».'**
+  String get fxDeesserDesc;
+
+  /// No description provided for @fxExciter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эксайтер'**
+  String get fxExciter;
+
+  /// No description provided for @fxExciterDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавляет яркости и разборчивости высоким частотам.'**
+  String get fxExciterDesc;
+
+  /// No description provided for @fxNoiseReduction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подавление шума'**
+  String get fxNoiseReduction;
+
+  /// No description provided for @fxNoiseReductionDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает постоянный шум (шипение, гул). Лучше всего — с профилем шума из участка без речи.'**
+  String get fxNoiseReductionDesc;
+
+  /// No description provided for @fxNlmDenoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шумоподавление NLM'**
+  String get fxNlmDenoise;
+
+  /// No description provided for @fxNlmDenoiseDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шумоподавление по нелокальным средним: мягче, но медленнее.'**
+  String get fxNlmDenoiseDesc;
+
+  /// No description provided for @fxClickRemoval.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удаление щелчков'**
+  String get fxClickRemoval;
+
+  /// No description provided for @fxClickRemovalDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает щелчки и треск (виниловые записи).'**
+  String get fxClickRemovalDesc;
+
+  /// No description provided for @fxClipFix.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восстановление перегрузки'**
+  String get fxClipFix;
+
+  /// No description provided for @fxClipFixDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восстанавливает срезанные вершины волны.'**
+  String get fxClipFixDesc;
+
+  /// No description provided for @fxChangePitch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смена высоты тона'**
+  String get fxChangePitch;
+
+  /// No description provided for @fxChangePitchDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меняет высоту без изменения темпа.'**
+  String get fxChangePitchDesc;
+
+  /// No description provided for @fxChangeTempo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смена темпа'**
+  String get fxChangeTempo;
+
+  /// No description provided for @fxChangeTempoDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меняет темп без изменения высоты тона.'**
+  String get fxChangeTempoDesc;
+
+  /// No description provided for @fxChangeSpeed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смена скорости'**
+  String get fxChangeSpeed;
+
+  /// No description provided for @fxChangeSpeedDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меняет скорость и высоту вместе, как на магнитофоне.'**
+  String get fxChangeSpeedDesc;
+
+  /// No description provided for @fxSlidingSpeed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавное изменение скорости'**
+  String get fxSlidingSpeed;
+
+  /// No description provided for @fxSlidingSpeedDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скорость плавно меняется от начала к концу выделения.'**
+  String get fxSlidingSpeedDesc;
+
+  /// No description provided for @fxPaulstretch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Paulstretch'**
+  String get fxPaulstretch;
+
+  /// No description provided for @fxPaulstretchDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экстремальное растяжение во времени: превращает звук в атмосферный эмбиент.'**
+  String get fxPaulstretchDesc;
+
+  /// No description provided for @fxEcho.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эхо'**
+  String get fxEcho;
+
+  /// No description provided for @fxEchoDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторения звука с затуханием.'**
+  String get fxEchoDesc;
+
+  /// No description provided for @fxReverb.
+  ///
+  /// In ru, this message translates to:
+  /// **'Реверберация'**
+  String get fxReverb;
+
+  /// No description provided for @fxReverbDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звучание помещения: от комнаты до собора.'**
+  String get fxReverbDesc;
+
+  /// No description provided for @fxDistortion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Искажение'**
+  String get fxDistortion;
+
+  /// No description provided for @fxDistortionDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перегруз разных типов: мягкий ламповый или жёсткий.'**
+  String get fxDistortionDesc;
+
+  /// No description provided for @fxBitcrusher.
+  ///
+  /// In ru, this message translates to:
+  /// **'Биткрашер'**
+  String get fxBitcrusher;
+
+  /// No description provided for @fxBitcrusherDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снижает разрядность и частоту — «8-битный» звук.'**
+  String get fxBitcrusherDesc;
+
+  /// No description provided for @fxPhaser.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фейзер'**
+  String get fxPhaser;
+
+  /// No description provided for @fxFlanger.
+  ///
+  /// In ru, this message translates to:
+  /// **'Флэнжер'**
+  String get fxFlanger;
+
+  /// No description provided for @fxChorus.
+  ///
+  /// In ru, this message translates to:
+  /// **'Хорус'**
+  String get fxChorus;
+
+  /// No description provided for @fxTremolo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тремоло'**
+  String get fxTremolo;
+
+  /// No description provided for @fxTremoloDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Периодически меняет громкость.'**
+  String get fxTremoloDesc;
+
+  /// No description provided for @fxVibrato.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вибрато'**
+  String get fxVibrato;
+
+  /// No description provided for @fxVibratoDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Периодически меняет высоту тона.'**
+  String get fxVibratoDesc;
+
+  /// No description provided for @fxWahwah.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вау-вау'**
+  String get fxWahwah;
+
+  /// No description provided for @fxWahwahDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавающий резонансный фильтр, как педаль у гитариста.'**
+  String get fxWahwahDesc;
+
+  /// No description provided for @fxAutoPan.
+  ///
+  /// In ru, this message translates to:
+  /// **'Автопанорама'**
+  String get fxAutoPan;
+
+  /// No description provided for @fxAutoPanDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук плавно перемещается между каналами.'**
+  String get fxAutoPanDesc;
+
+  /// No description provided for @fxInvert.
+  ///
+  /// In ru, this message translates to:
+  /// **'Инверсия'**
+  String get fxInvert;
+
+  /// No description provided for @fxInvertDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переворачивает волну (фазу).'**
+  String get fxInvertDesc;
+
+  /// No description provided for @fxReverse.
+  ///
+  /// In ru, this message translates to:
+  /// **'Реверс'**
+  String get fxReverse;
+
+  /// No description provided for @fxReverseDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Проигрывает выделение задом наперёд.'**
+  String get fxReverseDesc;
+
+  /// No description provided for @fxRepeat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повтор'**
+  String get fxRepeat;
+
+  /// No description provided for @fxRepeatDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторяет выделение заданное число раз.'**
+  String get fxRepeatDesc;
+
+  /// No description provided for @fxTruncateSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сокращение тишины'**
+  String get fxTruncateSilence;
+
+  /// No description provided for @fxTruncateSilenceDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Укорачивает длинные паузы.'**
+  String get fxTruncateSilenceDesc;
+
+  /// No description provided for @fxVocalRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удаление вокала'**
+  String get fxVocalRemove;
+
+  /// No description provided for @fxVocalRemoveDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убирает звук из центра стереопанорамы (обычно вокал), сохраняя басы.'**
+  String get fxVocalRemoveDesc;
+
+  /// No description provided for @fxVocalIsolate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выделение вокала'**
+  String get fxVocalIsolate;
+
+  /// No description provided for @fxVocalIsolateDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставляет центр панорамы в полосе голоса.'**
+  String get fxVocalIsolateDesc;
+
+  /// No description provided for @fxSwapChannels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поменять каналы местами'**
+  String get fxSwapChannels;
+
+  /// No description provided for @fxMonoMix.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свести в моно'**
+  String get fxMonoMix;
+
+  /// No description provided for @fxStereoWiden.
+  ///
+  /// In ru, this message translates to:
+  /// **'Расширение стерео'**
+  String get fxStereoWiden;
+
+  /// No description provided for @fxStereoWidenDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Делает стереобазу шире.'**
+  String get fxStereoWidenDesc;
+
+  /// No description provided for @fxBalance.
+  ///
+  /// In ru, this message translates to:
+  /// **'Баланс'**
+  String get fxBalance;
+
+  /// No description provided for @fxHaas.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эффект Хааса'**
+  String get fxHaas;
+
+  /// No description provided for @fxHaasDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Превращает моно в объёмное стерео за счёт небольшой задержки одного канала.'**
+  String get fxHaasDesc;
+
+  /// No description provided for @fxFadeDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавно меняет громкость на выделении.'**
+  String get fxFadeDesc;
+
+  /// No description provided for @fxPassDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пропускает только нужные частоты; крутизна задаёт, насколько резко срезаются остальные.'**
+  String get fxPassDesc;
+
+  /// No description provided for @fxModulationDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Классический эффект модуляции задержкой.'**
+  String get fxModulationDesc;
+
+  /// No description provided for @fxChannelsDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Работа с каналами стерео.'**
+  String get fxChannelsDesc;
+
+  /// No description provided for @fxpGain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Усиление'**
+  String get fxpGain;
+
+  /// No description provided for @fxpPeak.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пик'**
+  String get fxpPeak;
+
+  /// No description provided for @fxpRemoveDc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Убрать смещение DC'**
+  String get fxpRemoveDc;
+
+  /// No description provided for @fxpIndependent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каналы независимо'**
+  String get fxpIndependent;
+
+  /// No description provided for @fxpLufs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Целевая громкость'**
+  String get fxpLufs;
+
+  /// No description provided for @fxpTruePeak.
+  ///
+  /// In ru, this message translates to:
+  /// **'Истинный пик, не выше'**
+  String get fxpTruePeak;
+
+  /// No description provided for @fxpThreshold.
+  ///
+  /// In ru, this message translates to:
+  /// **'Порог'**
+  String get fxpThreshold;
+
+  /// No description provided for @fxpRatio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Степень сжатия'**
+  String get fxpRatio;
+
+  /// No description provided for @fxpAttack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Атака'**
+  String get fxpAttack;
+
+  /// No description provided for @fxpRelease.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восстановление'**
+  String get fxpRelease;
+
+  /// No description provided for @fxpMakeup.
+  ///
+  /// In ru, this message translates to:
+  /// **'Компенсация усиления'**
+  String get fxpMakeup;
+
+  /// No description provided for @fxpKnee.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мягкость перегиба'**
+  String get fxpKnee;
+
+  /// No description provided for @fxpLimit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Предел'**
+  String get fxpLimit;
+
+  /// No description provided for @fxpReduction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подавление'**
+  String get fxpReduction;
+
+  /// No description provided for @fxpGateReduction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ослабление ниже порога'**
+  String get fxpGateReduction;
+
+  /// No description provided for @fxpDuck.
+  ///
+  /// In ru, this message translates to:
+  /// **'Насколько приглушать'**
+  String get fxpDuck;
+
+  /// No description provided for @fxpFrame.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длина окна'**
+  String get fxpFrame;
+
+  /// No description provided for @fxpGauss.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сглаживание (окон)'**
+  String get fxpGauss;
+
+  /// No description provided for @fxpPeakLin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Целевой пик'**
+  String get fxpPeakLin;
+
+  /// No description provided for @fxpMaxGain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. усиление'**
+  String get fxpMaxGain;
+
+  /// No description provided for @fxpExpansion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. расширение'**
+  String get fxpExpansion;
+
+  /// No description provided for @fxpCompression.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. сжатие'**
+  String get fxpCompression;
+
+  /// No description provided for @fxpCurve.
+  ///
+  /// In ru, this message translates to:
+  /// **'Форма кривой'**
+  String get fxpCurve;
+
+  /// No description provided for @fxpFrom.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начальная громкость'**
+  String get fxpFrom;
+
+  /// No description provided for @fxpTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конечная громкость'**
+  String get fxpTo;
+
+  /// No description provided for @fxpShape.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шкала'**
+  String get fxpShape;
+
+  /// No description provided for @fxpBass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Басы'**
+  String get fxpBass;
+
+  /// No description provided for @fxpTreble.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высокие'**
+  String get fxpTreble;
+
+  /// No description provided for @fxpFreq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота'**
+  String get fxpFreq;
+
+  /// No description provided for @fxpSlope.
+  ///
+  /// In ru, this message translates to:
+  /// **'Крутизна'**
+  String get fxpSlope;
+
+  /// No description provided for @fxpOctaves.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина, октав'**
+  String get fxpOctaves;
+
+  /// No description provided for @fxpQ.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добротность (Q)'**
+  String get fxpQ;
+
+  /// No description provided for @fxpMains.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота сети'**
+  String get fxpMains;
+
+  /// No description provided for @fxpHarmonics.
+  ///
+  /// In ru, this message translates to:
+  /// **'Гармоник'**
+  String get fxpHarmonics;
+
+  /// No description provided for @fxpIntensity.
+  ///
+  /// In ru, this message translates to:
+  /// **'Интенсивность'**
+  String get fxpIntensity;
+
+  /// No description provided for @fxpMaxReduction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Макс. подавление'**
+  String get fxpMaxReduction;
+
+  /// No description provided for @fxpFreqPos.
+  ///
+  /// In ru, this message translates to:
+  /// **'Частота срабатывания'**
+  String get fxpFreqPos;
+
+  /// No description provided for @fxpAmount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила'**
+  String get fxpAmount;
+
+  /// No description provided for @fxpDrive.
+  ///
+  /// In ru, this message translates to:
+  /// **'Драйв'**
+  String get fxpDrive;
+
+  /// No description provided for @fxpFloor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уровень шума'**
+  String get fxpFloor;
+
+  /// No description provided for @fxpTrackNoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Следить за изменением шума'**
+  String get fxpTrackNoise;
+
+  /// No description provided for @fxpStrength.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила'**
+  String get fxpStrength;
+
+  /// No description provided for @fxpWindow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Окно'**
+  String get fxpWindow;
+
+  /// No description provided for @fxpSemitones.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг'**
+  String get fxpSemitones;
+
+  /// No description provided for @fxpFormants.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранять форманты (голос)'**
+  String get fxpFormants;
+
+  /// No description provided for @fxpHq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высокое качество'**
+  String get fxpHq;
+
+  /// No description provided for @fxpPercent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изменение'**
+  String get fxpPercent;
+
+  /// No description provided for @fxpStretch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растяжение'**
+  String get fxpStretch;
+
+  /// No description provided for @fxpDelay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Задержка'**
+  String get fxpDelay;
+
+  /// No description provided for @fxpDecay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Затухание'**
+  String get fxpDecay;
+
+  /// No description provided for @fxpReverbTime.
+  ///
+  /// In ru, this message translates to:
+  /// **'Время реверберации'**
+  String get fxpReverbTime;
+
+  /// No description provided for @fxpPredelay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Предзадержка'**
+  String get fxpPredelay;
+
+  /// No description provided for @fxpDamping.
+  ///
+  /// In ru, this message translates to:
+  /// **'Демпфирование'**
+  String get fxpDamping;
+
+  /// No description provided for @fxpWet.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уровень эффекта'**
+  String get fxpWet;
+
+  /// No description provided for @fxpDry.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исходный звук'**
+  String get fxpDry;
+
+  /// No description provided for @fxpType.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тип'**
+  String get fxpType;
+
+  /// No description provided for @fxpOutput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выходной уровень'**
+  String get fxpOutput;
+
+  /// No description provided for @fxpBits.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разрядность'**
+  String get fxpBits;
+
+  /// No description provided for @fxpDownsample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Понижение частоты'**
+  String get fxpDownsample;
+
+  /// No description provided for @fxpMix.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смешивание'**
+  String get fxpMix;
+
+  /// No description provided for @fxpSpeed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скорость'**
+  String get fxpSpeed;
+
+  /// No description provided for @fxpDepth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Глубина'**
+  String get fxpDepth;
+
+  /// No description provided for @fxpRegen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обратная связь'**
+  String get fxpRegen;
+
+  /// No description provided for @fxpResonance.
+  ///
+  /// In ru, this message translates to:
+  /// **'Резонанс'**
+  String get fxpResonance;
+
+  /// No description provided for @fxpOffset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смещение частоты'**
+  String get fxpOffset;
+
+  /// No description provided for @fxpTimes.
+  ///
+  /// In ru, this message translates to:
+  /// **'Число повторов'**
+  String get fxpTimes;
+
+  /// No description provided for @fxpMinSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мин. длина тишины'**
+  String get fxpMinSilence;
+
+  /// No description provided for @fxpKeep.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить паузу'**
+  String get fxpKeep;
+
+  /// No description provided for @fxpKeepBass.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранять басы ниже'**
+  String get fxpKeepBass;
+
+  /// No description provided for @fxpLow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нижняя граница'**
+  String get fxpLow;
+
+  /// No description provided for @fxpHigh.
+  ///
+  /// In ru, this message translates to:
+  /// **'Верхняя граница'**
+  String get fxpHigh;
+
+  /// No description provided for @fxpBalance.
+  ///
+  /// In ru, this message translates to:
+  /// **'Баланс'**
+  String get fxpBalance;
+
+  /// No description provided for @fxpWaveform.
+  ///
+  /// In ru, this message translates to:
+  /// **'Форма волны'**
+  String get fxpWaveform;
+
+  /// No description provided for @fxpAmp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Амплитуда'**
+  String get fxpAmp;
+
+  /// No description provided for @fxpFreqStart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начальная частота'**
+  String get fxpFreqStart;
+
+  /// No description provided for @fxpFreqEnd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конечная частота'**
+  String get fxpFreqEnd;
+
+  /// No description provided for @fxpLog.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логарифмическая развёртка'**
+  String get fxpLog;
+
+  /// No description provided for @fxpColor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет шума'**
+  String get fxpColor;
+
+  /// No description provided for @fxpBpm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Темп'**
+  String get fxpBpm;
+
+  /// No description provided for @fxpBeats.
+  ///
+  /// In ru, this message translates to:
+  /// **'Долей в такте'**
+  String get fxpBeats;
+
+  /// No description provided for @fxpBandFreq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полоса {n}: частота'**
+  String fxpBandFreq(int n);
+
+  /// No description provided for @fxpBandGain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полоса {n}: усиление'**
+  String fxpBandGain(int n);
+
+  /// No description provided for @fxpBandQ.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полоса {n}: добротность'**
+  String fxpBandQ(int n);
+
+  /// No description provided for @curveLinear.
+  ///
+  /// In ru, this message translates to:
+  /// **'линейная'**
+  String get curveLinear;
+
+  /// No description provided for @curveQsin.
+  ///
+  /// In ru, this message translates to:
+  /// **'четверть синуса'**
+  String get curveQsin;
+
+  /// No description provided for @curveHsin.
+  ///
+  /// In ru, this message translates to:
+  /// **'половина синуса'**
+  String get curveHsin;
+
+  /// No description provided for @curveEsin.
+  ///
+  /// In ru, this message translates to:
+  /// **'экспонента синуса'**
+  String get curveEsin;
+
+  /// No description provided for @curveLog.
+  ///
+  /// In ru, this message translates to:
+  /// **'логарифмическая'**
+  String get curveLog;
+
+  /// No description provided for @curveIpar.
+  ///
+  /// In ru, this message translates to:
+  /// **'обратная парабола'**
+  String get curveIpar;
+
+  /// No description provided for @curveQua.
+  ///
+  /// In ru, this message translates to:
+  /// **'квадратичная'**
+  String get curveQua;
+
+  /// No description provided for @curveCub.
+  ///
+  /// In ru, this message translates to:
+  /// **'кубическая'**
+  String get curveCub;
+
+  /// No description provided for @curveSqu.
+  ///
+  /// In ru, this message translates to:
+  /// **'квадратный корень'**
+  String get curveSqu;
+
+  /// No description provided for @curveCbr.
+  ///
+  /// In ru, this message translates to:
+  /// **'кубический корень'**
+  String get curveCbr;
+
+  /// No description provided for @curvePar.
+  ///
+  /// In ru, this message translates to:
+  /// **'парабола'**
+  String get curvePar;
+
+  /// No description provided for @curveExp.
+  ///
+  /// In ru, this message translates to:
+  /// **'экспоненциальная'**
+  String get curveExp;
+
+  /// No description provided for @shapeLinear.
+  ///
+  /// In ru, this message translates to:
+  /// **'линейная'**
+  String get shapeLinear;
+
+  /// No description provided for @shapeDb.
+  ///
+  /// In ru, this message translates to:
+  /// **'в децибелах'**
+  String get shapeDb;
+
+  /// No description provided for @waveSine.
+  ///
+  /// In ru, this message translates to:
+  /// **'синус'**
+  String get waveSine;
+
+  /// No description provided for @waveSquare.
+  ///
+  /// In ru, this message translates to:
+  /// **'меандр'**
+  String get waveSquare;
+
+  /// No description provided for @waveSawtooth.
+  ///
+  /// In ru, this message translates to:
+  /// **'пила'**
+  String get waveSawtooth;
+
+  /// No description provided for @waveTriangle.
+  ///
+  /// In ru, this message translates to:
+  /// **'треугольник'**
+  String get waveTriangle;
+
+  /// No description provided for @noiseWhite.
+  ///
+  /// In ru, this message translates to:
+  /// **'белый'**
+  String get noiseWhite;
+
+  /// No description provided for @noisePink.
+  ///
+  /// In ru, this message translates to:
+  /// **'розовый'**
+  String get noisePink;
+
+  /// No description provided for @noiseBrown.
+  ///
+  /// In ru, this message translates to:
+  /// **'коричневый'**
+  String get noiseBrown;
+
+  /// No description provided for @noiseBlue.
+  ///
+  /// In ru, this message translates to:
+  /// **'синий'**
+  String get noiseBlue;
+
+  /// No description provided for @noiseViolet.
+  ///
+  /// In ru, this message translates to:
+  /// **'фиолетовый'**
+  String get noiseViolet;
+
+  /// No description provided for @noiseVelvet.
+  ///
+  /// In ru, this message translates to:
+  /// **'бархатный'**
+  String get noiseVelvet;
+
+  /// No description provided for @clipHard.
+  ///
+  /// In ru, this message translates to:
+  /// **'жёсткое ограничение'**
+  String get clipHard;
+
+  /// No description provided for @clipTanh.
+  ///
+  /// In ru, this message translates to:
+  /// **'гиперболический тангенс'**
+  String get clipTanh;
+
+  /// No description provided for @clipAtan.
+  ///
+  /// In ru, this message translates to:
+  /// **'арктангенс'**
+  String get clipAtan;
+
+  /// No description provided for @clipCubic.
+  ///
+  /// In ru, this message translates to:
+  /// **'кубическое'**
+  String get clipCubic;
+
+  /// No description provided for @clipExp.
+  ///
+  /// In ru, this message translates to:
+  /// **'экспоненциальное'**
+  String get clipExp;
+
+  /// No description provided for @clipAlg.
+  ///
+  /// In ru, this message translates to:
+  /// **'алгебраическое'**
+  String get clipAlg;
+
+  /// No description provided for @clipQuintic.
+  ///
+  /// In ru, this message translates to:
+  /// **'пятой степени'**
+  String get clipQuintic;
+
+  /// No description provided for @clipSin.
+  ///
+  /// In ru, this message translates to:
+  /// **'синусоидальное'**
+  String get clipSin;
+
+  /// No description provided for @clipErf.
+  ///
+  /// In ru, this message translates to:
+  /// **'функция ошибок'**
+  String get clipErf;
+
+  /// No description provided for @genTone.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тон'**
+  String get genTone;
+
+  /// No description provided for @genChirp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чирп (качающийся тон)'**
+  String get genChirp;
+
+  /// No description provided for @genNoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шум'**
+  String get genNoise;
+
+  /// No description provided for @genSilence.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тишина'**
+  String get genSilence;
+
+  /// No description provided for @genMetronome.
+  ///
+  /// In ru, this message translates to:
+  /// **'Метроном'**
+  String get genMetronome;
+
+  /// No description provided for @genDtmf.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тоны DTMF'**
+  String get genDtmf;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -260,13 +260,11 @@ class _QuickActions extends ConsumerWidget {
               children: [
                 for (final t in tools)
                   Tooltip(
-                    message: t.stage > currentStage ? l.toolComingSoon(t.stage) : toolDescription(l, t.id),
+                    message: !toolReady(t) ? l.toolComingSoon(t.stage) : toolDescription(l, t.id),
                     child: ActionChip(
                       avatar: Icon(t.icon, size: 18),
                       label: Text(toolTitle(l, t.id)),
-                      onPressed: t.stage > currentStage
-                          ? null
-                          : () => launchTool(context, ref, t, path: info.path, info: info),
+                      onPressed: !toolReady(t) ? null : () => launchTool(context, ref, t, path: info.path, info: info),
                     ),
                   ),
               ],

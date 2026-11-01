@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../audio/audio_pages.dart';
+import '../audio_editor/ui/editor_page.dart';
 import '../convert/convert_page.dart';
 import '../gif/gif_page.dart';
 import '../trim/trim_page.dart';
@@ -22,10 +23,11 @@ class ToolHost extends ConsumerWidget {
       'replaceAudio' => AudioTracksPage(key: key, path: tool.path),
       'normalize' => NormalizePage(key: key, path: tool.path),
       'gif' => GifPage(key: key, path: tool.path),
+      'audioEditor' => AudioEditorTool(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
 }
 
 /// Tools that open an interactive screen (rather than running immediately).
-const screenTools = {'convert', 'compress', 'trim', 'extractAudio', 'replaceAudio', 'normalize', 'gif'};
+const screenTools = {'convert', 'compress', 'trim', 'extractAudio', 'replaceAudio', 'normalize', 'gif', 'audioEditor'};

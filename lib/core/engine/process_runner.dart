@@ -87,6 +87,16 @@ class RunHandle {
     _logLines.add(line);
   }
 
+  /// Sends text to the process (e.g. `q` to stop an ffmpeg recording cleanly).
+  void writeStdin(String text) {
+    try {
+      _process?.stdin.write(text);
+      _process?.stdin.flush();
+    } catch (_) {
+      // Process already gone.
+    }
+  }
+
   bool pause() {
     if (!canPause || _process == null || _paused) return false;
     _paused = Process.killPid(_process.pid, ProcessSignal.sigstop);
