@@ -1948,7 +1948,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pLanguage => 'Track language';
 
   @override
-  String get pLanguageHint => 'Players show it in the track menu';
+  String get pLanguageHint => 'Spoken language; “auto” detects it';
 
   @override
   String get losslessVideoTag => 'video not re-encoded';
@@ -4704,4 +4704,227 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vmafVerdictPoor => 'Heavy quality loss.';
+
+  @override
+  String get groupChain => 'Processing chain';
+
+  @override
+  String get addEffect => 'Add effect';
+
+  @override
+  String get chainHowTo =>
+      'Add effects — they are applied top to bottom to the whole audio. Video is copied unchanged.';
+
+  @override
+  String get chainEmpty => 'Add at least one effect';
+
+  @override
+  String get fxRnnoise => 'Neural noise suppression (RNNoise)';
+
+  @override
+  String get fxRnnoiseDesc => 'Best for speech: removes street, fan and keyboard noise';
+
+  @override
+  String get rnnoiseNeedsModel => 'Needs a model — install it below under “RNNoise models”';
+
+  @override
+  String get rnnoiseSuggest =>
+      'Neural suppression (RNNoise) works best for speech — install a model below (about 300 KB).';
+
+  @override
+  String get pRnnoiseModel => 'Model';
+
+  @override
+  String get pRnnoiseModelHint => 'Models are trained on different noise';
+
+  @override
+  String get pRnnoiseMixHint => 'Lower keeps some of the original, more natural';
+
+  @override
+  String get groupListen => 'Listen before and after';
+
+  @override
+  String get pListenFrom => 'From';
+
+  @override
+  String get pListenFromHint => 'Start of the fragment to listen to';
+
+  @override
+  String get pListenLength => 'Fragment length';
+
+  @override
+  String get pListenLengthHint => 'How many seconds to process as a test';
+
+  @override
+  String get listen => 'Listen';
+
+  @override
+  String get abListenHint => 'Both versions play at once — switch Before/After to compare without gaps.';
+
+  @override
+  String get modelsRnnoise => 'RNNoise models';
+
+  @override
+  String get modelsWhisper => 'Whisper models';
+
+  @override
+  String get modelsRnnoiseHint =>
+      'Neural networks for speech noise suppression. Downloaded from GitHub (GregorR/rnnoise-models), verified by SHA-256.';
+
+  @override
+  String get modelsWhisperHint =>
+      'whisper.cpp speech recognition models. Downloaded from Hugging Face, verified by SHA-256. Bigger models are more accurate and slower.';
+
+  @override
+  String get modelRnnSh => 'General (sh)';
+
+  @override
+  String get modelRnnShNote => 'speech and noise — a good default';
+
+  @override
+  String get modelRnnBd => 'Voice + noise (bd)';
+
+  @override
+  String get modelRnnBdNote => 'trained on voice with background noise';
+
+  @override
+  String get modelRnnCb => 'Recorded noise (cb)';
+
+  @override
+  String get modelRnnCbNote => 'for typical recording noise';
+
+  @override
+  String get modelRnnLq => 'Gentle (lq)';
+
+  @override
+  String get modelRnnLqNote => 'general, gentler on voice';
+
+  @override
+  String get modelRnnMp => 'Voice only (mp)';
+
+  @override
+  String get modelRnnMpNote => 'removes everything but voice';
+
+  @override
+  String get modelWhisperTinyNote => 'fastest, for drafts';
+
+  @override
+  String get modelWhisperBaseNote => 'fast, acceptable accuracy';
+
+  @override
+  String get modelWhisperSmallNote => 'good balance for Russian';
+
+  @override
+  String get modelWhisperMediumNote => 'accurate, slower';
+
+  @override
+  String get modelWhisperTurboNote => 'most accurate; best with a GPU';
+
+  @override
+  String get groupMusic => 'Music';
+
+  @override
+  String get musicFile => 'Music file';
+
+  @override
+  String get musicFileHint => 'MP3, FLAC, WAV — any audio';
+
+  @override
+  String get musicChoose => 'Choose a music file';
+
+  @override
+  String get pMusicVolume => 'Music volume';
+
+  @override
+  String get pMusicVolumeHint => 'Relative to the music’s own level';
+
+  @override
+  String get pMusicLoop => 'Loop';
+
+  @override
+  String get pMusicLoopHint => 'If the music is shorter than the video, it starts over';
+
+  @override
+  String get pMusicOffset => 'Start at';
+
+  @override
+  String get pMusicOffsetHint => 'The music starts at this point of the video';
+
+  @override
+  String get pMusicFadeOut => 'Fade out at the end';
+
+  @override
+  String get pMusicFadeOutHint => 'The music fades out towards the end';
+
+  @override
+  String get groupOriginalAudio => 'The file’s own audio';
+
+  @override
+  String get pKeepOriginalAudio => 'Keep the original audio';
+
+  @override
+  String get pKeepOriginalAudioHint => 'Otherwise the music replaces it completely';
+
+  @override
+  String get pDuck => 'Duck music under voice';
+
+  @override
+  String get pDuckHint => 'The music gets quieter while someone speaks';
+
+  @override
+  String get pDuckHelp =>
+      'A sidechain compressor watches the original audio and lowers the music while it sounds. In pauses the music comes back. Podcasts, vlogs and ads do this.';
+
+  @override
+  String get pDuckAmount => 'Ducking strength';
+
+  @override
+  String get pDuckAmountHint => 'Higher ducks the music deeper';
+
+  @override
+  String get groupRecognition => 'Recognition';
+
+  @override
+  String get pWhisperModel => 'Model';
+
+  @override
+  String get pWhisperModelHint => 'Install models below';
+
+  @override
+  String get pWhisperModelHelp =>
+      'Tiny and Base are fast even on a CPU but make more mistakes. Small is a good choice for Russian. Medium and Large v3 Turbo are the most accurate but slow without a GPU (Turbo on a CPU runs about real time).';
+
+  @override
+  String get languageAuto => 'auto';
+
+  @override
+  String get pTranscriptFormat => 'Format';
+
+  @override
+  String get pTranscriptFormatHint => 'SRT has timed subtitles, text is plain';
+
+  @override
+  String get formatSrt => 'SRT subtitles';
+
+  @override
+  String get formatText => 'Text';
+
+  @override
+  String get pUseGpu => 'GPU';
+
+  @override
+  String get pUseGpuHint => 'Much faster when the build and drivers support it';
+
+  @override
+  String get groupNeedsBuild => 'Another ffmpeg build is needed';
+
+  @override
+  String get whisperFilterMissing => 'This ffmpeg build has no whisper filter';
+
+  @override
+  String get whisperFilterHelp =>
+      'Speech recognition is built into ffmpeg since 8.0, but only in builds with the whisper.cpp library. On Windows it is in the gyan.dev Full build — choose it in Components. BtbN builds and most Linux packages do not have it yet.';
+
+  @override
+  String get whisperNeedsModel => 'Install at least one Whisper model';
 }

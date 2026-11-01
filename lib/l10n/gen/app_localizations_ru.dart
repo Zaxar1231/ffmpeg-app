@@ -1974,7 +1974,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pLanguage => 'Язык дорожки';
 
   @override
-  String get pLanguageHint => 'Плееры покажут его при выборе дорожки';
+  String get pLanguageHint => 'Язык речи; «авто» определит сам';
 
   @override
   String get losslessVideoTag => 'видео без перекодирования';
@@ -4739,4 +4739,227 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get vmafVerdictPoor => 'Сильные потери качества.';
+
+  @override
+  String get groupChain => 'Цепочка обработки';
+
+  @override
+  String get addEffect => 'Добавить эффект';
+
+  @override
+  String get chainHowTo =>
+      'Добавьте эффекты — они применяются сверху вниз ко всему звуку файла. Видео копируется без изменений.';
+
+  @override
+  String get chainEmpty => 'Добавьте хотя бы один эффект';
+
+  @override
+  String get fxRnnoise => 'Подавление шума нейросетью (RNNoise)';
+
+  @override
+  String get fxRnnoiseDesc => 'Лучше всего для речи: убирает шум улицы, вентиляторов, клавиатуры';
+
+  @override
+  String get rnnoiseNeedsModel => 'Нужна модель — установите её ниже, в разделе «Модели RNNoise»';
+
+  @override
+  String get rnnoiseSuggest =>
+      'Для речи лучше всего работает нейросетевое подавление (RNNoise) — установите модель ниже (около 300 КБ).';
+
+  @override
+  String get pRnnoiseModel => 'Модель';
+
+  @override
+  String get pRnnoiseModelHint => 'Разные модели обучены на разных шумах';
+
+  @override
+  String get pRnnoiseMixHint => 'Меньше — сохраняется часть исходного звука, естественнее';
+
+  @override
+  String get groupListen => 'Прослушать до и после';
+
+  @override
+  String get pListenFrom => 'С какого места';
+
+  @override
+  String get pListenFromHint => 'Начало фрагмента для прослушивания';
+
+  @override
+  String get pListenLength => 'Длина фрагмента';
+
+  @override
+  String get pListenLengthHint => 'Сколько секунд обработать для пробы';
+
+  @override
+  String get listen => 'Слушать';
+
+  @override
+  String get abListenHint => 'Оба варианта играют одновременно — переключайте «До» и «После», чтобы сравнить без пауз.';
+
+  @override
+  String get modelsRnnoise => 'Модели RNNoise';
+
+  @override
+  String get modelsWhisper => 'Модели Whisper';
+
+  @override
+  String get modelsRnnoiseHint =>
+      'Нейросети для подавления шума в речи. Скачиваются с GitHub (GregorR/rnnoise-models), проверяются по SHA-256.';
+
+  @override
+  String get modelsWhisperHint =>
+      'Модели распознавания речи whisper.cpp. Скачиваются с Hugging Face, проверяются по SHA-256. Чем больше модель, тем точнее и медленнее.';
+
+  @override
+  String get modelRnnSh => 'Универсальная (sh)';
+
+  @override
+  String get modelRnnShNote => 'речь и шум — хороший выбор по умолчанию';
+
+  @override
+  String get modelRnnBd => 'Голос + шум (bd)';
+
+  @override
+  String get modelRnnBdNote => 'обучена на голосе с фоновым шумом';
+
+  @override
+  String get modelRnnCb => 'Записанный шум (cb)';
+
+  @override
+  String get modelRnnCbNote => 'для типичных шумов записи';
+
+  @override
+  String get modelRnnLq => 'Мягкая (lq)';
+
+  @override
+  String get modelRnnLqNote => 'общая, бережнее к голосу';
+
+  @override
+  String get modelRnnMp => 'Только голос (mp)';
+
+  @override
+  String get modelRnnMpNote => 'убирает всё, кроме голоса';
+
+  @override
+  String get modelWhisperTinyNote => 'самая быстрая, для черновиков';
+
+  @override
+  String get modelWhisperBaseNote => 'быстрая, приемлемая точность';
+
+  @override
+  String get modelWhisperSmallNote => 'хороший баланс для русского';
+
+  @override
+  String get modelWhisperMediumNote => 'точная, медленнее';
+
+  @override
+  String get modelWhisperTurboNote => 'самая точная; лучше с видеокартой';
+
+  @override
+  String get groupMusic => 'Музыка';
+
+  @override
+  String get musicFile => 'Файл музыки';
+
+  @override
+  String get musicFileHint => 'MP3, FLAC, WAV — любой звук';
+
+  @override
+  String get musicChoose => 'Выберите файл музыки';
+
+  @override
+  String get pMusicVolume => 'Громкость музыки';
+
+  @override
+  String get pMusicVolumeHint => 'Относительно исходной громкости музыки';
+
+  @override
+  String get pMusicLoop => 'Повторять';
+
+  @override
+  String get pMusicLoopHint => 'Если музыка короче видео, она начнётся заново';
+
+  @override
+  String get pMusicOffset => 'Начать с';
+
+  @override
+  String get pMusicOffsetHint => 'Музыка вступает с этого момента видео';
+
+  @override
+  String get pMusicFadeOut => 'Затухание в конце';
+
+  @override
+  String get pMusicFadeOutHint => 'Музыка плавно стихает к концу видео';
+
+  @override
+  String get groupOriginalAudio => 'Звук файла';
+
+  @override
+  String get pKeepOriginalAudio => 'Оставить исходный звук';
+
+  @override
+  String get pKeepOriginalAudioHint => 'Иначе музыка заменит звук полностью';
+
+  @override
+  String get pDuck => 'Приглушать музыку под голос';
+
+  @override
+  String get pDuckHint => 'Музыка становится тише, когда в исходном звуке говорят';
+
+  @override
+  String get pDuckHelp =>
+      'Компрессор с боковой цепью (sidechaincompress) следит за громкостью исходного звука и, когда он звучит, опускает уровень музыки. В паузах музыка возвращается. Так делают в подкастах, влогах и рекламе.';
+
+  @override
+  String get pDuckAmount => 'Сила приглушения';
+
+  @override
+  String get pDuckAmountHint => 'Больше — музыка уходит глубже';
+
+  @override
+  String get groupRecognition => 'Распознавание';
+
+  @override
+  String get pWhisperModel => 'Модель';
+
+  @override
+  String get pWhisperModelHint => 'Установите модели ниже';
+
+  @override
+  String get pWhisperModelHelp =>
+      'Tiny и Base работают быстро даже на процессоре, но ошибаются чаще. Small — хороший выбор для русского. Medium и Large v3 Turbo точнее всего, но без видеокарты работают медленно (Turbo на процессоре — примерно в реальном времени).';
+
+  @override
+  String get languageAuto => 'авто';
+
+  @override
+  String get pTranscriptFormat => 'Формат';
+
+  @override
+  String get pTranscriptFormatHint => 'SRT — субтитры со временем, текст — сплошной';
+
+  @override
+  String get formatSrt => 'Субтитры SRT';
+
+  @override
+  String get formatText => 'Текст';
+
+  @override
+  String get pUseGpu => 'Видеокарта';
+
+  @override
+  String get pUseGpuHint => 'Намного быстрее, если сборка и драйверы это поддерживают';
+
+  @override
+  String get groupNeedsBuild => 'Нужна другая сборка ffmpeg';
+
+  @override
+  String get whisperFilterMissing => 'В этой сборке ffmpeg нет фильтра whisper';
+
+  @override
+  String get whisperFilterHelp =>
+      'Распознавание речи встроено в ffmpeg начиная с версии 8.0, но только в сборки с библиотекой whisper.cpp. Для Windows она есть в полной сборке gyan.dev (Full) — выберите её в «Компонентах». В сборках BtbN и большинстве системных пакетов Linux её пока нет.';
+
+  @override
+  String get whisperNeedsModel => 'Установите хотя бы одну модель Whisper';
 }

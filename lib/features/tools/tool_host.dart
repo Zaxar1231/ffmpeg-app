@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../analysis/analysis_pages.dart';
+import '../audio/audio_file_pages.dart';
 import '../audio/audio_pages.dart';
 import '../audio_editor/ui/editor_page.dart';
 import '../convert/convert_page.dart';
@@ -46,6 +47,9 @@ class ToolHost extends ConsumerWidget {
       'waveform' => WaveformPicPage(key: key, path: tool.path),
       'detect' => DetectPage(key: key, path: tool.path),
       'compareQuality' => CompareQualityPage(key: key, path: tool.path),
+      'denoise' || 'audioFx' => AudioChainPage(key: key, toolId: tool.id, path: tool.path),
+      'mix' => MusicPage(key: key, path: tool.path),
+      'transcribe' => TranscribePage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -63,10 +67,14 @@ const screenTools = {
   'audioEditor',
   ...editTools,
   ...analysisTools,
+  ...audioFileTools,
 };
 
 /// Stage 3 analysis tools.
 const analysisTools = {'loudness', 'waveform', 'detect', 'compareQuality'};
+
+/// Stage 3 whole-file audio tools.
+const audioFileTools = {'denoise', 'audioFx', 'mix', 'transcribe'};
 
 /// Stage 3 video editing tools.
 const editTools = {

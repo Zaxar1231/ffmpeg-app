@@ -86,6 +86,10 @@ const currentStageReady = {
   'waveform',
   'detect',
   'compareQuality',
+  'denoise',
+  'audioFx',
+  'mix',
+  'transcribe',
 };
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
@@ -297,7 +301,7 @@ const toolCatalog = <ToolDef>[
     ToolCategory.audio,
     Icons.noise_aware,
     stage: 3,
-    filters: ['afftdn', 'anlmdn', 'arnndn'],
+    filters: ['afftdn'],
     keywords: ['noise', 'rnnoise', 'шум', 'щелчки'],
   ),
   ToolDef(
@@ -314,6 +318,7 @@ const toolCatalog = <ToolDef>[
     Icons.queue_music,
     stage: 3,
     filters: ['amix', 'sidechaincompress'],
+    forKinds: _v,
     keywords: ['ducking', 'музыка', 'смешать'],
   ),
   ToolDef(

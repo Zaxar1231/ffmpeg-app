@@ -3647,7 +3647,7 @@ abstract class AppLocalizations {
   /// No description provided for @pLanguageHint.
   ///
   /// In ru, this message translates to:
-  /// **'Плееры покажут его при выборе дорожки'**
+  /// **'Язык речи; «авто» определит сам'**
   String get pLanguageHint;
 
   /// No description provided for @losslessVideoTag.
@@ -8857,6 +8857,438 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Сильные потери качества.'**
   String get vmafVerdictPoor;
+
+  /// No description provided for @groupChain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цепочка обработки'**
+  String get groupChain;
+
+  /// No description provided for @addEffect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить эффект'**
+  String get addEffect;
+
+  /// No description provided for @chainHowTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавьте эффекты — они применяются сверху вниз ко всему звуку файла. Видео копируется без изменений.'**
+  String get chainHowTo;
+
+  /// No description provided for @chainEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавьте хотя бы один эффект'**
+  String get chainEmpty;
+
+  /// No description provided for @fxRnnoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подавление шума нейросетью (RNNoise)'**
+  String get fxRnnoise;
+
+  /// No description provided for @fxRnnoiseDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучше всего для речи: убирает шум улицы, вентиляторов, клавиатуры'**
+  String get fxRnnoiseDesc;
+
+  /// No description provided for @rnnoiseNeedsModel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нужна модель — установите её ниже, в разделе «Модели RNNoise»'**
+  String get rnnoiseNeedsModel;
+
+  /// No description provided for @rnnoiseSuggest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для речи лучше всего работает нейросетевое подавление (RNNoise) — установите модель ниже (около 300 КБ).'**
+  String get rnnoiseSuggest;
+
+  /// No description provided for @pRnnoiseModel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Модель'**
+  String get pRnnoiseModel;
+
+  /// No description provided for @pRnnoiseModelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разные модели обучены на разных шумах'**
+  String get pRnnoiseModelHint;
+
+  /// No description provided for @pRnnoiseMixHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше — сохраняется часть исходного звука, естественнее'**
+  String get pRnnoiseMixHint;
+
+  /// No description provided for @groupListen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прослушать до и после'**
+  String get groupListen;
+
+  /// No description provided for @pListenFrom.
+  ///
+  /// In ru, this message translates to:
+  /// **'С какого места'**
+  String get pListenFrom;
+
+  /// No description provided for @pListenFromHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало фрагмента для прослушивания'**
+  String get pListenFromHint;
+
+  /// No description provided for @pListenLength.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длина фрагмента'**
+  String get pListenLength;
+
+  /// No description provided for @pListenLengthHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сколько секунд обработать для пробы'**
+  String get pListenLengthHint;
+
+  /// No description provided for @listen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слушать'**
+  String get listen;
+
+  /// No description provided for @abListenHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оба варианта играют одновременно — переключайте «До» и «После», чтобы сравнить без пауз.'**
+  String get abListenHint;
+
+  /// No description provided for @modelsRnnoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Модели RNNoise'**
+  String get modelsRnnoise;
+
+  /// No description provided for @modelsWhisper.
+  ///
+  /// In ru, this message translates to:
+  /// **'Модели Whisper'**
+  String get modelsWhisper;
+
+  /// No description provided for @modelsRnnoiseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нейросети для подавления шума в речи. Скачиваются с GitHub (GregorR/rnnoise-models), проверяются по SHA-256.'**
+  String get modelsRnnoiseHint;
+
+  /// No description provided for @modelsWhisperHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Модели распознавания речи whisper.cpp. Скачиваются с Hugging Face, проверяются по SHA-256. Чем больше модель, тем точнее и медленнее.'**
+  String get modelsWhisperHint;
+
+  /// No description provided for @modelRnnSh.
+  ///
+  /// In ru, this message translates to:
+  /// **'Универсальная (sh)'**
+  String get modelRnnSh;
+
+  /// No description provided for @modelRnnShNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'речь и шум — хороший выбор по умолчанию'**
+  String get modelRnnShNote;
+
+  /// No description provided for @modelRnnBd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Голос + шум (bd)'**
+  String get modelRnnBd;
+
+  /// No description provided for @modelRnnBdNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'обучена на голосе с фоновым шумом'**
+  String get modelRnnBdNote;
+
+  /// No description provided for @modelRnnCb.
+  ///
+  /// In ru, this message translates to:
+  /// **'Записанный шум (cb)'**
+  String get modelRnnCb;
+
+  /// No description provided for @modelRnnCbNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'для типичных шумов записи'**
+  String get modelRnnCbNote;
+
+  /// No description provided for @modelRnnLq.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мягкая (lq)'**
+  String get modelRnnLq;
+
+  /// No description provided for @modelRnnLqNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'общая, бережнее к голосу'**
+  String get modelRnnLqNote;
+
+  /// No description provided for @modelRnnMp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только голос (mp)'**
+  String get modelRnnMp;
+
+  /// No description provided for @modelRnnMpNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'убирает всё, кроме голоса'**
+  String get modelRnnMpNote;
+
+  /// No description provided for @modelWhisperTinyNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'самая быстрая, для черновиков'**
+  String get modelWhisperTinyNote;
+
+  /// No description provided for @modelWhisperBaseNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'быстрая, приемлемая точность'**
+  String get modelWhisperBaseNote;
+
+  /// No description provided for @modelWhisperSmallNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'хороший баланс для русского'**
+  String get modelWhisperSmallNote;
+
+  /// No description provided for @modelWhisperMediumNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'точная, медленнее'**
+  String get modelWhisperMediumNote;
+
+  /// No description provided for @modelWhisperTurboNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'самая точная; лучше с видеокартой'**
+  String get modelWhisperTurboNote;
+
+  /// No description provided for @groupMusic.
+  ///
+  /// In ru, this message translates to:
+  /// **'Музыка'**
+  String get groupMusic;
+
+  /// No description provided for @musicFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл музыки'**
+  String get musicFile;
+
+  /// No description provided for @musicFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'MP3, FLAC, WAV — любой звук'**
+  String get musicFileHint;
+
+  /// No description provided for @musicChoose.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите файл музыки'**
+  String get musicChoose;
+
+  /// No description provided for @pMusicVolume.
+  ///
+  /// In ru, this message translates to:
+  /// **'Громкость музыки'**
+  String get pMusicVolume;
+
+  /// No description provided for @pMusicVolumeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Относительно исходной громкости музыки'**
+  String get pMusicVolumeHint;
+
+  /// No description provided for @pMusicLoop.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторять'**
+  String get pMusicLoop;
+
+  /// No description provided for @pMusicLoopHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Если музыка короче видео, она начнётся заново'**
+  String get pMusicLoopHint;
+
+  /// No description provided for @pMusicOffset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать с'**
+  String get pMusicOffset;
+
+  /// No description provided for @pMusicOffsetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Музыка вступает с этого момента видео'**
+  String get pMusicOffsetHint;
+
+  /// No description provided for @pMusicFadeOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Затухание в конце'**
+  String get pMusicFadeOut;
+
+  /// No description provided for @pMusicFadeOutHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Музыка плавно стихает к концу видео'**
+  String get pMusicFadeOutHint;
+
+  /// No description provided for @groupOriginalAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук файла'**
+  String get groupOriginalAudio;
+
+  /// No description provided for @pKeepOriginalAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить исходный звук'**
+  String get pKeepOriginalAudio;
+
+  /// No description provided for @pKeepOriginalAudioHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Иначе музыка заменит звук полностью'**
+  String get pKeepOriginalAudioHint;
+
+  /// No description provided for @pDuck.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приглушать музыку под голос'**
+  String get pDuck;
+
+  /// No description provided for @pDuckHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Музыка становится тише, когда в исходном звуке говорят'**
+  String get pDuckHint;
+
+  /// No description provided for @pDuckHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Компрессор с боковой цепью (sidechaincompress) следит за громкостью исходного звука и, когда он звучит, опускает уровень музыки. В паузах музыка возвращается. Так делают в подкастах, влогах и рекламе.'**
+  String get pDuckHelp;
+
+  /// No description provided for @pDuckAmount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сила приглушения'**
+  String get pDuckAmount;
+
+  /// No description provided for @pDuckAmountHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше — музыка уходит глубже'**
+  String get pDuckAmountHint;
+
+  /// No description provided for @groupRecognition.
+  ///
+  /// In ru, this message translates to:
+  /// **'Распознавание'**
+  String get groupRecognition;
+
+  /// No description provided for @pWhisperModel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Модель'**
+  String get pWhisperModel;
+
+  /// No description provided for @pWhisperModelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Установите модели ниже'**
+  String get pWhisperModelHint;
+
+  /// No description provided for @pWhisperModelHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Tiny и Base работают быстро даже на процессоре, но ошибаются чаще. Small — хороший выбор для русского. Medium и Large v3 Turbo точнее всего, но без видеокарты работают медленно (Turbo на процессоре — примерно в реальном времени).'**
+  String get pWhisperModelHelp;
+
+  /// No description provided for @languageAuto.
+  ///
+  /// In ru, this message translates to:
+  /// **'авто'**
+  String get languageAuto;
+
+  /// No description provided for @pTranscriptFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pTranscriptFormat;
+
+  /// No description provided for @pTranscriptFormatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'SRT — субтитры со временем, текст — сплошной'**
+  String get pTranscriptFormatHint;
+
+  /// No description provided for @formatSrt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Субтитры SRT'**
+  String get formatSrt;
+
+  /// No description provided for @formatText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текст'**
+  String get formatText;
+
+  /// No description provided for @pUseGpu.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видеокарта'**
+  String get pUseGpu;
+
+  /// No description provided for @pUseGpuHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Намного быстрее, если сборка и драйверы это поддерживают'**
+  String get pUseGpuHint;
+
+  /// No description provided for @groupNeedsBuild.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нужна другая сборка ffmpeg'**
+  String get groupNeedsBuild;
+
+  /// No description provided for @whisperFilterMissing.
+  ///
+  /// In ru, this message translates to:
+  /// **'В этой сборке ffmpeg нет фильтра whisper'**
+  String get whisperFilterMissing;
+
+  /// No description provided for @whisperFilterHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Распознавание речи встроено в ffmpeg начиная с версии 8.0, но только в сборки с библиотекой whisper.cpp. Для Windows она есть в полной сборке gyan.dev (Full) — выберите её в «Компонентах». В сборках BtbN и большинстве системных пакетов Linux её пока нет.'**
+  String get whisperFilterHelp;
+
+  /// No description provided for @whisperNeedsModel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Установите хотя бы одну модель Whisper'**
+  String get whisperNeedsModel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

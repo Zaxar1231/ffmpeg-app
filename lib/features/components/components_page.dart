@@ -1,5 +1,9 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/components/models.dart';
+import '../audio/audio_file_pages.dart' show ModelsCard;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -56,6 +60,8 @@ class ComponentsPage extends ConsumerWidget {
                   const _ComponentCard(id: ComponentId.aria2)
                 else
                   const _SystemOnlyCard(id: ComponentId.aria2),
+                const ModelsCard(kind: ModelKind.rnnoise),
+                const ModelsCard(kind: ModelKind.whisper),
                 const _PlannedComponents(),
               ],
             ),
