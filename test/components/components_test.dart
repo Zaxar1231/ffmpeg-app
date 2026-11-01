@@ -189,7 +189,8 @@ void main() {
 
       final txz = p.join(dir.path, 'a.tar.xz');
       final tarOk = await Process.run('tar', ['-cJf', txz, '-C', p.join(dir.path, 'src'), 'ffmpeg-x']);
-      if (tarOk.exitCode == 0) {
+      // The fake ffmpeg is a shell script: POSIX only.
+      if (tarOk.exitCode == 0 && !Platform.isWindows) {
         final out = p.join(dir.path, 'out1');
         await extractArchive(txz, out, ArchiveType.tarXz, host: linux);
         final bins = locateBinaries(out, ['ffmpeg', 'ffprobe'], host: linux);
@@ -281,7 +282,14 @@ void main() {
     };
 
     test('custom > managed > system', () {
-      final existing = {'/c/ffmpeg', '/c/ffprobe', '/root/ffmpeg/k/bin/ffmpeg', '/root/ffmpeg/k/bin/ffprobe'};
+      // Paths are built with the host's separator, like the real resolver does.
+      final managedFfmpeg = p.join('/root', 'ffmpeg', 'k', 'bin/ffmpeg');
+      final existing = {
+        p.join('/c', 'ffmpeg'),
+        p.join('/c', 'ffprobe'),
+        managedFfmpeg,
+        p.join('/root', 'ffmpeg', 'k', 'bin/ffprobe'),
+      };
       Toolchain r(AppSettings s) => Toolchain.resolve(
         settings: s,
         records: records,
@@ -292,12 +300,12 @@ void main() {
       );
       final managed = r(const AppSettings());
       expect(managed.ffmpeg.origin, ToolOrigin.managed);
-      expect(managed.ffmpeg.path, '/root/ffmpeg/k/bin/ffmpeg');
+      expect(managed.ffmpeg.path, managedFfmpeg);
       expect(managed.ytdlp.origin, ToolOrigin.system);
 
-      final custom = r(const AppSettings(customFfmpegPath: '/c/ffmpeg'));
+      final custom = r(AppSettings(customFfmpegPath: p.join('/c', 'ffmpeg')));
       expect(custom.ffmpeg.origin, ToolOrigin.custom);
-      expect(custom.ffprobe.path, '/c/ffprobe', reason: 'sibling ffprobe');
+      expect(custom.ffprobe.path, p.join('/c', 'ffprobe'), reason: 'sibling ffprobe');
     });
 
     test('nothing installed', () {

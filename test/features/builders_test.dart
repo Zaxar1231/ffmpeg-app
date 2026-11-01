@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:path/path.dart' as p;
 import 'package:kadra/core/engine/capabilities.dart';
 import 'package:kadra/core/engine/encoders.dart';
 import 'package:kadra/core/engine/hwaccel.dart';
@@ -438,8 +439,14 @@ void main() {
   });
 
   test('output paths never overwrite', () {
-    final existing = {'/o/a_x.mp4', '/o/a_x (2).mp4'};
-    expect(outputPathFor('/i/a.mkv', ext: 'mp4', suffix: '_x', dir: '/o', exists: existing.contains), '/o/a_x (3).mp4');
-    expect(outputPathFor('/o/a.mp4', ext: 'mp4', dir: '/o', exists: (_) => false), '/o/a (2).mp4');
+    final existing = {p.join('/o', 'a_x.mp4'), p.join('/o', 'a_x (2).mp4')};
+    expect(
+      outputPathFor('/i/a.mkv', ext: 'mp4', suffix: '_x', dir: '/o', exists: existing.contains),
+      p.join('/o', 'a_x (3).mp4'),
+    );
+    expect(
+      outputPathFor(p.join('/o', 'a.mp4'), ext: 'mp4', dir: '/o', exists: (_) => false),
+      p.join('/o', 'a (2).mp4'),
+    );
   });
 }
