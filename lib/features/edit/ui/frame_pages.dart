@@ -112,6 +112,7 @@ class _CropScaleFormState extends ConsumerState<_CropScaleForm> {
     final (sw, sh) = displaySize(info);
     return EditScaffold(
       toolId: 'cropScale',
+      compare: true,
       info: info,
       suffix: '_${fw}x$fh',
       graph: graph,
@@ -466,6 +467,7 @@ class _RestoreFormState extends ConsumerState<_RestoreForm> {
     final previewGraph = restoreGraph(info, _copy(stabilize: false));
     return EditScaffold(
       toolId: 'restore',
+      compare: true,
       info: info,
       suffix: '_restored',
       graph: unchanged ? null : restoreGraph(info, r),
@@ -636,6 +638,7 @@ class _ColorFormState extends State<_ColorForm> {
     final graph = unchanged ? null : colorGraph(info, c);
     return EditScaffold(
       toolId: 'color',
+      compare: true,
       info: info,
       suffix: '_color',
       graph: graph,
@@ -863,6 +866,7 @@ class _OverlayFormState extends State<_OverlayForm> {
     final graph = o.isEmpty ? null : overlayGraph(info, o);
     return EditScaffold(
       toolId: 'overlay',
+      compare: true,
       info: info,
       suffix: '_overlay',
       graph: graph,
@@ -1079,6 +1083,7 @@ class _BlurFormState extends State<_BlurForm> {
     final editing = _edit && !_whole;
     return EditScaffold(
       toolId: 'blur',
+      compare: true,
       info: info,
       suffix: '_blur',
       graph: graph,
@@ -1444,6 +1449,7 @@ class _HdrFormState extends ConsumerState<_HdrForm> {
     final graph = v == null ? null : hdrToSdrGraph(info, curve: _curve, desat: _desat, placebo: _placebo && hasPlacebo);
     return EditScaffold(
       toolId: 'hdrToSdr',
+      compare: true,
       info: info,
       suffix: '_sdr',
       graph: graph,

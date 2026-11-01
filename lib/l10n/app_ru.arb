@@ -2232,5 +2232,28 @@
   "groupNeedsBuild": "Нужна другая сборка ffmpeg",
   "whisperFilterMissing": "В этой сборке ffmpeg нет фильтра whisper",
   "whisperFilterHelp": "Распознавание речи встроено в ffmpeg начиная с версии 8.0, но только в сборки с библиотекой whisper.cpp. Для Windows она есть в полной сборке gyan.dev (Full) — выберите её в «Компонентах». В сборках BtbN и большинстве системных пакетов Linux её пока нет.",
-  "whisperNeedsModel": "Установите хотя бы одну модель Whisper"
+  "whisperNeedsModel": "Установите хотя бы одну модель Whisper",
+  "abCompare": "Сравнить A/B",
+  "abTitle": "Сравнение с оригиналом",
+  "abIntro": "Будет обработан короткий фрагмент с текущими настройками — затем его можно сравнить с оригиналом шторкой, рядом или переключением.",
+  "abRendering": "Обработка фрагмента…",
+  "abRender": "Обработать фрагмент",
+  "abRerender": "Обработать заново",
+  "abFrom": "С",
+  "abOriginal": "Оригинал",
+  "abResult": "Результат",
+  "abSideBySide": "Рядом",
+  "abToggle": "Переключение",
+  "abToggleHint": "Щёлкайте по видео, чтобы переключаться между оригиналом и результатом.",
+  "abSizeNote": "Фрагмент: {size}; весь файл будет около {total}.",
+  "@abSizeNote": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  }
 }

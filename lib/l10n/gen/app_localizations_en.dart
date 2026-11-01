@@ -4927,4 +4927,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get whisperNeedsModel => 'Install at least one Whisper model';
+
+  @override
+  String get abCompare => 'Compare A/B';
+
+  @override
+  String get abTitle => 'Compare with the original';
+
+  @override
+  String get abIntro =>
+      'A short fragment is processed with the current settings — then compare it with the original using a curtain, side by side, or by switching.';
+
+  @override
+  String get abRendering => 'Processing the fragment…';
+
+  @override
+  String get abRender => 'Process fragment';
+
+  @override
+  String get abRerender => 'Process again';
+
+  @override
+  String get abFrom => 'From';
+
+  @override
+  String get abOriginal => 'Original';
+
+  @override
+  String get abResult => 'Result';
+
+  @override
+  String get abSideBySide => 'Side by side';
+
+  @override
+  String get abToggle => 'Switch';
+
+  @override
+  String get abToggleHint => 'Click the video to switch between the original and the result.';
+
+  @override
+  String abSizeNote(String size, String total) {
+    return 'Fragment: $size; the whole file would be about $total.';
+  }
 }

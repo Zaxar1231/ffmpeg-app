@@ -114,6 +114,7 @@ class _ConvertFormState extends ConsumerState<_ConvertForm> {
     return ToolScaffold(
       toolId: widget.toolId,
       info: info,
+      compare: true,
       preview: info.videoStreams.isNotEmpty || info.audioStreams.isNotEmpty
           ? MediaPreview(path: info.path, aspectRatio: info.videoStreams.isEmpty ? 16 / 5 : 16 / 9)
           : null,

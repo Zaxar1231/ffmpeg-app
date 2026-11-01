@@ -1532,5 +1532,18 @@
   "groupNeedsBuild": "Another ffmpeg build is needed",
   "whisperFilterMissing": "This ffmpeg build has no whisper filter",
   "whisperFilterHelp": "Speech recognition is built into ffmpeg since 8.0, but only in builds with the whisper.cpp library. On Windows it is in the gyan.dev Full build — choose it in Components. BtbN builds and most Linux packages do not have it yet.",
-  "whisperNeedsModel": "Install at least one Whisper model"
+  "whisperNeedsModel": "Install at least one Whisper model",
+  "abCompare": "Compare A/B",
+  "abTitle": "Compare with the original",
+  "abIntro": "A short fragment is processed with the current settings — then compare it with the original using a curtain, side by side, or by switching.",
+  "abRendering": "Processing the fragment…",
+  "abRender": "Process fragment",
+  "abRerender": "Process again",
+  "abFrom": "From",
+  "abOriginal": "Original",
+  "abResult": "Result",
+  "abSideBySide": "Side by side",
+  "abToggle": "Switch",
+  "abToggleHint": "Click the video to switch between the original and the result.",
+  "abSizeNote": "Fragment: {size}; the whole file would be about {total}."
 }

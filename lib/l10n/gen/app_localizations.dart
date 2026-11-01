@@ -9289,6 +9289,84 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Установите хотя бы одну модель Whisper'**
   String get whisperNeedsModel;
+
+  /// No description provided for @abCompare.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сравнить A/B'**
+  String get abCompare;
+
+  /// No description provided for @abTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сравнение с оригиналом'**
+  String get abTitle;
+
+  /// No description provided for @abIntro.
+  ///
+  /// In ru, this message translates to:
+  /// **'Будет обработан короткий фрагмент с текущими настройками — затем его можно сравнить с оригиналом шторкой, рядом или переключением.'**
+  String get abIntro;
+
+  /// No description provided for @abRendering.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обработка фрагмента…'**
+  String get abRendering;
+
+  /// No description provided for @abRender.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обработать фрагмент'**
+  String get abRender;
+
+  /// No description provided for @abRerender.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обработать заново'**
+  String get abRerender;
+
+  /// No description provided for @abFrom.
+  ///
+  /// In ru, this message translates to:
+  /// **'С'**
+  String get abFrom;
+
+  /// No description provided for @abOriginal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оригинал'**
+  String get abOriginal;
+
+  /// No description provided for @abResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат'**
+  String get abResult;
+
+  /// No description provided for @abSideBySide.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рядом'**
+  String get abSideBySide;
+
+  /// No description provided for @abToggle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переключение'**
+  String get abToggle;
+
+  /// No description provided for @abToggleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Щёлкайте по видео, чтобы переключаться между оригиналом и результатом.'**
+  String get abToggleHint;
+
+  /// No description provided for @abSizeNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фрагмент: {size}; весь файл будет около {total}.'**
+  String abSizeNote(String size, String total);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -4962,4 +4962,46 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get whisperNeedsModel => 'Установите хотя бы одну модель Whisper';
+
+  @override
+  String get abCompare => 'Сравнить A/B';
+
+  @override
+  String get abTitle => 'Сравнение с оригиналом';
+
+  @override
+  String get abIntro =>
+      'Будет обработан короткий фрагмент с текущими настройками — затем его можно сравнить с оригиналом шторкой, рядом или переключением.';
+
+  @override
+  String get abRendering => 'Обработка фрагмента…';
+
+  @override
+  String get abRender => 'Обработать фрагмент';
+
+  @override
+  String get abRerender => 'Обработать заново';
+
+  @override
+  String get abFrom => 'С';
+
+  @override
+  String get abOriginal => 'Оригинал';
+
+  @override
+  String get abResult => 'Результат';
+
+  @override
+  String get abSideBySide => 'Рядом';
+
+  @override
+  String get abToggle => 'Переключение';
+
+  @override
+  String get abToggleHint => 'Щёлкайте по видео, чтобы переключаться между оригиналом и результатом.';
+
+  @override
+  String abSizeNote(String size, String total) {
+    return 'Фрагмент: $size; весь файл будет около $total.';
+  }
 }

@@ -10,6 +10,7 @@ import '../../core/queue/job_steps.dart';
 import '../../core/util/format.dart';
 import '../../ui/l10n.dart';
 import '../../ui/widgets/common.dart';
+import 'ab_compare.dart';
 import 'command_text.dart';
 import 'tool_catalog.dart';
 import 'tool_infra.dart';
@@ -136,11 +137,15 @@ class ToolScaffold extends ConsumerWidget {
     this.estimate,
     this.problems = const [],
     this.warnings = const [],
+    this.compare = false,
   });
 
   final String toolId;
   final MediaInfo info;
   final Widget? preview;
+
+  /// Offer the A/B comparison of a rendered fragment with the original.
+  final bool compare;
   final List<Widget> params;
   final String? outputPath;
   final ValueChanged<String> onOutputChanged;
@@ -208,6 +213,7 @@ class ToolScaffold extends ConsumerWidget {
                 ],
               ),
             ),
+            if (compare && canRun) AbCompareButton(info: info, steps: steps!, output: outputPath!),
             TextButton.icon(
               icon: const Icon(Icons.terminal),
               label: Text(l.showCommand),

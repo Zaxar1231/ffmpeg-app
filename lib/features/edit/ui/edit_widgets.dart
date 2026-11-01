@@ -100,7 +100,11 @@ class EditScaffold extends ConsumerStatefulWidget {
     this.estimate,
     this.fixedExt,
     this.inputCount = 1,
+    this.compare = false,
   });
+
+  /// Offer the A/B comparison (single-input tools that keep timing).
+  final bool compare;
 
   final String toolId;
   final MediaInfo info;
@@ -165,6 +169,7 @@ class _EditScaffoldState extends ConsumerState<EditScaffold> {
     return ToolScaffold(
       toolId: widget.toolId,
       info: info,
+      compare: widget.compare,
       preview: widget.preview,
       outputPath: out,
       outputExt: ext,
