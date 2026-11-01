@@ -1,0 +1,3 @@
+tags:
+  ffmpeg:
+    # Integration tests that need ffmpeg/ffprobe on PATH (skipped otherwise).
