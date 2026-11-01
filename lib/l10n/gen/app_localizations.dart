@@ -2648,6 +2648,12 @@ abstract class AppLocalizations {
   /// **'≈ {size}'**
   String estimateSize(String size);
 
+  /// No description provided for @estimateAtMost.
+  ///
+  /// In ru, this message translates to:
+  /// **'не больше {size}'**
+  String estimateAtMost(String size);
+
   /// No description provided for @estimateDependsOnContent.
   ///
   /// In ru, this message translates to:

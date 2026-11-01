@@ -1408,6 +1408,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String estimateAtMost(String size) {
+    return 'не больше $size';
+  }
+
+  @override
   String get estimateDependsOnContent => 'Размер зависит от содержимого';
 
   @override

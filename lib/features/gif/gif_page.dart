@@ -36,6 +36,8 @@ class _GifForm extends ConsumerStatefulWidget {
 
 class _GifFormState extends ConsumerState<_GifForm> {
   late GifParams _g = GifParams(
+    // Never upscale by default.
+    width: (widget.info.videoStreams.firstOrNull?.width ?? 0) > 480 ? 480 : null,
     duration: widget.info.duration != null && widget.info.duration! > const Duration(seconds: 10)
         ? const Duration(seconds: 5)
         : null,

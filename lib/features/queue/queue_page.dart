@@ -134,7 +134,7 @@ class _JobCard extends ConsumerWidget {
                 Expanded(
                   child: Text(job.title, style: t.textTheme.titleSmall, maxLines: 1, overflow: TextOverflow.ellipsis),
                 ),
-                if (job.priority > 0)
+                if (job.priority > 0 && !item.isFinished)
                   Tooltip(
                     message: l.priorityHigh,
                     child: Icon(Icons.priority_high, size: 18, color: cs.primary),

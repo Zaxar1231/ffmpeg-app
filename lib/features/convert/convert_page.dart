@@ -104,7 +104,9 @@ class _ConvertFormState extends ConsumerState<_ConvertForm> {
 
     final est = plan.estimatedBytes == null
         ? (encoding ? l.estimateDependsOnContent : null)
-        : l.estimateSize(formatBytes(plan.estimatedBytes, units: byteUnits(l)));
+        : (_p.rateMode == RateMode.targetSize
+              ? l.estimateAtMost(formatBytes(plan.estimatedBytes, units: byteUnits(l)))
+              : l.estimateSize(formatBytes(plan.estimatedBytes, units: byteUnits(l))));
     final encoderNote = enc == null ? '' : '  ·  ${l.encoderLabel(enc.name)}${enc.hardware ? ' ⚡' : ''}';
 
     final userPresets = ref.watch(userPresetsProvider('convert')).value ?? const <UserPreset>[];

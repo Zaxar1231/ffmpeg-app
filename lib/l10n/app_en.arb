@@ -426,6 +426,7 @@
   "stepLabel": "step {step}",
   "secondsShort": "{value} s",
   "estimateSize": "≈ {size}",
+  "estimateAtMost": "at most {size}",
   "estimateDependsOnContent": "Size depends on the content",
   "encoderLabel": "encoder {name}",
   "issueNoEncoder": "The installed ffmpeg build has no encoder for this codec. Pick another codec or install a full build.",

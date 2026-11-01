@@ -1388,6 +1388,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String estimateAtMost(String size) {
+    return 'at most $size';
+  }
+
+  @override
   String get estimateDependsOnContent => 'Size depends on the content';
 
   @override

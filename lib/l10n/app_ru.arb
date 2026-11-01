@@ -636,6 +636,14 @@
       }
     }
   },
+  "estimateAtMost": "не больше {size}",
+  "@estimateAtMost": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
   "estimateDependsOnContent": "Размер зависит от содержимого",
   "encoderLabel": "кодировщик {name}",
   "@encoderLabel": {
