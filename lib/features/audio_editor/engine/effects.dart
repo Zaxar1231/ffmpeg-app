@@ -176,7 +176,10 @@ List<FxDef> _catalog() {
         final indep = v['independent']! > 0.5;
         double peakOf(int ch) {
           final pk = double.parse(c.measured['peak$ch'] ?? '0');
-          final dc = dcOn ? double.parse(c.measured['dc$ch'] ?? '0') : 0;
+          final dc = dcOn ? double.parse(c.measured['dc$ch'] ?? '0') : 0.0;
+          final lo = double.tryParse(c.measured['min$ch'] ?? ''), hi = double.tryParse(c.measured['max$ch'] ?? '');
+          // Exact peak after removing DC; without min/max, an upper bound.
+          if (lo != null && hi != null) return math.max(hi - dc, dc - lo);
           return pk + dc.abs();
         }
 

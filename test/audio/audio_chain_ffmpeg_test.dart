@@ -188,7 +188,8 @@ void main() {
 
   test('transcribe arguments', () {
     final s = planTranscribe(
-      info: video,
+      // Pure test: must not depend on setUpAll (skipped without ffmpeg).
+      info: const MediaInfo(path: 'v.mp4', format: FormatInfo(), streams: [], chapters: []),
       model: r'C:\models\ggml-base.bin',
       output: r'C:\out\v.srt',
       language: 'ru',

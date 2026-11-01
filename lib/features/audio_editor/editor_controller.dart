@@ -568,7 +568,12 @@ class AudioEditorController extends Notifier<EditorState> {
       case FxMeasure.peakDc:
         final st = await Isolate.run(() => analyzeStats(t.file, start: r?.start ?? 0, end: r?.end));
         return {
-          for (var c = 0; c < st.length; c++) ...{'peak$c': '${st[c].peak}', 'dc$c': '${st[c].dc}'},
+          for (var c = 0; c < st.length; c++) ...{
+            'peak$c': '${st[c].peak}',
+            'dc$c': '${st[c].dc}',
+            'min$c': '${st[c].min}',
+            'max$c': '${st[c].max}',
+          },
         };
       case FxMeasure.loudness:
         final res = await _run(loudnessMeasureArgs(t.file, r: r, lufs: v['lufs']!, tp: v['truePeak']!));

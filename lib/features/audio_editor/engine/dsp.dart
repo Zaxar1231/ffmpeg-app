@@ -195,8 +195,19 @@ List<Float32List> slidingSpeed(List<Float32List> input, {required double fromPct
 // ---------------------------------------------------------------- analysis
 
 class ChannelStats {
-  const ChannelStats({required this.peak, required this.rms, required this.dc, required this.clipped});
+  const ChannelStats({
+    required this.peak,
+    required this.rms,
+    required this.dc,
+    required this.clipped,
+    this.min = 0,
+    this.max = 0,
+  });
   final double peak;
+
+  /// Lowest and highest sample values.
+  final double min;
+  final double max;
   final double rms;
   final double dc;
   final int clipped;
@@ -211,6 +222,7 @@ List<ChannelStats> analyzeStats(String wavPath, {int start = 0, int? end, double
     final info = readWavInfo(f);
     final ch = info.channels;
     final peak = List.filled(ch, 0.0), sum = List.filled(ch, 0.0), sq = List.filled(ch, 0.0);
+    final lo = List.filled(ch, 0.0), hi = List.filled(ch, 0.0);
     final clip = List.filled(ch, 0);
     var n = 0;
     for (final block in readBlocks(f, info, start: start, end: end)) {
@@ -220,6 +232,8 @@ List<ChannelStats> analyzeStats(String wavPath, {int start = 0, int? end, double
           final v = d[i];
           final a = v.abs();
           if (a > peak[c]) peak[c] = a;
+          if (v < lo[c]) lo[c] = v;
+          if (v > hi[c]) hi[c] = v;
           if (a >= clipLevel) clip[c]++;
           sum[c] += v;
           sq[c] += v * v;
@@ -234,6 +248,8 @@ List<ChannelStats> analyzeStats(String wavPath, {int start = 0, int? end, double
           rms: n == 0 ? 0 : math.sqrt(sq[c] / n),
           dc: n == 0 ? 0 : sum[c] / n,
           clipped: clip[c],
+          min: lo[c],
+          max: hi[c],
         ),
     ];
   } finally {

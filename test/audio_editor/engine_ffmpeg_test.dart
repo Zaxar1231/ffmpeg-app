@@ -149,7 +149,12 @@ void main() {
         channels: 2,
         frames: r.length,
         measured: {
-          for (var c = 0; c < 2; c++) ...{'peak$c': '${st[c].peak}', 'dc$c': '${st[c].dc}'},
+          for (var c = 0; c < 2; c++) ...{
+            'peak$c': '${st[c].peak}',
+            'dc$c': '${st[c].dc}',
+            'min$c': '${st[c].min}',
+            'max$c': '${st[c].max}',
+          },
         },
       ),
     );
