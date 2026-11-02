@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 
 import '../../../core/engine/encoders.dart';
+import '../../../core/engine/error_translator.dart';
 import '../../../core/engine/progress.dart' show parseFfmpegTime;
 import '../../../core/probe/media_info.dart';
 import '../../../core/providers.dart';
@@ -17,6 +18,7 @@ import '../../../core/queue/queue_models.dart';
 import '../../../core/util/format.dart';
 import '../../../core/util/output_paths.dart';
 import '../../../ui/l10n.dart';
+import '../../../ui/widgets/common.dart';
 import '../../../ui/widgets/setting_tile.dart';
 import '../../convert/convert_params.dart';
 import '../../convert/labels.dart';
@@ -295,7 +297,15 @@ class _FramePreviewState extends ConsumerState<FramePreview> {
     final r = await ref.read(processRunnerProvider).capture(ffmpeg, args, timeout: const Duration(seconds: 40));
     final f = File(out);
     if (!r.ok || !f.existsSync()) {
-      if (mounted) setState(() => _error = r.stderr.trim().split('\n').where((s) => s.trim().isNotEmpty).lastOrNull);
+      if (mounted) {
+        final lines = r.stderr.trim().split('\n').where((s) => s.trim().isNotEmpty).toList();
+        final e = translateToolError(lines);
+        setState(
+          () => _error = e.kind == ToolErrorKind.unknown
+              ? lines.lastOrNull
+              : toolErrorText(context.l10n, e.kind, e.detail),
+        );
+      }
       return null;
     }
     final bytes = await f.readAsBytes();

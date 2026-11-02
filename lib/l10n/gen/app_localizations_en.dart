@@ -5718,4 +5718,108 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pRecipeLufsHint => '−14 for YouTube and streaming, −16 podcasts, −23 TV';
+
+  @override
+  String get searchCommands => 'Search by title or command';
+
+  @override
+  String get commandLogHint =>
+      'Every queue job with its exact commands. The list is cleared together with the queue history (“Clear finished”).';
+
+  @override
+  String get noCommands => 'No commands yet';
+
+  @override
+  String get editCommand => 'Open in the command editor';
+
+  @override
+  String get runAgain => 'Run again';
+
+  @override
+  String get templates => 'Templates';
+
+  @override
+  String get insertInput => 'Insert input file';
+
+  @override
+  String get insertOutput => 'Insert output file';
+
+  @override
+  String get commandEditorHint =>
+      'The command runs through the queue, without a shell: quotes and spaces in paths work on any system. The app adds -nostdin, -y and progress output when missing. Write it with or without “ffmpeg” at the start; for ffprobe start with “ffprobe”.';
+
+  @override
+  String get cmdErrSyntax => 'Unclosed quote';
+
+  @override
+  String get cmdErrEmpty => 'The command is empty';
+
+  @override
+  String get cmdErrExecutable => 'Only ffmpeg and ffprobe run here';
+
+  @override
+  String get cmdErrNoInput => 'No input file (-i)';
+
+  @override
+  String get groupHelp => 'ffmpeg help';
+
+  @override
+  String get helpNameHint => 'Name: scale, libx264, mp4…';
+
+  @override
+  String get showHelp => 'Show';
+
+  @override
+  String get tplH264 => 'Re-encode to H.264 + AAC';
+
+  @override
+  String get tplCutCopy => 'Cut a part without re-encoding';
+
+  @override
+  String get tplFrame => 'Save a frame as PNG';
+
+  @override
+  String get tplMp3 => 'Audio to MP3 (VBR)';
+
+  @override
+  String get tplSpeed2x => 'Speed up 2×';
+
+  @override
+  String get tplGif => 'GIF with a palette';
+
+  @override
+  String get tplProbe => 'Stream info (ffprobe)';
+
+  @override
+  String get groupFilterChain => 'Filter chain';
+
+  @override
+  String get videoChain => 'Video';
+
+  @override
+  String get videoChainHint => 'Filters separated by commas: scale=1280:-2,eq=contrast=1.2';
+
+  @override
+  String get audioChain => 'Audio';
+
+  @override
+  String get audioChainHint => 'Empty copies the audio: volume=2,highpass=f=80';
+
+  @override
+  String get applyFilters => 'Apply to the preview';
+
+  @override
+  String groupFilterList(int n) {
+    return 'Filters in this build: $n';
+  }
+
+  @override
+  String get searchFilters => 'Search filters';
+
+  @override
+  String get addFilter => 'Add to the chain';
+
+  @override
+  String get cmdErrPlaceholder =>
+      'The command still has placeholders — set the input and output files with the “Insert…” buttons';
 }

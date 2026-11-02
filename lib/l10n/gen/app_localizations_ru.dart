@@ -5756,4 +5756,108 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pRecipeLufsHint => '−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ';
+
+  @override
+  String get searchCommands => 'Поиск по названию или команде';
+
+  @override
+  String get commandLogHint =>
+      'Все задачи очереди с точными командами. Список очищается вместе с историей очереди («Очистить завершённые»).';
+
+  @override
+  String get noCommands => 'Команд пока нет';
+
+  @override
+  String get editCommand => 'Открыть в редакторе команд';
+
+  @override
+  String get runAgain => 'Запустить ещё раз';
+
+  @override
+  String get templates => 'Шаблоны';
+
+  @override
+  String get insertInput => 'Вставить входной файл';
+
+  @override
+  String get insertOutput => 'Вставить файл результата';
+
+  @override
+  String get commandEditorHint =>
+      'Команда выполняется через очередь, без командной строки: кавычки и пробелы в путях работают на любой системе. Приложение само добавит -nostdin, -y и вывод прогресса, если их нет. Можно писать с «ffmpeg» в начале или без него; для ffprobe — с «ffprobe».';
+
+  @override
+  String get cmdErrSyntax => 'Незакрытая кавычка';
+
+  @override
+  String get cmdErrEmpty => 'Команда пустая';
+
+  @override
+  String get cmdErrExecutable => 'Здесь выполняются только ffmpeg и ffprobe';
+
+  @override
+  String get cmdErrNoInput => 'Нет входного файла (-i)';
+
+  @override
+  String get groupHelp => 'Справка ffmpeg';
+
+  @override
+  String get helpNameHint => 'Имя: scale, libx264, mp4…';
+
+  @override
+  String get showHelp => 'Показать';
+
+  @override
+  String get tplH264 => 'Перекодировать в H.264 + AAC';
+
+  @override
+  String get tplCutCopy => 'Вырезать кусок без перекодирования';
+
+  @override
+  String get tplFrame => 'Сохранить кадр в PNG';
+
+  @override
+  String get tplMp3 => 'Звук в MP3 (VBR)';
+
+  @override
+  String get tplSpeed2x => 'Ускорить в 2 раза';
+
+  @override
+  String get tplGif => 'GIF с палитрой';
+
+  @override
+  String get tplProbe => 'Информация о потоках (ffprobe)';
+
+  @override
+  String get groupFilterChain => 'Цепочка фильтров';
+
+  @override
+  String get videoChain => 'Видео';
+
+  @override
+  String get videoChainHint => 'Фильтры через запятую: scale=1280:-2,eq=contrast=1.2';
+
+  @override
+  String get audioChain => 'Звук';
+
+  @override
+  String get audioChainHint => 'Пусто — звук копируется: volume=2,highpass=f=80';
+
+  @override
+  String get applyFilters => 'Применить к предпросмотру';
+
+  @override
+  String groupFilterList(int n) {
+    return 'Фильтры этой сборки: $n';
+  }
+
+  @override
+  String get searchFilters => 'Поиск фильтра';
+
+  @override
+  String get addFilter => 'Добавить в цепочку';
+
+  @override
+  String get cmdErrPlaceholder =>
+      'В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»';
 }

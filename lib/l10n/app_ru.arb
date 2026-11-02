@@ -2564,5 +2564,45 @@
   "pThenRecipe": "После загрузки",
   "pThenRecipeHint": "Применить рецепт к каждому скачанному файлу",
   "pRecipeLufs": "Целевая громкость",
-  "pRecipeLufsHint": "−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ"
+  "pRecipeLufsHint": "−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ",
+  "searchCommands": "Поиск по названию или команде",
+  "commandLogHint": "Все задачи очереди с точными командами. Список очищается вместе с историей очереди («Очистить завершённые»).",
+  "noCommands": "Команд пока нет",
+  "editCommand": "Открыть в редакторе команд",
+  "runAgain": "Запустить ещё раз",
+  "templates": "Шаблоны",
+  "insertInput": "Вставить входной файл",
+  "insertOutput": "Вставить файл результата",
+  "commandEditorHint": "Команда выполняется через очередь, без командной строки: кавычки и пробелы в путях работают на любой системе. Приложение само добавит -nostdin, -y и вывод прогресса, если их нет. Можно писать с «ffmpeg» в начале или без него; для ffprobe — с «ffprobe».",
+  "cmdErrSyntax": "Незакрытая кавычка",
+  "cmdErrEmpty": "Команда пустая",
+  "cmdErrExecutable": "Здесь выполняются только ffmpeg и ffprobe",
+  "cmdErrNoInput": "Нет входного файла (-i)",
+  "groupHelp": "Справка ffmpeg",
+  "helpNameHint": "Имя: scale, libx264, mp4…",
+  "showHelp": "Показать",
+  "tplH264": "Перекодировать в H.264 + AAC",
+  "tplCutCopy": "Вырезать кусок без перекодирования",
+  "tplFrame": "Сохранить кадр в PNG",
+  "tplMp3": "Звук в MP3 (VBR)",
+  "tplSpeed2x": "Ускорить в 2 раза",
+  "tplGif": "GIF с палитрой",
+  "tplProbe": "Информация о потоках (ffprobe)",
+  "groupFilterChain": "Цепочка фильтров",
+  "videoChain": "Видео",
+  "videoChainHint": "Фильтры через запятую: scale=1280:-2,eq=contrast=1.2",
+  "audioChain": "Звук",
+  "audioChainHint": "Пусто — звук копируется: volume=2,highpass=f=80",
+  "applyFilters": "Применить к предпросмотру",
+  "groupFilterList": "Фильтры этой сборки: {n}",
+  "@groupFilterList": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "searchFilters": "Поиск фильтра",
+  "addFilter": "Добавить в цепочку",
+  "cmdErrPlaceholder": "В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»"
 }

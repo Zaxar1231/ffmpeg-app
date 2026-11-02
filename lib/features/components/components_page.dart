@@ -34,7 +34,7 @@ class ComponentsPage extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: Text(
-              l.lastChecked(DateFormat.Hm().format(state.lastCheck!)),
+              l.lastChecked(DateFormat.Hm(Localizations.localeOf(context).toLanguageTag()).format(state.lastCheck!)),
               style: Theme.of(context).textTheme.labelMedium,
             ),
           ),
@@ -310,7 +310,7 @@ class _VersionRow extends ConsumerWidget {
       leading: Icon(active ? Icons.radio_button_checked : Icons.radio_button_off),
       title: Text(version.version ?? version.key),
       subtitle: Text(
-        '${sourceLabel(l, version.source)} · ${version.variant ?? ''} · ${DateFormat.yMd().add_Hm().format(version.installedAt)}',
+        '${sourceLabel(l, version.source)} · ${version.variant ?? ''} · ${DateFormat.yMd(Localizations.localeOf(context).toLanguageTag()).add_Hm().format(version.installedAt)}',
       ),
       trailing: Wrap(
         spacing: 4,

@@ -472,6 +472,14 @@ class _BatchPageState extends ConsumerState<BatchPage> {
   double? _progress;
   final _problems = <String, String>{};
 
+  String _actionName(AppLocalizations l, BatchAction a, Recipe r) {
+    final id = a.presetId;
+    if (id == null) return r.name;
+    if (!id.startsWith('user:')) return presetName(l, id);
+    final users = ref.read(userPresetsProvider(null)).value ?? const <UserPreset>[];
+    return users.where((u) => 'user:${u.id}' == id).firstOrNull?.name ?? id;
+  }
+
   /// Same default as every tool: the settings folder, or next to the source.
   String? _defaultOutDir() {
     final s = ref.read(settingsProvider);
@@ -527,7 +535,7 @@ class _BatchPageState extends ConsumerState<BatchPage> {
           recipe: recipe,
           env: env,
           output: out,
-          title: '${recipe.name}: ${p.basename(f)}',
+          title: '${_actionName(l, action, recipe)}: ${p.basename(f)}',
         );
         if (job.request == null) {
           _problems[f] = recipeProblemText(l, job.problem!);
@@ -754,7 +762,7 @@ class WatchFolderPage extends ConsumerWidget {
     final st = ref.watch(watchProvider);
     final recipes = ref.watch(recipesProvider).value ?? const <Recipe>[];
     final t = Theme.of(context);
-    final fmt = DateFormat.Hms();
+    final fmt = DateFormat.Hms(Localizations.localeOf(context).toLanguageTag());
     String actionName(BatchAction a) => a.recipeId != null
         ? (recipes.where((r) => r.id == a.recipeId).firstOrNull?.name ?? l.recipeNotFound)
         : presetName(l, a.presetId!);

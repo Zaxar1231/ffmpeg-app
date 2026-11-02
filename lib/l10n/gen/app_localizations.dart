@@ -10807,6 +10807,204 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ'**
   String get pRecipeLufsHint;
+
+  /// No description provided for @searchCommands.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поиск по названию или команде'**
+  String get searchCommands;
+
+  /// No description provided for @commandLogHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Все задачи очереди с точными командами. Список очищается вместе с историей очереди («Очистить завершённые»).'**
+  String get commandLogHint;
+
+  /// No description provided for @noCommands.
+  ///
+  /// In ru, this message translates to:
+  /// **'Команд пока нет'**
+  String get noCommands;
+
+  /// No description provided for @editCommand.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть в редакторе команд'**
+  String get editCommand;
+
+  /// No description provided for @runAgain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запустить ещё раз'**
+  String get runAgain;
+
+  /// No description provided for @templates.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шаблоны'**
+  String get templates;
+
+  /// No description provided for @insertInput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить входной файл'**
+  String get insertInput;
+
+  /// No description provided for @insertOutput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить файл результата'**
+  String get insertOutput;
+
+  /// No description provided for @commandEditorHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Команда выполняется через очередь, без командной строки: кавычки и пробелы в путях работают на любой системе. Приложение само добавит -nostdin, -y и вывод прогресса, если их нет. Можно писать с «ffmpeg» в начале или без него; для ffprobe — с «ffprobe».'**
+  String get commandEditorHint;
+
+  /// No description provided for @cmdErrSyntax.
+  ///
+  /// In ru, this message translates to:
+  /// **'Незакрытая кавычка'**
+  String get cmdErrSyntax;
+
+  /// No description provided for @cmdErrEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Команда пустая'**
+  String get cmdErrEmpty;
+
+  /// No description provided for @cmdErrExecutable.
+  ///
+  /// In ru, this message translates to:
+  /// **'Здесь выполняются только ffmpeg и ffprobe'**
+  String get cmdErrExecutable;
+
+  /// No description provided for @cmdErrNoInput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нет входного файла (-i)'**
+  String get cmdErrNoInput;
+
+  /// No description provided for @groupHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Справка ffmpeg'**
+  String get groupHelp;
+
+  /// No description provided for @helpNameHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя: scale, libx264, mp4…'**
+  String get helpNameHint;
+
+  /// No description provided for @showHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показать'**
+  String get showHelp;
+
+  /// No description provided for @tplH264.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перекодировать в H.264 + AAC'**
+  String get tplH264;
+
+  /// No description provided for @tplCutCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вырезать кусок без перекодирования'**
+  String get tplCutCopy;
+
+  /// No description provided for @tplFrame.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить кадр в PNG'**
+  String get tplFrame;
+
+  /// No description provided for @tplMp3.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук в MP3 (VBR)'**
+  String get tplMp3;
+
+  /// No description provided for @tplSpeed2x.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ускорить в 2 раза'**
+  String get tplSpeed2x;
+
+  /// No description provided for @tplGif.
+  ///
+  /// In ru, this message translates to:
+  /// **'GIF с палитрой'**
+  String get tplGif;
+
+  /// No description provided for @tplProbe.
+  ///
+  /// In ru, this message translates to:
+  /// **'Информация о потоках (ffprobe)'**
+  String get tplProbe;
+
+  /// No description provided for @groupFilterChain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цепочка фильтров'**
+  String get groupFilterChain;
+
+  /// No description provided for @videoChain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео'**
+  String get videoChain;
+
+  /// No description provided for @videoChainHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтры через запятую: scale=1280:-2,eq=contrast=1.2'**
+  String get videoChainHint;
+
+  /// No description provided for @audioChain.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук'**
+  String get audioChain;
+
+  /// No description provided for @audioChainHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пусто — звук копируется: volume=2,highpass=f=80'**
+  String get audioChainHint;
+
+  /// No description provided for @applyFilters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применить к предпросмотру'**
+  String get applyFilters;
+
+  /// No description provided for @groupFilterList.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтры этой сборки: {n}'**
+  String groupFilterList(int n);
+
+  /// No description provided for @searchFilters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поиск фильтра'**
+  String get searchFilters;
+
+  /// No description provided for @addFilter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить в цепочку'**
+  String get addFilter;
+
+  /// No description provided for @cmdErrPlaceholder.
+  ///
+  /// In ru, this message translates to:
+  /// **'В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»'**
+  String get cmdErrPlaceholder;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
