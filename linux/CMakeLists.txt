@@ -98,6 +98,10 @@ install(CODE "
 set(INSTALL_BUNDLE_DATA_DIR "${CMAKE_INSTALL_PREFIX}/data")
 set(INSTALL_BUNDLE_LIB_DIR "${CMAKE_INSTALL_PREFIX}/lib")
 
+# Rust DSP for the audio editor (native/kadra_dsp).
+include("${CMAKE_CURRENT_SOURCE_DIR}/../native/kadra_dsp/kadra_dsp.cmake")
+kadra_dsp_install("${INSTALL_BUNDLE_LIB_DIR}")
+
 install(TARGETS ${BINARY_NAME} RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}"
   COMPONENT Runtime)
 

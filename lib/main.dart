@@ -7,6 +7,7 @@ import 'app.dart';
 import 'core/db/database.dart';
 import 'core/platform/app_paths.dart';
 import 'core/platform/desktop.dart';
+import 'core/platform/jank_monitor.dart';
 import 'core/providers.dart';
 
 /// `kadra <file>` opens the file on the Home screen ("Open with…").
@@ -17,6 +18,7 @@ Future<void> main(List<String> args) async {
   final paths = await AppPaths.resolve();
   final prefs = await SharedPreferences.getInstance();
   final db = AppDatabase.open(paths.database);
+  JankMonitor.start(paths.logs);
   runApp(
     ProviderScope(
       overrides: [

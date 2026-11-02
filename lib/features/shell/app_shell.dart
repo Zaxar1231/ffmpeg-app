@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/components/catalog.dart';
+import '../../core/platform/jank_monitor.dart';
 import '../../core/providers.dart';
 import '../../ui/l10n.dart';
 import '../components/components_page.dart';
@@ -12,6 +13,7 @@ import '../home/home_page.dart';
 import '../presets/presets_page.dart';
 import '../queue/queue_page.dart';
 import '../settings/settings_page.dart';
+import '../tools/tool_infra.dart';
 import '../tools/tools_page.dart';
 import '../update/update_ui.dart';
 
@@ -32,6 +34,8 @@ class AppShell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l = context.l10n;
     final current = ref.watch(navProvider);
+    final tool = ref.watch(openToolProvider.select((t) => t?.id));
+    JankMonitor.where = tool == null ? current.name : '${current.name}/$tool';
     // Only the badge numbers: watching the whole queue would rebuild the
     // entire window on every progress tick of every job.
     final queueBadge = ref.watch(queueProvider.select((q) => q.activeCount + q.pendingCount));

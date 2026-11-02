@@ -1,10 +1,12 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/platform/app_paths.dart';
 import '../../core/providers.dart';
 import '../../core/settings/app_settings.dart';
+import '../../core/platform/jank_monitor.dart';
 import '../../ui/l10n.dart';
 import '../update/update_ui.dart';
 import '../../ui/widgets/common.dart';
@@ -635,6 +637,32 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         ),
       ),
       // Expert
+      _Item(
+        _Section.expert,
+        l.setJankLog,
+        l.setJankLogHint,
+        l.setJankLogHelp,
+        advanced: true,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          OutlinedButton.icon(
+            icon: const Icon(Icons.description_outlined),
+            label: Text(l.jankEvents(JankMonitor.instance?.events ?? 0)),
+            onPressed: () async {
+              final f = JankMonitor.instance?.file;
+              if (f == null) return;
+              final messenger = ScaffoldMessenger.of(context);
+              if (!await f.exists()) {
+                messenger.showSnackBar(SnackBar(content: Text(l.jankLogEmpty)));
+                return;
+              }
+              await launchUrl(Uri.file(f.path));
+            },
+          ),
+        ),
+      ),
       _Item(
         _Section.expert,
         l.setShowCommand,

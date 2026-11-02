@@ -1,0 +1,17 @@
+[package]
+name = "kadra_dsp"
+version = "1.0.0"
+edition = "2021"
+description = "Audio editor DSP for Kadra (waveform, analysis, effects), called from Dart via FFI"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

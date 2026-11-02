@@ -1930,5 +1930,10 @@
   "fileTypeText": "Text files",
   "recipesImported": "{count, plural, one{Imported {count} recipe} other{Imported {count} recipes}}",
   "recipesExported": "{count, plural, one{Exported {count} recipe} other{Exported {count} recipes}}",
-  "recipesImportFailed": "This is not a Kadra recipes file."
+  "recipesImportFailed": "This is not a Kadra recipes file.",
+  "setJankLog": "Freeze log",
+  "setJankLogHint": "Where the interface froze for more than a quarter second",
+  "setJankLogHelp": "Kadra writes to jank.log (in the logs folder) every frame that took longer than 250 ms and every interface stall longer than a second, with the name of the open screen. If the app lags, attach this file to a bug report: it shows exactly where.",
+  "jankEvents": "{count, plural, =0{Open (none this session)} other{Open ({count} this session)}}",
+  "jankLogEmpty": "No freezes so far"
 }

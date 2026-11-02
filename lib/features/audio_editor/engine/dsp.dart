@@ -1,13 +1,15 @@
-/// Pure-Dart DSP for what ffmpeg cannot do (Paulstretch, Wah-wah, sliding
+/// DSP for what ffmpeg cannot do (Paulstretch, Wah-wah, sliding
 /// speed) and for analysis (stats, spectrum, clipping, sound/silence and
 /// beat finders). All functions are synchronous and meant to run in an
-/// isolate (`Isolate.run`).
+/// isolate (`Isolate.run`). Each tries the Rust library first
+/// (`native_dsp.dart`) and falls back to the Dart code below.
 library;
 
 import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
+import 'native_dsp.dart';
 import 'wav.dart';
 
 // ---------------------------------------------------------------- FFT
@@ -78,6 +80,8 @@ List<Float32List> paulstretch(
   required double stretch,
   required double windowSec,
 }) {
+  final fast = NativeDsp.instance?.paulstretch(input, sampleRate, stretch: stretch, windowSec: windowSec);
+  if (fast != null) return fast;
   final win = math.max(256, nextPow2((windowSec * sampleRate).round()));
   final half = win ~/ 2;
   final w = hann(win);
@@ -142,6 +146,15 @@ List<Float32List> wahwah(
   required double resonance,
   required double offset,
 }) {
+  final fast = NativeDsp.instance?.wahwah(
+    input,
+    sampleRate,
+    lfoHz: lfoHz,
+    depth: depth,
+    resonance: resonance,
+    offset: offset,
+  );
+  if (fast != null) return fast;
   const fMin = 300.0, fMax = 3000.0;
   final q = 1 / resonance.clamp(0.1, 10);
   return [
@@ -168,6 +181,8 @@ List<Float32List> wahwah(
 /// Varispeed with a linear ramp from [fromPct] to [toPct] (speed and pitch
 /// change together, like turning a record player's speed knob).
 List<Float32List> slidingSpeed(List<Float32List> input, {required double fromPct, required double toPct}) {
+  final fast = NativeDsp.instance?.slidingSpeed(input, fromPct: fromPct, toPct: toPct);
+  if (fast != null) return fast;
   final n = input.first.length;
   final r0 = 1 + fromPct / 100;
   final r1 = 1 + toPct / 100;
@@ -217,6 +232,8 @@ class ChannelStats {
 
 /// Peak, RMS, DC offset and clipped-sample count per channel of a range.
 List<ChannelStats> analyzeStats(String wavPath, {int start = 0, int? end, double clipLevel = 0.9999}) {
+  final fast = NativeDsp.instance?.stats(wavPath, start: start, end: end, clipLevel: clipLevel);
+  if (fast != null) return fast;
   final f = File(wavPath).openSync();
   try {
     final info = readWavInfo(f);
@@ -260,6 +277,8 @@ List<ChannelStats> analyzeStats(String wavPath, {int start = 0, int? end, double
 /// Average magnitude spectrum (Hann window, 50% overlap), mono-summed.
 /// Returns dB values for bins 0..fftSize/2.
 Float64List averageSpectrum(String wavPath, {int start = 0, int? end, int fftSize = 4096}) {
+  final fast = NativeDsp.instance?.spectrum(wavPath, start: start, end: end, fftSize: fftSize);
+  if (fast != null) return fast;
   final f = File(wavPath).openSync();
   try {
     final info = readWavInfo(f);
@@ -297,6 +316,8 @@ Float64List averageSpectrum(String wavPath, {int start = 0, int? end, int fftSiz
 
 /// Short-term RMS (dB) in windows of [windowMs].
 Float64List rmsEnvelope(String wavPath, {int windowMs = 10, int start = 0, int? end}) {
+  final fast = NativeDsp.instance?.rmsEnvelope(wavPath, windowMs: windowMs, start: start, end: end);
+  if (fast != null) return fast;
   final f = File(wavPath).openSync();
   try {
     final info = readWavInfo(f);
@@ -349,6 +370,8 @@ List<(int, int)> findRegions(
 
 /// Runs of samples at or above [level] (clipping); (start, end) frames.
 List<(int, int)> findClipping(String wavPath, {double level = 0.9999, int minRun = 3}) {
+  final fast = NativeDsp.instance?.findClipping(wavPath, level: level, minRun: minRun);
+  if (fast != null) return fast;
   final f = File(wavPath).openSync();
   final out = <(int, int)>[];
   try {

@@ -25,6 +25,10 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter analyze
+      - name: Rust DSP (for the parity tests)
+        run: |
+          cargo test --release --manifest-path native/kadra_dsp/Cargo.toml
+          cargo build --release --manifest-path native/kadra_dsp/Cargo.toml
       - run: flutter test
       - run: flutter build linux --release
       # The same AppImage the release publishes (checks the packaging).
@@ -55,6 +59,10 @@ jobs:
           cache: true
       - run: flutter pub get
       # Pure-Dart tests also run on Windows (process tests skip without ffmpeg).
+      - name: Rust DSP (for the parity tests)
+        run: |
+          cargo test --release --manifest-path native/kadra_dsp/Cargo.toml
+          cargo build --release --manifest-path native/kadra_dsp/Cargo.toml
       - run: flutter test
       - run: flutter build windows --release
       - name: Installer

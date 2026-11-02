@@ -152,6 +152,15 @@ flutter run -d windows   # или -d linux
 Linux: нужны `libgtk-3-dev`, `libmpv-dev`, `libnotify-dev`, `libx11-dev`, `libxi-dev`,
 `ninja-build`, `clang`, `cmake`.
 
+Вычисления аудиоредактора (волна, статистика, спектр, поиск клиппинга, громкость, Paulstretch,
+Wah-wah, плавная смена скорости) написаны на Rust: `native/kadra_dsp`, вызов через dart:ffi.
+Библиотеку собирает CMake при `flutter build`, если установлен `cargo` (rustup); без него
+приложение работает на прежнем Dart-коде, только медленнее. Для тестов сравнения Rust ↔ Dart:
+`cargo build --release --manifest-path native/kadra_dsp/Cargo.toml`, затем `flutter test`.
+
+Если интерфейс подвисает, Kadra пишет `logs/jank.log` (кадры дольше 250 мс и замирания
+дольше секунды с названием экрана); открыть — Настройки → «Для экспертов» → «Журнал подвисаний».
+
 Упаковка: `windows/installer/kadra.iss` (Inno Setup 6, см. комментарий в начале файла),
 `linux/packaging/build_appimage.sh <bundle> <out.AppImage>` (нужен `appimagetool`).
 Иконки рисует `python3 tool/icons/make_icons.py`.

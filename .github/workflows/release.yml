@@ -51,6 +51,10 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
       - run: flutter pub get
+      - name: Rust DSP (for the parity tests)
+        run: |
+          cargo test --release --manifest-path native/kadra_dsp/Cargo.toml
+          cargo build --release --manifest-path native/kadra_dsp/Cargo.toml
       - run: flutter test
       - run: flutter build windows --release
       - name: Pack
@@ -95,6 +99,10 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter analyze
+      - name: Rust DSP (for the parity tests)
+        run: |
+          cargo test --release --manifest-path native/kadra_dsp/Cargo.toml
+          cargo build --release --manifest-path native/kadra_dsp/Cargo.toml
       - run: flutter test
       - run: flutter build linux --release
       - name: Pack

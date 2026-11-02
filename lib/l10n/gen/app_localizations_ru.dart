@@ -6295,4 +6295,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get recipesImportFailed => 'Это не файл рецептов Kadra.';
+
+  @override
+  String get setJankLog => 'Журнал подвисаний';
+
+  @override
+  String get setJankLogHint => 'Где интерфейс замирал дольше четверти секунды';
+
+  @override
+  String get setJankLogHelp =>
+      'Kadra записывает в файл jank.log (папка журналов) каждый кадр, который рисовался дольше 250 мс, и каждое замирание интерфейса дольше секунды — с названием открытого экрана. Если приложение тормозит, приложите этот файл к сообщению об ошибке: по нему видно, где именно.';
+
+  @override
+  String jankEvents(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Открыть ($count за этот запуск)',
+      many: 'Открыть ($count за этот запуск)',
+      few: 'Открыть ($count за этот запуск)',
+      one: 'Открыть ($count за этот запуск)',
+      zero: 'Открыть (за этот запуск — нет)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get jankLogEmpty => 'Подвисаний пока не было';
 }

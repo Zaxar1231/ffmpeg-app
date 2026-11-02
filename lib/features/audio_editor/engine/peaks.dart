@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
+import 'native_dsp.dart';
 import 'wav.dart';
 
 /// Waveform overview: min/max per bucket of [bucket] frames, per channel.
@@ -37,6 +38,8 @@ class Peaks {
 }
 
 Peaks computePeaks(String wavPath, {int bucket = 128}) {
+  final fast = NativeDsp.instance?.peaks(wavPath, bucket: bucket);
+  if (fast != null) return fast;
   final f = File(wavPath).openSync();
   try {
     final info = readWavInfo(f);

@@ -11677,6 +11677,36 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Это не файл рецептов Kadra.'**
   String get recipesImportFailed;
+
+  /// No description provided for @setJankLog.
+  ///
+  /// In ru, this message translates to:
+  /// **'Журнал подвисаний'**
+  String get setJankLog;
+
+  /// No description provided for @setJankLogHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Где интерфейс замирал дольше четверти секунды'**
+  String get setJankLogHint;
+
+  /// No description provided for @setJankLogHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Kadra записывает в файл jank.log (папка журналов) каждый кадр, который рисовался дольше 250 мс, и каждое замирание интерфейса дольше секунды — с названием открытого экрана. Если приложение тормозит, приложите этот файл к сообщению об ошибке: по нему видно, где именно.'**
+  String get setJankLogHelp;
+
+  /// No description provided for @jankEvents.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, =0{Открыть (за этот запуск — нет)} one{Открыть ({count} за этот запуск)} few{Открыть ({count} за этот запуск)} many{Открыть ({count} за этот запуск)} other{Открыть ({count} за этот запуск)}}'**
+  String jankEvents(int count);
+
+  /// No description provided for @jankLogEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подвисаний пока не было'**
+  String get jankLogEmpty;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -6234,4 +6234,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get recipesImportFailed => 'This is not a Kadra recipes file.';
+
+  @override
+  String get setJankLog => 'Freeze log';
+
+  @override
+  String get setJankLogHint => 'Where the interface froze for more than a quarter second';
+
+  @override
+  String get setJankLogHelp =>
+      'Kadra writes to jank.log (in the logs folder) every frame that took longer than 250 ms and every interface stall longer than a second, with the name of the open screen. If the app lags, attach this file to a bug report: it shows exactly where.';
+
+  @override
+  String jankEvents(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Open ($count this session)',
+      zero: 'Open (none this session)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get jankLogEmpty => 'No freezes so far';
 }
