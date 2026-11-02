@@ -7,6 +7,7 @@
 # must come from the host.
 set -euo pipefail
 bundle=$(readlink -f "$1")
+mkdir -p "$(dirname "$2")"
 out=$(readlink -f "$2")
 here=$(dirname "$(readlink -f "$0")")
 tool=${APPIMAGETOOL:-appimagetool}
