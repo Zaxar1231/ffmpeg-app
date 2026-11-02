@@ -81,7 +81,7 @@ Linux: нужны `libgtk-3-dev`, `libmpv-dev`, `ninja-build`, `clang`, `cmake`.
 media_kit по умолчанию скачивает mimalloc с GitHub; для офлайн-сборок можно взять системный
 (`libmimalloc-dev`): `KADRA_SYSTEM_MIMALLOC=1 flutter build linux`.
 
-После изменения таблиц БД: `dart run build_runner build`. Строки интерфейса — в `lib/l10n/app_*.arb`
+После изменения таблиц БД: `dart run build_runner build`. Строки интерфейса задаются в `tool/l10n/*.py` (`python3 tool/l10n/arb.py` пишет `lib/l10n/app_*.arb`)
 (код генерируется в `lib/l10n/gen` при сборке или `flutter gen-l10n`).
 
 `kadra <файл>` открывает файл сразу на главной.
