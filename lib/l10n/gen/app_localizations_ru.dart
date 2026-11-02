@@ -5115,4 +5115,245 @@ class AppLocalizationsRu extends AppLocalizations {
   String subShiftExample(String t) {
     return 'Строка с 0:01.000 начнётся в $t с';
   }
+
+  @override
+  String get groupImageFormat => 'Формат картинки';
+
+  @override
+  String get pImageFormat => 'Формат';
+
+  @override
+  String get imgPngHint => 'Без потерь, крупный файл; поддерживает прозрачность';
+
+  @override
+  String get imgJpgHint => 'Самый совместимый, для фото';
+
+  @override
+  String get imgWebpHint => 'Меньше JPEG при том же качестве; понимают все браузеры';
+
+  @override
+  String get imgAvifHint => 'Ещё меньше WebP; кодируется медленно';
+
+  @override
+  String get imgJxlHint => 'JPEG XL — очень эффективный, поддерживается пока не везде';
+
+  @override
+  String get pImageQuality => 'Качество';
+
+  @override
+  String get pImageQualityHint => 'Больше — лучше и крупнее; 100 — без потерь (WebP, JPEG XL)';
+
+  @override
+  String get lossless => 'без потерь';
+
+  @override
+  String get groupFrames => 'Кадры';
+
+  @override
+  String get pFramesMode => 'Какие кадры';
+
+  @override
+  String get framesSingle => 'Один кадр';
+
+  @override
+  String get framesBest => 'Лучший кадр';
+
+  @override
+  String get framesEvery => 'Через интервал';
+
+  @override
+  String get framesN => 'N штук';
+
+  @override
+  String get framesScenes => 'На смене сцен';
+
+  @override
+  String get framesSingleHint => 'Кадр в выбранный момент — для обложки или скриншота';
+
+  @override
+  String get framesBestHint => 'Самый характерный кадр из первых секунд (фильтр thumbnail)';
+
+  @override
+  String get framesEveryHint => 'Кадры через равные промежутки времени';
+
+  @override
+  String get framesCountHint => 'Заданное число кадров, равномерно по всему файлу';
+
+  @override
+  String get framesScenesHint => 'Первый кадр каждой новой сцены';
+
+  @override
+  String get pFrameAt => 'Момент';
+
+  @override
+  String get pFrameAtHint => 'Можно выбрать ползунком под кадром';
+
+  @override
+  String get pFramesInterval => 'Интервал';
+
+  @override
+  String get pFramesNumber => 'Сколько кадров';
+
+  @override
+  String get pFramesNumberHint => 'Равномерно по длительности';
+
+  @override
+  String get pImageWidth => 'Ширина';
+
+  @override
+  String get pImageWidthHint => 'Высота подбирается по пропорциям';
+
+  @override
+  String framesCount(int n) {
+    return 'Получится картинок: $n';
+  }
+
+  @override
+  String get framesSceneCount => 'Число картинок зависит от числа сцен';
+
+  @override
+  String get groupSheet => 'Раскадровка';
+
+  @override
+  String get pColumns => 'Столбцов';
+
+  @override
+  String get pColumnsHint => 'Кадров в строке';
+
+  @override
+  String get pRows => 'Строк';
+
+  @override
+  String get pRowsHint => 'Всего кадров = столбцы × строки';
+
+  @override
+  String get pThumbWidth => 'Ширина кадра';
+
+  @override
+  String get pThumbWidthHint => 'Каждой миниатюры';
+
+  @override
+  String get pTimestamps => 'Время на кадрах';
+
+  @override
+  String get pTimestampsHint => 'Подпись времени в углу каждой миниатюры';
+
+  @override
+  String get pBackground => 'Фон';
+
+  @override
+  String get pBackgroundHint => 'Цвет промежутков между кадрами';
+
+  @override
+  String get colorGray => 'серый';
+
+  @override
+  String sheetSize(String width, String count) {
+    return 'Ширина картинки: $width, кадров: $count';
+  }
+
+  @override
+  String get groupImages => 'Картинки';
+
+  @override
+  String get groupSlides => 'Слайды';
+
+  @override
+  String slideshowOnlyImages(String name) {
+    return '«$name» — не картинка; для видео используйте «Склейку»';
+  }
+
+  @override
+  String get pFrameSize => 'Размер кадра';
+
+  @override
+  String get pFrameSizeHint => 'Картинки вписываются в этот кадр';
+
+  @override
+  String get pPerImage => 'Время на картинку';
+
+  @override
+  String get pPerImageHint => 'Сколько секунд показывать каждую';
+
+  @override
+  String get hardCut => 'Без перехода';
+
+  @override
+  String get pKenBurns => 'Плавный наезд';
+
+  @override
+  String get pKenBurnsHint => 'Эффект Кена Бёрнса: картинки медленно приближаются';
+
+  @override
+  String get slideshowMusicHint => 'Необязательно; обрежется по длине слайд-шоу';
+
+  @override
+  String get pFitToAudio => 'Подогнать под музыку';
+
+  @override
+  String get pFitToAudioHint =>
+      'Время на картинку рассчитывается так, чтобы слайд-шоу длилось столько же, сколько музыка';
+
+  @override
+  String get pCoverSource => 'Картинка';
+
+  @override
+  String get pCoverSourceHint => 'Что показывать, пока звучит звук';
+
+  @override
+  String get coverEmbedded => 'Обложка из файла';
+
+  @override
+  String get coverFile => 'Своя картинка';
+
+  @override
+  String get coverColor => 'Цвет';
+
+  @override
+  String get chooseCoverImage => 'Выберите картинку';
+
+  @override
+  String get pWaveOverlay => 'Волна поверх';
+
+  @override
+  String get pWaveOverlayHint => 'Анимированная звуковая волна внизу кадра';
+
+  @override
+  String get groupVisual => 'Визуализация';
+
+  @override
+  String get pVisualKind => 'Вид';
+
+  @override
+  String get visWaves => 'Волна';
+
+  @override
+  String get visScope => 'Вектороскоп';
+
+  @override
+  String get visCqt => 'Ноты';
+
+  @override
+  String get visWavesHint => 'Осциллограмма звука в реальном времени';
+
+  @override
+  String get visSpectrumHint => 'Бегущая спектрограмма';
+
+  @override
+  String get visScopeHint => 'Стереокартина: ширина и фаза звука';
+
+  @override
+  String get visCqtHint => 'Спектр по нотам с клавиатурой пианино';
+
+  @override
+  String get pMaxSide => 'Максимальная сторона';
+
+  @override
+  String get pMaxSideHint => 'Уменьшить, если больше; никогда не увеличивает';
+
+  @override
+  String get pStripMetadata => 'Удалить метаданные';
+
+  @override
+  String get pStripMetadataHint => 'EXIF, GPS-координаты, модель камеры';
 }

@@ -5079,4 +5079,244 @@ class AppLocalizationsEn extends AppLocalizations {
   String subShiftExample(String t) {
     return 'A line at 0:01.000 will start at $t s';
   }
+
+  @override
+  String get groupImageFormat => 'Image format';
+
+  @override
+  String get pImageFormat => 'Format';
+
+  @override
+  String get imgPngHint => 'Lossless, big files; supports transparency';
+
+  @override
+  String get imgJpgHint => 'The most compatible, for photos';
+
+  @override
+  String get imgWebpHint => 'Smaller than JPEG at the same quality; every browser reads it';
+
+  @override
+  String get imgAvifHint => 'Even smaller than WebP; slow to encode';
+
+  @override
+  String get imgJxlHint => 'JPEG XL — very efficient, not supported everywhere yet';
+
+  @override
+  String get pImageQuality => 'Quality';
+
+  @override
+  String get pImageQualityHint => 'Higher is better and bigger; 100 is lossless (WebP, JPEG XL)';
+
+  @override
+  String get lossless => 'lossless';
+
+  @override
+  String get groupFrames => 'Frames';
+
+  @override
+  String get pFramesMode => 'Which frames';
+
+  @override
+  String get framesSingle => 'One frame';
+
+  @override
+  String get framesBest => 'Best frame';
+
+  @override
+  String get framesEvery => 'Every N seconds';
+
+  @override
+  String get framesN => 'N frames';
+
+  @override
+  String get framesScenes => 'At scene changes';
+
+  @override
+  String get framesSingleHint => 'The frame at a chosen moment — for a cover or a screenshot';
+
+  @override
+  String get framesBestHint => 'The most representative frame of the first seconds (thumbnail filter)';
+
+  @override
+  String get framesEveryHint => 'Frames at equal time intervals';
+
+  @override
+  String get framesCountHint => 'A set number of frames spread evenly over the file';
+
+  @override
+  String get framesScenesHint => 'The first frame of every new scene';
+
+  @override
+  String get pFrameAt => 'Moment';
+
+  @override
+  String get pFrameAtHint => 'You can pick it with the slider under the frame';
+
+  @override
+  String get pFramesInterval => 'Interval';
+
+  @override
+  String get pFramesNumber => 'How many frames';
+
+  @override
+  String get pFramesNumberHint => 'Evenly over the duration';
+
+  @override
+  String get pImageWidth => 'Width';
+
+  @override
+  String get pImageWidthHint => 'Height follows the aspect ratio';
+
+  @override
+  String framesCount(int n) {
+    return 'Images: $n';
+  }
+
+  @override
+  String get framesSceneCount => 'The number of images depends on the scenes';
+
+  @override
+  String get groupSheet => 'Contact sheet';
+
+  @override
+  String get pColumns => 'Columns';
+
+  @override
+  String get pColumnsHint => 'Frames per row';
+
+  @override
+  String get pRows => 'Rows';
+
+  @override
+  String get pRowsHint => 'Total frames = columns × rows';
+
+  @override
+  String get pThumbWidth => 'Thumbnail width';
+
+  @override
+  String get pThumbWidthHint => 'Of each thumbnail';
+
+  @override
+  String get pTimestamps => 'Timestamps';
+
+  @override
+  String get pTimestampsHint => 'Time label in the corner of each thumbnail';
+
+  @override
+  String get pBackground => 'Background';
+
+  @override
+  String get pBackgroundHint => 'Color between the thumbnails';
+
+  @override
+  String get colorGray => 'gray';
+
+  @override
+  String sheetSize(String width, String count) {
+    return 'Image width: $width, frames: $count';
+  }
+
+  @override
+  String get groupImages => 'Images';
+
+  @override
+  String get groupSlides => 'Slides';
+
+  @override
+  String slideshowOnlyImages(String name) {
+    return '“$name” is not an image; use Join for videos';
+  }
+
+  @override
+  String get pFrameSize => 'Frame size';
+
+  @override
+  String get pFrameSizeHint => 'Images are fitted into this frame';
+
+  @override
+  String get pPerImage => 'Time per image';
+
+  @override
+  String get pPerImageHint => 'How long each one is shown';
+
+  @override
+  String get hardCut => 'Hard cut';
+
+  @override
+  String get pKenBurns => 'Slow zoom';
+
+  @override
+  String get pKenBurnsHint => 'Ken Burns effect: images slowly zoom in';
+
+  @override
+  String get slideshowMusicHint => 'Optional; cut to the slideshow length';
+
+  @override
+  String get pFitToAudio => 'Fit to the music';
+
+  @override
+  String get pFitToAudioHint => 'The time per image is set so the slideshow lasts as long as the music';
+
+  @override
+  String get pCoverSource => 'Picture';
+
+  @override
+  String get pCoverSourceHint => 'What to show while the audio plays';
+
+  @override
+  String get coverEmbedded => 'Embedded cover';
+
+  @override
+  String get coverFile => 'Own image';
+
+  @override
+  String get coverColor => 'Color';
+
+  @override
+  String get chooseCoverImage => 'Choose an image';
+
+  @override
+  String get pWaveOverlay => 'Waveform overlay';
+
+  @override
+  String get pWaveOverlayHint => 'An animated audio wave at the bottom of the frame';
+
+  @override
+  String get groupVisual => 'Visualization';
+
+  @override
+  String get pVisualKind => 'Kind';
+
+  @override
+  String get visWaves => 'Wave';
+
+  @override
+  String get visScope => 'Vectorscope';
+
+  @override
+  String get visCqt => 'Notes';
+
+  @override
+  String get visWavesHint => 'A real-time waveform';
+
+  @override
+  String get visSpectrumHint => 'A scrolling spectrogram';
+
+  @override
+  String get visScopeHint => 'Stereo image: width and phase';
+
+  @override
+  String get visCqtHint => 'A note spectrum with a piano keyboard';
+
+  @override
+  String get pMaxSide => 'Longest side';
+
+  @override
+  String get pMaxSideHint => 'Shrink if larger; never enlarges';
+
+  @override
+  String get pStripMetadata => 'Strip metadata';
+
+  @override
+  String get pStripMetadataHint => 'EXIF, GPS location, camera model';
 }

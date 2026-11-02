@@ -10,6 +10,7 @@ import '../edit/ui/cut_pages.dart';
 import '../edit/graphs.dart';
 import '../edit/ui/frame_pages.dart';
 import '../gif/gif_page.dart';
+import '../images/images_pages.dart';
 import '../subtitles/subs_pages.dart';
 import '../trim/trim_page.dart';
 import 'tool_infra.dart';
@@ -54,6 +55,12 @@ class ToolHost extends ConsumerWidget {
       'burnSubs' => BurnSubsPage(key: key, path: tool.path),
       'softSubs' => SubTracksPage(key: key, path: tool.path),
       'convertSubs' => ConvertSubsPage(key: key, path: tool.path),
+      'frames' => FramesPage(key: key, path: tool.path),
+      'contactSheet' => ContactSheetPage(key: key, path: tool.path),
+      'slideshow' => SlideshowPage(key: key, path: tool.path),
+      'audioToVideo' => AudioToVideoPage(key: key, path: tool.path),
+      'visualizer' => VisualizerPage(key: key, path: tool.path),
+      'imageConvert' => ImageConvertPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -76,7 +83,17 @@ const screenTools = {
 };
 
 /// Stage 4 tools with a screen.
-const stage4Tools = {'burnSubs', 'softSubs', 'convertSubs'};
+const stage4Tools = {
+  'burnSubs',
+  'softSubs',
+  'convertSubs',
+  'frames',
+  'contactSheet',
+  'slideshow',
+  'audioToVideo',
+  'visualizer',
+  'imageConvert',
+};
 
 /// Stage 3 analysis tools.
 const analysisTools = {'loudness', 'waveform', 'detect', 'compareQuality'};

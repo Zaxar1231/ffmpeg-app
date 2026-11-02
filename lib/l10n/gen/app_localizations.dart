@@ -9577,6 +9577,474 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Строка с 0:01.000 начнётся в {t} с'**
   String subShiftExample(String t);
+
+  /// No description provided for @groupImageFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат картинки'**
+  String get groupImageFormat;
+
+  /// No description provided for @pImageFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pImageFormat;
+
+  /// No description provided for @imgPngHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без потерь, крупный файл; поддерживает прозрачность'**
+  String get imgPngHint;
+
+  /// No description provided for @imgJpgHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Самый совместимый, для фото'**
+  String get imgJpgHint;
+
+  /// No description provided for @imgWebpHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Меньше JPEG при том же качестве; понимают все браузеры'**
+  String get imgWebpHint;
+
+  /// No description provided for @imgAvifHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ещё меньше WebP; кодируется медленно'**
+  String get imgAvifHint;
+
+  /// No description provided for @imgJxlHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'JPEG XL — очень эффективный, поддерживается пока не везде'**
+  String get imgJxlHint;
+
+  /// No description provided for @pImageQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество'**
+  String get pImageQuality;
+
+  /// No description provided for @pImageQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше — лучше и крупнее; 100 — без потерь (WebP, JPEG XL)'**
+  String get pImageQualityHint;
+
+  /// No description provided for @lossless.
+  ///
+  /// In ru, this message translates to:
+  /// **'без потерь'**
+  String get lossless;
+
+  /// No description provided for @groupFrames.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадры'**
+  String get groupFrames;
+
+  /// No description provided for @pFramesMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какие кадры'**
+  String get pFramesMode;
+
+  /// No description provided for @framesSingle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Один кадр'**
+  String get framesSingle;
+
+  /// No description provided for @framesBest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучший кадр'**
+  String get framesBest;
+
+  /// No description provided for @framesEvery.
+  ///
+  /// In ru, this message translates to:
+  /// **'Через интервал'**
+  String get framesEvery;
+
+  /// No description provided for @framesN.
+  ///
+  /// In ru, this message translates to:
+  /// **'N штук'**
+  String get framesN;
+
+  /// No description provided for @framesScenes.
+  ///
+  /// In ru, this message translates to:
+  /// **'На смене сцен'**
+  String get framesScenes;
+
+  /// No description provided for @framesSingleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадр в выбранный момент — для обложки или скриншота'**
+  String get framesSingleHint;
+
+  /// No description provided for @framesBestHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Самый характерный кадр из первых секунд (фильтр thumbnail)'**
+  String get framesBestHint;
+
+  /// No description provided for @framesEveryHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадры через равные промежутки времени'**
+  String get framesEveryHint;
+
+  /// No description provided for @framesCountHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заданное число кадров, равномерно по всему файлу'**
+  String get framesCountHint;
+
+  /// No description provided for @framesScenesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Первый кадр каждой новой сцены'**
+  String get framesScenesHint;
+
+  /// No description provided for @pFrameAt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Момент'**
+  String get pFrameAt;
+
+  /// No description provided for @pFrameAtHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Можно выбрать ползунком под кадром'**
+  String get pFrameAtHint;
+
+  /// No description provided for @pFramesInterval.
+  ///
+  /// In ru, this message translates to:
+  /// **'Интервал'**
+  String get pFramesInterval;
+
+  /// No description provided for @pFramesNumber.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сколько кадров'**
+  String get pFramesNumber;
+
+  /// No description provided for @pFramesNumberHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Равномерно по длительности'**
+  String get pFramesNumberHint;
+
+  /// No description provided for @pImageWidth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина'**
+  String get pImageWidth;
+
+  /// No description provided for @pImageWidthHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота подбирается по пропорциям'**
+  String get pImageWidthHint;
+
+  /// No description provided for @framesCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Получится картинок: {n}'**
+  String framesCount(int n);
+
+  /// No description provided for @framesSceneCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Число картинок зависит от числа сцен'**
+  String get framesSceneCount;
+
+  /// No description provided for @groupSheet.
+  ///
+  /// In ru, this message translates to:
+  /// **'Раскадровка'**
+  String get groupSheet;
+
+  /// No description provided for @pColumns.
+  ///
+  /// In ru, this message translates to:
+  /// **'Столбцов'**
+  String get pColumns;
+
+  /// No description provided for @pColumnsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кадров в строке'**
+  String get pColumnsHint;
+
+  /// No description provided for @pRows.
+  ///
+  /// In ru, this message translates to:
+  /// **'Строк'**
+  String get pRows;
+
+  /// No description provided for @pRowsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Всего кадров = столбцы × строки'**
+  String get pRowsHint;
+
+  /// No description provided for @pThumbWidth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина кадра'**
+  String get pThumbWidth;
+
+  /// No description provided for @pThumbWidthHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каждой миниатюры'**
+  String get pThumbWidthHint;
+
+  /// No description provided for @pTimestamps.
+  ///
+  /// In ru, this message translates to:
+  /// **'Время на кадрах'**
+  String get pTimestamps;
+
+  /// No description provided for @pTimestampsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подпись времени в углу каждой миниатюры'**
+  String get pTimestampsHint;
+
+  /// No description provided for @pBackground.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фон'**
+  String get pBackground;
+
+  /// No description provided for @pBackgroundHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет промежутков между кадрами'**
+  String get pBackgroundHint;
+
+  /// No description provided for @colorGray.
+  ///
+  /// In ru, this message translates to:
+  /// **'серый'**
+  String get colorGray;
+
+  /// No description provided for @sheetSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина картинки: {width}, кадров: {count}'**
+  String sheetSize(String width, String count);
+
+  /// No description provided for @groupImages.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинки'**
+  String get groupImages;
+
+  /// No description provided for @groupSlides.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слайды'**
+  String get groupSlides;
+
+  /// No description provided for @slideshowOnlyImages.
+  ///
+  /// In ru, this message translates to:
+  /// **'«{name}» — не картинка; для видео используйте «Склейку»'**
+  String slideshowOnlyImages(String name);
+
+  /// No description provided for @pFrameSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер кадра'**
+  String get pFrameSize;
+
+  /// No description provided for @pFrameSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинки вписываются в этот кадр'**
+  String get pFrameSizeHint;
+
+  /// No description provided for @pPerImage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Время на картинку'**
+  String get pPerImage;
+
+  /// No description provided for @pPerImageHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сколько секунд показывать каждую'**
+  String get pPerImageHint;
+
+  /// No description provided for @hardCut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без перехода'**
+  String get hardCut;
+
+  /// No description provided for @pKenBurns.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавный наезд'**
+  String get pKenBurns;
+
+  /// No description provided for @pKenBurnsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эффект Кена Бёрнса: картинки медленно приближаются'**
+  String get pKenBurnsHint;
+
+  /// No description provided for @slideshowMusicHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Необязательно; обрежется по длине слайд-шоу'**
+  String get slideshowMusicHint;
+
+  /// No description provided for @pFitToAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подогнать под музыку'**
+  String get pFitToAudio;
+
+  /// No description provided for @pFitToAudioHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Время на картинку рассчитывается так, чтобы слайд-шоу длилось столько же, сколько музыка'**
+  String get pFitToAudioHint;
+
+  /// No description provided for @pCoverSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Картинка'**
+  String get pCoverSource;
+
+  /// No description provided for @pCoverSourceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что показывать, пока звучит звук'**
+  String get pCoverSourceHint;
+
+  /// No description provided for @coverEmbedded.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обложка из файла'**
+  String get coverEmbedded;
+
+  /// No description provided for @coverFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Своя картинка'**
+  String get coverFile;
+
+  /// No description provided for @coverColor.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет'**
+  String get coverColor;
+
+  /// No description provided for @chooseCoverImage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите картинку'**
+  String get chooseCoverImage;
+
+  /// No description provided for @pWaveOverlay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Волна поверх'**
+  String get pWaveOverlay;
+
+  /// No description provided for @pWaveOverlayHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Анимированная звуковая волна внизу кадра'**
+  String get pWaveOverlayHint;
+
+  /// No description provided for @groupVisual.
+  ///
+  /// In ru, this message translates to:
+  /// **'Визуализация'**
+  String get groupVisual;
+
+  /// No description provided for @pVisualKind.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вид'**
+  String get pVisualKind;
+
+  /// No description provided for @visWaves.
+  ///
+  /// In ru, this message translates to:
+  /// **'Волна'**
+  String get visWaves;
+
+  /// No description provided for @visScope.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вектороскоп'**
+  String get visScope;
+
+  /// No description provided for @visCqt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ноты'**
+  String get visCqt;
+
+  /// No description provided for @visWavesHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Осциллограмма звука в реальном времени'**
+  String get visWavesHint;
+
+  /// No description provided for @visSpectrumHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Бегущая спектрограмма'**
+  String get visSpectrumHint;
+
+  /// No description provided for @visScopeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стереокартина: ширина и фаза звука'**
+  String get visScopeHint;
+
+  /// No description provided for @visCqtHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Спектр по нотам с клавиатурой пианино'**
+  String get visCqtHint;
+
+  /// No description provided for @pMaxSide.
+  ///
+  /// In ru, this message translates to:
+  /// **'Максимальная сторона'**
+  String get pMaxSide;
+
+  /// No description provided for @pMaxSideHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить, если больше; никогда не увеличивает'**
+  String get pMaxSideHint;
+
+  /// No description provided for @pStripMetadata.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить метаданные'**
+  String get pStripMetadata;
+
+  /// No description provided for @pStripMetadataHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'EXIF, GPS-координаты, модель камеры'**
+  String get pStripMetadataHint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

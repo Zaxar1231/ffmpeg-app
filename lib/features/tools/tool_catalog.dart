@@ -67,7 +67,17 @@ class ToolDef {
 /// current stage only once they are listed in [currentStageReady].
 const currentStage = 4;
 
-const currentStageReady = {'burnSubs', 'softSubs', 'convertSubs'};
+const currentStageReady = {
+  'burnSubs',
+  'softSubs',
+  'convertSubs',
+  'frames',
+  'contactSheet',
+  'slideshow',
+  'audioToVideo',
+  'visualizer',
+  'imageConvert',
+};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 
@@ -348,6 +358,7 @@ const toolCatalog = <ToolDef>[
     Icons.photo_library_outlined,
     stage: 4,
     keywords: ['thumbnail', 'screenshot', 'кадры', 'превью'],
+    forKinds: _v,
   ),
   ToolDef(
     'contactSheet',
@@ -356,6 +367,7 @@ const toolCatalog = <ToolDef>[
     stage: 4,
     filters: ['tile'],
     keywords: ['storyboard', 'раскадровка'],
+    forKinds: _v,
   ),
   ToolDef('slideshow', ToolCategory.images, Icons.slideshow_outlined, stage: 4, keywords: ['images', 'картинки']),
   ToolDef(
@@ -373,6 +385,7 @@ const toolCatalog = <ToolDef>[
     stage: 4,
     filters: ['showwaves', 'showspectrum', 'avectorscope'],
     keywords: ['waves', 'spectrum', 'визуализация'],
+    forKinds: _a,
   ),
   ToolDef(
     'imageConvert',

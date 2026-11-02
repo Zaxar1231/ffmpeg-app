@@ -65,17 +65,19 @@ ConvertPlan planEdit({
   final c = containerFor(out.ext);
   final v = info.videoStreams.firstOrNull;
   final a = info.audioStreams.firstOrNull;
-  final videoChoice = graph.video == null || v == null
+  // Still-image sources (png/jpg) get the container's default codec.
+  final stillSource = v != null && const {'png', 'mjpeg', 'webp', 'bmp', 'tiff', 'gif'}.contains(v.codecName);
+  final videoChoice = graph.video == null
       ? VideoCodecChoice.none
-      : videoChoiceFor(out.ext, sourceCodec: v.codecName);
+      : videoChoiceFor(out.ext, sourceCodec: stillSource ? null : v?.codecName);
   final passthroughAudio = graph.audio != null && graph.audio!.contains(':');
   final AudioCodecChoice audioChoice;
-  if (graph.audio == null || a == null) {
+  if (graph.audio == null) {
     audioChoice = AudioCodecChoice.none;
-  } else if (passthroughAudio && info.audioStreams.every((s) => c.acceptsCopy(s.codecName))) {
+  } else if (passthroughAudio && a != null && info.audioStreams.every((s) => c.acceptsCopy(s.codecName))) {
     audioChoice = AudioCodecChoice.copy;
   } else {
-    audioChoice = audioChoiceFor(out.ext, sourceCodec: a.codecName);
+    audioChoice = audioChoiceFor(out.ext, sourceCodec: a?.codecName);
   }
   final enc = videoChoice == VideoCodecChoice.none
       ? null
@@ -86,7 +88,7 @@ ConvertPlan planEdit({
     audio: audioChoice,
     quality: enc == null ? null : qualityFor(enc, out.quality),
     speed: out.speed,
-    tenBit: !eightBit && (v?.bitDepth ?? 8) > 8,
+    tenBit: !eightBit && !stillSource && (v?.bitDepth ?? 8) > 8,
     keepSubtitles: false,
   );
   final plan = planConvert(info: info, output: output, p: params, env: env, graph: graph);

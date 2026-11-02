@@ -2297,5 +2297,107 @@
         "type": "String"
       }
     }
-  }
+  },
+  "groupImageFormat": "Формат картинки",
+  "pImageFormat": "Формат",
+  "imgPngHint": "Без потерь, крупный файл; поддерживает прозрачность",
+  "imgJpgHint": "Самый совместимый, для фото",
+  "imgWebpHint": "Меньше JPEG при том же качестве; понимают все браузеры",
+  "imgAvifHint": "Ещё меньше WebP; кодируется медленно",
+  "imgJxlHint": "JPEG XL — очень эффективный, поддерживается пока не везде",
+  "pImageQuality": "Качество",
+  "pImageQualityHint": "Больше — лучше и крупнее; 100 — без потерь (WebP, JPEG XL)",
+  "lossless": "без потерь",
+  "groupFrames": "Кадры",
+  "pFramesMode": "Какие кадры",
+  "framesSingle": "Один кадр",
+  "framesBest": "Лучший кадр",
+  "framesEvery": "Через интервал",
+  "framesN": "N штук",
+  "framesScenes": "На смене сцен",
+  "framesSingleHint": "Кадр в выбранный момент — для обложки или скриншота",
+  "framesBestHint": "Самый характерный кадр из первых секунд (фильтр thumbnail)",
+  "framesEveryHint": "Кадры через равные промежутки времени",
+  "framesCountHint": "Заданное число кадров, равномерно по всему файлу",
+  "framesScenesHint": "Первый кадр каждой новой сцены",
+  "pFrameAt": "Момент",
+  "pFrameAtHint": "Можно выбрать ползунком под кадром",
+  "pFramesInterval": "Интервал",
+  "pFramesNumber": "Сколько кадров",
+  "pFramesNumberHint": "Равномерно по длительности",
+  "pImageWidth": "Ширина",
+  "pImageWidthHint": "Высота подбирается по пропорциям",
+  "framesCount": "Получится картинок: {n}",
+  "@framesCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "framesSceneCount": "Число картинок зависит от числа сцен",
+  "groupSheet": "Раскадровка",
+  "pColumns": "Столбцов",
+  "pColumnsHint": "Кадров в строке",
+  "pRows": "Строк",
+  "pRowsHint": "Всего кадров = столбцы × строки",
+  "pThumbWidth": "Ширина кадра",
+  "pThumbWidthHint": "Каждой миниатюры",
+  "pTimestamps": "Время на кадрах",
+  "pTimestampsHint": "Подпись времени в углу каждой миниатюры",
+  "pBackground": "Фон",
+  "pBackgroundHint": "Цвет промежутков между кадрами",
+  "colorGray": "серый",
+  "sheetSize": "Ширина картинки: {width}, кадров: {count}",
+  "@sheetSize": {
+    "placeholders": {
+      "width": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "groupImages": "Картинки",
+  "groupSlides": "Слайды",
+  "slideshowOnlyImages": "«{name}» — не картинка; для видео используйте «Склейку»",
+  "@slideshowOnlyImages": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "pFrameSize": "Размер кадра",
+  "pFrameSizeHint": "Картинки вписываются в этот кадр",
+  "pPerImage": "Время на картинку",
+  "pPerImageHint": "Сколько секунд показывать каждую",
+  "hardCut": "Без перехода",
+  "pKenBurns": "Плавный наезд",
+  "pKenBurnsHint": "Эффект Кена Бёрнса: картинки медленно приближаются",
+  "slideshowMusicHint": "Необязательно; обрежется по длине слайд-шоу",
+  "pFitToAudio": "Подогнать под музыку",
+  "pFitToAudioHint": "Время на картинку рассчитывается так, чтобы слайд-шоу длилось столько же, сколько музыка",
+  "pCoverSource": "Картинка",
+  "pCoverSourceHint": "Что показывать, пока звучит звук",
+  "coverEmbedded": "Обложка из файла",
+  "coverFile": "Своя картинка",
+  "coverColor": "Цвет",
+  "chooseCoverImage": "Выберите картинку",
+  "pWaveOverlay": "Волна поверх",
+  "pWaveOverlayHint": "Анимированная звуковая волна внизу кадра",
+  "groupVisual": "Визуализация",
+  "pVisualKind": "Вид",
+  "visWaves": "Волна",
+  "visScope": "Вектороскоп",
+  "visCqt": "Ноты",
+  "visWavesHint": "Осциллограмма звука в реальном времени",
+  "visSpectrumHint": "Бегущая спектрограмма",
+  "visScopeHint": "Стереокартина: ширина и фаза звука",
+  "visCqtHint": "Спектр по нотам с клавиатурой пианино",
+  "pMaxSide": "Максимальная сторона",
+  "pMaxSideHint": "Уменьшить, если больше; никогда не увеличивает",
+  "pStripMetadata": "Удалить метаданные",
+  "pStripMetadataHint": "EXIF, GPS-координаты, модель камеры"
 }

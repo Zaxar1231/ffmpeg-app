@@ -298,8 +298,10 @@ ConvertPlan planConvert({
   final duration = graph != null ? (graph.duration ?? info.duration) : info.duration;
 
   // ------------------------------------------------------------ video
+  // With a graph, its outputs decide (an audio file can get a generated
+  // picture, an image can get a soundtrack).
   final wantVideo =
-      !c.audioOnly && srcVideo != null && p.video != VideoCodecChoice.none && (graph == null || graph.video != null);
+      !c.audioOnly && p.video != VideoCodecChoice.none && (graph == null ? srcVideo != null : graph.video != null);
   if (graph != null && graph.video != null && p.video == VideoCodecChoice.copy) {
     issues.add(ConvertIssue.noVideoEncoder);
   }
@@ -315,12 +317,12 @@ ConvertPlan planConvert({
     );
     if (enc == null) issues.add(ConvertIssue.noVideoEncoder);
   }
-  if (wantVideo && p.video == VideoCodecChoice.copy && !c.acceptsCopy(srcVideo.codecName)) {
+  if (wantVideo && p.video == VideoCodecChoice.copy && !c.acceptsCopy(srcVideo?.codecName)) {
     issues.add(ConvertIssue.copyNotInContainer);
   }
 
   // ------------------------------------------------------------ audio
-  final wantAudio = srcAudio.isNotEmpty && p.audio != AudioCodecChoice.none && (graph == null || graph.audio != null);
+  final wantAudio = p.audio != AudioCodecChoice.none && (graph == null ? srcAudio.isNotEmpty : graph.audio != null);
   if (wantAudio && p.audio != AudioCodecChoice.copy && !c.audio.contains(p.audio)) {
     issues.add(ConvertIssue.audioNotInContainer);
   }
@@ -331,8 +333,9 @@ ConvertPlan planConvert({
   final audioKbps = !wantAudio
       ? 0
       : (p.audio == AudioCodecChoice.copy
-            ? ((srcAudio.first.bitRate ?? 192000) ~/ 1000)
-            : (p.audioKbps ?? estimateAudioKbps(p.audio, channels: p.audioChannels ?? srcAudio.first.channels ?? 2)));
+            ? ((srcAudio.firstOrNull?.bitRate ?? 192000) ~/ 1000)
+            : (p.audioKbps ??
+                  estimateAudioKbps(p.audio, channels: p.audioChannels ?? srcAudio.firstOrNull?.channels ?? 2)));
 
   // ------------------------------------------------------------ rate
   int? videoKbps;
@@ -397,7 +400,7 @@ ConvertPlan planConvert({
     if (p.tune != null && enc.tunes.contains(p.tune)) a.addAll(['-tune', p.tune!]);
     if (enc.name == 'ffv1') a.addAll(['-level', '3', '-g', '1', '-slicecrc', '1']);
     if (p.keyframeSeconds != null) {
-      final f = p.fps ?? srcVideo.avgFrameRate ?? srcVideo.frameRate ?? 30;
+      final f = p.fps ?? srcVideo?.avgFrameRate ?? srcVideo?.frameRate ?? 30;
       a.addAll(['-g', '${(f * p.keyframeSeconds!).round().clamp(1, 100000)}']);
     }
     // Apple players need the hvc1 tag for HEVC in MP4/MOV.
@@ -437,7 +440,7 @@ ConvertPlan planConvert({
 
   // With a graph, encoder plumbing/scaling is appended to its outputs.
   String? complex;
-  var vMap = wantVideo ? '0:${srcVideo.index}' : null;
+  var vMap = wantVideo && graph == null ? '0:${srcVideo!.index}' : null;
   var aMap = wantAudio ? '0:a' : null;
   if (graph != null) {
     complex = graph.complex;
@@ -517,7 +520,7 @@ ConvertPlan planConvert({
   if (duration != null && (videoKbps != null || !wantVideo)) {
     estimate = ((videoKbps ?? 0) + audioKbps) * 1000 * duration.inMicroseconds ~/ 8 ~/ 1000000;
   } else if (duration != null && wantVideo && p.video == VideoCodecChoice.copy) {
-    final vb = srcVideo.bitRate ?? (info.format.bitRate ?? 0) - audioKbps * 1000;
+    final vb = srcVideo?.bitRate ?? (info.format.bitRate ?? 0) - audioKbps * 1000;
     estimate = (vb + audioKbps * 1000) * duration.inMicroseconds ~/ 8 ~/ 1000000;
   }
 
