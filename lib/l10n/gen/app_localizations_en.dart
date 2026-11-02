@@ -951,7 +951,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get channelNightly => 'nightly';
 
   @override
-  String get channelStable => 'stable';
+  String get channelStable => 'Stable';
 
   @override
   String get btbnHint => 'BtbN static builds. GPL has everything incl. x264/x265; LGPL omits GPL codecs.';
@@ -5999,5 +5999,196 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String packageFolderNote(String dir) {
     return 'All files go to $dir; upload the whole folder to a server';
+  }
+
+  @override
+  String appUpdateAvailable(String version) {
+    return 'Kadra $version is available';
+  }
+
+  @override
+  String updateDownloading(String version) {
+    return 'Downloading Kadra $version…';
+  }
+
+  @override
+  String updateReady(String version) {
+    return 'Kadra $version is downloaded and ready to install';
+  }
+
+  @override
+  String get updateInstalling => 'Installing the update…';
+
+  @override
+  String updateTitle(String version) {
+    return 'Update to $version';
+  }
+
+  @override
+  String updateFromTo(String current, String next) {
+    return 'Installed $current, new $next';
+  }
+
+  @override
+  String updateUpToDate(String version) {
+    return 'You have the latest version ($version)';
+  }
+
+  @override
+  String get updateChecking => 'Checking for updates…';
+
+  @override
+  String get updateNotChecked => 'Not checked yet';
+
+  @override
+  String updateFailed(String error) {
+    return 'Update failed: $error';
+  }
+
+  @override
+  String get updateManual =>
+      'This copy cannot update itself (no write access to its folder or no matching file). Download the new version from the release page.';
+
+  @override
+  String updateInterruptsJobs(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jobs are running and will be canceled.',
+      one: '$count job is running and will be canceled.',
+    );
+    return '$_temp0 The app will restart.';
+  }
+
+  @override
+  String get whatsNew => 'What’s new';
+
+  @override
+  String get restartAndUpdate => 'Restart and update';
+
+  @override
+  String get skipVersion => 'Skip this version';
+
+  @override
+  String get openReleasePage => 'Release page';
+
+  @override
+  String get checkNow => 'Check now';
+
+  @override
+  String appVersionLabel(String version) {
+    return 'Kadra $version';
+  }
+
+  @override
+  String get channelBeta => 'Beta';
+
+  @override
+  String get setAppUpdate => 'Check for Kadra updates';
+
+  @override
+  String get setAppUpdateHint => 'At startup and periodically, via GitHub Releases';
+
+  @override
+  String get setAppUpdateHelp =>
+      'Kadra asks GitHub whether a new version is out. The update is downloaded in the background and checked against SHA-256; it is installed only when you press “Restart and update”. The installer version updates via the installer, ZIP and tar.gz by replacing the files in the folder, AppImage by replacing the file.';
+
+  @override
+  String get setAppChannel => 'Update channel';
+
+  @override
+  String get setAppChannelHint => 'Beta gets new features earlier';
+
+  @override
+  String get setAppChannelHelp =>
+      'Stable gets only finished releases. Beta also gets pre-releases (GitHub pre-release): new features sooner, but bugs are possible. You can switch back any time; a beta is replaced by the next stable release.';
+
+  @override
+  String get setAppUpdateHours => 'How often to check';
+
+  @override
+  String get setAppUpdateHoursHint => 'While the app is open';
+
+  @override
+  String everyHours(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(hours, locale: localeName, other: 'every $hours hours', one: 'every hour');
+    return '$_temp0';
+  }
+
+  @override
+  String get setAppAutoDownload => 'Download updates in the background';
+
+  @override
+  String get setAppAutoDownloadHint => 'Installing still waits for your click';
+
+  @override
+  String get setCloseToTray => 'Keep running in the tray';
+
+  @override
+  String get setCloseToTrayHint => 'While jobs run, closing the window hides it to the tray';
+
+  @override
+  String get setCloseToTrayHelp =>
+      'The Kadra icon in the notification area shows job progress; its menu opens the window or quits. With no jobs, closing works as usual. Without the tray, closing while jobs run asks whether to cancel them. In GNOME the icon needs the AppIndicator extension (enabled in Ubuntu).';
+
+  @override
+  String get setPreventSleep => 'Keep the computer awake';
+
+  @override
+  String get setPreventSleepHint => 'While jobs, recording or streaming run';
+
+  @override
+  String get hiddenToTray => 'Kadra keeps working in the tray and will tell you when everything is done';
+
+  @override
+  String get quitBusyTitle => 'Quit Kadra?';
+
+  @override
+  String quitBusyBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jobs are running and will be canceled.',
+      one: '$count job is running and will be canceled.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get quitAnyway => 'Quit';
+
+  @override
+  String get trayOpen => 'Open Kadra';
+
+  @override
+  String get trayQuit => 'Quit';
+
+  @override
+  String get trayIdle => 'No jobs';
+
+  @override
+  String trayBusy(int count, int percent) {
+    return 'Jobs: $count · $percent%';
+  }
+
+  @override
+  String notifyOneDone(String title) {
+    return 'Done: $title';
+  }
+
+  @override
+  String notifyOneFailed(String title) {
+    return 'Failed: $title';
+  }
+
+  @override
+  String notifyManyDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(count, locale: localeName, other: '$count jobs done', one: '$count job done');
+    return '$_temp0';
+  }
+
+  @override
+  String notifyManyFailed(int count, int failed) {
+    return '$count jobs finished, $failed failed';
   }
 }

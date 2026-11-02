@@ -10,6 +10,7 @@ import 'core/providers.dart';
 import 'core/settings/app_settings.dart';
 import 'features/home/current_file.dart';
 import 'features/shell/app_shell.dart';
+import 'features/shell/desktop_integration.dart';
 import 'ui/l10n.dart';
 import 'ui/theme.dart';
 
@@ -70,7 +71,7 @@ class _KadraAppState extends ConsumerState<KadraApp> {
             }
             return const Locale('en');
           },
-          home: const AppShell(),
+          home: const DesktopIntegration(child: AppShell()),
         );
       },
     );

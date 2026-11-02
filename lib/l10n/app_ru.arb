@@ -435,7 +435,7 @@
   "flavorEssentials": "essentials",
   "channelRelease": "релиз",
   "channelNightly": "nightly",
-  "channelStable": "stable",
+  "channelStable": "Стабильный",
   "btbnHint": "Статические сборки BtbN. GPL — всё, включая x264/x265; LGPL — без GPL-кодеков.",
   "gyanHint": "Сборки gyan.dev для Windows. full — максимум фильтров и кодеков (whisper, vmaf, frei0r).",
   "customPathNone": "Можно указать свой бинарник вместо загруженного.",
@@ -2686,6 +2686,174 @@
     "placeholders": {
       "dir": {
         "type": "String"
+      }
+    }
+  },
+  "appUpdateAvailable": "Доступна Kadra {version}",
+  "@appUpdateAvailable": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateDownloading": "Скачивается Kadra {version}…",
+  "@updateDownloading": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateReady": "Kadra {version} скачана и готова к установке",
+  "@updateReady": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateInstalling": "Установка обновления…",
+  "updateTitle": "Обновление до {version}",
+  "@updateTitle": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateFromTo": "Установлена {current}, новая {next}",
+  "@updateFromTo": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "next": {
+        "type": "String"
+      }
+    }
+  },
+  "updateUpToDate": "У вас последняя версия ({version})",
+  "@updateUpToDate": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecking": "Проверка обновлений…",
+  "updateNotChecked": "Обновления ещё не проверялись",
+  "updateFailed": "Не удалось обновить: {error}",
+  "@updateFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "updateManual": "Эта копия не может обновиться сама (нет прав на запись в её папку или нет подходящего файла). Скачайте новую версию со страницы релиза.",
+  "updateInterruptsJobs": "{count, plural, one{Идёт {count} задача, она будет отменена.} few{Идут {count} задачи, они будут отменены.} many{Идут {count} задач, они будут отменены.} other{Идут {count} задачи, они будут отменены.}} Приложение перезапустится.",
+  "@updateInterruptsJobs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whatsNew": "Что нового",
+  "restartAndUpdate": "Перезапустить и обновить",
+  "skipVersion": "Пропустить версию",
+  "openReleasePage": "Страница релиза",
+  "checkNow": "Проверить",
+  "appVersionLabel": "Kadra {version}",
+  "@appVersionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "channelBeta": "Бета",
+  "setAppUpdate": "Проверять обновления Kadra",
+  "setAppUpdateHint": "При запуске и периодически, через GitHub Releases",
+  "setAppUpdateHelp": "Kadra спрашивает у GitHub, вышла ли новая версия. Обновление скачивается в фоне и проверяется по SHA-256; ставится только по кнопке «Перезапустить и обновить». Установщик обновляется установщиком, ZIP и tar.gz — заменой файлов в папке, AppImage — заменой файла.",
+  "setAppChannel": "Канал обновлений",
+  "setAppChannelHint": "Бета — раньше получать новые функции",
+  "setAppChannelHelp": "Стабильный канал — только проверенные выпуски. Бета — ещё и предварительные (pre-release на GitHub): новые функции раньше, но возможны ошибки. Вернуться на стабильный можно в любой момент; бета-версия заменится следующим стабильным выпуском.",
+  "setAppUpdateHours": "Как часто проверять",
+  "setAppUpdateHoursHint": "Пока приложение открыто",
+  "everyHours": "{hours, plural, one{раз в {hours} час} few{раз в {hours} часа} many{раз в {hours} часов} other{раз в {hours} часа}}",
+  "@everyHours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "setAppAutoDownload": "Скачивать обновление в фоне",
+  "setAppAutoDownloadHint": "Установка всё равно только по кнопке",
+  "setCloseToTray": "Работать в трее",
+  "setCloseToTrayHint": "Если идут задачи, закрытие окна сворачивает его в трей",
+  "setCloseToTrayHelp": "Значок Kadra в области уведомлений показывает ход задач; через его меню можно открыть окно или выйти. Если задач нет, окно закрывается как обычно. Без трея при закрытии с задачами Kadra спросит, отменить ли их. В GNOME значок виден только с расширением AppIndicator (в Ubuntu оно включено).",
+  "setPreventSleep": "Не давать компьютеру уснуть",
+  "setPreventSleepHint": "Пока идут задачи, запись или трансляция",
+  "hiddenToTray": "Kadra продолжает работу в трее и сообщит, когда всё будет готово",
+  "quitBusyTitle": "Выйти из Kadra?",
+  "quitBusyBody": "{count, plural, one{Идёт {count} задача — она будет отменена.} few{Идут {count} задачи — они будут отменены.} many{Идут {count} задач — они будут отменены.} other{Идут {count} задачи — они будут отменены.}}",
+  "@quitBusyBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "quitAnyway": "Выйти",
+  "trayOpen": "Открыть Kadra",
+  "trayQuit": "Выход",
+  "trayIdle": "Задач нет",
+  "trayBusy": "Задач: {count} · {percent}%",
+  "@trayBusy": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "notifyOneDone": "Готово: {title}",
+  "@notifyOneDone": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyOneFailed": "Ошибка: {title}",
+  "@notifyOneFailed": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyManyDone": "{count, plural, one{Готова {count} задача} few{Готовы {count} задачи} many{Готово {count} задач} other{Готово {count} задачи}}",
+  "@notifyManyDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifyManyFailed": "Завершено задач: {count}, с ошибкой: {failed}",
+  "@notifyManyFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
       }
     }
   }

@@ -31,7 +31,9 @@ Future<void> extractArchive(
   await Directory(destDir).create(recursive: true);
   if (type == ArchiveType.raw) return;
 
-  final useSystemTar = (type == ArchiveType.tarXz && !h.isWindows) || (type == ArchiveType.zip && h.isWindows);
+  final useSystemTar =
+      ((type == ArchiveType.tarXz || type == ArchiveType.tarGz) && !h.isWindows) ||
+      (type == ArchiveType.zip && h.isWindows);
   if (useSystemTar) {
     final tar = h.isWindows ? (findOnPath('tar') ?? r'C:\Windows\System32\tar.exe') : (findOnPath('tar') ?? 'tar');
     final r = await runner.capture(tar, ['-xf', archivePath, '-C', destDir], timeout: const Duration(minutes: 10));

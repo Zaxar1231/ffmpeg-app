@@ -8,6 +8,9 @@ enum ComponentUpdatePolicy { automatic, ask, never }
 
 enum FfmpegSourcePref { btbn, gyan }
 
+/// Release channel of the app itself (beta = GitHub pre-releases too).
+enum AppChannel { stable, beta }
+
 /// All user settings. Persisted as flat keys in shared_preferences.
 /// Defaults live here and are the single source of truth for "Reset".
 class AppSettings {
@@ -39,6 +42,13 @@ class AppSettings {
     this.ytdlpUseAria2 = false,
     this.notifyOnFinish = true,
     this.showCommandBeforeRun = false,
+    this.appUpdateCheck = true,
+    this.appChannel = AppChannel.stable,
+    this.appUpdateHours = 12,
+    this.appUpdateAutoDownload = true,
+    this.skippedAppVersion,
+    this.closeToTray = true,
+    this.preventSleep = true,
   });
 
   final ThemeMode themeMode;
@@ -81,6 +91,25 @@ class AppSettings {
   final bool notifyOnFinish;
   final bool showCommandBeforeRun;
 
+  /// Check GitHub Releases for a new version of the app.
+  final bool appUpdateCheck;
+  final AppChannel appChannel;
+
+  /// Hours between update checks while the app is running.
+  final int appUpdateHours;
+
+  /// Download an update in the background as soon as it is found.
+  final bool appUpdateAutoDownload;
+
+  /// Version the user chose to skip (no reminder for it).
+  final String? skippedAppVersion;
+
+  /// Closing the window hides it to the tray while jobs are running.
+  final bool closeToTray;
+
+  /// Keep the computer awake while jobs are running.
+  final bool preventSleep;
+
   ComponentUpdatePolicy policyFor(ComponentId id) => switch (id) {
     ComponentId.ffmpeg => ffmpegUpdatePolicy,
     ComponentId.ytdlp => ytdlpUpdatePolicy,
@@ -115,6 +144,13 @@ class AppSettings {
     bool? ytdlpUseAria2,
     bool? notifyOnFinish,
     bool? showCommandBeforeRun,
+    bool? appUpdateCheck,
+    AppChannel? appChannel,
+    int? appUpdateHours,
+    bool? appUpdateAutoDownload,
+    String? Function()? skippedAppVersion,
+    bool? closeToTray,
+    bool? preventSleep,
   }) => AppSettings(
     themeMode: themeMode ?? this.themeMode,
     accentSource: accentSource ?? this.accentSource,
@@ -143,6 +179,13 @@ class AppSettings {
     ytdlpUseAria2: ytdlpUseAria2 ?? this.ytdlpUseAria2,
     notifyOnFinish: notifyOnFinish ?? this.notifyOnFinish,
     showCommandBeforeRun: showCommandBeforeRun ?? this.showCommandBeforeRun,
+    appUpdateCheck: appUpdateCheck ?? this.appUpdateCheck,
+    appChannel: appChannel ?? this.appChannel,
+    appUpdateHours: appUpdateHours ?? this.appUpdateHours,
+    appUpdateAutoDownload: appUpdateAutoDownload ?? this.appUpdateAutoDownload,
+    skippedAppVersion: skippedAppVersion != null ? skippedAppVersion() : this.skippedAppVersion,
+    closeToTray: closeToTray ?? this.closeToTray,
+    preventSleep: preventSleep ?? this.preventSleep,
   );
 
   Map<String, Object?> toMap() => {
@@ -156,6 +199,7 @@ class AppSettings {
     'useHwAccel': useHwAccel,
     'ffmpegThreads': ffmpegThreads,
     'outputDir': outputDir,
+    'outputNextToSource': outputNextToSource,
     'customFfmpegPath': customFfmpegPath,
     'customFfprobePath': customFfprobePath,
     'customYtdlpPath': customYtdlpPath,
@@ -172,6 +216,13 @@ class AppSettings {
     'ytdlpUseAria2': ytdlpUseAria2,
     'notifyOnFinish': notifyOnFinish,
     'showCommandBeforeRun': showCommandBeforeRun,
+    'appUpdateCheck': appUpdateCheck,
+    'appChannel': appChannel.name,
+    'appUpdateHours': appUpdateHours,
+    'appUpdateAutoDownload': appUpdateAutoDownload,
+    'skippedAppVersion': skippedAppVersion,
+    'closeToTray': closeToTray,
+    'preventSleep': preventSleep,
   };
 
   /// Tolerant: unknown/invalid values fall back to defaults.
@@ -184,7 +235,7 @@ class AppSettings {
     return AppSettings(
       themeMode: e(ThemeMode.values, m['themeMode'], d.themeMode),
       accentSource: e(AccentSource.values, m['accentSource'], d.accentSource),
-      accentColor: i(m['accentColor'], d.accentColor),
+      accentColor: i(m['accentColor'], d.accentColor, min: 0, max: 0xFFFFFFFF),
       locale: s(m['locale']),
       advancedMode: b(m['advancedMode'], d.advancedMode),
       maxParallelJobs: i(m['maxParallelJobs'], d.maxParallelJobs, min: 1, max: 16),
@@ -209,6 +260,13 @@ class AppSettings {
       notifyOnFinish: b(m['notifyOnFinish'], d.notifyOnFinish),
       ytdlpUseAria2: b(m['ytdlpUseAria2'], d.ytdlpUseAria2),
       showCommandBeforeRun: b(m['showCommandBeforeRun'], d.showCommandBeforeRun),
+      appUpdateCheck: b(m['appUpdateCheck'], d.appUpdateCheck),
+      appChannel: e(AppChannel.values, m['appChannel'], d.appChannel),
+      appUpdateHours: i(m['appUpdateHours'], d.appUpdateHours, min: 1, max: 168),
+      appUpdateAutoDownload: b(m['appUpdateAutoDownload'], d.appUpdateAutoDownload),
+      skippedAppVersion: s(m['skippedAppVersion']),
+      closeToTray: b(m['closeToTray'], d.closeToTray),
+      preventSleep: b(m['preventSleep'], d.preventSleep),
     );
   }
 }

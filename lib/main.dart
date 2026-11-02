@@ -6,12 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app.dart';
 import 'core/db/database.dart';
 import 'core/platform/app_paths.dart';
+import 'core/platform/desktop.dart';
 import 'core/providers.dart';
 
 /// `kadra <file>` opens the file on the Home screen ("Open with…").
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
+  await initDesktop();
   final paths = await AppPaths.resolve();
   final prefs = await SharedPreferences.getInstance();
   final db = AppDatabase.open(paths.database);

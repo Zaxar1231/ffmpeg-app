@@ -968,7 +968,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get channelNightly => 'nightly';
 
   @override
-  String get channelStable => 'stable';
+  String get channelStable => 'Стабильный';
 
   @override
   String get btbnHint => 'Статические сборки BtbN. GPL — всё, включая x264/x265; LGPL — без GPL-кодеков.';
@@ -6037,5 +6037,214 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String packageFolderNote(String dir) {
     return 'Все файлы будут в папке $dir; загрузите её на сервер целиком';
+  }
+
+  @override
+  String appUpdateAvailable(String version) {
+    return 'Доступна Kadra $version';
+  }
+
+  @override
+  String updateDownloading(String version) {
+    return 'Скачивается Kadra $version…';
+  }
+
+  @override
+  String updateReady(String version) {
+    return 'Kadra $version скачана и готова к установке';
+  }
+
+  @override
+  String get updateInstalling => 'Установка обновления…';
+
+  @override
+  String updateTitle(String version) {
+    return 'Обновление до $version';
+  }
+
+  @override
+  String updateFromTo(String current, String next) {
+    return 'Установлена $current, новая $next';
+  }
+
+  @override
+  String updateUpToDate(String version) {
+    return 'У вас последняя версия ($version)';
+  }
+
+  @override
+  String get updateChecking => 'Проверка обновлений…';
+
+  @override
+  String get updateNotChecked => 'Обновления ещё не проверялись';
+
+  @override
+  String updateFailed(String error) {
+    return 'Не удалось обновить: $error';
+  }
+
+  @override
+  String get updateManual =>
+      'Эта копия не может обновиться сама (нет прав на запись в её папку или нет подходящего файла). Скачайте новую версию со страницы релиза.';
+
+  @override
+  String updateInterruptsJobs(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Идут $count задачи, они будут отменены.',
+      many: 'Идут $count задач, они будут отменены.',
+      few: 'Идут $count задачи, они будут отменены.',
+      one: 'Идёт $count задача, она будет отменена.',
+    );
+    return '$_temp0 Приложение перезапустится.';
+  }
+
+  @override
+  String get whatsNew => 'Что нового';
+
+  @override
+  String get restartAndUpdate => 'Перезапустить и обновить';
+
+  @override
+  String get skipVersion => 'Пропустить версию';
+
+  @override
+  String get openReleasePage => 'Страница релиза';
+
+  @override
+  String get checkNow => 'Проверить';
+
+  @override
+  String appVersionLabel(String version) {
+    return 'Kadra $version';
+  }
+
+  @override
+  String get channelBeta => 'Бета';
+
+  @override
+  String get setAppUpdate => 'Проверять обновления Kadra';
+
+  @override
+  String get setAppUpdateHint => 'При запуске и периодически, через GitHub Releases';
+
+  @override
+  String get setAppUpdateHelp =>
+      'Kadra спрашивает у GitHub, вышла ли новая версия. Обновление скачивается в фоне и проверяется по SHA-256; ставится только по кнопке «Перезапустить и обновить». Установщик обновляется установщиком, ZIP и tar.gz — заменой файлов в папке, AppImage — заменой файла.';
+
+  @override
+  String get setAppChannel => 'Канал обновлений';
+
+  @override
+  String get setAppChannelHint => 'Бета — раньше получать новые функции';
+
+  @override
+  String get setAppChannelHelp =>
+      'Стабильный канал — только проверенные выпуски. Бета — ещё и предварительные (pre-release на GitHub): новые функции раньше, но возможны ошибки. Вернуться на стабильный можно в любой момент; бета-версия заменится следующим стабильным выпуском.';
+
+  @override
+  String get setAppUpdateHours => 'Как часто проверять';
+
+  @override
+  String get setAppUpdateHoursHint => 'Пока приложение открыто';
+
+  @override
+  String everyHours(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'раз в $hours часа',
+      many: 'раз в $hours часов',
+      few: 'раз в $hours часа',
+      one: 'раз в $hours час',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get setAppAutoDownload => 'Скачивать обновление в фоне';
+
+  @override
+  String get setAppAutoDownloadHint => 'Установка всё равно только по кнопке';
+
+  @override
+  String get setCloseToTray => 'Работать в трее';
+
+  @override
+  String get setCloseToTrayHint => 'Если идут задачи, закрытие окна сворачивает его в трей';
+
+  @override
+  String get setCloseToTrayHelp =>
+      'Значок Kadra в области уведомлений показывает ход задач; через его меню можно открыть окно или выйти. Если задач нет, окно закрывается как обычно. Без трея при закрытии с задачами Kadra спросит, отменить ли их. В GNOME значок виден только с расширением AppIndicator (в Ubuntu оно включено).';
+
+  @override
+  String get setPreventSleep => 'Не давать компьютеру уснуть';
+
+  @override
+  String get setPreventSleepHint => 'Пока идут задачи, запись или трансляция';
+
+  @override
+  String get hiddenToTray => 'Kadra продолжает работу в трее и сообщит, когда всё будет готово';
+
+  @override
+  String get quitBusyTitle => 'Выйти из Kadra?';
+
+  @override
+  String quitBusyBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Идут $count задачи — они будут отменены.',
+      many: 'Идут $count задач — они будут отменены.',
+      few: 'Идут $count задачи — они будут отменены.',
+      one: 'Идёт $count задача — она будет отменена.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get quitAnyway => 'Выйти';
+
+  @override
+  String get trayOpen => 'Открыть Kadra';
+
+  @override
+  String get trayQuit => 'Выход';
+
+  @override
+  String get trayIdle => 'Задач нет';
+
+  @override
+  String trayBusy(int count, int percent) {
+    return 'Задач: $count · $percent%';
+  }
+
+  @override
+  String notifyOneDone(String title) {
+    return 'Готово: $title';
+  }
+
+  @override
+  String notifyOneFailed(String title) {
+    return 'Ошибка: $title';
+  }
+
+  @override
+  String notifyManyDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Готово $count задачи',
+      many: 'Готово $count задач',
+      few: 'Готовы $count задачи',
+      one: 'Готова $count задача',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String notifyManyFailed(int count, int failed) {
+    return 'Завершено задач: $count, с ошибкой: $failed';
   }
 }

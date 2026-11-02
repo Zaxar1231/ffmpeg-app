@@ -13,6 +13,7 @@ import '../presets/presets_page.dart';
 import '../queue/queue_page.dart';
 import '../settings/settings_page.dart';
 import '../tools/tools_page.dart';
+import '../update/update_ui.dart';
 
 enum Destination { home, tools, downloads, queue, presets, components, settings }
 
@@ -70,7 +71,7 @@ class AppShell extends ConsumerWidget {
       Destination.settings => const SettingsPage(),
     };
 
-    final body = AnimatedSwitcher(
+    final switched = AnimatedSwitcher(
       duration: const Duration(milliseconds: 260),
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeInCubic,
@@ -80,6 +81,12 @@ class AppShell extends ConsumerWidget {
         child: ScaleTransition(scale: Tween(begin: 0.96, end: 1.0).animate(anim), child: child),
       ),
       child: KeyedSubtree(key: ValueKey(current), child: page),
+    );
+    final body = Column(
+      children: [
+        const AppUpdateBar(),
+        Expanded(child: switched),
+      ],
     );
 
     final shortcuts = <ShortcutActivator, VoidCallback>{
@@ -126,7 +133,12 @@ class AppShell extends ConsumerWidget {
                     onDestinationSelected: (i) => ref.read(navProvider.notifier).go(Destination.values[i]),
                     leading: Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 16),
-                      child: Icon(Icons.movie_filter_rounded, size: 32, color: Theme.of(context).colorScheme.primary),
+                      child: Image.asset(
+                        'assets/icons/kadra.png',
+                        width: 36,
+                        height: 36,
+                        filterQuality: FilterQuality.medium,
+                      ),
                     ),
                     destinations: [
                       for (final d in dests)

@@ -6,6 +6,7 @@ import '../../core/platform/app_paths.dart';
 import '../../core/providers.dart';
 import '../../core/settings/app_settings.dart';
 import '../../ui/l10n.dart';
+import '../update/update_ui.dart';
 import '../../ui/widgets/common.dart';
 import '../../ui/widgets/setting_tile.dart';
 
@@ -434,6 +435,89 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
       // Updates
       _Item(
         _Section.updates,
+        l.setAppUpdate,
+        l.setAppUpdateHint,
+        l.setAppUpdateHelp,
+        (t, h, x) => Column(
+          children: [
+            const AppUpdateTile(),
+            tile(
+              t,
+              h,
+              x,
+              Switch(
+                value: s.appUpdateCheck,
+                onChanged: (v) => up((a) => a.copyWith(appUpdateCheck: v)),
+              ),
+              isDefault: s.appUpdateCheck == d.appUpdateCheck,
+              reset: () => up((a) => a.copyWith(appUpdateCheck: d.appUpdateCheck)),
+            ),
+          ],
+        ),
+      ),
+      _Item(
+        _Section.updates,
+        l.setAppChannel,
+        l.setAppChannelHint,
+        l.setAppChannelHelp,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          SegmentedButton<AppChannel>(
+            segments: [
+              ButtonSegment(value: AppChannel.stable, label: Text(l.channelStable)),
+              ButtonSegment(value: AppChannel.beta, label: Text(l.channelBeta)),
+            ],
+            selected: {s.appChannel},
+            onSelectionChanged: (v) => up((a) => a.copyWith(appChannel: v.first)),
+          ),
+          isDefault: s.appChannel == d.appChannel,
+          reset: () => up((a) => a.copyWith(appChannel: d.appChannel)),
+        ),
+      ),
+      _Item(
+        _Section.updates,
+        l.setAppUpdateHours,
+        l.setAppUpdateHoursHint,
+        null,
+        advanced: true,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          DropdownButton<int>(
+            value: const [1, 3, 6, 12, 24, 72, 168].contains(s.appUpdateHours) ? s.appUpdateHours : 12,
+            onChanged: (v) => v == null ? null : up((a) => a.copyWith(appUpdateHours: v)),
+            items: [
+              for (final hrs in const [1, 3, 6, 12, 24, 72, 168])
+                DropdownMenuItem(value: hrs, child: Text(l.everyHours(hrs))),
+            ],
+          ),
+          isDefault: s.appUpdateHours == d.appUpdateHours,
+          reset: () => up((a) => a.copyWith(appUpdateHours: d.appUpdateHours)),
+        ),
+      ),
+      _Item(
+        _Section.updates,
+        l.setAppAutoDownload,
+        l.setAppAutoDownloadHint,
+        null,
+        advanced: true,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          Switch(
+            value: s.appUpdateAutoDownload,
+            onChanged: (v) => up((a) => a.copyWith(appUpdateAutoDownload: v)),
+          ),
+          isDefault: s.appUpdateAutoDownload == d.appUpdateAutoDownload,
+          reset: () => up((a) => a.copyWith(appUpdateAutoDownload: d.appUpdateAutoDownload)),
+        ),
+      ),
+      _Item(
+        _Section.updates,
         l.setPolicyFfmpeg,
         l.setPolicyHint,
         l.setPolicyHelp,
@@ -496,6 +580,40 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
           below: true,
           isDefault: s.keepPreviousVersions == d.keepPreviousVersions,
           reset: () => up((a) => a.copyWith(keepPreviousVersions: d.keepPreviousVersions)),
+        ),
+      ),
+      _Item(
+        _Section.general,
+        l.setCloseToTray,
+        l.setCloseToTrayHint,
+        l.setCloseToTrayHelp,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          Switch(
+            value: s.closeToTray,
+            onChanged: (v) => up((a) => a.copyWith(closeToTray: v)),
+          ),
+          isDefault: s.closeToTray == d.closeToTray,
+          reset: () => up((a) => a.copyWith(closeToTray: d.closeToTray)),
+        ),
+      ),
+      _Item(
+        _Section.performance,
+        l.setPreventSleep,
+        l.setPreventSleepHint,
+        null,
+        (t, h, x) => tile(
+          t,
+          h,
+          x,
+          Switch(
+            value: s.preventSleep,
+            onChanged: (v) => up((a) => a.copyWith(preventSleep: v)),
+          ),
+          isDefault: s.preventSleep == d.preventSleep,
+          reset: () => up((a) => a.copyWith(preventSleep: d.preventSleep)),
         ),
       ),
       // Notifications
@@ -564,7 +682,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     };
 
     AppSettings resetSection(_Section x, AppSettings a) => switch (x) {
-      _Section.general => a.copyWith(locale: () => d.locale, advancedMode: d.advancedMode),
+      _Section.general => a.copyWith(locale: () => d.locale, advancedMode: d.advancedMode, closeToTray: d.closeToTray),
       _Section.appearance => a.copyWith(
         themeMode: d.themeMode,
         accentSource: d.accentSource,
@@ -575,6 +693,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         useHwAccel: d.useHwAccel,
         retryCount: d.retryCount,
         ffmpegThreads: d.ffmpegThreads,
+        preventSleep: d.preventSleep,
       ),
       _Section.paths => a.copyWith(
         outputDir: () => null,
@@ -592,6 +711,11 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         ytdlpUpdatePolicy: d.ytdlpUpdatePolicy,
         otherUpdatePolicy: d.otherUpdatePolicy,
         keepPreviousVersions: d.keepPreviousVersions,
+        appUpdateCheck: d.appUpdateCheck,
+        appChannel: d.appChannel,
+        appUpdateHours: d.appUpdateHours,
+        appUpdateAutoDownload: d.appUpdateAutoDownload,
+        skippedAppVersion: () => null,
       ),
       _Section.notifications => a.copyWith(notifyOnFinish: d.notifyOnFinish),
       _Section.expert => a.copyWith(showCommandBeforeRun: d.showCommandBeforeRun),

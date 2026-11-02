@@ -1865,7 +1865,7 @@ abstract class AppLocalizations {
   /// No description provided for @channelStable.
   ///
   /// In ru, this message translates to:
-  /// **'stable'**
+  /// **'Стабильный'**
   String get channelStable;
 
   /// No description provided for @btbnHint.
@@ -11341,6 +11341,288 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Все файлы будут в папке {dir}; загрузите её на сервер целиком'**
   String packageFolderNote(String dir);
+
+  /// No description provided for @appUpdateAvailable.
+  ///
+  /// In ru, this message translates to:
+  /// **'Доступна Kadra {version}'**
+  String appUpdateAvailable(String version);
+
+  /// No description provided for @updateDownloading.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачивается Kadra {version}…'**
+  String updateDownloading(String version);
+
+  /// No description provided for @updateReady.
+  ///
+  /// In ru, this message translates to:
+  /// **'Kadra {version} скачана и готова к установке'**
+  String updateReady(String version);
+
+  /// No description provided for @updateInstalling.
+  ///
+  /// In ru, this message translates to:
+  /// **'Установка обновления…'**
+  String get updateInstalling;
+
+  /// No description provided for @updateTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обновление до {version}'**
+  String updateTitle(String version);
+
+  /// No description provided for @updateFromTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Установлена {current}, новая {next}'**
+  String updateFromTo(String current, String next);
+
+  /// No description provided for @updateUpToDate.
+  ///
+  /// In ru, this message translates to:
+  /// **'У вас последняя версия ({version})'**
+  String updateUpToDate(String version);
+
+  /// No description provided for @updateChecking.
+  ///
+  /// In ru, this message translates to:
+  /// **'Проверка обновлений…'**
+  String get updateChecking;
+
+  /// No description provided for @updateNotChecked.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обновления ещё не проверялись'**
+  String get updateNotChecked;
+
+  /// No description provided for @updateFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось обновить: {error}'**
+  String updateFailed(String error);
+
+  /// No description provided for @updateManual.
+  ///
+  /// In ru, this message translates to:
+  /// **'Эта копия не может обновиться сама (нет прав на запись в её папку или нет подходящего файла). Скачайте новую версию со страницы релиза.'**
+  String get updateManual;
+
+  /// No description provided for @updateInterruptsJobs.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Идёт {count} задача, она будет отменена.} few{Идут {count} задачи, они будут отменены.} many{Идут {count} задач, они будут отменены.} other{Идут {count} задачи, они будут отменены.}} Приложение перезапустится.'**
+  String updateInterruptsJobs(int count);
+
+  /// No description provided for @whatsNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что нового'**
+  String get whatsNew;
+
+  /// No description provided for @restartAndUpdate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перезапустить и обновить'**
+  String get restartAndUpdate;
+
+  /// No description provided for @skipVersion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пропустить версию'**
+  String get skipVersion;
+
+  /// No description provided for @openReleasePage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Страница релиза'**
+  String get openReleasePage;
+
+  /// No description provided for @checkNow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Проверить'**
+  String get checkNow;
+
+  /// No description provided for @appVersionLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Kadra {version}'**
+  String appVersionLabel(String version);
+
+  /// No description provided for @channelBeta.
+  ///
+  /// In ru, this message translates to:
+  /// **'Бета'**
+  String get channelBeta;
+
+  /// No description provided for @setAppUpdate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Проверять обновления Kadra'**
+  String get setAppUpdate;
+
+  /// No description provided for @setAppUpdateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'При запуске и периодически, через GitHub Releases'**
+  String get setAppUpdateHint;
+
+  /// No description provided for @setAppUpdateHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Kadra спрашивает у GitHub, вышла ли новая версия. Обновление скачивается в фоне и проверяется по SHA-256; ставится только по кнопке «Перезапустить и обновить». Установщик обновляется установщиком, ZIP и tar.gz — заменой файлов в папке, AppImage — заменой файла.'**
+  String get setAppUpdateHelp;
+
+  /// No description provided for @setAppChannel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Канал обновлений'**
+  String get setAppChannel;
+
+  /// No description provided for @setAppChannelHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Бета — раньше получать новые функции'**
+  String get setAppChannelHint;
+
+  /// No description provided for @setAppChannelHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Стабильный канал — только проверенные выпуски. Бета — ещё и предварительные (pre-release на GitHub): новые функции раньше, но возможны ошибки. Вернуться на стабильный можно в любой момент; бета-версия заменится следующим стабильным выпуском.'**
+  String get setAppChannelHelp;
+
+  /// No description provided for @setAppUpdateHours.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как часто проверять'**
+  String get setAppUpdateHours;
+
+  /// No description provided for @setAppUpdateHoursHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пока приложение открыто'**
+  String get setAppUpdateHoursHint;
+
+  /// No description provided for @everyHours.
+  ///
+  /// In ru, this message translates to:
+  /// **'{hours, plural, one{раз в {hours} час} few{раз в {hours} часа} many{раз в {hours} часов} other{раз в {hours} часа}}'**
+  String everyHours(int hours);
+
+  /// No description provided for @setAppAutoDownload.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачивать обновление в фоне'**
+  String get setAppAutoDownload;
+
+  /// No description provided for @setAppAutoDownloadHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Установка всё равно только по кнопке'**
+  String get setAppAutoDownloadHint;
+
+  /// No description provided for @setCloseToTray.
+  ///
+  /// In ru, this message translates to:
+  /// **'Работать в трее'**
+  String get setCloseToTray;
+
+  /// No description provided for @setCloseToTrayHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Если идут задачи, закрытие окна сворачивает его в трей'**
+  String get setCloseToTrayHint;
+
+  /// No description provided for @setCloseToTrayHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Значок Kadra в области уведомлений показывает ход задач; через его меню можно открыть окно или выйти. Если задач нет, окно закрывается как обычно. Без трея при закрытии с задачами Kadra спросит, отменить ли их. В GNOME значок виден только с расширением AppIndicator (в Ubuntu оно включено).'**
+  String get setCloseToTrayHelp;
+
+  /// No description provided for @setPreventSleep.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не давать компьютеру уснуть'**
+  String get setPreventSleep;
+
+  /// No description provided for @setPreventSleepHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пока идут задачи, запись или трансляция'**
+  String get setPreventSleepHint;
+
+  /// No description provided for @hiddenToTray.
+  ///
+  /// In ru, this message translates to:
+  /// **'Kadra продолжает работу в трее и сообщит, когда всё будет готово'**
+  String get hiddenToTray;
+
+  /// No description provided for @quitBusyTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выйти из Kadra?'**
+  String get quitBusyTitle;
+
+  /// No description provided for @quitBusyBody.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Идёт {count} задача — она будет отменена.} few{Идут {count} задачи — они будут отменены.} many{Идут {count} задач — они будут отменены.} other{Идут {count} задачи — они будут отменены.}}'**
+  String quitBusyBody(int count);
+
+  /// No description provided for @quitAnyway.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выйти'**
+  String get quitAnyway;
+
+  /// No description provided for @trayOpen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть Kadra'**
+  String get trayOpen;
+
+  /// No description provided for @trayQuit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выход'**
+  String get trayQuit;
+
+  /// No description provided for @trayIdle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Задач нет'**
+  String get trayIdle;
+
+  /// No description provided for @trayBusy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Задач: {count} · {percent}%'**
+  String trayBusy(int count, int percent);
+
+  /// No description provided for @notifyOneDone.
+  ///
+  /// In ru, this message translates to:
+  /// **'Готово: {title}'**
+  String notifyOneDone(String title);
+
+  /// No description provided for @notifyOneFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ошибка: {title}'**
+  String notifyOneFailed(String title);
+
+  /// No description provided for @notifyManyDone.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Готова {count} задача} few{Готовы {count} задачи} many{Готово {count} задач} other{Готово {count} задачи}}'**
+  String notifyManyDone(int count);
+
+  /// No description provided for @notifyManyFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Завершено задач: {count}, с ошибкой: {failed}'**
+  String notifyManyFailed(int count, int failed);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

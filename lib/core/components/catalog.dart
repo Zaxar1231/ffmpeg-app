@@ -6,7 +6,7 @@ import '../platform/host.dart';
 
 enum ComponentId { ffmpeg, ytdlp, deno, aria2 }
 
-enum ArchiveType { zip, tarXz, raw }
+enum ArchiveType { zip, tarXz, tarGz, raw }
 
 enum UpdateChannel { stable, nightly }
 
