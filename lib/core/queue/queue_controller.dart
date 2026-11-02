@@ -69,7 +69,9 @@ class QueueController extends Notifier<QueueState> {
       attempts: 0,
       maxRetries: r.maxRetries ?? ref.read(settingsProvider).retryCount,
       createdAt: DateTime.now(),
-      extraJson: r.logIsResult ? jsonEncode({'logIsResult': true}) : null,
+      extraJson: r.logIsResult || r.extra.isNotEmpty
+          ? jsonEncode({...r.extra, if (r.logIsResult) 'logIsResult': true})
+          : null,
     );
     await _db.upsertJob(job.toCompanion(true));
     state = QueueState(

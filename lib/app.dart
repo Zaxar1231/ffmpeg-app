@@ -1,5 +1,8 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+
+import 'features/automation/automation_service.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -36,6 +39,9 @@ class _KadraAppState extends ConsumerState<KadraApp> {
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
+    // Background automation: watch folders and recipes after downloads.
+    ref.listen(watchProvider, (_, _) {});
+    ref.watch(chainRecipesProvider);
     return DynamicColorBuilder(
       builder: (lightDynamic, darkDynamic) {
         // dynamic_color returns its own ColorScheme type (package:material_ui),

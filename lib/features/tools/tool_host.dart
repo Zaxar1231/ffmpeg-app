@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../analysis/analysis_pages.dart';
 import '../audio/audio_file_pages.dart';
+import '../automation/automation_pages.dart';
+import '../automation/automation_service.dart' show BatchAction;
 import '../audio/audio_pages.dart';
 import '../audio_editor/ui/editor_page.dart';
 import '../convert/convert_page.dart';
@@ -67,6 +69,9 @@ class ToolHost extends ConsumerWidget {
       'chapters' => ChaptersPage(key: key, path: tool.path),
       'repair' => RepairPage(key: key, path: tool.path),
       'faststart' => FaststartPage(key: key, path: tool.path),
+      'recipes' => RecipesPage(key: key),
+      'batch' => BatchPage(key: key, path: tool.path, initial: extra is BatchAction ? extra : null),
+      'watchFolder' => WatchFolderPage(key: key),
       _ => const SizedBox.shrink(),
     };
   }
@@ -86,7 +91,11 @@ const screenTools = {
   ...analysisTools,
   ...audioFileTools,
   ...stage4Tools,
+  ...stage5Tools,
 };
+
+/// Stage 5 tools with a screen.
+const stage5Tools = {'recipes', 'batch', 'watchFolder'};
 
 /// Stage 4 tools with a screen.
 const stage4Tools = {

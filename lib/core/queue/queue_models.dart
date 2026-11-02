@@ -22,7 +22,11 @@ class JobRequest {
     this.priority = 0,
     this.maxRetries,
     this.logIsResult = false,
+    this.extra = const {},
   });
+
+  /// Stored with the job (JSON), e.g. `thenRecipe` for a download.
+  final Map<String, Object?> extra;
 
   final String kind;
   final String title;

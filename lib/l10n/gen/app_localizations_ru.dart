@@ -5532,4 +5532,228 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get faststartAlready => 'Файлу это уже не нужно';
+
+  @override
+  String get opConvert => 'Конвертация по пресету';
+
+  @override
+  String get opNormalize => 'Нормализация громкости';
+
+  @override
+  String get opVertical => 'Вертикальное 9:16';
+
+  @override
+  String get opScale => 'Уменьшить до высоты';
+
+  @override
+  String get opDenoise => 'Шумоподавление звука';
+
+  @override
+  String get opFade => 'Появление и исчезание';
+
+  @override
+  String get opText => 'Надпись';
+
+  @override
+  String get opLogo => 'Логотип';
+
+  @override
+  String get opBurnSidecar => 'Вшить субтитры рядом с файлом';
+
+  @override
+  String get opStripMetadata => 'Удалить метаданные';
+
+  @override
+  String get opFaststart => 'Faststart для MP4';
+
+  @override
+  String get opExtractAudio => 'Только звук';
+
+  @override
+  String get opBurnSidecarHint =>
+      'Если рядом лежит файл с тем же именем (.srt/.ass/.vtt), он будет вшит; иначе шаг пропускается.';
+
+  @override
+  String get opDenoiseHint =>
+      'RNNoise, если установлена модель (раздел «Компоненты»), иначе обычное FFT-шумоподавление.';
+
+  @override
+  String get newRecipe => 'Новый рецепт';
+
+  @override
+  String newRecipeName(int n) {
+    return 'Рецепт $n';
+  }
+
+  @override
+  String get noRecipes => 'Рецептов пока нет';
+
+  @override
+  String get recipesExplained =>
+      'Рецепт — это цепочка действий, которую можно применить к любому числу файлов: например, «вертикальное видео → нормализация → faststart». Добавьте шаги кнопкой «+».';
+
+  @override
+  String get tplReels => 'Для Reels и Shorts';
+
+  @override
+  String get tplPodcast => 'Подкаст из видео';
+
+  @override
+  String get tplTelegram => 'Для Telegram с субтитрами';
+
+  @override
+  String get recipeName => 'Название рецепта';
+
+  @override
+  String get runRecipe => 'Применить к файлам';
+
+  @override
+  String get groupRecipeSteps => 'Шаги';
+
+  @override
+  String get addStep => 'Добавить шаг';
+
+  @override
+  String get recipeChainNote =>
+      'Каждый шаг получает результат предыдущего. Промежуточные файлы хранятся во временной папке задачи и кодируются с высоким качеством; формат результата задаёт последний шаг с форматом (конвертация или «только звук»), иначе — как у исходника.';
+
+  @override
+  String get pPreset => 'Пресет';
+
+  @override
+  String get pRecipePresetHint => 'Встроенный или ваш пресет конвертации';
+
+  @override
+  String get pRecipeScaleHint => 'Файлы меньше этого размера не увеличиваются';
+
+  @override
+  String get pRecipeFadeHint => 'Длительность появления и исчезания';
+
+  @override
+  String get pRecipeAudioHint => 'Формат звукового файла';
+
+  @override
+  String get recipeEmpty => 'В рецепте нет шагов';
+
+  @override
+  String get recipePresetMissing => 'Пресет рецепта не найден';
+
+  @override
+  String get recipeNotFound => 'Рецепт не найден';
+
+  @override
+  String get groupBatchAction => 'Что сделать';
+
+  @override
+  String get pBatchAction => 'Действие';
+
+  @override
+  String get pBatchActionHint => 'Пресет конвертации или ваш рецепт';
+
+  @override
+  String get pBatchRecipeHint => 'Цепочка действий из раздела «Рецепты»';
+
+  @override
+  String groupBatchFiles(int n) {
+    return 'Файлы: $n';
+  }
+
+  @override
+  String get addFolder => 'Папка';
+
+  @override
+  String get clearList => 'Очистить список';
+
+  @override
+  String get pRecursive => 'С вложенными папками';
+
+  @override
+  String get pRecursiveHint => 'Искать файлы и во вложенных папках';
+
+  @override
+  String get pFileKind => 'Какие файлы';
+
+  @override
+  String get pFileKindHint => 'Остальные будут пропущены';
+
+  @override
+  String get kindAll => 'все медиафайлы';
+
+  @override
+  String get kindVideo => 'видео';
+
+  @override
+  String get kindAudio => 'звук';
+
+  @override
+  String get kindImages => 'картинки';
+
+  @override
+  String get batchHowTo => 'Добавьте файлы или папку — каждый файл станет отдельной задачей в очереди.';
+
+  @override
+  String get groupBatchOutput => 'Куда сохранять';
+
+  @override
+  String get nextToSource => 'Рядом с исходными файлами';
+
+  @override
+  String get batchOutDirHint => 'Существующие файлы не перезаписываются';
+
+  @override
+  String get pKeepStructure => 'Сохранить структуру папок';
+
+  @override
+  String get pKeepStructureHint => 'Вложенные папки повторяются в папке результата';
+
+  @override
+  String batchRun(int n) {
+    return 'Добавить в очередь ($n)';
+  }
+
+  @override
+  String batchQueued(int queued, int skipped) {
+    return 'В очередь добавлено: $queued, пропущено: $skipped';
+  }
+
+  @override
+  String get addWatch => 'Добавить папку';
+
+  @override
+  String get noWatches => 'Папок под наблюдением нет';
+
+  @override
+  String get watchExplained =>
+      'Пока приложение открыто, новые файлы в выбранных папках автоматически обрабатываются пресетом или рецептом. Файл берётся в работу, когда его копирование закончено; уже лежащие в папке файлы не трогаются.';
+
+  @override
+  String get watchHowTo =>
+      'Например, папка «Входящие» с рецептом «Для Telegram» — бросили видео, через минуту готовый файл в «Входящие/kadra».';
+
+  @override
+  String get groupWatchLog => 'Последние события';
+
+  @override
+  String get watchQueued => 'добавлен в очередь';
+
+  @override
+  String get watchFolderPick => 'Выберите папку';
+
+  @override
+  String get watchOutDefault => 'Подпапка «kadra» в наблюдаемой папке';
+
+  @override
+  String get watchOutHint => 'Папка результатов не отслеживается, чтобы файлы не обрабатывались повторно';
+
+  @override
+  String get pThenRecipe => 'После загрузки';
+
+  @override
+  String get pThenRecipeHint => 'Применить рецепт к каждому скачанному файлу';
+
+  @override
+  String get pRecipeLufs => 'Целевая громкость';
+
+  @override
+  String get pRecipeLufsHint => '−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ';
 }

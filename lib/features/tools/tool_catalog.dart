@@ -65,24 +65,9 @@ class ToolDef {
 
 /// Stage in progress. Tools of earlier stages are enabled; tools of the
 /// current stage only once they are listed in [currentStageReady].
-const currentStage = 4;
+const currentStage = 5;
 
-const currentStageReady = {
-  'burnSubs',
-  'softSubs',
-  'convertSubs',
-  'frames',
-  'contactSheet',
-  'slideshow',
-  'audioToVideo',
-  'visualizer',
-  'imageConvert',
-  'tags',
-  'cover',
-  'chapters',
-  'repair',
-  'faststart',
-};
+const currentStageReady = {'recipes', 'batch', 'watchFolder'};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 

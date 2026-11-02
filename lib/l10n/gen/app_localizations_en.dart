@@ -5495,4 +5495,227 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get faststartAlready => 'This file does not need it';
+
+  @override
+  String get opConvert => 'Convert with a preset';
+
+  @override
+  String get opNormalize => 'Normalize loudness';
+
+  @override
+  String get opVertical => 'Vertical 9:16';
+
+  @override
+  String get opScale => 'Downscale to height';
+
+  @override
+  String get opDenoise => 'Audio noise reduction';
+
+  @override
+  String get opFade => 'Fade in and out';
+
+  @override
+  String get opText => 'Caption';
+
+  @override
+  String get opLogo => 'Logo';
+
+  @override
+  String get opBurnSidecar => 'Burn in sidecar subtitles';
+
+  @override
+  String get opStripMetadata => 'Strip metadata';
+
+  @override
+  String get opFaststart => 'MP4 faststart';
+
+  @override
+  String get opExtractAudio => 'Audio only';
+
+  @override
+  String get opBurnSidecarHint =>
+      'If a file with the same name (.srt/.ass/.vtt) lies next to it, it is burned in; otherwise the step is skipped.';
+
+  @override
+  String get opDenoiseHint => 'RNNoise when a model is installed (Components), otherwise standard FFT denoise.';
+
+  @override
+  String get newRecipe => 'New recipe';
+
+  @override
+  String newRecipeName(int n) {
+    return 'Recipe $n';
+  }
+
+  @override
+  String get noRecipes => 'No recipes yet';
+
+  @override
+  String get recipesExplained =>
+      'A recipe is a chain of actions you can apply to any number of files, e.g. “vertical video → normalize → faststart”. Add steps with “+”.';
+
+  @override
+  String get tplReels => 'For Reels and Shorts';
+
+  @override
+  String get tplPodcast => 'Podcast from video';
+
+  @override
+  String get tplTelegram => 'For Telegram with subtitles';
+
+  @override
+  String get recipeName => 'Recipe name';
+
+  @override
+  String get runRecipe => 'Apply to files';
+
+  @override
+  String get groupRecipeSteps => 'Steps';
+
+  @override
+  String get addStep => 'Add step';
+
+  @override
+  String get recipeChainNote =>
+      'Each step takes the previous result. Intermediate files live in the job’s temp folder at high quality; the output format comes from the last step that sets one (convert or audio only), otherwise the source’s.';
+
+  @override
+  String get pPreset => 'Preset';
+
+  @override
+  String get pRecipePresetHint => 'A built-in or your own convert preset';
+
+  @override
+  String get pRecipeScaleHint => 'Smaller files are not enlarged';
+
+  @override
+  String get pRecipeFadeHint => 'Fade in and out length';
+
+  @override
+  String get pRecipeAudioHint => 'Audio file format';
+
+  @override
+  String get recipeEmpty => 'The recipe has no steps';
+
+  @override
+  String get recipePresetMissing => 'The recipe’s preset was not found';
+
+  @override
+  String get recipeNotFound => 'Recipe not found';
+
+  @override
+  String get groupBatchAction => 'What to do';
+
+  @override
+  String get pBatchAction => 'Action';
+
+  @override
+  String get pBatchActionHint => 'A convert preset or your recipe';
+
+  @override
+  String get pBatchRecipeHint => 'An action chain from Recipes';
+
+  @override
+  String groupBatchFiles(int n) {
+    return 'Files: $n';
+  }
+
+  @override
+  String get addFolder => 'Folder';
+
+  @override
+  String get clearList => 'Clear the list';
+
+  @override
+  String get pRecursive => 'Include sub-folders';
+
+  @override
+  String get pRecursiveHint => 'Look in sub-folders too';
+
+  @override
+  String get pFileKind => 'Which files';
+
+  @override
+  String get pFileKindHint => 'Others are skipped';
+
+  @override
+  String get kindAll => 'all media';
+
+  @override
+  String get kindVideo => 'video';
+
+  @override
+  String get kindAudio => 'audio';
+
+  @override
+  String get kindImages => 'images';
+
+  @override
+  String get batchHowTo => 'Add files or a folder — each file becomes a separate queue job.';
+
+  @override
+  String get groupBatchOutput => 'Where to save';
+
+  @override
+  String get nextToSource => 'Next to the source files';
+
+  @override
+  String get batchOutDirHint => 'Existing files are never overwritten';
+
+  @override
+  String get pKeepStructure => 'Keep folder structure';
+
+  @override
+  String get pKeepStructureHint => 'Sub-folders are recreated in the output folder';
+
+  @override
+  String batchRun(int n) {
+    return 'Add to queue ($n)';
+  }
+
+  @override
+  String batchQueued(int queued, int skipped) {
+    return 'Queued: $queued, skipped: $skipped';
+  }
+
+  @override
+  String get addWatch => 'Add folder';
+
+  @override
+  String get noWatches => 'No watched folders';
+
+  @override
+  String get watchExplained =>
+      'While the app is open, new files in the chosen folders are processed automatically with a preset or recipe. A file is picked up once copying finishes; files already there are left alone.';
+
+  @override
+  String get watchHowTo =>
+      'E.g. an “Inbox” folder with a “For Telegram” recipe — drop a video, a minute later the result is in “Inbox/kadra”.';
+
+  @override
+  String get groupWatchLog => 'Recent events';
+
+  @override
+  String get watchQueued => 'queued';
+
+  @override
+  String get watchFolderPick => 'Choose a folder';
+
+  @override
+  String get watchOutDefault => 'A “kadra” sub-folder of the watched folder';
+
+  @override
+  String get watchOutHint => 'The output folder is not watched, so results are not processed again';
+
+  @override
+  String get pThenRecipe => 'After downloading';
+
+  @override
+  String get pThenRecipeHint => 'Apply a recipe to every downloaded file';
+
+  @override
+  String get pRecipeLufs => 'Target loudness';
+
+  @override
+  String get pRecipeLufsHint => '−14 for YouTube and streaming, −16 podcasts, −23 TV';
 }

@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 
+import '../automation/automation_service.dart';
+import '../automation/recipe.dart';
 import '../../core/engine/error_translator.dart';
 import '../../core/platform/app_paths.dart';
 import '../../core/providers.dart';
@@ -44,6 +46,9 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
   YtDownloadParams _p = const YtDownloadParams();
   String? _clipboardUrl;
   bool _useArchive = false;
+
+  /// Recipe applied to every finished download (chained by the queue).
+  String? _thenRecipe;
 
   @override
   void initState() {
@@ -135,6 +140,7 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
           args: ytdlpDownloadArgs(url: url, outputDir: out, p: params, tools: tools, chosen: chosen),
         ),
       ],
+      extra: {'thenRecipe': ?_thenRecipe},
     );
     if (skipAnalysis) return [for (final u in extractUrls(_urls.text)) req(u, u)];
     final list = <JobRequest>[];
@@ -175,6 +181,7 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final recipes = ref.watch(recipesProvider).value ?? const <Recipe>[];
     final l = context.l10n;
     final ytdlp = ref.watch(toolchainProvider.select((t) => t.ytdlp));
     if (!ytdlp.available) {
@@ -393,6 +400,18 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
                           DropdownMenuItem(value: null, child: Text(l.none)),
                           for (final b in const ['chrome', 'firefox', 'edge', 'brave', 'opera', 'vivaldi', 'chromium'])
                             DropdownMenuItem(value: b, child: Text(b)),
+                        ],
+                      ),
+                    ),
+                    SettingTile(
+                      title: l.pThenRecipe,
+                      hint: l.pThenRecipeHint,
+                      control: DropdownButton<String?>(
+                        value: recipes.any((r) => r.id == _thenRecipe) ? _thenRecipe : null,
+                        onChanged: (v) => setState(() => _thenRecipe = v),
+                        items: [
+                          DropdownMenuItem(value: null, child: Text(l.none)),
+                          for (final r in recipes) DropdownMenuItem(value: r.id, child: Text(r.name)),
                         ],
                       ),
                     ),

@@ -17,6 +17,8 @@ class AppPaths {
   String get database => p.join(root, 'kadra.sqlite');
   String get componentState => p.join(components, 'state.json');
   String get hwCache => p.join(root, 'hwaccel.json');
+  String get recipes => p.join(root, 'recipes.json');
+  String get watchers => p.join(root, 'watchers.json');
 
   static Future<AppPaths> resolve() async {
     final dir = await getApplicationSupportDirectory();

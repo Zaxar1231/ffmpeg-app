@@ -104,6 +104,7 @@ Future<void> submitJob(BuildContext context, WidgetRef ref, JobRequest request, 
       priority: req.priority,
       maxRetries: req.maxRetries,
       logIsResult: req.logIsResult,
+      extra: req.extra,
     );
   }
   if (now) {
@@ -119,6 +120,7 @@ Future<void> submitJob(BuildContext context, WidgetRef ref, JobRequest request, 
       priority: 10,
       maxRetries: req.maxRetries,
       logIsResult: req.logIsResult,
+      extra: req.extra,
     );
   }
   await ref.read(queueProvider.notifier).enqueue(req);

@@ -10387,6 +10387,426 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Файлу это уже не нужно'**
   String get faststartAlready;
+
+  /// No description provided for @opConvert.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конвертация по пресету'**
+  String get opConvert;
+
+  /// No description provided for @opNormalize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нормализация громкости'**
+  String get opNormalize;
+
+  /// No description provided for @opVertical.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вертикальное 9:16'**
+  String get opVertical;
+
+  /// No description provided for @opScale.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить до высоты'**
+  String get opScale;
+
+  /// No description provided for @opDenoise.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шумоподавление звука'**
+  String get opDenoise;
+
+  /// No description provided for @opFade.
+  ///
+  /// In ru, this message translates to:
+  /// **'Появление и исчезание'**
+  String get opFade;
+
+  /// No description provided for @opText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Надпись'**
+  String get opText;
+
+  /// No description provided for @opLogo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логотип'**
+  String get opLogo;
+
+  /// No description provided for @opBurnSidecar.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вшить субтитры рядом с файлом'**
+  String get opBurnSidecar;
+
+  /// No description provided for @opStripMetadata.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить метаданные'**
+  String get opStripMetadata;
+
+  /// No description provided for @opFaststart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Faststart для MP4'**
+  String get opFaststart;
+
+  /// No description provided for @opExtractAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только звук'**
+  String get opExtractAudio;
+
+  /// No description provided for @opBurnSidecarHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Если рядом лежит файл с тем же именем (.srt/.ass/.vtt), он будет вшит; иначе шаг пропускается.'**
+  String get opBurnSidecarHint;
+
+  /// No description provided for @opDenoiseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'RNNoise, если установлена модель (раздел «Компоненты»), иначе обычное FFT-шумоподавление.'**
+  String get opDenoiseHint;
+
+  /// No description provided for @newRecipe.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый рецепт'**
+  String get newRecipe;
+
+  /// No description provided for @newRecipeName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рецепт {n}'**
+  String newRecipeName(int n);
+
+  /// No description provided for @noRecipes.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рецептов пока нет'**
+  String get noRecipes;
+
+  /// No description provided for @recipesExplained.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рецепт — это цепочка действий, которую можно применить к любому числу файлов: например, «вертикальное видео → нормализация → faststart». Добавьте шаги кнопкой «+».'**
+  String get recipesExplained;
+
+  /// No description provided for @tplReels.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для Reels и Shorts'**
+  String get tplReels;
+
+  /// No description provided for @tplPodcast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подкаст из видео'**
+  String get tplPodcast;
+
+  /// No description provided for @tplTelegram.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для Telegram с субтитрами'**
+  String get tplTelegram;
+
+  /// No description provided for @recipeName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название рецепта'**
+  String get recipeName;
+
+  /// No description provided for @runRecipe.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применить к файлам'**
+  String get runRecipe;
+
+  /// No description provided for @groupRecipeSteps.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шаги'**
+  String get groupRecipeSteps;
+
+  /// No description provided for @addStep.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить шаг'**
+  String get addStep;
+
+  /// No description provided for @recipeChainNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каждый шаг получает результат предыдущего. Промежуточные файлы хранятся во временной папке задачи и кодируются с высоким качеством; формат результата задаёт последний шаг с форматом (конвертация или «только звук»), иначе — как у исходника.'**
+  String get recipeChainNote;
+
+  /// No description provided for @pPreset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пресет'**
+  String get pPreset;
+
+  /// No description provided for @pRecipePresetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Встроенный или ваш пресет конвертации'**
+  String get pRecipePresetHint;
+
+  /// No description provided for @pRecipeScaleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлы меньше этого размера не увеличиваются'**
+  String get pRecipeScaleHint;
+
+  /// No description provided for @pRecipeFadeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длительность появления и исчезания'**
+  String get pRecipeFadeHint;
+
+  /// No description provided for @pRecipeAudioHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат звукового файла'**
+  String get pRecipeAudioHint;
+
+  /// No description provided for @recipeEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'В рецепте нет шагов'**
+  String get recipeEmpty;
+
+  /// No description provided for @recipePresetMissing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пресет рецепта не найден'**
+  String get recipePresetMissing;
+
+  /// No description provided for @recipeNotFound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рецепт не найден'**
+  String get recipeNotFound;
+
+  /// No description provided for @groupBatchAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что сделать'**
+  String get groupBatchAction;
+
+  /// No description provided for @pBatchAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Действие'**
+  String get pBatchAction;
+
+  /// No description provided for @pBatchActionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пресет конвертации или ваш рецепт'**
+  String get pBatchActionHint;
+
+  /// No description provided for @pBatchRecipeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цепочка действий из раздела «Рецепты»'**
+  String get pBatchRecipeHint;
+
+  /// No description provided for @groupBatchFiles.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлы: {n}'**
+  String groupBatchFiles(int n);
+
+  /// No description provided for @addFolder.
+  ///
+  /// In ru, this message translates to:
+  /// **'Папка'**
+  String get addFolder;
+
+  /// No description provided for @clearList.
+  ///
+  /// In ru, this message translates to:
+  /// **'Очистить список'**
+  String get clearList;
+
+  /// No description provided for @pRecursive.
+  ///
+  /// In ru, this message translates to:
+  /// **'С вложенными папками'**
+  String get pRecursive;
+
+  /// No description provided for @pRecursiveHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Искать файлы и во вложенных папках'**
+  String get pRecursiveHint;
+
+  /// No description provided for @pFileKind.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какие файлы'**
+  String get pFileKind;
+
+  /// No description provided for @pFileKindHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Остальные будут пропущены'**
+  String get pFileKindHint;
+
+  /// No description provided for @kindAll.
+  ///
+  /// In ru, this message translates to:
+  /// **'все медиафайлы'**
+  String get kindAll;
+
+  /// No description provided for @kindVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'видео'**
+  String get kindVideo;
+
+  /// No description provided for @kindAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'звук'**
+  String get kindAudio;
+
+  /// No description provided for @kindImages.
+  ///
+  /// In ru, this message translates to:
+  /// **'картинки'**
+  String get kindImages;
+
+  /// No description provided for @batchHowTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавьте файлы или папку — каждый файл станет отдельной задачей в очереди.'**
+  String get batchHowTo;
+
+  /// No description provided for @groupBatchOutput.
+  ///
+  /// In ru, this message translates to:
+  /// **'Куда сохранять'**
+  String get groupBatchOutput;
+
+  /// No description provided for @nextToSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рядом с исходными файлами'**
+  String get nextToSource;
+
+  /// No description provided for @batchOutDirHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Существующие файлы не перезаписываются'**
+  String get batchOutDirHint;
+
+  /// No description provided for @pKeepStructure.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить структуру папок'**
+  String get pKeepStructure;
+
+  /// No description provided for @pKeepStructureHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вложенные папки повторяются в папке результата'**
+  String get pKeepStructureHint;
+
+  /// No description provided for @batchRun.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить в очередь ({n})'**
+  String batchRun(int n);
+
+  /// No description provided for @batchQueued.
+  ///
+  /// In ru, this message translates to:
+  /// **'В очередь добавлено: {queued}, пропущено: {skipped}'**
+  String batchQueued(int queued, int skipped);
+
+  /// No description provided for @addWatch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить папку'**
+  String get addWatch;
+
+  /// No description provided for @noWatches.
+  ///
+  /// In ru, this message translates to:
+  /// **'Папок под наблюдением нет'**
+  String get noWatches;
+
+  /// No description provided for @watchExplained.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пока приложение открыто, новые файлы в выбранных папках автоматически обрабатываются пресетом или рецептом. Файл берётся в работу, когда его копирование закончено; уже лежащие в папке файлы не трогаются.'**
+  String get watchExplained;
+
+  /// No description provided for @watchHowTo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Например, папка «Входящие» с рецептом «Для Telegram» — бросили видео, через минуту готовый файл в «Входящие/kadra».'**
+  String get watchHowTo;
+
+  /// No description provided for @groupWatchLog.
+  ///
+  /// In ru, this message translates to:
+  /// **'Последние события'**
+  String get groupWatchLog;
+
+  /// No description provided for @watchQueued.
+  ///
+  /// In ru, this message translates to:
+  /// **'добавлен в очередь'**
+  String get watchQueued;
+
+  /// No description provided for @watchFolderPick.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите папку'**
+  String get watchFolderPick;
+
+  /// No description provided for @watchOutDefault.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подпапка «kadra» в наблюдаемой папке'**
+  String get watchOutDefault;
+
+  /// No description provided for @watchOutHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Папка результатов не отслеживается, чтобы файлы не обрабатывались повторно'**
+  String get watchOutHint;
+
+  /// No description provided for @pThenRecipe.
+  ///
+  /// In ru, this message translates to:
+  /// **'После загрузки'**
+  String get pThenRecipe;
+
+  /// No description provided for @pThenRecipeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применить рецепт к каждому скачанному файлу'**
+  String get pThenRecipeHint;
+
+  /// No description provided for @pRecipeLufs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Целевая громкость'**
+  String get pRecipeLufs;
+
+  /// No description provided for @pRecipeLufsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'−14 — YouTube и стриминг, −16 — подкасты, −23 — ТВ'**
+  String get pRecipeLufsHint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
