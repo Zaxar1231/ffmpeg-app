@@ -620,7 +620,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get toolScreenRecord => 'Запись экрана';
 
   @override
-  String get toolScreenRecordDesc => 'Весь экран, область или окно.';
+  String get toolScreenRecordDesc => 'Весь экран или его часть, с микрофоном и звуком компьютера.';
 
   @override
   String get toolWebcam => 'Камера и микрофон';
@@ -5860,4 +5860,182 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get cmdErrPlaceholder =>
       'В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»';
+
+  @override
+  String get startRecording => 'Начать запись';
+
+  @override
+  String get startStream => 'Начать трансляцию';
+
+  @override
+  String droppedFrames(int n) {
+    return 'пропущено кадров: $n';
+  }
+
+  @override
+  String liveTooSlow(String speed) {
+    return 'Кодирование не успевает (скорость $speed×) — уменьшите разрешение, частоту кадров или включите аппаратное кодирование';
+  }
+
+  @override
+  String get liveBusy => 'Уже идёт другая запись или трансляция';
+
+  @override
+  String get groupScreen => 'Экран';
+
+  @override
+  String get groupCamera => 'Камера';
+
+  @override
+  String get pCaptureRegion => 'Только часть экрана';
+
+  @override
+  String get pCaptureRegionHint => 'Левый верхний угол и размер в пикселях';
+
+  @override
+  String get wholeScreen => 'Весь экран';
+
+  @override
+  String get widthLabel => 'Ширина';
+
+  @override
+  String get heightLabel => 'Высота';
+
+  @override
+  String get pDrawMouse => 'Показывать курсор';
+
+  @override
+  String get pDrawMouseHint => 'Указатель мыши попадёт в запись';
+
+  @override
+  String get pCaptureFpsHint => '30 — для презентаций, 60 — для игр и быстрого движения';
+
+  @override
+  String get pCamera => 'Камера';
+
+  @override
+  String get pCameraHint => 'Устройство видеозахвата';
+
+  @override
+  String get noCameras => 'Камеры не найдены';
+
+  @override
+  String get groupCaptureAudio => 'Звук';
+
+  @override
+  String get microphone => 'микрофон / вход';
+
+  @override
+  String get systemAudio => 'звук компьютера';
+
+  @override
+  String get noAudioDevices => 'Устройства звука не найдены';
+
+  @override
+  String get systemAudioWindows =>
+      'Чтобы записать звук компьютера, включите устройство «Стерео микшер» (Stereo Mix) в настройках звука Windows или установите виртуальное аудиоустройство.';
+
+  @override
+  String get systemAudioLinux => 'Источники «.monitor» записывают то, что играет компьютер.';
+
+  @override
+  String get pCaptureQualityHint => 'Кодирование идёт в реальном времени; при пропуске кадров выберите качество пониже';
+
+  @override
+  String get pSaveMp4 => 'Сохранить в MP4';
+
+  @override
+  String get pSaveMp4Hint => 'Запись идёт в MKV (не портится при сбое), после остановки — перепаковка в MP4 без потерь';
+
+  @override
+  String get waylandNote =>
+      'Сеанс Wayland: x11grab записывает только окна XWayland, остальное может быть чёрным. Для полноценной записи войдите в сеанс X11.';
+
+  @override
+  String get groupStreamTarget => 'Куда транслировать';
+
+  @override
+  String get pService => 'Сервис';
+
+  @override
+  String get pServiceHint => 'Адрес сервера подставится сам';
+
+  @override
+  String get customServer => 'Свой сервер (RTMP/SRT)';
+
+  @override
+  String get serverUrl => 'Адрес сервера';
+
+  @override
+  String get streamKey => 'Ключ трансляции';
+
+  @override
+  String get streamKeyHint => 'Из панели управления трансляцией; не показывайте его никому';
+
+  @override
+  String get groupStreamSource => 'Что транслировать';
+
+  @override
+  String get pStreamSource => 'Источник';
+
+  @override
+  String get pStreamSourceHint => 'Экран, камера или готовый файл';
+
+  @override
+  String get sourceScreen => 'Экран';
+
+  @override
+  String get sourceCamera => 'Камера';
+
+  @override
+  String get sourceFile => 'Файл';
+
+  @override
+  String get pLoopFile => 'По кругу';
+
+  @override
+  String get pLoopFileHint => 'Повторять файл, пока не остановите';
+
+  @override
+  String get groupStreamQuality => 'Качество трансляции';
+
+  @override
+  String get pStreamBitrate => 'Битрейт видео';
+
+  @override
+  String get pStreamBitrateHint => '1080p30 — 4500–6000, 720p30 — 2500–4000; не больше 70% скорости отдачи интернета';
+
+  @override
+  String get groupPackage => 'Адаптивное видео';
+
+  @override
+  String get pPackageFormat => 'Формат';
+
+  @override
+  String get hlsHint => 'Apple HLS — играет везде: браузеры, iOS, Android, Smart TV';
+
+  @override
+  String get dashHint => 'MPEG-DASH — открытый стандарт для веб-плееров (dash.js, Shaka)';
+
+  @override
+  String get pLadder => 'Качества';
+
+  @override
+  String get pLadderHint => 'Плеер переключается между ними по скорости интернета; выше исходника не создаются';
+
+  @override
+  String get pSegment => 'Длина сегмента';
+
+  @override
+  String get pSegmentHint => 'Короче — быстрее старт и переключение, больше файлов';
+
+  @override
+  String ladderSummary(String list) {
+    return 'Качества: $list';
+  }
+
+  @override
+  String packageFolderNote(String dir) {
+    return 'Все файлы будут в папке $dir; загрузите её на сервер целиком';
+  }
 }

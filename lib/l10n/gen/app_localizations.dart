@@ -1277,7 +1277,7 @@ abstract class AppLocalizations {
   /// No description provided for @toolScreenRecordDesc.
   ///
   /// In ru, this message translates to:
-  /// **'Весь экран, область или окно.'**
+  /// **'Весь экран или его часть, с микрофоном и звуком компьютера.'**
   String get toolScreenRecordDesc;
 
   /// No description provided for @toolWebcam.
@@ -11005,6 +11005,342 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»'**
   String get cmdErrPlaceholder;
+
+  /// No description provided for @startRecording.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать запись'**
+  String get startRecording;
+
+  /// No description provided for @startStream.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать трансляцию'**
+  String get startStream;
+
+  /// No description provided for @droppedFrames.
+  ///
+  /// In ru, this message translates to:
+  /// **'пропущено кадров: {n}'**
+  String droppedFrames(int n);
+
+  /// No description provided for @liveTooSlow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кодирование не успевает (скорость {speed}×) — уменьшите разрешение, частоту кадров или включите аппаратное кодирование'**
+  String liveTooSlow(String speed);
+
+  /// No description provided for @liveBusy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уже идёт другая запись или трансляция'**
+  String get liveBusy;
+
+  /// No description provided for @groupScreen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экран'**
+  String get groupScreen;
+
+  /// No description provided for @groupCamera.
+  ///
+  /// In ru, this message translates to:
+  /// **'Камера'**
+  String get groupCamera;
+
+  /// No description provided for @pCaptureRegion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только часть экрана'**
+  String get pCaptureRegion;
+
+  /// No description provided for @pCaptureRegionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Левый верхний угол и размер в пикселях'**
+  String get pCaptureRegionHint;
+
+  /// No description provided for @wholeScreen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Весь экран'**
+  String get wholeScreen;
+
+  /// No description provided for @widthLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина'**
+  String get widthLabel;
+
+  /// No description provided for @heightLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота'**
+  String get heightLabel;
+
+  /// No description provided for @pDrawMouse.
+  ///
+  /// In ru, this message translates to:
+  /// **'Показывать курсор'**
+  String get pDrawMouse;
+
+  /// No description provided for @pDrawMouseHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Указатель мыши попадёт в запись'**
+  String get pDrawMouseHint;
+
+  /// No description provided for @pCaptureFpsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'30 — для презентаций, 60 — для игр и быстрого движения'**
+  String get pCaptureFpsHint;
+
+  /// No description provided for @pCamera.
+  ///
+  /// In ru, this message translates to:
+  /// **'Камера'**
+  String get pCamera;
+
+  /// No description provided for @pCameraHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Устройство видеозахвата'**
+  String get pCameraHint;
+
+  /// No description provided for @noCameras.
+  ///
+  /// In ru, this message translates to:
+  /// **'Камеры не найдены'**
+  String get noCameras;
+
+  /// No description provided for @groupCaptureAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук'**
+  String get groupCaptureAudio;
+
+  /// No description provided for @microphone.
+  ///
+  /// In ru, this message translates to:
+  /// **'микрофон / вход'**
+  String get microphone;
+
+  /// No description provided for @systemAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'звук компьютера'**
+  String get systemAudio;
+
+  /// No description provided for @noAudioDevices.
+  ///
+  /// In ru, this message translates to:
+  /// **'Устройства звука не найдены'**
+  String get noAudioDevices;
+
+  /// No description provided for @systemAudioWindows.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чтобы записать звук компьютера, включите устройство «Стерео микшер» (Stereo Mix) в настройках звука Windows или установите виртуальное аудиоустройство.'**
+  String get systemAudioWindows;
+
+  /// No description provided for @systemAudioLinux.
+  ///
+  /// In ru, this message translates to:
+  /// **'Источники «.monitor» записывают то, что играет компьютер.'**
+  String get systemAudioLinux;
+
+  /// No description provided for @pCaptureQualityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кодирование идёт в реальном времени; при пропуске кадров выберите качество пониже'**
+  String get pCaptureQualityHint;
+
+  /// No description provided for @pSaveMp4.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить в MP4'**
+  String get pSaveMp4;
+
+  /// No description provided for @pSaveMp4Hint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запись идёт в MKV (не портится при сбое), после остановки — перепаковка в MP4 без потерь'**
+  String get pSaveMp4Hint;
+
+  /// No description provided for @waylandNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сеанс Wayland: x11grab записывает только окна XWayland, остальное может быть чёрным. Для полноценной записи войдите в сеанс X11.'**
+  String get waylandNote;
+
+  /// No description provided for @groupStreamTarget.
+  ///
+  /// In ru, this message translates to:
+  /// **'Куда транслировать'**
+  String get groupStreamTarget;
+
+  /// No description provided for @pService.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сервис'**
+  String get pService;
+
+  /// No description provided for @pServiceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Адрес сервера подставится сам'**
+  String get pServiceHint;
+
+  /// No description provided for @customServer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свой сервер (RTMP/SRT)'**
+  String get customServer;
+
+  /// No description provided for @serverUrl.
+  ///
+  /// In ru, this message translates to:
+  /// **'Адрес сервера'**
+  String get serverUrl;
+
+  /// No description provided for @streamKey.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ключ трансляции'**
+  String get streamKey;
+
+  /// No description provided for @streamKeyHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Из панели управления трансляцией; не показывайте его никому'**
+  String get streamKeyHint;
+
+  /// No description provided for @groupStreamSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что транслировать'**
+  String get groupStreamSource;
+
+  /// No description provided for @pStreamSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Источник'**
+  String get pStreamSource;
+
+  /// No description provided for @pStreamSourceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экран, камера или готовый файл'**
+  String get pStreamSourceHint;
+
+  /// No description provided for @sourceScreen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Экран'**
+  String get sourceScreen;
+
+  /// No description provided for @sourceCamera.
+  ///
+  /// In ru, this message translates to:
+  /// **'Камера'**
+  String get sourceCamera;
+
+  /// No description provided for @sourceFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл'**
+  String get sourceFile;
+
+  /// No description provided for @pLoopFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'По кругу'**
+  String get pLoopFile;
+
+  /// No description provided for @pLoopFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторять файл, пока не остановите'**
+  String get pLoopFileHint;
+
+  /// No description provided for @groupStreamQuality.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качество трансляции'**
+  String get groupStreamQuality;
+
+  /// No description provided for @pStreamBitrate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Битрейт видео'**
+  String get pStreamBitrate;
+
+  /// No description provided for @pStreamBitrateHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'1080p30 — 4500–6000, 720p30 — 2500–4000; не больше 70% скорости отдачи интернета'**
+  String get pStreamBitrateHint;
+
+  /// No description provided for @groupPackage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Адаптивное видео'**
+  String get groupPackage;
+
+  /// No description provided for @pPackageFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pPackageFormat;
+
+  /// No description provided for @hlsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Apple HLS — играет везде: браузеры, iOS, Android, Smart TV'**
+  String get hlsHint;
+
+  /// No description provided for @dashHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'MPEG-DASH — открытый стандарт для веб-плееров (dash.js, Shaka)'**
+  String get dashHint;
+
+  /// No description provided for @pLadder.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качества'**
+  String get pLadder;
+
+  /// No description provided for @pLadderHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плеер переключается между ними по скорости интернета; выше исходника не создаются'**
+  String get pLadderHint;
+
+  /// No description provided for @pSegment.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длина сегмента'**
+  String get pSegment;
+
+  /// No description provided for @pSegmentHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Короче — быстрее старт и переключение, больше файлов'**
+  String get pSegmentHint;
+
+  /// No description provided for @ladderSummary.
+  ///
+  /// In ru, this message translates to:
+  /// **'Качества: {list}'**
+  String ladderSummary(String list);
+
+  /// No description provided for @packageFolderNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Все файлы будут в папке {dir}; загрузите её на сервер целиком'**
+  String packageFolderNote(String dir);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

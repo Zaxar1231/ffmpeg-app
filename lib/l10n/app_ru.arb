@@ -232,7 +232,7 @@
   "toolChapters": "Главы",
   "toolChaptersDesc": "Добавить, переименовать, импорт и экспорт глав.",
   "toolScreenRecord": "Запись экрана",
-  "toolScreenRecordDesc": "Весь экран, область или окно.",
+  "toolScreenRecordDesc": "Весь экран или его часть, с микрофоном и звуком компьютера.",
   "toolWebcam": "Камера и микрофон",
   "toolWebcamDesc": "Запись с веб-камеры и микрофона.",
   "toolStream": "Стрим",
@@ -2604,5 +2604,89 @@
   },
   "searchFilters": "Поиск фильтра",
   "addFilter": "Добавить в цепочку",
-  "cmdErrPlaceholder": "В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»"
+  "cmdErrPlaceholder": "В команде остались заготовки — укажите входной файл и файл результата кнопками «Вставить…»",
+  "startRecording": "Начать запись",
+  "startStream": "Начать трансляцию",
+  "droppedFrames": "пропущено кадров: {n}",
+  "@droppedFrames": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "liveTooSlow": "Кодирование не успевает (скорость {speed}×) — уменьшите разрешение, частоту кадров или включите аппаратное кодирование",
+  "@liveTooSlow": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "liveBusy": "Уже идёт другая запись или трансляция",
+  "groupScreen": "Экран",
+  "groupCamera": "Камера",
+  "pCaptureRegion": "Только часть экрана",
+  "pCaptureRegionHint": "Левый верхний угол и размер в пикселях",
+  "wholeScreen": "Весь экран",
+  "widthLabel": "Ширина",
+  "heightLabel": "Высота",
+  "pDrawMouse": "Показывать курсор",
+  "pDrawMouseHint": "Указатель мыши попадёт в запись",
+  "pCaptureFpsHint": "30 — для презентаций, 60 — для игр и быстрого движения",
+  "pCamera": "Камера",
+  "pCameraHint": "Устройство видеозахвата",
+  "noCameras": "Камеры не найдены",
+  "groupCaptureAudio": "Звук",
+  "microphone": "микрофон / вход",
+  "systemAudio": "звук компьютера",
+  "noAudioDevices": "Устройства звука не найдены",
+  "systemAudioWindows": "Чтобы записать звук компьютера, включите устройство «Стерео микшер» (Stereo Mix) в настройках звука Windows или установите виртуальное аудиоустройство.",
+  "systemAudioLinux": "Источники «.monitor» записывают то, что играет компьютер.",
+  "pCaptureQualityHint": "Кодирование идёт в реальном времени; при пропуске кадров выберите качество пониже",
+  "pSaveMp4": "Сохранить в MP4",
+  "pSaveMp4Hint": "Запись идёт в MKV (не портится при сбое), после остановки — перепаковка в MP4 без потерь",
+  "waylandNote": "Сеанс Wayland: x11grab записывает только окна XWayland, остальное может быть чёрным. Для полноценной записи войдите в сеанс X11.",
+  "groupStreamTarget": "Куда транслировать",
+  "pService": "Сервис",
+  "pServiceHint": "Адрес сервера подставится сам",
+  "customServer": "Свой сервер (RTMP/SRT)",
+  "serverUrl": "Адрес сервера",
+  "streamKey": "Ключ трансляции",
+  "streamKeyHint": "Из панели управления трансляцией; не показывайте его никому",
+  "groupStreamSource": "Что транслировать",
+  "pStreamSource": "Источник",
+  "pStreamSourceHint": "Экран, камера или готовый файл",
+  "sourceScreen": "Экран",
+  "sourceCamera": "Камера",
+  "sourceFile": "Файл",
+  "pLoopFile": "По кругу",
+  "pLoopFileHint": "Повторять файл, пока не остановите",
+  "groupStreamQuality": "Качество трансляции",
+  "pStreamBitrate": "Битрейт видео",
+  "pStreamBitrateHint": "1080p30 — 4500–6000, 720p30 — 2500–4000; не больше 70% скорости отдачи интернета",
+  "groupPackage": "Адаптивное видео",
+  "pPackageFormat": "Формат",
+  "hlsHint": "Apple HLS — играет везде: браузеры, iOS, Android, Smart TV",
+  "dashHint": "MPEG-DASH — открытый стандарт для веб-плееров (dash.js, Shaka)",
+  "pLadder": "Качества",
+  "pLadderHint": "Плеер переключается между ними по скорости интернета; выше исходника не создаются",
+  "pSegment": "Длина сегмента",
+  "pSegmentHint": "Короче — быстрее старт и переключение, больше файлов",
+  "ladderSummary": "Качества: {list}",
+  "@ladderSummary": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "packageFolderNote": "Все файлы будут в папке {dir}; загрузите её на сервер целиком",
+  "@packageFolderNote": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  }
 }

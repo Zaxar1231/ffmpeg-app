@@ -613,7 +613,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolScreenRecord => 'Screen recording';
 
   @override
-  String get toolScreenRecordDesc => 'Full screen, region or window.';
+  String get toolScreenRecordDesc => 'Full screen or a region, with microphone and computer audio.';
 
   @override
   String get toolWebcam => 'Camera & mic';
@@ -5822,4 +5822,182 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get cmdErrPlaceholder =>
       'The command still has placeholders — set the input and output files with the “Insert…” buttons';
+
+  @override
+  String get startRecording => 'Start recording';
+
+  @override
+  String get startStream => 'Go live';
+
+  @override
+  String droppedFrames(int n) {
+    return 'dropped frames: $n';
+  }
+
+  @override
+  String liveTooSlow(String speed) {
+    return 'Encoding cannot keep up (speed $speed×) — lower the resolution or frame rate, or enable hardware encoding';
+  }
+
+  @override
+  String get liveBusy => 'Another recording or stream is running';
+
+  @override
+  String get groupScreen => 'Screen';
+
+  @override
+  String get groupCamera => 'Camera';
+
+  @override
+  String get pCaptureRegion => 'Part of the screen';
+
+  @override
+  String get pCaptureRegionHint => 'Top-left corner and size in pixels';
+
+  @override
+  String get wholeScreen => 'Whole screen';
+
+  @override
+  String get widthLabel => 'Width';
+
+  @override
+  String get heightLabel => 'Height';
+
+  @override
+  String get pDrawMouse => 'Show the cursor';
+
+  @override
+  String get pDrawMouseHint => 'The mouse pointer is recorded';
+
+  @override
+  String get pCaptureFpsHint => '30 for presentations, 60 for games and fast motion';
+
+  @override
+  String get pCamera => 'Camera';
+
+  @override
+  String get pCameraHint => 'Video capture device';
+
+  @override
+  String get noCameras => 'No cameras found';
+
+  @override
+  String get groupCaptureAudio => 'Audio';
+
+  @override
+  String get microphone => 'microphone / input';
+
+  @override
+  String get systemAudio => 'computer audio';
+
+  @override
+  String get noAudioDevices => 'No audio devices found';
+
+  @override
+  String get systemAudioWindows =>
+      'To record computer audio, enable “Stereo Mix” in Windows sound settings or install a virtual audio device.';
+
+  @override
+  String get systemAudioLinux => '“.monitor” sources record what the computer plays.';
+
+  @override
+  String get pCaptureQualityHint => 'Encoding runs in real time; if frames drop, choose a lower quality';
+
+  @override
+  String get pSaveMp4 => 'Save as MP4';
+
+  @override
+  String get pSaveMp4Hint => 'Recording goes to MKV (survives a crash), then is repackaged to MP4 without loss';
+
+  @override
+  String get waylandNote =>
+      'Wayland session: x11grab records only XWayland windows; the rest may be black. Log into an X11 session for full capture.';
+
+  @override
+  String get groupStreamTarget => 'Where to stream';
+
+  @override
+  String get pService => 'Service';
+
+  @override
+  String get pServiceHint => 'The server address is filled in';
+
+  @override
+  String get customServer => 'Custom server (RTMP/SRT)';
+
+  @override
+  String get serverUrl => 'Server URL';
+
+  @override
+  String get streamKey => 'Stream key';
+
+  @override
+  String get streamKeyHint => 'From the stream dashboard; never show it to anyone';
+
+  @override
+  String get groupStreamSource => 'What to stream';
+
+  @override
+  String get pStreamSource => 'Source';
+
+  @override
+  String get pStreamSourceHint => 'Screen, camera or a ready file';
+
+  @override
+  String get sourceScreen => 'Screen';
+
+  @override
+  String get sourceCamera => 'Camera';
+
+  @override
+  String get sourceFile => 'File';
+
+  @override
+  String get pLoopFile => 'Loop';
+
+  @override
+  String get pLoopFileHint => 'Repeat the file until stopped';
+
+  @override
+  String get groupStreamQuality => 'Stream quality';
+
+  @override
+  String get pStreamBitrate => 'Video bitrate';
+
+  @override
+  String get pStreamBitrateHint => '1080p30: 4500–6000, 720p30: 2500–4000; at most 70% of your upload speed';
+
+  @override
+  String get groupPackage => 'Adaptive video';
+
+  @override
+  String get pPackageFormat => 'Format';
+
+  @override
+  String get hlsHint => 'Apple HLS plays everywhere: browsers, iOS, Android, Smart TVs';
+
+  @override
+  String get dashHint => 'MPEG-DASH is the open standard for web players (dash.js, Shaka)';
+
+  @override
+  String get pLadder => 'Renditions';
+
+  @override
+  String get pLadderHint => 'The player switches between them by connection speed; none above the source';
+
+  @override
+  String get pSegment => 'Segment length';
+
+  @override
+  String get pSegmentHint => 'Shorter starts and switches faster, more files';
+
+  @override
+  String ladderSummary(String list) {
+    return 'Renditions: $list';
+  }
+
+  @override
+  String packageFolderNote(String dir) {
+    return 'All files go to $dir; upload the whole folder to a server';
+  }
 }

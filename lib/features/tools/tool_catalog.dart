@@ -67,7 +67,18 @@ class ToolDef {
 /// current stage only once they are listed in [currentStageReady].
 const currentStage = 5;
 
-const currentStageReady = {'recipes', 'batch', 'watchFolder', 'commandLog', 'commandEditor', 'filterGraph'};
+const currentStageReady = {
+  'recipes',
+  'batch',
+  'watchFolder',
+  'commandLog',
+  'commandEditor',
+  'filterGraph',
+  'screenRecord',
+  'webcam',
+  'stream',
+  'hls',
+};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 

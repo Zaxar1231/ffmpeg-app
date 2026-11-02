@@ -102,7 +102,7 @@ tools = [
  ('Tags','Теги','Tags','Название, исполнитель, альбом, год и прочее.','Title, artist, album, year and more.'),
  ('Cover','Обложка','Cover art','Добавить, заменить или извлечь обложку.','Add, replace or extract cover art.'),
  ('Chapters','Главы','Chapters','Добавить, переименовать, импорт и экспорт глав.','Add, rename, import and export chapters.'),
- ('ScreenRecord','Запись экрана','Screen recording','Весь экран, область или окно.','Full screen, region or window.'),
+ ('ScreenRecord','Запись экрана','Screen recording','Весь экран или его часть, с микрофоном и звуком компьютера.','Full screen or a region, with microphone and computer audio.'),
  ('Webcam','Камера и микрофон','Camera & mic','Запись с веб-камеры и микрофона.','Record from webcam and microphone.'),
  ('Stream','Стрим','Streaming','RTMP / SRT на YouTube, Twitch или свой сервер.','RTMP / SRT to YouTube, Twitch or your server.'),
  ('Hls','HLS / DASH','HLS / DASH','Упаковка для воспроизведения в браузере.','Packaging for web playback.'),
@@ -580,6 +580,7 @@ exec(open(os.path.join(HERE, 'stage4b.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage4c.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage5a.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage5b.py'), encoding='utf-8').read())
+exec(open(os.path.join(HERE, 'stage5c.py'), encoding='utf-8').read())
 
 def ph_meta(ph):
     return {'placeholders': {n: {'type': t} for n, t in ph.items()}} if ph else None

@@ -7,6 +7,7 @@ import '../automation/automation_pages.dart';
 import '../automation/automation_service.dart' show BatchAction;
 import '../audio/audio_pages.dart';
 import '../audio_editor/ui/editor_page.dart';
+import '../capture/capture_pages.dart';
 import '../convert/convert_page.dart';
 import '../edit/ui/cut_pages.dart';
 import '../edit/graphs.dart';
@@ -76,6 +77,10 @@ class ToolHost extends ConsumerWidget {
       'commandLog' => CommandLogPage(key: key),
       'commandEditor' => CommandEditorPage(key: key, path: tool.path, draft: extra is CommandDraft ? extra : null),
       'filterGraph' => FilterGraphPage(key: key, path: tool.path),
+      'screenRecord' => CapturePage(key: key, camera: false),
+      'webcam' => CapturePage(key: key, camera: true),
+      'stream' => StreamPage(key: key, path: tool.path),
+      'hls' => HlsPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -99,7 +104,18 @@ const screenTools = {
 };
 
 /// Stage 5 tools with a screen.
-const stage5Tools = {'recipes', 'batch', 'watchFolder', 'commandLog', 'commandEditor', 'filterGraph'};
+const stage5Tools = {
+  'recipes',
+  'batch',
+  'watchFolder',
+  'commandLog',
+  'commandEditor',
+  'filterGraph',
+  'screenRecord',
+  'webcam',
+  'stream',
+  'hls',
+};
 
 /// Stage 4 tools with a screen.
 const stage4Tools = {
