@@ -65,32 +65,9 @@ class ToolDef {
 
 /// Stage in progress. Tools of earlier stages are enabled; tools of the
 /// current stage only once they are listed in [currentStageReady].
-const currentStage = 3;
+const currentStage = 4;
 
-const currentStageReady = {
-  'audioEditor',
-  'cutJoin',
-  'concat',
-  'transitions',
-  'split',
-  'cropScale',
-  'speed',
-  'restore',
-  'color',
-  'overlay',
-  'blur',
-  'stack',
-  'loop',
-  'hdrToSdr',
-  'loudness',
-  'waveform',
-  'detect',
-  'compareQuality',
-  'denoise',
-  'audioFx',
-  'mix',
-  'transcribe',
-};
+const currentStageReady = {'burnSubs', 'softSubs', 'convertSubs'};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 
@@ -337,6 +314,7 @@ const toolCatalog = <ToolDef>[
     stage: 4,
     filters: ['subtitles'],
     keywords: ['hardsub', 'вшить'],
+    forKinds: _v,
   ),
   ToolDef(
     'softSubs',
@@ -344,7 +322,8 @@ const toolCatalog = <ToolDef>[
     Icons.closed_caption_outlined,
     stage: 4,
     lossless: true,
-    keywords: ['softsub', 'дорожка'],
+    keywords: ['softsub', 'дорожка', 'extract', 'извлечь'],
+    forKinds: _v,
   ),
   ToolDef(
     'convertSubs',

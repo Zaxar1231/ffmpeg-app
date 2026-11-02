@@ -5004,4 +5004,115 @@ class AppLocalizationsRu extends AppLocalizations {
   String abSizeNote(String size, String total) {
     return 'Фрагмент: $size; весь файл будет около $total.';
   }
+
+  @override
+  String get groupSubSource => 'Какие субтитры';
+
+  @override
+  String get embeddedTrack => 'Дорожка из файла';
+
+  @override
+  String get subFileFromDisk => 'Файл субтитров';
+
+  @override
+  String get subFileHint => 'SRT, ASS, VTT — отдельный файл';
+
+  @override
+  String get burnChooseSubs => 'Выберите дорожку или файл субтитров';
+
+  @override
+  String get burnBitmapNote =>
+      'В файле только графические субтитры (PGS/DVD) — вшить можно только текстовые. Выберите файл SRT/ASS.';
+
+  @override
+  String get pCharset => 'Кодировка';
+
+  @override
+  String get pCharsetHint => 'Если вместо букв «кракозябры» — выберите CP1251';
+
+  @override
+  String get groupSubStyle => 'Оформление';
+
+  @override
+  String get pSubFontSizeHint => '«авто» — как задано в файле';
+
+  @override
+  String get pSubColorHint => 'Цвет текста субтитров';
+
+  @override
+  String get pSubPositionHint => 'Где показывать строки';
+
+  @override
+  String get pSubMarginHint => 'Отступ от края кадра в пикселях';
+
+  @override
+  String get groupExistingSubs => 'Дорожки в файле';
+
+  @override
+  String get noSubtitleTracks => 'В файле нет субтитров';
+
+  @override
+  String get subKeep => 'останется';
+
+  @override
+  String get subRemove => 'будет удалена';
+
+  @override
+  String get extractSubs => 'Извлечь субтитры';
+
+  @override
+  String get flagDefault => 'по умолчанию';
+
+  @override
+  String get flagForced => 'принудительные';
+
+  @override
+  String get groupAddSubs => 'Добавить дорожки';
+
+  @override
+  String get addSubsHint =>
+      'Добавьте файлы SRT/ASS/VTT — они станут дорожками, которые можно включать в плеере. Видео и звук не перекодируются.';
+
+  @override
+  String get trackTitle => 'Название';
+
+  @override
+  String get subContainerHint => 'MKV хранит любые субтитры; MP4 — только текстовые (mov_text)';
+
+  @override
+  String get bitmapSubsInMp4 =>
+      'Графические субтитры (PGS/DVD) нельзя сохранить в MP4/MOV — выберите MKV или снимите эти дорожки';
+
+  @override
+  String get groupSubConvert => 'Преобразование';
+
+  @override
+  String get notASubtitleFile => 'Это не файл субтитров — откройте SRT, ASS или VTT';
+
+  @override
+  String get pSubFormat => 'Формат';
+
+  @override
+  String get pSubFormatHint => 'SRT — самый совместимый, ASS — со стилями, WebVTT — для веба';
+
+  @override
+  String get pSubShift => 'Сдвиг';
+
+  @override
+  String get pSubShiftHint => 'Положительный — позже, отрицательный — раньше';
+
+  @override
+  String get pSubRetime => 'Пересчёт частоты кадров';
+
+  @override
+  String get pSubRetimeHint => 'Если субтитры постепенно «уезжают»';
+
+  @override
+  String get pSubRetimeHelp =>
+      'Субтитры, сделанные для версии 25 к/с, к версии 23,976 к/с отстают тем сильнее, чем дальше от начала (и наоборот). Пересчёт растягивает или сжимает все времена в нужное число раз. Если рассинхрон одинаковый на всём фильме — нужен только сдвиг.';
+
+  @override
+  String subShiftExample(String t) {
+    return 'Строка с 0:01.000 начнётся в $t с';
+  }
 }

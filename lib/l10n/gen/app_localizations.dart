@@ -9367,6 +9367,216 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Фрагмент: {size}; весь файл будет около {total}.'**
   String abSizeNote(String size, String total);
+
+  /// No description provided for @groupSubSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'Какие субтитры'**
+  String get groupSubSource;
+
+  /// No description provided for @embeddedTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дорожка из файла'**
+  String get embeddedTrack;
+
+  /// No description provided for @subFileFromDisk.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файл субтитров'**
+  String get subFileFromDisk;
+
+  /// No description provided for @subFileHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'SRT, ASS, VTT — отдельный файл'**
+  String get subFileHint;
+
+  /// No description provided for @burnChooseSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выберите дорожку или файл субтитров'**
+  String get burnChooseSubs;
+
+  /// No description provided for @burnBitmapNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'В файле только графические субтитры (PGS/DVD) — вшить можно только текстовые. Выберите файл SRT/ASS.'**
+  String get burnBitmapNote;
+
+  /// No description provided for @pCharset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кодировка'**
+  String get pCharset;
+
+  /// No description provided for @pCharsetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Если вместо букв «кракозябры» — выберите CP1251'**
+  String get pCharsetHint;
+
+  /// No description provided for @groupSubStyle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оформление'**
+  String get groupSubStyle;
+
+  /// No description provided for @pSubFontSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'«авто» — как задано в файле'**
+  String get pSubFontSizeHint;
+
+  /// No description provided for @pSubColorHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Цвет текста субтитров'**
+  String get pSubColorHint;
+
+  /// No description provided for @pSubPositionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Где показывать строки'**
+  String get pSubPositionHint;
+
+  /// No description provided for @pSubMarginHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отступ от края кадра в пикселях'**
+  String get pSubMarginHint;
+
+  /// No description provided for @groupExistingSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дорожки в файле'**
+  String get groupExistingSubs;
+
+  /// No description provided for @noSubtitleTracks.
+  ///
+  /// In ru, this message translates to:
+  /// **'В файле нет субтитров'**
+  String get noSubtitleTracks;
+
+  /// No description provided for @subKeep.
+  ///
+  /// In ru, this message translates to:
+  /// **'останется'**
+  String get subKeep;
+
+  /// No description provided for @subRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'будет удалена'**
+  String get subRemove;
+
+  /// No description provided for @extractSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Извлечь субтитры'**
+  String get extractSubs;
+
+  /// No description provided for @flagDefault.
+  ///
+  /// In ru, this message translates to:
+  /// **'по умолчанию'**
+  String get flagDefault;
+
+  /// No description provided for @flagForced.
+  ///
+  /// In ru, this message translates to:
+  /// **'принудительные'**
+  String get flagForced;
+
+  /// No description provided for @groupAddSubs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить дорожки'**
+  String get groupAddSubs;
+
+  /// No description provided for @addSubsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавьте файлы SRT/ASS/VTT — они станут дорожками, которые можно включать в плеере. Видео и звук не перекодируются.'**
+  String get addSubsHint;
+
+  /// No description provided for @trackTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get trackTitle;
+
+  /// No description provided for @subContainerHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'MKV хранит любые субтитры; MP4 — только текстовые (mov_text)'**
+  String get subContainerHint;
+
+  /// No description provided for @bitmapSubsInMp4.
+  ///
+  /// In ru, this message translates to:
+  /// **'Графические субтитры (PGS/DVD) нельзя сохранить в MP4/MOV — выберите MKV или снимите эти дорожки'**
+  String get bitmapSubsInMp4;
+
+  /// No description provided for @groupSubConvert.
+  ///
+  /// In ru, this message translates to:
+  /// **'Преобразование'**
+  String get groupSubConvert;
+
+  /// No description provided for @notASubtitleFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это не файл субтитров — откройте SRT, ASS или VTT'**
+  String get notASubtitleFile;
+
+  /// No description provided for @pSubFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get pSubFormat;
+
+  /// No description provided for @pSubFormatHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'SRT — самый совместимый, ASS — со стилями, WebVTT — для веба'**
+  String get pSubFormatHint;
+
+  /// No description provided for @pSubShift.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг'**
+  String get pSubShift;
+
+  /// No description provided for @pSubShiftHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Положительный — позже, отрицательный — раньше'**
+  String get pSubShiftHint;
+
+  /// No description provided for @pSubRetime.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пересчёт частоты кадров'**
+  String get pSubRetime;
+
+  /// No description provided for @pSubRetimeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Если субтитры постепенно «уезжают»'**
+  String get pSubRetimeHint;
+
+  /// No description provided for @pSubRetimeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'Субтитры, сделанные для версии 25 к/с, к версии 23,976 к/с отстают тем сильнее, чем дальше от начала (и наоборот). Пересчёт растягивает или сжимает все времена в нужное число раз. Если рассинхрон одинаковый на всём фильме — нужен только сдвиг.'**
+  String get pSubRetimeHelp;
+
+  /// No description provided for @subShiftExample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Строка с 0:01.000 начнётся в {t} с'**
+  String subShiftExample(String t);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

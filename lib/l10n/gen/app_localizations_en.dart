@@ -4969,4 +4969,114 @@ class AppLocalizationsEn extends AppLocalizations {
   String abSizeNote(String size, String total) {
     return 'Fragment: $size; the whole file would be about $total.';
   }
+
+  @override
+  String get groupSubSource => 'Which subtitles';
+
+  @override
+  String get embeddedTrack => 'Track from the file';
+
+  @override
+  String get subFileFromDisk => 'Subtitle file';
+
+  @override
+  String get subFileHint => 'SRT, ASS, VTT — a separate file';
+
+  @override
+  String get burnChooseSubs => 'Choose a track or a subtitle file';
+
+  @override
+  String get burnBitmapNote =>
+      'The file has only bitmap subtitles (PGS/DVD) — only text ones can be burned in. Choose an SRT/ASS file.';
+
+  @override
+  String get pCharset => 'Encoding';
+
+  @override
+  String get pCharsetHint => 'If letters look garbled, choose CP1251';
+
+  @override
+  String get groupSubStyle => 'Style';
+
+  @override
+  String get pSubFontSizeHint => '“auto” keeps the file’s own size';
+
+  @override
+  String get pSubColorHint => 'Subtitle text color';
+
+  @override
+  String get pSubPositionHint => 'Where lines appear';
+
+  @override
+  String get pSubMarginHint => 'Distance from the frame edge in pixels';
+
+  @override
+  String get groupExistingSubs => 'Tracks in the file';
+
+  @override
+  String get noSubtitleTracks => 'The file has no subtitles';
+
+  @override
+  String get subKeep => 'kept';
+
+  @override
+  String get subRemove => 'will be removed';
+
+  @override
+  String get extractSubs => 'Extract subtitles';
+
+  @override
+  String get flagDefault => 'default';
+
+  @override
+  String get flagForced => 'forced';
+
+  @override
+  String get groupAddSubs => 'Add tracks';
+
+  @override
+  String get addSubsHint =>
+      'Add SRT/ASS/VTT files — they become tracks you can switch on in a player. Video and audio are not re-encoded.';
+
+  @override
+  String get trackTitle => 'Title';
+
+  @override
+  String get subContainerHint => 'MKV holds any subtitles; MP4 only text ones (mov_text)';
+
+  @override
+  String get bitmapSubsInMp4 => 'Bitmap subtitles (PGS/DVD) cannot go into MP4/MOV — choose MKV or untick them';
+
+  @override
+  String get groupSubConvert => 'Conversion';
+
+  @override
+  String get notASubtitleFile => 'This is not a subtitle file — open an SRT, ASS or VTT';
+
+  @override
+  String get pSubFormat => 'Format';
+
+  @override
+  String get pSubFormatHint => 'SRT is the most compatible, ASS has styles, WebVTT is for the web';
+
+  @override
+  String get pSubShift => 'Shift';
+
+  @override
+  String get pSubShiftHint => 'Positive is later, negative earlier';
+
+  @override
+  String get pSubRetime => 'Frame-rate retiming';
+
+  @override
+  String get pSubRetimeHint => 'If subtitles drift more and more';
+
+  @override
+  String get pSubRetimeHelp =>
+      'Subtitles made for a 25 fps release drift further and further on a 23.976 fps one (and vice versa). Retiming stretches or squeezes all times. If the offset is the same throughout, only a shift is needed.';
+
+  @override
+  String subShiftExample(String t) {
+    return 'A line at 0:01.000 will start at $t s';
+  }
 }

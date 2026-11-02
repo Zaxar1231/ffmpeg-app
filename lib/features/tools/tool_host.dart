@@ -10,6 +10,7 @@ import '../edit/ui/cut_pages.dart';
 import '../edit/graphs.dart';
 import '../edit/ui/frame_pages.dart';
 import '../gif/gif_page.dart';
+import '../subtitles/subs_pages.dart';
 import '../trim/trim_page.dart';
 import 'tool_infra.dart';
 
@@ -50,6 +51,9 @@ class ToolHost extends ConsumerWidget {
       'denoise' || 'audioFx' => AudioChainPage(key: key, toolId: tool.id, path: tool.path),
       'mix' => MusicPage(key: key, path: tool.path),
       'transcribe' => TranscribePage(key: key, path: tool.path),
+      'burnSubs' => BurnSubsPage(key: key, path: tool.path),
+      'softSubs' => SubTracksPage(key: key, path: tool.path),
+      'convertSubs' => ConvertSubsPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -68,7 +72,11 @@ const screenTools = {
   ...editTools,
   ...analysisTools,
   ...audioFileTools,
+  ...stage4Tools,
 };
+
+/// Stage 4 tools with a screen.
+const stage4Tools = {'burnSubs', 'softSubs', 'convertSubs'};
 
 /// Stage 3 analysis tools.
 const analysisTools = {'loudness', 'waveform', 'detect', 'compareQuality'};

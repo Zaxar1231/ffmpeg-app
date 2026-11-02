@@ -2255,5 +2255,47 @@
         "type": "String"
       }
     }
+  },
+  "groupSubSource": "Какие субтитры",
+  "embeddedTrack": "Дорожка из файла",
+  "subFileFromDisk": "Файл субтитров",
+  "subFileHint": "SRT, ASS, VTT — отдельный файл",
+  "burnChooseSubs": "Выберите дорожку или файл субтитров",
+  "burnBitmapNote": "В файле только графические субтитры (PGS/DVD) — вшить можно только текстовые. Выберите файл SRT/ASS.",
+  "pCharset": "Кодировка",
+  "pCharsetHint": "Если вместо букв «кракозябры» — выберите CP1251",
+  "groupSubStyle": "Оформление",
+  "pSubFontSizeHint": "«авто» — как задано в файле",
+  "pSubColorHint": "Цвет текста субтитров",
+  "pSubPositionHint": "Где показывать строки",
+  "pSubMarginHint": "Отступ от края кадра в пикселях",
+  "groupExistingSubs": "Дорожки в файле",
+  "noSubtitleTracks": "В файле нет субтитров",
+  "subKeep": "останется",
+  "subRemove": "будет удалена",
+  "extractSubs": "Извлечь субтитры",
+  "flagDefault": "по умолчанию",
+  "flagForced": "принудительные",
+  "groupAddSubs": "Добавить дорожки",
+  "addSubsHint": "Добавьте файлы SRT/ASS/VTT — они станут дорожками, которые можно включать в плеере. Видео и звук не перекодируются.",
+  "trackTitle": "Название",
+  "subContainerHint": "MKV хранит любые субтитры; MP4 — только текстовые (mov_text)",
+  "bitmapSubsInMp4": "Графические субтитры (PGS/DVD) нельзя сохранить в MP4/MOV — выберите MKV или снимите эти дорожки",
+  "groupSubConvert": "Преобразование",
+  "notASubtitleFile": "Это не файл субтитров — откройте SRT, ASS или VTT",
+  "pSubFormat": "Формат",
+  "pSubFormatHint": "SRT — самый совместимый, ASS — со стилями, WebVTT — для веба",
+  "pSubShift": "Сдвиг",
+  "pSubShiftHint": "Положительный — позже, отрицательный — раньше",
+  "pSubRetime": "Пересчёт частоты кадров",
+  "pSubRetimeHint": "Если субтитры постепенно «уезжают»",
+  "pSubRetimeHelp": "Субтитры, сделанные для версии 25 к/с, к версии 23,976 к/с отстают тем сильнее, чем дальше от начала (и наоборот). Пересчёт растягивает или сжимает все времена в нужное число раз. Если рассинхрон одинаковый на всём фильме — нужен только сдвиг.",
+  "subShiftExample": "Строка с 0:01.000 начнётся в {t} с",
+  "@subShiftExample": {
+    "placeholders": {
+      "t": {
+        "type": "String"
+      }
+    }
   }
 }
