@@ -5,11 +5,13 @@ library;
 import '../engine/progress.dart' show ytdlpProgressTemplate;
 import '../queue/job_steps.dart' show ytdlpFileMarker;
 
-List<String> ytdlpInfoArgs(String url, {String? cookiesFromBrowser, String? proxy}) => [
+/// [deno]: YouTube needs a JavaScript runtime to list most formats.
+List<String> ytdlpInfoArgs(String url, {String? cookiesFromBrowser, String? proxy, String? deno}) => [
   '-J',
   '--flat-playlist',
   '--no-warnings',
   '--no-colors',
+  if (deno != null) ...['--js-runtimes', 'deno:$deno'],
   if (cookiesFromBrowser != null) ...['--cookies-from-browser', cookiesFromBrowser],
   if (proxy != null) ...['--proxy', proxy],
   url,

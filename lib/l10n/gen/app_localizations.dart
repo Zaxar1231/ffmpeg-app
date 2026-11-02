@@ -3905,8 +3905,14 @@ abstract class AppLocalizations {
   /// No description provided for @denoHint.
   ///
   /// In ru, this message translates to:
-  /// **'Совет: для YouTube установите Deno в «Компонентах» — без него часть форматов недоступна.'**
+  /// **'yt-dlp нужен Deno, чтобы получить форматы YouTube; без него загрузка с YouTube обычно не работает.'**
   String get denoHint;
+
+  /// No description provided for @denoRequiredTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для YouTube нужен Deno'**
+  String get denoRequiredTitle;
 
   /// No description provided for @selectedOf.
   ///

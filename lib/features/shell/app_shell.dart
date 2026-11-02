@@ -32,9 +32,11 @@ class AppShell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l = context.l10n;
     final current = ref.watch(navProvider);
-    final queue = ref.watch(queueProvider);
-    final comps = ref.watch(componentsProvider);
-    final updates = ComponentId.values.where(comps.updateAvailable).length;
+    // Only the badge numbers: watching the whole queue would rebuild the
+    // entire window on every progress tick of every job.
+    final queueBadge = ref.watch(queueProvider.select((q) => q.activeCount + q.pendingCount));
+    final updates = ref.watch(componentsProvider.select((c) => ComponentId.values.where(c.updateAvailable).length));
+    final compsLoaded = ref.watch(componentsProvider.select((c) => c.loaded));
     final hasFfmpeg = ref.watch(toolchainProvider.select((t) => t.hasFfmpeg));
 
     final dests = <(Destination, IconData, IconData, String, String?)>[
@@ -46,7 +48,7 @@ class AppShell extends ConsumerWidget {
         Icons.queue_play_next_outlined,
         Icons.queue_play_next,
         l.navQueue,
-        queue.activeCount + queue.pendingCount > 0 ? '${queue.activeCount + queue.pendingCount}' : null,
+        queueBadge > 0 ? '$queueBadge' : null,
       ),
       (Destination.presets, Icons.bookmarks_outlined, Icons.bookmarks, l.navPresets, null),
       (
@@ -54,7 +56,7 @@ class AppShell extends ConsumerWidget {
         Icons.extension_outlined,
         Icons.extension,
         l.navComponents,
-        (comps.loaded && !hasFfmpeg) ? '!' : (updates > 0 ? '$updates' : null),
+        (compsLoaded && !hasFfmpeg) ? '!' : (updates > 0 ? '$updates' : null),
       ),
       (Destination.settings, Icons.settings_outlined, Icons.settings, l.navSettings, null),
     ];

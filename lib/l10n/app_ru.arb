@@ -988,7 +988,8 @@
     }
   },
   "downloadsNeedYtdlpTitle": "Нужен yt-dlp",
-  "denoHint": "Совет: для YouTube установите Deno в «Компонентах» — без него часть форматов недоступна.",
+  "denoHint": "yt-dlp нужен Deno, чтобы получить форматы YouTube; без него загрузка с YouTube обычно не работает.",
+  "denoRequiredTitle": "Для YouTube нужен Deno",
   "selectedOf": "Выбрано {selected} из {total}",
   "@selectedOf": {
     "placeholders": {

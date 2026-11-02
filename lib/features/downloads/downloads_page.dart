@@ -1,3 +1,4 @@
+import 'dart:isolate';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:path/path.dart' as p;
 
 import '../automation/automation_service.dart';
 import '../automation/recipe.dart';
+import '../../core/components/catalog.dart' show ComponentId;
 import '../../core/engine/error_translator.dart';
 import '../../core/platform/app_paths.dart';
 import '../../core/providers.dart';
@@ -101,9 +103,27 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
       items.map((it) async {
         final r = await runner.capture(
           ytdlp,
-          ytdlpInfoArgs(it.url, cookiesFromBrowser: _p.cookiesFromBrowser, proxy: _p.proxy),
+          ytdlpInfoArgs(
+            it.url,
+            cookiesFromBrowser: _p.cookiesFromBrowser,
+            proxy: _p.proxy,
+            deno: ref.read(toolchainProvider).deno.path,
+          ),
           timeout: const Duration(minutes: 2),
         );
+        if (!mounted) return;
+        // The JSON of a playlist or a video with many formats can be several
+        // megabytes: parse it off the UI thread.
+        YtInfo? info;
+        Object? parseError;
+        if (r.ok) {
+          final out = r.stdout;
+          try {
+            info = await Isolate.run(() => YtInfo.fromJson((jsonDecode(out) as Map).cast<String, dynamic>()));
+          } catch (e) {
+            parseError = e;
+          }
+        }
         if (!mounted) return;
         setState(() {
           it.loading = false;
@@ -114,12 +134,12 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
                 : toolErrorText(context.l10n, e.kind, e.detail);
             return;
           }
-          try {
-            it.info = YtInfo.fromJson((jsonDecode(r.stdout) as Map).cast<String, dynamic>());
-            it.selected = {for (final e in it.info!.entries) e.index};
-          } catch (e) {
-            it.error = e.toString();
+          if (info == null) {
+            it.error = '$parseError';
+            return;
           }
+          it.info = info;
+          it.selected = {for (final e in info.entries) e.index};
         });
       }),
     );
@@ -251,7 +271,30 @@ class _DownloadsPageState extends ConsumerState<DownloadsPage> {
                 if (!hasDeno)
                   Padding(
                     padding: const EdgeInsets.only(top: 12),
-                    child: Text(l.denoHint, style: Theme.of(context).textTheme.bodySmall),
+                    child: Card.filled(
+                      color: Theme.of(context).colorScheme.errorContainer,
+                      child: ListTile(
+                        leading: const Icon(Icons.warning_amber_rounded),
+                        title: Text(l.denoRequiredTitle),
+                        subtitle: Text(l.denoHint),
+                        trailing: Consumer(
+                          builder: (context, ref, _) {
+                            final busy = ref.watch(componentsProvider.select((c) => c.isBusy(ComponentId.deno)));
+                            return FilledButton(
+                              onPressed: busy
+                                  ? null
+                                  : () => ref.read(componentsProvider.notifier).install(ComponentId.deno),
+                              child: busy
+                                  ? const SizedBox.square(
+                                      dimension: 16,
+                                      child: CircularProgressIndicator(strokeWidth: 2),
+                                    )
+                                  : Text(l.install),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                 const SizedBox(height: 16),
                 for (final it in _items)

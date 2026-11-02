@@ -16,9 +16,11 @@ bool desktopIntegration = false;
 
 Future<void> initDesktop() async {
   desktopIntegration = true;
-  try {
-    await localNotifier.setup(appName: 'Kadra', shortcutPolicy: ShortcutPolicy.requireCreate);
-  } catch (_) {}
+  // Not awaited: on Windows it may create a Start menu shortcut, which must
+  // not hold up the first frame.
+  unawaited(
+    localNotifier.setup(appName: 'Kadra', shortcutPolicy: ShortcutPolicy.requireCreate).catchError((Object _) {}),
+  );
   try {
     wm.WindowManager.instance.getCurrent()?.minimumSize = const Size(480, 560).toNative();
   } catch (_) {}

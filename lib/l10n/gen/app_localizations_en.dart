@@ -2099,7 +2099,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get downloadsNeedYtdlpTitle => 'yt-dlp is required';
 
   @override
-  String get denoHint => 'Tip: install Deno in Components for YouTube; without it some formats are unavailable.';
+  String get denoHint => 'yt-dlp needs Deno to get YouTube formats; without it YouTube downloads usually fail.';
+
+  @override
+  String get denoRequiredTitle => 'YouTube needs Deno';
 
   @override
   String selectedOf(int selected, int total) {

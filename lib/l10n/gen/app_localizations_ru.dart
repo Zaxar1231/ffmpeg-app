@@ -2127,7 +2127,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get downloadsNeedYtdlpTitle => 'Нужен yt-dlp';
 
   @override
-  String get denoHint => 'Совет: для YouTube установите Deno в «Компонентах» — без него часть форматов недоступна.';
+  String get denoHint =>
+      'yt-dlp нужен Deno, чтобы получить форматы YouTube; без него загрузка с YouTube обычно не работает.';
+
+  @override
+  String get denoRequiredTitle => 'Для YouTube нужен Deno';
 
   @override
   String selectedOf(int selected, int total) {
