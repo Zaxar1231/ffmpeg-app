@@ -6191,4 +6191,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String notifyManyFailed(int count, int failed) {
     return '$count jobs finished, $failed failed';
   }
+
+  @override
+  String get fileTypeImages => 'Images';
+
+  @override
+  String get fileTypeFonts => 'Fonts';
+
+  @override
+  String get fileTypeLut => '3D LUT';
+
+  @override
+  String get fileTypeSubtitles => 'Subtitles';
+
+  @override
+  String get fileTypeText => 'Text files';
+
+  @override
+  String recipesImported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Imported $count recipes',
+      one: 'Imported $count recipe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String recipesExported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Exported $count recipes',
+      one: 'Exported $count recipe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recipesImportFailed => 'This is not a Kadra recipes file.';
 }

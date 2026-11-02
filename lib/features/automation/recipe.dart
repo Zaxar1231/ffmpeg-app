@@ -121,6 +121,44 @@ Future<void> saveRecipes(String path, List<Recipe> recipes) async {
   await tmp.rename(path);
 }
 
+/// Recipes for sharing: `{"kadra": "recipes", "recipes": [...]}`.
+String exportRecipes(List<Recipe> recipes) => const JsonEncoder.withIndent('  ').convert({
+  'kadra': 'recipes',
+  'version': 1,
+  'recipes': [for (final r in recipes) r.toJson()],
+});
+
+/// Reads an exported file (or the app's own `recipes.json`). Steps of
+/// unknown kinds (from a newer version) are dropped. Throws
+/// [FormatException] if the text holds no recipes.
+List<Recipe> parseRecipes(String text) {
+  final Object? j;
+  try {
+    j = jsonDecode(text);
+  } on FormatException {
+    throw const FormatException('not JSON');
+  }
+  final list = j is Map ? j['recipes'] : null;
+  if (list is! List) throw const FormatException('no recipes');
+  final out = <Recipe>[];
+  for (final r in list.whereType<Map>()) {
+    final name = r['name'];
+    if (name is! String) continue;
+    out.add(
+      Recipe(
+        id: '${r['id'] ?? name}',
+        name: name,
+        steps: [
+          for (final st in (r['steps'] as List? ?? const []).whereType<Map>())
+            if (RecipeOp.values.any((o) => o.name == st['op'])) RecipeStep.fromJson(st.cast<String, Object?>()),
+        ],
+      ),
+    );
+  }
+  if (out.isEmpty) throw const FormatException('no recipes');
+  return out;
+}
+
 /// Everything a recipe needs from the app to plan a file.
 class RecipeEnv {
   const RecipeEnv({this.encode = const EncodeEnv(), this.userPresets = const {}, this.rnnoiseModel});

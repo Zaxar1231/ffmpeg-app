@@ -15,7 +15,9 @@ import '../tools/tool_infra.dart';
 import '../tools/tool_scaffold.dart';
 import 'subs_ops.dart';
 
-const _subTypes = [XTypeGroup(label: 'Subtitles', extensions: subtitleExts)];
+List<XTypeGroup> _subTypes(BuildContext context) => [
+  XTypeGroup(label: context.l10n.fileTypeSubtitles, extensions: subtitleExts),
+];
 
 /// ISO 639-2 codes offered for subtitle languages.
 const subLanguages = [
@@ -149,7 +151,7 @@ class _BurnFormState extends State<_BurnForm> {
               subtitle: Text(l.subFileHint),
               trailing: OutlinedButton(
                 onPressed: () async {
-                  final f = await openFile(acceptedTypeGroups: _subTypes);
+                  final f = await openFile(acceptedTypeGroups: _subTypes(context));
                   if (f != null) setState(() => _file = f.path);
                 },
                 child: Text(l.choose),
@@ -376,7 +378,7 @@ class _TracksFormState extends ConsumerState<_TracksForm> {
             icon: const Icon(Icons.add),
             label: Text(l.addFiles),
             onPressed: () async {
-              final files = await openFiles(acceptedTypeGroups: _subTypes);
+              final files = await openFiles(acceptedTypeGroups: _subTypes(context));
               setState(() => _add.addAll(files.map((f) => _NewTrack(f.path))));
             },
           ),

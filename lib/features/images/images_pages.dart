@@ -20,8 +20,11 @@ import '../tools/tool_infra.dart';
 import '../tools/tool_scaffold.dart';
 import 'images_ops.dart';
 
-const _imageTypes = [
-  XTypeGroup(label: 'Images', extensions: ['png', 'jpg', 'jpeg', 'webp', 'bmp', 'tif', 'tiff', 'avif', 'jxl']),
+List<XTypeGroup> _imageTypes(BuildContext context) => [
+  XTypeGroup(
+    label: context.l10n.fileTypeImages,
+    extensions: ['png', 'jpg', 'jpeg', 'webp', 'bmp', 'tif', 'tiff', 'avif', 'jxl'],
+  ),
 ];
 
 /// Format + quality controls shared by image outputs.
@@ -630,7 +633,7 @@ class _AudioVideoFormState extends State<_AudioVideoForm> {
                 title: Text(_image == null ? l.chooseCoverImage : p.basename(_image!)),
                 trailing: OutlinedButton(
                   onPressed: () async {
-                    final f = await openFile(acceptedTypeGroups: _imageTypes);
+                    final f = await openFile(acceptedTypeGroups: _imageTypes(context));
                     if (f != null) setState(() => _image = f.path);
                   },
                   child: Text(l.choose),

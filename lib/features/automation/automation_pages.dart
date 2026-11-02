@@ -159,6 +159,37 @@ class _RecipesPageState extends ConsumerState<RecipesPage> {
                     setState(() => _selected = r.id);
                   },
                 ),
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.file_upload_outlined),
+                  label: Text(l.importPresets),
+                  onPressed: () async {
+                    final messenger = ScaffoldMessenger.of(context);
+                    final f = await openFile(
+                      acceptedTypeGroups: const [
+                        XTypeGroup(label: 'JSON', extensions: ['json']),
+                      ],
+                    );
+                    if (f == null) return;
+                    try {
+                      final n = await c.import(parseRecipes(await File(f.path).readAsString()));
+                      messenger.showSnackBar(SnackBar(content: Text(l.recipesImported(n))));
+                    } on FormatException {
+                      messenger.showSnackBar(SnackBar(content: Text(l.recipesImportFailed)));
+                    }
+                  },
+                ),
+                if (recipes.isNotEmpty)
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.file_download_outlined),
+                    label: Text(l.exportPresets),
+                    onPressed: () async {
+                      final messenger = ScaffoldMessenger.of(context);
+                      final loc = await getSaveLocation(suggestedName: 'kadra-recipes.json');
+                      if (loc == null) return;
+                      await File(loc.path).writeAsString(exportRecipes(recipes));
+                      messenger.showSnackBar(SnackBar(content: Text(l.recipesExported(recipes.length))));
+                    },
+                  ),
                 if (recipes.isEmpty)
                   for (final (name, steps) in _templates(l))
                     OutlinedButton(
@@ -310,8 +341,8 @@ class _RecipeEditorState extends ConsumerState<_RecipeEditor> {
             trailing: OutlinedButton(
               onPressed: () async {
                 final f = await openFile(
-                  acceptedTypeGroups: const [
-                    XTypeGroup(label: 'Images', extensions: ['png', 'jpg', 'jpeg', 'webp']),
+                  acceptedTypeGroups: [
+                    XTypeGroup(label: context.l10n.fileTypeImages, extensions: ['png', 'jpg', 'jpeg', 'webp']),
                   ],
                 );
                 if (f != null) _setParam(i, 'image', f.path);

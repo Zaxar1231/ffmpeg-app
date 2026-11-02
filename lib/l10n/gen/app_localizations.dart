@@ -11623,6 +11623,54 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Завершено задач: {count}, с ошибкой: {failed}'**
   String notifyManyFailed(int count, int failed);
+
+  /// No description provided for @fileTypeImages.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изображения'**
+  String get fileTypeImages;
+
+  /// No description provided for @fileTypeFonts.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифты'**
+  String get fileTypeFonts;
+
+  /// No description provided for @fileTypeLut.
+  ///
+  /// In ru, this message translates to:
+  /// **'3D LUT'**
+  String get fileTypeLut;
+
+  /// No description provided for @fileTypeSubtitles.
+  ///
+  /// In ru, this message translates to:
+  /// **'Субтитры'**
+  String get fileTypeSubtitles;
+
+  /// No description provided for @fileTypeText.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текстовые файлы'**
+  String get fileTypeText;
+
+  /// No description provided for @recipesImported.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Импортирован {count} рецепт} few{Импортировано {count} рецепта} many{Импортировано {count} рецептов} other{Импортировано {count} рецепта}}'**
+  String recipesImported(int count);
+
+  /// No description provided for @recipesExported.
+  ///
+  /// In ru, this message translates to:
+  /// **'{count, plural, one{Экспортирован {count} рецепт} few{Экспортировано {count} рецепта} many{Экспортировано {count} рецептов} other{Экспортировано {count} рецепта}}'**
+  String recipesExported(int count);
+
+  /// No description provided for @recipesImportFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это не файл рецептов Kadra.'**
+  String get recipesImportFailed;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

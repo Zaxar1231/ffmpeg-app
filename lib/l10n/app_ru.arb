@@ -2856,5 +2856,27 @@
         "type": "int"
       }
     }
-  }
+  },
+  "fileTypeImages": "Изображения",
+  "fileTypeFonts": "Шрифты",
+  "fileTypeLut": "3D LUT",
+  "fileTypeSubtitles": "Субтитры",
+  "fileTypeText": "Текстовые файлы",
+  "recipesImported": "{count, plural, one{Импортирован {count} рецепт} few{Импортировано {count} рецепта} many{Импортировано {count} рецептов} other{Импортировано {count} рецепта}}",
+  "@recipesImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recipesExported": "{count, plural, one{Экспортирован {count} рецепт} few{Экспортировано {count} рецепта} many{Экспортировано {count} рецептов} other{Экспортировано {count} рецепта}}",
+  "@recipesExported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recipesImportFailed": "Это не файл рецептов Kadra."
 }

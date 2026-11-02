@@ -6247,4 +6247,48 @@ class AppLocalizationsRu extends AppLocalizations {
   String notifyManyFailed(int count, int failed) {
     return 'Завершено задач: $count, с ошибкой: $failed';
   }
+
+  @override
+  String get fileTypeImages => 'Изображения';
+
+  @override
+  String get fileTypeFonts => 'Шрифты';
+
+  @override
+  String get fileTypeLut => '3D LUT';
+
+  @override
+  String get fileTypeSubtitles => 'Субтитры';
+
+  @override
+  String get fileTypeText => 'Текстовые файлы';
+
+  @override
+  String recipesImported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Импортировано $count рецепта',
+      many: 'Импортировано $count рецептов',
+      few: 'Импортировано $count рецепта',
+      one: 'Импортирован $count рецепт',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String recipesExported(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Экспортировано $count рецепта',
+      many: 'Экспортировано $count рецептов',
+      few: 'Экспортировано $count рецепта',
+      one: 'Экспортирован $count рецепт',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recipesImportFailed => 'Это не файл рецептов Kadra.';
 }

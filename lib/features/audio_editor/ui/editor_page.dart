@@ -243,8 +243,8 @@ class _AudioEditorPageState extends ConsumerState<AudioEditorPage> {
 
   Future<void> _importLabels() async {
     final f = await openFile(
-      acceptedTypeGroups: const [
-        XTypeGroup(label: 'Labels', extensions: ['txt']),
+      acceptedTypeGroups: [
+        XTypeGroup(label: context.l10n.fileTypeText, extensions: ['txt']),
       ],
     );
     if (f != null) _ctl.importLabels(await File(f.path).readAsString());

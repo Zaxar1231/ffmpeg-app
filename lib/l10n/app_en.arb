@@ -1921,5 +1921,13 @@
   "notifyOneDone": "Done: {title}",
   "notifyOneFailed": "Failed: {title}",
   "notifyManyDone": "{count, plural, one{{count} job done} other{{count} jobs done}}",
-  "notifyManyFailed": "{count} jobs finished, {failed} failed"
+  "notifyManyFailed": "{count} jobs finished, {failed} failed",
+  "fileTypeImages": "Images",
+  "fileTypeFonts": "Fonts",
+  "fileTypeLut": "3D LUT",
+  "fileTypeSubtitles": "Subtitles",
+  "fileTypeText": "Text files",
+  "recipesImported": "{count, plural, one{Imported {count} recipe} other{Imported {count} recipes}}",
+  "recipesExported": "{count, plural, one{Exported {count} recipe} other{Exported {count} recipes}}",
+  "recipesImportFailed": "This is not a Kadra recipes file."
 }

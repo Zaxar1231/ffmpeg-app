@@ -742,8 +742,8 @@ class _ColorFormState extends State<_ColorForm> {
                   OutlinedButton(
                     onPressed: () async {
                       final f = await openFile(
-                        acceptedTypeGroups: const [
-                          XTypeGroup(label: 'LUT', extensions: ['cube', '3dl', 'dat', 'm3d', 'csp']),
+                        acceptedTypeGroups: [
+                          XTypeGroup(label: context.l10n.fileTypeLut, extensions: ['cube', '3dl', 'dat', 'm3d', 'csp']),
                         ],
                       );
                       if (f != null) setState(() => _lut = f.path);
@@ -887,8 +887,11 @@ class _OverlayFormState extends State<_OverlayForm> {
                   OutlinedButton(
                     onPressed: () async {
                       final f = await openFile(
-                        acceptedTypeGroups: const [
-                          XTypeGroup(label: 'Image', extensions: ['png', 'jpg', 'jpeg', 'webp', 'bmp']),
+                        acceptedTypeGroups: [
+                          XTypeGroup(
+                            label: context.l10n.fileTypeImages,
+                            extensions: ['png', 'jpg', 'jpeg', 'webp', 'bmp'],
+                          ),
                         ],
                       );
                       if (f != null) setState(() => _image = f.path);
@@ -992,8 +995,8 @@ class _OverlayFormState extends State<_OverlayForm> {
                     OutlinedButton(
                       onPressed: () async {
                         final f = await openFile(
-                          acceptedTypeGroups: const [
-                            XTypeGroup(label: 'Font', extensions: ['ttf', 'otf', 'ttc']),
+                          acceptedTypeGroups: [
+                            XTypeGroup(label: context.l10n.fileTypeFonts, extensions: ['ttf', 'otf', 'ttc']),
                           ],
                         );
                         if (f != null) setState(() => _font = f.path);

@@ -371,8 +371,11 @@ class _CoverFormState extends ConsumerState<_CoverForm> {
                 trailing: OutlinedButton(
                   onPressed: () async {
                     final f = await openFile(
-                      acceptedTypeGroups: const [
-                        XTypeGroup(label: 'Images', extensions: ['jpg', 'jpeg', 'png', 'webp', 'bmp']),
+                      acceptedTypeGroups: [
+                        XTypeGroup(
+                          label: context.l10n.fileTypeImages,
+                          extensions: ['jpg', 'jpeg', 'png', 'webp', 'bmp'],
+                        ),
                       ],
                     );
                     if (f != null) setState(() => _image = f.path);

@@ -42,6 +42,17 @@ class RecipesController extends AsyncNotifier<List<Recipe>> {
   Future<void> put(Recipe r) async => _save([for (final x in state.value ?? const <Recipe>[]) x.id == r.id ? r : x]);
 
   Future<void> delete(String id) async => _save([...?state.value?.where((r) => r.id != id)]);
+
+  /// Adds imported recipes; each gets a new id so nothing is overwritten.
+  Future<int> import(List<Recipe> recipes) async {
+    final base = DateTime.now().microsecondsSinceEpoch;
+    await _save([
+      ...?state.value,
+      for (var i = 0; i < recipes.length; i++)
+        Recipe(id: (base + i).toRadixString(36), name: recipes[i].name, steps: recipes[i].steps),
+    ]);
+    return recipes.length;
+  }
 }
 
 final recipesProvider = AsyncNotifierProvider<RecipesController, List<Recipe>>(RecipesController.new);
