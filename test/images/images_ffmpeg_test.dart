@@ -196,6 +196,7 @@ void main() {
     ('color, no cover', const AudioVideoParams(cover: CoverSource.color, width: 1280, height: 720)),
   ]) {
     test('audio → video: $name', () async {
+      expect(song.coverArt, isNotNull);
       final params =
           a ?? AudioVideoParams(cover: CoverSource.file, image: pics[2], waveform: true, blurBackground: false);
       final i = await encode('av_${name.split(' ').first}.mp4', audioVideoGraph(song, params), song);

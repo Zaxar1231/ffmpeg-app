@@ -10045,6 +10045,348 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'EXIF, GPS-координаты, модель камеры'**
   String get pStripMetadataHint;
+
+  /// No description provided for @groupTags.
+  ///
+  /// In ru, this message translates to:
+  /// **'Теги'**
+  String get groupTags;
+
+  /// No description provided for @tagTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get tagTitle;
+
+  /// No description provided for @tagArtist.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исполнитель'**
+  String get tagArtist;
+
+  /// No description provided for @tagAlbumArtist.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исполнитель альбома'**
+  String get tagAlbumArtist;
+
+  /// No description provided for @tagAlbum.
+  ///
+  /// In ru, this message translates to:
+  /// **'Альбом'**
+  String get tagAlbum;
+
+  /// No description provided for @tagDate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Год / дата'**
+  String get tagDate;
+
+  /// No description provided for @tagGenre.
+  ///
+  /// In ru, this message translates to:
+  /// **'Жанр'**
+  String get tagGenre;
+
+  /// No description provided for @tagTrack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Номер трека'**
+  String get tagTrack;
+
+  /// No description provided for @tagDisc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Номер диска'**
+  String get tagDisc;
+
+  /// No description provided for @tagComposer.
+  ///
+  /// In ru, this message translates to:
+  /// **'Композитор'**
+  String get tagComposer;
+
+  /// No description provided for @tagComment.
+  ///
+  /// In ru, this message translates to:
+  /// **'Комментарий'**
+  String get tagComment;
+
+  /// No description provided for @tagDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Описание'**
+  String get tagDescription;
+
+  /// No description provided for @tagCopyright.
+  ///
+  /// In ru, this message translates to:
+  /// **'Авторские права'**
+  String get tagCopyright;
+
+  /// No description provided for @customTagKey.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свой тег (латиницей)'**
+  String get customTagKey;
+
+  /// No description provided for @addTag.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить'**
+  String get addTag;
+
+  /// No description provided for @pClearTags.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить все остальные теги'**
+  String get pClearTags;
+
+  /// No description provided for @pClearTagsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оставить только то, что заполнено выше'**
+  String get pClearTagsHint;
+
+  /// No description provided for @groupStreamLanguages.
+  ///
+  /// In ru, this message translates to:
+  /// **'Языки дорожек'**
+  String get groupStreamLanguages;
+
+  /// No description provided for @groupCover.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обложка'**
+  String get groupCover;
+
+  /// No description provided for @pCoverAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что сделать'**
+  String get pCoverAction;
+
+  /// No description provided for @coverPresent.
+  ///
+  /// In ru, this message translates to:
+  /// **'В файле есть обложка'**
+  String get coverPresent;
+
+  /// No description provided for @noCover.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обложки нет'**
+  String get noCover;
+
+  /// No description provided for @coverSet.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить'**
+  String get coverSet;
+
+  /// No description provided for @coverReplace.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заменить'**
+  String get coverReplace;
+
+  /// No description provided for @coverRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get coverRemove;
+
+  /// No description provided for @coverImageHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Лучше квадратная JPEG или PNG, 500–1500 px'**
+  String get coverImageHint;
+
+  /// No description provided for @saveCover.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить обложку'**
+  String get saveCover;
+
+  /// No description provided for @groupChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Главы'**
+  String get groupChapters;
+
+  /// No description provided for @noChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Глав нет — добавьте или вставьте список из описания YouTube'**
+  String get noChapters;
+
+  /// No description provided for @chapterTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название главы'**
+  String get chapterTitle;
+
+  /// No description provided for @chapterN.
+  ///
+  /// In ru, this message translates to:
+  /// **'Глава {n}'**
+  String chapterN(int n);
+
+  /// No description provided for @addChapter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить главу'**
+  String get addChapter;
+
+  /// No description provided for @removeAllChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить все'**
+  String get removeAllChapters;
+
+  /// No description provided for @importChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить список'**
+  String get importChapters;
+
+  /// No description provided for @importAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вставить'**
+  String get importAction;
+
+  /// No description provided for @importChaptersHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'По строке на главу: время и название, как в описании YouTube'**
+  String get importChaptersHint;
+
+  /// No description provided for @copyChapters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Копировать для YouTube'**
+  String get copyChapters;
+
+  /// No description provided for @groupRepair.
+  ///
+  /// In ru, this message translates to:
+  /// **'Починка'**
+  String get groupRepair;
+
+  /// No description provided for @pRepairMode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что исправить'**
+  String get pRepairMode;
+
+  /// No description provided for @repairRemux.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пересобрать'**
+  String get repairRemux;
+
+  /// No description provided for @repairOffset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвинуть звук'**
+  String get repairOffset;
+
+  /// No description provided for @repairReencode.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перекодировать'**
+  String get repairReencode;
+
+  /// No description provided for @repairRemuxHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не перематывается, неверная длительность, ошибки при открытии — без потерь'**
+  String get repairRemuxHint;
+
+  /// No description provided for @repairOffsetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук опережает или отстаёт на одну и ту же величину — без потерь'**
+  String get repairOffsetHint;
+
+  /// No description provided for @repairReencodeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Рассинхрон нарастает, дёргается картинка, файл повреждён — пересчёт с постоянной частотой кадров'**
+  String get repairReencodeHint;
+
+  /// No description provided for @pRepairModeHelp.
+  ///
+  /// In ru, this message translates to:
+  /// **'«Пересобрать» заново упаковывает потоки, пересчитывая временные метки и выбрасывая битые пакеты — помогает чаще всего и ничего не перекодирует. «Сдвинуть звук» — если рассинхрон одинаковый по всему файлу. «Перекодировать» — для записей с переменной частотой кадров (с телефона, записи экрана), у которых звук постепенно уезжает: картинка приводится к постоянной частоте, звук подстраивается под время.'**
+  String get pRepairModeHelp;
+
+  /// No description provided for @pAudioOffset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сдвиг звука'**
+  String get pAudioOffset;
+
+  /// No description provided for @pAudioOffsetHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плюс — звук позже, минус — раньше'**
+  String get pAudioOffsetHint;
+
+  /// No description provided for @repairFpsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Постоянная частота кадров результата'**
+  String get repairFpsHint;
+
+  /// No description provided for @repairNeedsAv.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для сдвига нужны и видео, и звук'**
+  String get repairNeedsAv;
+
+  /// No description provided for @groupFaststart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстрый старт'**
+  String get groupFaststart;
+
+  /// No description provided for @moovAtEnd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Индекс в конце файла — в браузере видео начнёт играть только после полной загрузки'**
+  String get moovAtEnd;
+
+  /// No description provided for @moovAtStart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Индекс уже в начале — видео стартует сразу'**
+  String get moovAtStart;
+
+  /// No description provided for @moovUnknown.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось определить положение индекса'**
+  String get moovUnknown;
+
+  /// No description provided for @faststartExplained.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перенос индекса (moov) в начало MP4/MOV без перекодирования: видео в браузере и мессенджерах начинает играть до окончания загрузки.'**
+  String get faststartExplained;
+
+  /// No description provided for @faststartOnlyMp4.
+  ///
+  /// In ru, this message translates to:
+  /// **'Работает только для MP4, MOV и M4A'**
+  String get faststartOnlyMp4;
+
+  /// No description provided for @faststartAlready.
+  ///
+  /// In ru, this message translates to:
+  /// **'Файлу это уже не нужно'**
+  String get faststartAlready;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

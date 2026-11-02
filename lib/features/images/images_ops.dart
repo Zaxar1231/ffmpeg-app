@@ -345,9 +345,8 @@ EditGraph audioVideoGraph(MediaInfo audio, AudioVideoParams a) {
   final parts = <String>[];
   final inputs = <FfmpegInput>[];
   String picture;
-  final coverStream =
-      audio.videoStreams.where((v) => (v.disposition['attached_pic'] ?? 0) == 1).firstOrNull ??
-      audio.videoStreams.firstOrNull;
+  // Embedded cover art (attached picture), else a real video stream.
+  final coverStream = audio.coverArt ?? audio.videoStreams.firstOrNull;
   if (a.cover == CoverSource.color || (a.cover == CoverSource.embedded && coverStream == null)) {
     parts.add('color=c=${a.color}:s=${w}x$h:r=$fps[bg]');
     picture = 'bg';

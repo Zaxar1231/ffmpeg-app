@@ -574,7 +574,7 @@ class _AudioVideoForm extends StatefulWidget {
 }
 
 class _AudioVideoFormState extends State<_AudioVideoForm> {
-  late CoverSource _cover = widget.info.videoStreams.isNotEmpty ? CoverSource.embedded : CoverSource.color;
+  late CoverSource _cover = widget.info.coverArt != null ? CoverSource.embedded : CoverSource.color;
   String? _image;
   (int, int) _size = _frameSizes.first;
   bool _blur = true, _wave = false;
@@ -615,7 +615,7 @@ class _AudioVideoFormState extends State<_AudioVideoForm> {
                   ButtonSegment(
                     value: CoverSource.embedded,
                     label: Text(l.coverEmbedded),
-                    enabled: info.videoStreams.isNotEmpty,
+                    enabled: info.coverArt != null,
                   ),
                   ButtonSegment(value: CoverSource.file, label: Text(l.coverFile)),
                   ButtonSegment(value: CoverSource.color, label: Text(l.coverColor)),

@@ -5356,4 +5356,180 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pStripMetadataHint => 'EXIF, GPS-координаты, модель камеры';
+
+  @override
+  String get groupTags => 'Теги';
+
+  @override
+  String get tagTitle => 'Название';
+
+  @override
+  String get tagArtist => 'Исполнитель';
+
+  @override
+  String get tagAlbumArtist => 'Исполнитель альбома';
+
+  @override
+  String get tagAlbum => 'Альбом';
+
+  @override
+  String get tagDate => 'Год / дата';
+
+  @override
+  String get tagGenre => 'Жанр';
+
+  @override
+  String get tagTrack => 'Номер трека';
+
+  @override
+  String get tagDisc => 'Номер диска';
+
+  @override
+  String get tagComposer => 'Композитор';
+
+  @override
+  String get tagComment => 'Комментарий';
+
+  @override
+  String get tagDescription => 'Описание';
+
+  @override
+  String get tagCopyright => 'Авторские права';
+
+  @override
+  String get customTagKey => 'Свой тег (латиницей)';
+
+  @override
+  String get addTag => 'Добавить';
+
+  @override
+  String get pClearTags => 'Удалить все остальные теги';
+
+  @override
+  String get pClearTagsHint => 'Оставить только то, что заполнено выше';
+
+  @override
+  String get groupStreamLanguages => 'Языки дорожек';
+
+  @override
+  String get groupCover => 'Обложка';
+
+  @override
+  String get pCoverAction => 'Что сделать';
+
+  @override
+  String get coverPresent => 'В файле есть обложка';
+
+  @override
+  String get noCover => 'Обложки нет';
+
+  @override
+  String get coverSet => 'Добавить';
+
+  @override
+  String get coverReplace => 'Заменить';
+
+  @override
+  String get coverRemove => 'Удалить';
+
+  @override
+  String get coverImageHint => 'Лучше квадратная JPEG или PNG, 500–1500 px';
+
+  @override
+  String get saveCover => 'Сохранить обложку';
+
+  @override
+  String get groupChapters => 'Главы';
+
+  @override
+  String get noChapters => 'Глав нет — добавьте или вставьте список из описания YouTube';
+
+  @override
+  String get chapterTitle => 'Название главы';
+
+  @override
+  String chapterN(int n) {
+    return 'Глава $n';
+  }
+
+  @override
+  String get addChapter => 'Добавить главу';
+
+  @override
+  String get removeAllChapters => 'Удалить все';
+
+  @override
+  String get importChapters => 'Вставить список';
+
+  @override
+  String get importAction => 'Вставить';
+
+  @override
+  String get importChaptersHint => 'По строке на главу: время и название, как в описании YouTube';
+
+  @override
+  String get copyChapters => 'Копировать для YouTube';
+
+  @override
+  String get groupRepair => 'Починка';
+
+  @override
+  String get pRepairMode => 'Что исправить';
+
+  @override
+  String get repairRemux => 'Пересобрать';
+
+  @override
+  String get repairOffset => 'Сдвинуть звук';
+
+  @override
+  String get repairReencode => 'Перекодировать';
+
+  @override
+  String get repairRemuxHint => 'Не перематывается, неверная длительность, ошибки при открытии — без потерь';
+
+  @override
+  String get repairOffsetHint => 'Звук опережает или отстаёт на одну и ту же величину — без потерь';
+
+  @override
+  String get repairReencodeHint =>
+      'Рассинхрон нарастает, дёргается картинка, файл повреждён — пересчёт с постоянной частотой кадров';
+
+  @override
+  String get pRepairModeHelp =>
+      '«Пересобрать» заново упаковывает потоки, пересчитывая временные метки и выбрасывая битые пакеты — помогает чаще всего и ничего не перекодирует. «Сдвинуть звук» — если рассинхрон одинаковый по всему файлу. «Перекодировать» — для записей с переменной частотой кадров (с телефона, записи экрана), у которых звук постепенно уезжает: картинка приводится к постоянной частоте, звук подстраивается под время.';
+
+  @override
+  String get pAudioOffset => 'Сдвиг звука';
+
+  @override
+  String get pAudioOffsetHint => 'Плюс — звук позже, минус — раньше';
+
+  @override
+  String get repairFpsHint => 'Постоянная частота кадров результата';
+
+  @override
+  String get repairNeedsAv => 'Для сдвига нужны и видео, и звук';
+
+  @override
+  String get groupFaststart => 'Быстрый старт';
+
+  @override
+  String get moovAtEnd => 'Индекс в конце файла — в браузере видео начнёт играть только после полной загрузки';
+
+  @override
+  String get moovAtStart => 'Индекс уже в начале — видео стартует сразу';
+
+  @override
+  String get moovUnknown => 'Не удалось определить положение индекса';
+
+  @override
+  String get faststartExplained =>
+      'Перенос индекса (moov) в начало MP4/MOV без перекодирования: видео в браузере и мессенджерах начинает играть до окончания загрузки.';
+
+  @override
+  String get faststartOnlyMp4 => 'Работает только для MP4, MOV и M4A';
+
+  @override
+  String get faststartAlready => 'Файлу это уже не нужно';
 }

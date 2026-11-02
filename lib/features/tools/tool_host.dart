@@ -11,6 +11,7 @@ import '../edit/graphs.dart';
 import '../edit/ui/frame_pages.dart';
 import '../gif/gif_page.dart';
 import '../images/images_pages.dart';
+import '../metadata/meta_pages.dart';
 import '../subtitles/subs_pages.dart';
 import '../trim/trim_page.dart';
 import 'tool_infra.dart';
@@ -61,6 +62,11 @@ class ToolHost extends ConsumerWidget {
       'audioToVideo' => AudioToVideoPage(key: key, path: tool.path),
       'visualizer' => VisualizerPage(key: key, path: tool.path),
       'imageConvert' => ImageConvertPage(key: key, path: tool.path),
+      'tags' => TagsPage(key: key, path: tool.path),
+      'cover' => CoverPage(key: key, path: tool.path),
+      'chapters' => ChaptersPage(key: key, path: tool.path),
+      'repair' => RepairPage(key: key, path: tool.path),
+      'faststart' => FaststartPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -93,6 +99,11 @@ const stage4Tools = {
   'audioToVideo',
   'visualizer',
   'imageConvert',
+  'tags',
+  'cover',
+  'chapters',
+  'repair',
+  'faststart',
 };
 
 /// Stage 3 analysis tools.

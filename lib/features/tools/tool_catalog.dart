@@ -77,6 +77,11 @@ const currentStageReady = {
   'audioToVideo',
   'visualizer',
   'imageConvert',
+  'tags',
+  'cover',
+  'chapters',
+  'repair',
+  'faststart',
 };
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));

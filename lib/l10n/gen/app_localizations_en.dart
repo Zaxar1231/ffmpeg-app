@@ -5319,4 +5319,180 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pStripMetadataHint => 'EXIF, GPS location, camera model';
+
+  @override
+  String get groupTags => 'Tags';
+
+  @override
+  String get tagTitle => 'Title';
+
+  @override
+  String get tagArtist => 'Artist';
+
+  @override
+  String get tagAlbumArtist => 'Album artist';
+
+  @override
+  String get tagAlbum => 'Album';
+
+  @override
+  String get tagDate => 'Year / date';
+
+  @override
+  String get tagGenre => 'Genre';
+
+  @override
+  String get tagTrack => 'Track number';
+
+  @override
+  String get tagDisc => 'Disc number';
+
+  @override
+  String get tagComposer => 'Composer';
+
+  @override
+  String get tagComment => 'Comment';
+
+  @override
+  String get tagDescription => 'Description';
+
+  @override
+  String get tagCopyright => 'Copyright';
+
+  @override
+  String get customTagKey => 'Custom tag (latin letters)';
+
+  @override
+  String get addTag => 'Add';
+
+  @override
+  String get pClearTags => 'Remove all other tags';
+
+  @override
+  String get pClearTagsHint => 'Keep only what is filled in above';
+
+  @override
+  String get groupStreamLanguages => 'Track languages';
+
+  @override
+  String get groupCover => 'Cover art';
+
+  @override
+  String get pCoverAction => 'Action';
+
+  @override
+  String get coverPresent => 'The file has cover art';
+
+  @override
+  String get noCover => 'No cover art';
+
+  @override
+  String get coverSet => 'Add';
+
+  @override
+  String get coverReplace => 'Replace';
+
+  @override
+  String get coverRemove => 'Remove';
+
+  @override
+  String get coverImageHint => 'Preferably a square JPEG or PNG, 500–1500 px';
+
+  @override
+  String get saveCover => 'Save cover';
+
+  @override
+  String get groupChapters => 'Chapters';
+
+  @override
+  String get noChapters => 'No chapters — add them or paste a list from a YouTube description';
+
+  @override
+  String get chapterTitle => 'Chapter title';
+
+  @override
+  String chapterN(int n) {
+    return 'Chapter $n';
+  }
+
+  @override
+  String get addChapter => 'Add chapter';
+
+  @override
+  String get removeAllChapters => 'Remove all';
+
+  @override
+  String get importChapters => 'Paste a list';
+
+  @override
+  String get importAction => 'Insert';
+
+  @override
+  String get importChaptersHint => 'One line per chapter: time and title, as in a YouTube description';
+
+  @override
+  String get copyChapters => 'Copy for YouTube';
+
+  @override
+  String get groupRepair => 'Repair';
+
+  @override
+  String get pRepairMode => 'What to fix';
+
+  @override
+  String get repairRemux => 'Remux';
+
+  @override
+  String get repairOffset => 'Shift audio';
+
+  @override
+  String get repairReencode => 'Re-encode';
+
+  @override
+  String get repairRemuxHint => 'Will not seek, wrong duration, errors on open — lossless';
+
+  @override
+  String get repairOffsetHint => 'Audio is ahead or behind by a constant amount — lossless';
+
+  @override
+  String get repairReencodeHint =>
+      'Sync drifts, picture stutters, the file is damaged — re-encode at a constant frame rate';
+
+  @override
+  String get pRepairModeHelp =>
+      '“Remux” repackages the streams, regenerating timestamps and dropping broken packets — it helps most often and re-encodes nothing. “Shift audio” is for a constant offset. “Re-encode” is for variable frame rate recordings (phones, screen captures) whose audio drifts: video is made constant-rate and audio follows the timestamps.';
+
+  @override
+  String get pAudioOffset => 'Audio offset';
+
+  @override
+  String get pAudioOffsetHint => 'Plus is later, minus is earlier';
+
+  @override
+  String get repairFpsHint => 'Constant frame rate of the result';
+
+  @override
+  String get repairNeedsAv => 'Shifting needs both video and audio';
+
+  @override
+  String get groupFaststart => 'Fast start';
+
+  @override
+  String get moovAtEnd => 'The index is at the end — a browser starts playing only after downloading everything';
+
+  @override
+  String get moovAtStart => 'The index is already at the start — playback starts instantly';
+
+  @override
+  String get moovUnknown => 'Could not find the index position';
+
+  @override
+  String get faststartExplained =>
+      'Moves the MP4/MOV index (moov) to the front without re-encoding: video in browsers and messengers starts before it finishes downloading.';
+
+  @override
+  String get faststartOnlyMp4 => 'Only for MP4, MOV and M4A';
+
+  @override
+  String get faststartAlready => 'This file does not need it';
 }

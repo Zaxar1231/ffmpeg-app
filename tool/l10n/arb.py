@@ -577,6 +577,7 @@ exec(open(os.path.join(HERE, 'stage3d.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage3e.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage4a.py'), encoding='utf-8').read())
 exec(open(os.path.join(HERE, 'stage4b.py'), encoding='utf-8').read())
+exec(open(os.path.join(HERE, 'stage4c.py'), encoding='utf-8').read())
 
 def ph_meta(ph):
     return {'placeholders': {n: {'type': t} for n, t in ph.items()}} if ph else None
