@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Kadra
+GenericName=Video and audio converter
+GenericName[ru]=Конвертер видео и аудио
+Comment=Convert, edit and download video and audio (ffmpeg, yt-dlp)
+Comment[ru]=Конвертация, монтаж и загрузка видео и аудио (ffmpeg, yt-dlp)
+Exec=kadra %f
+Icon=kadra
+Terminal=false
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/mpeg;video/x-flv;audio/mpeg;audio/flac;audio/x-wav;audio/ogg;audio/aac;audio/mp4;audio/x-m4a;
+Keywords=ffmpeg;convert;compress;video;audio;gif;subtitles;yt-dlp;
+StartupWMClass=kadra

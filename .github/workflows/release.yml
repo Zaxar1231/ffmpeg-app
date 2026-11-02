@@ -2,8 +2,11 @@ name: Release
 
 # Adding release notes docs/releases/vX.Y.Z.md (X.Y.Z = pubspec version)
 # builds Windows and Linux and publishes a GitHub release `vX.Y.Z` with the
-# archives and SHA-256 sums; the tag is created by the release itself.
-# Pushing a tag `vX.Y.Z` does the same.
+# installer, portable ZIP, AppImage, tar.gz and SHA-256 sums; the tag is
+# created by the release itself. Pushing a tag `vX.Y.Z` does the same.
+# A version with a suffix (1.1.0-beta.1) becomes a pre-release: only the
+# beta update channel offers it. The in-app updater relies on these asset
+# names (lib/core/update/app_update.dart, checked by a test).
 on:
   push:
     branches: ['**']
@@ -22,13 +25,20 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       tag: ${{ steps.v.outputs.tag }}
+      version: ${{ steps.v.outputs.version }}
+      numeric: ${{ steps.v.outputs.numeric }}
+      prerelease: ${{ steps.v.outputs.prerelease }}
     steps:
       - uses: actions/checkout@v4
       - id: v
         run: |
-          v=$(sed -n 's/^version: *\([0-9.]*\).*/\1/p' pubspec.yaml)
+          v=$(sed -n 's/^version: *\([^+ ]*\).*/\1/p' pubspec.yaml)
           test -f "docs/releases/v$v.md" || { echo "docs/releases/v$v.md is missing"; exit 1; }
           echo "tag=v$v" >> "$GITHUB_OUTPUT"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          # Numeric X.Y.Z for the Windows file version.
+          echo "numeric=${v%%-*}" >> "$GITHUB_OUTPUT"
+          case "$v" in *-*) echo "prerelease=true" >> "$GITHUB_OUTPUT" ;; *) echo "prerelease=false" >> "$GITHUB_OUTPUT" ;; esac
 
   windows:
     needs: version
@@ -50,10 +60,24 @@ jobs:
           New-Item -ItemType Directory -Path "dist/$name" | Out-Null
           Copy-Item -Recurse build/windows/x64/runner/Release/* "dist/$name/"
           Compress-Archive -Path "dist/$name" -DestinationPath "dist/$name.zip"
+          Remove-Item -Recurse "dist/$name"
+      - name: Installer
+        shell: pwsh
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) {
+            choco install innosetup -y --no-progress
+          }
+          $src = (Resolve-Path build/windows/x64/runner/Release).Path
+          & $iscc /Qp "/DAppVersion=${{ needs.version.outputs.version }}" "/DNumVersion=${{ needs.version.outputs.numeric }}" "/DSourceDir=$src" "/DOutputName=kadra-${{ needs.version.outputs.tag }}-windows-x64-setup" windows/installer/kadra.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Get-ChildItem dist
       - uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: dist/*.zip
+          path: |
+            dist/kadra-${{ needs.version.outputs.tag }}-windows-x64.zip
+            dist/kadra-${{ needs.version.outputs.tag }}-windows-x64-setup.exe
 
   linux:
     needs: version
@@ -63,7 +87,7 @@ jobs:
       - name: System packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build libgtk-3-dev libmpv-dev ffmpeg xz-utils
+          sudo apt-get install -y ninja-build libgtk-3-dev libmpv-dev libnotify-dev libx11-dev libxi-dev ffmpeg xz-utils
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -79,10 +103,20 @@ jobs:
           mkdir -p dist
           cp -r build/linux/x64/release/bundle "dist/$name"
           tar -C dist -czf "dist/$name.tar.gz" "$name"
+          rm -rf "dist/$name"
+      - name: AppImage
+        run: |
+          curl -fsSL -o /tmp/appimagetool https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod +x /tmp/appimagetool
+          APPIMAGETOOL=/tmp/appimagetool APPIMAGE_EXTRACT_AND_RUN=1 \
+            linux/packaging/build_appimage.sh build/linux/x64/release/bundle "dist/kadra-${{ needs.version.outputs.tag }}-linux-x86_64.AppImage"
+          ls -la dist
       - uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: dist/*.tar.gz
+          path: |
+            dist/kadra-${{ needs.version.outputs.tag }}-linux-x64.tar.gz
+            dist/kadra-${{ needs.version.outputs.tag }}-linux-x86_64.AppImage
 
   publish:
     needs: [version, windows, linux]
@@ -101,5 +135,6 @@ jobs:
           target_commitish: ${{ github.sha }}
           name: Kadra ${{ needs.version.outputs.tag }}
           body_path: docs/releases/${{ needs.version.outputs.tag }}.md
+          prerelease: ${{ needs.version.outputs.prerelease == 'true' }}
           files: dist/*
           fail_on_unmatched_files: true

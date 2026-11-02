@@ -1,0 +1,6 @@
+#!/bin/sh
+# Kadra AppImage entry point: libmpv and its libraries are bundled in
+# usr/lib; everything GTK/graphics comes from the system.
+HERE="$(dirname "$(readlink -f "$0")")"
+export LD_LIBRARY_PATH="$HERE/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+exec "$HERE/usr/bin/kadra/kadra" "$@"
