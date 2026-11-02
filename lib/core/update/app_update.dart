@@ -11,7 +11,7 @@ import 'package:path/path.dart' as p;
 import '../platform/host.dart';
 
 /// This build's version; kept in sync with `pubspec.yaml` (checked by a test).
-const kAppVersion = '1.0.0';
+const kAppVersion = '1.0.1';
 
 const kReleasesRepo = 'Zaxar1231/ffmpeg-app';
 
