@@ -6371,4 +6371,38 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get lutMono => 'Ч/б контрастный';
+
+  @override
+  String get modelsFonts => 'Шрифты';
+
+  @override
+  String get modelsFontsHint =>
+      'Свободные шрифты с кириллицей (Google Fonts, лицензия OFL) для субтитров и надписей. На Windows без них ffmpeg может не найти шрифт для надписи.';
+
+  @override
+  String get fontNoteSans => 'без засечек, для субтитров';
+
+  @override
+  String get fontNoteSerif => 'с засечками';
+
+  @override
+  String get fontNoteDisplay => 'заголовочный, для обложек и титров';
+
+  @override
+  String get fontNoteMono => 'моноширинный, для таймкода';
+
+  @override
+  String get fontNoteScript => 'рукописный';
+
+  @override
+  String get pSubFont => 'Шрифт';
+
+  @override
+  String get pSubFontHint => 'Скачанные шрифты — в «Компонентах»; по умолчанию — системный';
+
+  @override
+  String get fontDefault => 'Системный';
+
+  @override
+  String get fontOwnFile => 'Свой файл…';
 }

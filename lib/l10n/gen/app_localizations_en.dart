@@ -6307,4 +6307,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lutMono => 'Contrasty B&W';
+
+  @override
+  String get modelsFonts => 'Fonts';
+
+  @override
+  String get modelsFontsHint =>
+      'Free fonts with Cyrillic (Google Fonts, OFL license) for subtitles and text overlays. On Windows, without them ffmpeg may find no font for text.';
+
+  @override
+  String get fontNoteSans => 'sans serif, for subtitles';
+
+  @override
+  String get fontNoteSerif => 'serif';
+
+  @override
+  String get fontNoteDisplay => 'display, for titles and thumbnails';
+
+  @override
+  String get fontNoteMono => 'monospace, for timecode';
+
+  @override
+  String get fontNoteScript => 'handwritten';
+
+  @override
+  String get pSubFont => 'Font';
+
+  @override
+  String get pSubFontHint => 'Downloaded fonts are in Components; by default the system font';
+
+  @override
+  String get fontDefault => 'System';
+
+  @override
+  String get fontOwnFile => 'Own file…';
 }

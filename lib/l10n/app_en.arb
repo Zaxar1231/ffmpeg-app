@@ -1951,5 +1951,16 @@
   "lutFaded": "Faded",
   "lutVintage": "Vintage",
   "lutVivid": "Vivid",
-  "lutMono": "Contrasty B&W"
+  "lutMono": "Contrasty B&W",
+  "modelsFonts": "Fonts",
+  "modelsFontsHint": "Free fonts with Cyrillic (Google Fonts, OFL license) for subtitles and text overlays. On Windows, without them ffmpeg may find no font for text.",
+  "fontNoteSans": "sans serif, for subtitles",
+  "fontNoteSerif": "serif",
+  "fontNoteDisplay": "display, for titles and thumbnails",
+  "fontNoteMono": "monospace, for timecode",
+  "fontNoteScript": "handwritten",
+  "pSubFont": "Font",
+  "pSubFontHint": "Downloaded fonts are in Components; by default the system font",
+  "fontDefault": "System",
+  "fontOwnFile": "Own file…"
 }

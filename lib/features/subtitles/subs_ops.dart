@@ -106,11 +106,14 @@ EditGraph burnGraph(
   int streamIndex = 0,
   BurnStyle style = const BurnStyle(),
   String? charset,
+  String? fontsDir,
 }) {
   final opts = <String>[
     'filename=${escapeFilterValue(subFile ?? info.path)}',
     if (subFile == null) 'si=$streamIndex',
     if (charset != null && charset != 'UTF-8') 'charenc=$charset',
+    // Downloaded fonts (Components), found by family name in FontName.
+    if (fontsDir != null) 'fontsdir=${escapeFilterValue(fontsDir)}',
     if (!style.isDefault) 'force_style=${escapeFilterValue(forceStyle(style))}',
   ];
   return EditGraph(

@@ -1,6 +1,7 @@
-/// Model files used by ffmpeg filters: RNNoise (`arnndn`) and whisper.cpp
-/// (`whisper`). Downloaded on demand into `components/models`, verified by
-/// SHA-256 (values taken from the hosting repositories).
+/// Files used by ffmpeg filters: RNNoise models (`arnndn`), whisper.cpp
+/// models (`whisper`) and fonts with Cyrillic for subtitles and `drawtext`.
+/// Downloaded on demand into `components/models` (fonts: `components/fonts`,
+/// passed to libass as `fontsdir`), verified by SHA-256.
 library;
 
 import 'dart:io';
@@ -11,18 +12,28 @@ import 'package:path/path.dart' as p;
 import '../providers.dart';
 import 'downloader.dart';
 
-enum ModelKind { rnnoise, whisper }
+enum ModelKind { rnnoise, whisper, font }
 
 class ModelDef {
-  const ModelDef(this.id, this.kind, this.url, {required this.sha256, required this.size});
+  const ModelDef(this.id, this.kind, this.url, {required this.sha256, required this.size, this.file, this.family});
   final String id;
   final ModelKind kind;
   final String url;
   final String sha256;
   final int size;
 
-  String get fileName => p.basename(Uri.parse(url).path);
+  /// Local file name (default: from the URL).
+  final String? file;
+
+  /// Font family name, as libass and fontconfig see it.
+  final String? family;
+
+  String get fileName => file ?? p.basename(Uri.parse(url).path);
 }
+
+/// google/fonts at a fixed commit, so the checksums stay valid. All of these
+/// fonts cover Cyrillic; licenses: SIL Open Font License.
+const _gf = 'https://raw.githubusercontent.com/google/fonts/cc39c4c2c304bc368c9b7c311ea2bcc6013299fe/ofl';
 
 const _rnn = 'https://raw.githubusercontent.com/GregorR/rnnoise-models/master';
 const _hf = 'https://huggingface.co/ggerganov/whisper.cpp/resolve/main';
@@ -98,6 +109,96 @@ const modelCatalog = <ModelDef>[
     sha256: '394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa7e2',
     size: 574041195,
   ),
+  ModelDef(
+    'fontNotoSans',
+    ModelKind.font,
+    '$_gf/notosans/NotoSans%5Bwdth,wght%5D.ttf',
+    sha256: 'bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d',
+    size: 2049096,
+    file: 'NotoSans.ttf',
+    family: 'Noto Sans',
+  ),
+  ModelDef(
+    'fontPtSans',
+    ModelKind.font,
+    '$_gf/ptsans/PT_Sans-Web-Regular.ttf',
+    sha256: '9cc831490532009bae2b3ce0d39c62adfc889060beb421593bfd9d2396d0f10a',
+    size: 442960,
+    file: 'PTSans-Regular.ttf',
+    family: 'PT Sans',
+  ),
+  ModelDef(
+    'fontPtSansBold',
+    ModelKind.font,
+    '$_gf/ptsans/PT_Sans-Web-Bold.ttf',
+    sha256: '3128bd5ecf01816e59a23d54c57a7a6b14615b07db53ff277c77376010265b05',
+    size: 470240,
+    file: 'PTSans-Bold.ttf',
+    family: 'PT Sans',
+  ),
+  ModelDef(
+    'fontPtSerif',
+    ModelKind.font,
+    '$_gf/ptserif/PT_Serif-Web-Regular.ttf',
+    sha256: 'a4951fade06ff8f09b7673aa81ffb65a8cd409e24d3289a6dc670bc4dda2557a',
+    size: 359048,
+    file: 'PTSerif-Regular.ttf',
+    family: 'PT Serif',
+  ),
+  ModelDef(
+    'fontMontserrat',
+    ModelKind.font,
+    '$_gf/montserrat/Montserrat%5Bwght%5D.ttf',
+    sha256: '0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7',
+    size: 744936,
+    file: 'Montserrat.ttf',
+    family: 'Montserrat',
+  ),
+  ModelDef(
+    'fontOswald',
+    ModelKind.font,
+    '$_gf/oswald/Oswald%5Bwght%5D.ttf',
+    sha256: '5b38c246e255a12f5712d640d56bcced0472466fc68983d2d0410ec0457c2817',
+    size: 172088,
+    file: 'Oswald.ttf',
+    family: 'Oswald',
+  ),
+  ModelDef(
+    'fontRobotoMono',
+    ModelKind.font,
+    '$_gf/robotomono/RobotoMono%5Bwght%5D.ttf',
+    sha256: '66a80e79d17e4c7cabd162e2916578a4cc08fd19eef6e2a643305eae9c567b2b',
+    size: 183700,
+    file: 'RobotoMono.ttf',
+    family: 'Roboto Mono',
+  ),
+  ModelDef(
+    'fontLobster',
+    ModelKind.font,
+    '$_gf/lobster/Lobster-Regular.ttf',
+    sha256: 'd6568e697fd50cedc0be04d8aae4127fe95add607e7bff954ca88604be80c205',
+    size: 406076,
+    file: 'Lobster-Regular.ttf',
+    family: 'Lobster',
+  ),
+  ModelDef(
+    'fontCaveat',
+    ModelKind.font,
+    '$_gf/caveat/Caveat%5Bwght%5D.ttf',
+    sha256: '0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988',
+    size: 403648,
+    file: 'Caveat.ttf',
+    family: 'Caveat',
+  ),
+  ModelDef(
+    'fontRubikMonoOne',
+    ModelKind.font,
+    '$_gf/rubikmonoone/RubikMonoOne-Regular.ttf',
+    sha256: 'b22624b6a36e543e942106edfccd198c50b57b65b924bfe02a6f0a5699429e6b',
+    size: 141088,
+    file: 'RubikMonoOne-Regular.ttf',
+    family: 'Rubik Mono One',
+  ),
 ];
 
 ModelDef modelById(String id) => modelCatalog.firstWhere((m) => m.id == id);
@@ -122,13 +223,18 @@ class ModelsState {
 class ModelsController extends Notifier<ModelsState> {
   final _cancels = <String, CancelToken>{};
 
-  String get _dir => p.join(ref.read(appPathsProvider).components, 'models');
+  String get _modelsDir => p.join(ref.read(appPathsProvider).components, 'models');
+
+  /// Folder with the downloaded fonts (libass `fontsdir`).
+  String get fontsDir => p.join(ref.read(appPathsProvider).components, 'fonts');
+
+  String _dir(ModelDef m) => m.kind == ModelKind.font ? fontsDir : _modelsDir;
 
   @override
   ModelsState build() {
     final installed = <String, String>{};
     for (final m in modelCatalog) {
-      final f = File(p.join(_dir, m.fileName));
+      final f = File(p.join(_dir(m), m.fileName));
       if (f.existsSync() && f.lengthSync() == m.size) installed[m.id] = f.path;
     }
     return ModelsState(installed: installed);
@@ -139,7 +245,7 @@ class ModelsController extends Notifier<ModelsState> {
     final token = CancelToken();
     _cancels[m.id] = token;
     _set(progress: {...state.progress, m.id: 0}, errors: {...state.errors}..remove(m.id));
-    final dest = p.join(_dir, m.fileName);
+    final dest = p.join(_dir(m), m.fileName);
     final part = '$dest.part';
     try {
       await downloadFile(

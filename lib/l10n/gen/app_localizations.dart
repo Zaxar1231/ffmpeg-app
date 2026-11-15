@@ -11803,6 +11803,72 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Ч/б контрастный'**
   String get lutMono;
+
+  /// No description provided for @modelsFonts.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифты'**
+  String get modelsFonts;
+
+  /// No description provided for @modelsFontsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свободные шрифты с кириллицей (Google Fonts, лицензия OFL) для субтитров и надписей. На Windows без них ffmpeg может не найти шрифт для надписи.'**
+  String get modelsFontsHint;
+
+  /// No description provided for @fontNoteSans.
+  ///
+  /// In ru, this message translates to:
+  /// **'без засечек, для субтитров'**
+  String get fontNoteSans;
+
+  /// No description provided for @fontNoteSerif.
+  ///
+  /// In ru, this message translates to:
+  /// **'с засечками'**
+  String get fontNoteSerif;
+
+  /// No description provided for @fontNoteDisplay.
+  ///
+  /// In ru, this message translates to:
+  /// **'заголовочный, для обложек и титров'**
+  String get fontNoteDisplay;
+
+  /// No description provided for @fontNoteMono.
+  ///
+  /// In ru, this message translates to:
+  /// **'моноширинный, для таймкода'**
+  String get fontNoteMono;
+
+  /// No description provided for @fontNoteScript.
+  ///
+  /// In ru, this message translates to:
+  /// **'рукописный'**
+  String get fontNoteScript;
+
+  /// No description provided for @pSubFont.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифт'**
+  String get pSubFont;
+
+  /// No description provided for @pSubFontHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скачанные шрифты — в «Компонентах»; по умолчанию — системный'**
+  String get pSubFontHint;
+
+  /// No description provided for @fontDefault.
+  ///
+  /// In ru, this message translates to:
+  /// **'Системный'**
+  String get fontDefault;
+
+  /// No description provided for @fontOwnFile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Свой файл…'**
+  String get fontOwnFile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

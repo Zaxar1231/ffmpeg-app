@@ -168,4 +168,24 @@ void main() {
     expect(subtitleCodecFor('mkv', sourceCodec: 'ass'), 'ass');
     expect(subtitleCodecFor('avi'), isNull);
   });
+
+  test('burn with a downloaded font: libass finds it in fontsdir by family', () async {
+    const system = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';
+    if (!File(system).existsSync()) return markTestSkipped('no DejaVu Sans to copy');
+    final fonts = Directory(p.join(dir.path, 'fonts'))..createSync();
+    File(system).copySync(p.join(fonts.path, 'MyFont.ttf'));
+    final g = burnGraph(
+      video,
+      subFile: srt,
+      style: const BurnStyle(fontName: 'DejaVu Sans'),
+      fontsDir: fonts.path,
+    );
+    expect(g.complex, contains('fontsdir='));
+    final r = await runner.capture(ffmpeg!, [
+      '-v', 'debug', '-y', '-i', video.path, '-filter_complex', g.complex!, '-map', '[v]', '-f', 'null', '-', //
+    ]);
+    expect(r.ok, isTrue, reason: r.stderr);
+    expect(r.stderr, contains('fontselect: (DejaVu Sans'));
+    expect(r.stderr, contains('MyFont'));
+  }, skip: skip);
 }

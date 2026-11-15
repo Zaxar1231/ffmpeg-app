@@ -2,6 +2,8 @@ import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/components/models.dart';
+import '../../audio/audio_file_pages.dart' show modelName;
 import '../luts.dart';
 
 import 'package:path/path.dart' as p;
@@ -1005,16 +1007,17 @@ class _OverlayFormState extends State<_OverlayForm> {
                 hint: l.pTextBoxHint,
                 control: Switch(value: _box, onChanged: (v) => setState(() => _box = v)),
               ),
-              SettingTile(
-                title: l.pFontFile,
-                hint: _font == null ? l.pFontFileHint : p.basename(_font!),
-                control: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (_font != null)
-                      IconButton(icon: const Icon(Icons.close), onPressed: () => setState(() => _font = null)),
-                    OutlinedButton(
-                      onPressed: () async {
+              Consumer(
+                builder: (context, ref, _) {
+                  final fonts = ref.watch(modelsProvider).installedOf(ModelKind.font);
+                  final paths = [for (final f in fonts) ref.read(modelsProvider).pathOf(f.id)!];
+                  return SettingTile(
+                    title: l.pFontFile,
+                    hint: _font == null ? l.pFontFileHint : p.basename(_font!),
+                    control: DropdownButton<String?>(
+                      value: _font,
+                      onChanged: (v) async {
+                        if (v != '\u0000') return setState(() => _font = v);
                         final f = await openFile(
                           acceptedTypeGroups: [
                             XTypeGroup(label: context.l10n.fileTypeFonts, extensions: ['ttf', 'otf', 'ttc']),
@@ -1022,10 +1025,17 @@ class _OverlayFormState extends State<_OverlayForm> {
                         );
                         if (f != null) setState(() => _font = f.path);
                       },
-                      child: Text(l.choose),
+                      items: [
+                        DropdownMenuItem(value: null, child: Text(l.fontDefault)),
+                        for (final (i, f) in fonts.indexed)
+                          DropdownMenuItem(value: paths[i], child: Text(modelName(l, f.id))),
+                        if (_font != null && !paths.contains(_font))
+                          DropdownMenuItem(value: _font, child: Text(p.basename(_font!))),
+                        DropdownMenuItem(value: '\u0000', child: Text(l.fontOwnFile)),
+                      ],
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
             SettingTile(

@@ -1,6 +1,9 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../core/components/models.dart';
+
 import 'package:path/path.dart' as p;
 
 import '../../core/probe/media_info.dart';
@@ -67,15 +70,18 @@ class BurnSubsPage extends ConsumerWidget {
   );
 }
 
-class _BurnForm extends StatefulWidget {
+class _BurnForm extends ConsumerStatefulWidget {
   const _BurnForm({super.key, required this.info});
   final MediaInfo info;
   @override
-  State<_BurnForm> createState() => _BurnFormState();
+  ConsumerState<_BurnForm> createState() => _BurnFormState();
 }
 
-class _BurnFormState extends State<_BurnForm> {
+class _BurnFormState extends ConsumerState<_BurnForm> {
   String? _file;
+
+  /// Font family from the downloaded fonts (null = libass default).
+  String? _family;
   late int? _stream = _textTracks.isEmpty ? null : _textTracks.first;
   String _charset = 'UTF-8';
   int _fontSize = 0;
@@ -93,7 +99,11 @@ class _BurnFormState extends State<_BurnForm> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final info = widget.info;
+    final fonts = ref.watch(modelsProvider).installedOf(ModelKind.font);
+    final families = {for (final f in fonts) f.family!}.toList();
+    final family = families.contains(_family) ? _family : null;
     final style = BurnStyle(
+      fontName: family,
       fontSize: _fontSize == 0 ? null : _fontSize,
       color: _color,
       box: _box,
@@ -108,6 +118,7 @@ class _BurnFormState extends State<_BurnForm> {
             streamIndex: _stream ?? 0,
             style: style,
             charset: _file == null ? null : _charset,
+            fontsDir: family == null ? null : ref.read(modelsProvider.notifier).fontsDir,
           )
         : null;
     final bitmapOnly = info.subtitleStreams.isNotEmpty && _textTracks.isEmpty;
@@ -168,6 +179,18 @@ class _BurnFormState extends State<_BurnForm> {
         ParamGroup(
           title: l.groupSubStyle,
           children: [
+            SettingTile(
+              title: l.pSubFont,
+              hint: l.pSubFontHint,
+              control: DropdownButton<String?>(
+                value: family,
+                onChanged: (v) => setState(() => _family = v),
+                items: [
+                  DropdownMenuItem(value: null, child: Text(l.fontDefault)),
+                  for (final f in families) DropdownMenuItem(value: f, child: Text(f)),
+                ],
+              ),
+            ),
             ValueSlider(
               title: l.pFontSize,
               hint: l.pSubFontSizeHint,

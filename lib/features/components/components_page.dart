@@ -62,7 +62,7 @@ class ComponentsPage extends ConsumerWidget {
                   const _SystemOnlyCard(id: ComponentId.aria2),
                 const ModelsCard(kind: ModelKind.rnnoise),
                 const ModelsCard(kind: ModelKind.whisper),
-                const _PlannedComponents(),
+                const ModelsCard(kind: ModelKind.font),
               ],
             ),
     );
@@ -658,41 +658,6 @@ class _HwAccelCard extends ConsumerWidget {
                 );
               },
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PlannedComponents extends StatelessWidget {
-  const _PlannedComponents();
-
-  @override
-  Widget build(BuildContext context) {
-    final l = context.l10n;
-    final items = [
-      (Icons.noise_aware, l.compRnnoise, 3),
-      (Icons.compare, l.compVmaf, 3),
-      (Icons.record_voice_over_outlined, l.compWhisper, 3),
-      (Icons.auto_awesome, l.compFrei0r, 3),
-      (Icons.palette_outlined, l.compLuts, 3),
-      (Icons.font_download_outlined, l.compFonts, 4),
-    ];
-    return Card.outlined(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(l.plannedComponents, style: Theme.of(context).textTheme.titleMedium),
-            for (final (icon, title, stage) in items)
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: Icon(icon),
-                title: Text(title),
-                trailing: TagChip(l.stageLabel(stage)),
-              ),
           ],
         ),
       ),

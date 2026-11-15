@@ -78,17 +78,19 @@ class ModelsCard extends ConsumerWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: Text(
-                kind == ModelKind.rnnoise ? l.modelsRnnoise : l.modelsWhisper,
-                style: t.textTheme.titleMedium,
-              ),
+              child: Text(switch (kind) {
+                ModelKind.rnnoise => l.modelsRnnoise,
+                ModelKind.whisper => l.modelsWhisper,
+                ModelKind.font => l.modelsFonts,
+              }, style: t.textTheme.titleMedium),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-              child: Text(
-                kind == ModelKind.rnnoise ? l.modelsRnnoiseHint : l.modelsWhisperHint,
-                style: t.textTheme.bodySmall,
-              ),
+              child: Text(switch (kind) {
+                ModelKind.rnnoise => l.modelsRnnoiseHint,
+                ModelKind.whisper => l.modelsWhisperHint,
+                ModelKind.font => l.modelsFontsHint,
+              }, style: t.textTheme.bodySmall),
             ),
             ...tiles,
           ],
@@ -98,7 +100,13 @@ class ModelsCard extends ConsumerWidget {
   }
 }
 
-String modelName(AppLocalizations l, String id) => switch (id) {
+String modelName(AppLocalizations l, String id) {
+  final m = modelCatalog.where((m) => m.id == id).firstOrNull;
+  if (m?.kind == ModelKind.font) return id == 'fontPtSansBold' ? '${m!.family} Bold' : m!.family!;
+  return _modelName(l, id);
+}
+
+String _modelName(AppLocalizations l, String id) => switch (id) {
   'rnnSh' => l.modelRnnSh,
   'rnnBd' => l.modelRnnBd,
   'rnnCb' => l.modelRnnCb,
@@ -113,6 +121,11 @@ String modelName(AppLocalizations l, String id) => switch (id) {
 };
 
 String modelNote(AppLocalizations l, String id) => switch (id) {
+  'fontNotoSans' || 'fontPtSans' || 'fontPtSansBold' || 'fontMontserrat' => l.fontNoteSans,
+  'fontPtSerif' => l.fontNoteSerif,
+  'fontOswald' || 'fontRubikMonoOne' => l.fontNoteDisplay,
+  'fontRobotoMono' => l.fontNoteMono,
+  'fontLobster' || 'fontCaveat' => l.fontNoteScript,
   'rnnSh' => l.modelRnnShNote,
   'rnnBd' => l.modelRnnBdNote,
   'rnnCb' => l.modelRnnCbNote,

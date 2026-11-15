@@ -2907,5 +2907,16 @@
   "lutFaded": "Выцветший",
   "lutVintage": "Винтаж",
   "lutVivid": "Яркий",
-  "lutMono": "Ч/б контрастный"
+  "lutMono": "Ч/б контрастный",
+  "modelsFonts": "Шрифты",
+  "modelsFontsHint": "Свободные шрифты с кириллицей (Google Fonts, лицензия OFL) для субтитров и надписей. На Windows без них ffmpeg может не найти шрифт для надписи.",
+  "fontNoteSans": "без засечек, для субтитров",
+  "fontNoteSerif": "с засечками",
+  "fontNoteDisplay": "заголовочный, для обложек и титров",
+  "fontNoteMono": "моноширинный, для таймкода",
+  "fontNoteScript": "рукописный",
+  "pSubFont": "Шрифт",
+  "pSubFontHint": "Скачанные шрифты — в «Компонентах»; по умолчанию — системный",
+  "fontDefault": "Системный",
+  "fontOwnFile": "Свой файл…"
 }
