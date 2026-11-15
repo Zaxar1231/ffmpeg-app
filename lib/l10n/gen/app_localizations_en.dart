@@ -6267,4 +6267,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pSplitSizeHint => 'Approximate: the part length comes from the file’s average bitrate, with 5% to spare';
+
+  @override
+  String get pCaptureArea => 'What to record';
+
+  @override
+  String get captureWindow => 'Window';
+
+  @override
+  String get pCaptureWindowHint => 'Only this window is recorded, even when covered';
+
+  @override
+  String get noWindows => 'No windows found (Linux needs wmctrl)';
+
+  @override
+  String get pDda => 'Fast capture (DirectX)';
+
+  @override
+  String get pDdaHint =>
+      'Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games';
 }

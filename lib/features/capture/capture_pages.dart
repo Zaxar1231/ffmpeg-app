@@ -176,7 +176,10 @@ class CapturePage extends ConsumerStatefulWidget {
 class _CapturePageState extends ConsumerState<CapturePage> {
   int _fps = 30;
   bool _mouse = true;
-  bool _region = false;
+  _Area _area = _Area.screen;
+  CaptureWindow? _window;
+  bool _dda = true;
+  bool get _region => _area == _Area.region;
   final _x = TextEditingController(text: '0'), _y = TextEditingController(text: '0');
   final _w = TextEditingController(text: '1280'), _h = TextEditingController(text: '720');
   CaptureDevice? _camera;
@@ -210,7 +213,9 @@ class _CapturePageState extends ConsumerState<CapturePage> {
             host: host,
             fps: _fps,
             region: _screenRegion,
+            window: _area == _Area.window ? (_window ?? devices.windows.firstOrNull) : null,
             drawMouse: _mouse,
+            dda: _dda && _ddaAvailable,
             display: Platform.environment['DISPLAY'] ?? ':0',
           );
     final cam = widget.camera && video != null
@@ -234,6 +239,10 @@ class _CapturePageState extends ConsumerState<CapturePage> {
         );
   }
 
+  /// Desktop Duplication: Windows with a build that has `ddagrab`.
+  bool get _ddaAvailable =>
+      HostPlatform.current.isWindows && (ref.read(capabilitiesProvider).value?.hasFilter('ddagrab') ?? false);
+
   /// Microphones by default (system audio needs a choice).
   Set<CaptureDevice> _defaultAudio(DeviceList d) => {...d.audio.where((a) => !isSystemAudio(a)).take(1)};
 
@@ -241,6 +250,7 @@ class _CapturePageState extends ConsumerState<CapturePage> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final devices = ref.watch(captureDevicesProvider);
+    ref.watch(capabilitiesProvider); // for _ddaAvailable
     final dl = devices.value ?? const DeviceList();
     final audioSel = _audio ?? _defaultAudio(dl);
     final cams = dl.cameras;
@@ -272,10 +282,45 @@ class _CapturePageState extends ConsumerState<CapturePage> {
                 )
               else ...[
                 SettingTile(
-                  title: l.pCaptureRegion,
-                  hint: _region ? l.pCaptureRegionHint : l.wholeScreen,
-                  control: Switch(value: _region, onChanged: (v) => setState(() => _region = v)),
+                  title: l.pCaptureArea,
+                  hint: switch (_area) {
+                    _Area.screen => l.wholeScreen,
+                    _Area.region => l.pCaptureRegionHint,
+                    _Area.window => dl.windows.isEmpty ? l.noWindows : l.pCaptureWindowHint,
+                  },
+                  controlBelow: true,
+                  control: SegmentedButton<_Area>(
+                    segments: [
+                      ButtonSegment(value: _Area.screen, label: Text(l.wholeScreen)),
+                      ButtonSegment(value: _Area.region, label: Text(l.pCaptureRegion)),
+                      ButtonSegment(value: _Area.window, label: Text(l.captureWindow), enabled: dl.windows.isNotEmpty),
+                    ],
+                    selected: {_area},
+                    onSelectionChanged: (v) => setState(() => _area = v.first),
+                  ),
                 ),
+                if (_area == _Area.window && dl.windows.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                    child: DropdownButton<CaptureWindow>(
+                      isExpanded: true,
+                      value: dl.windows.contains(_window) ? _window : dl.windows.first,
+                      onChanged: (v) => setState(() => _window = v),
+                      items: [
+                        for (final w in dl.windows)
+                          DropdownMenuItem(
+                            value: w,
+                            child: Text(w.title, overflow: TextOverflow.ellipsis),
+                          ),
+                      ],
+                    ),
+                  ),
+                if (_ddaAvailable && _area != _Area.window)
+                  SettingTile(
+                    title: l.pDda,
+                    hint: l.pDdaHint,
+                    control: Switch(value: _dda, onChanged: (v) => setState(() => _dda = v)),
+                  ),
                 if (_region)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
@@ -425,7 +470,13 @@ class _StreamPageState extends ConsumerState<StreamPage> {
     final src = switch (_source) {
       _StreamSource.file => CaptureSources(file: _file, loopFile: _loop),
       _StreamSource.screen => CaptureSources(
-        video: screenDevice(host: HostPlatform.current, fps: _fps, display: Platform.environment['DISPLAY'] ?? ':0'),
+        video: screenDevice(
+          host: HostPlatform.current,
+          fps: _fps,
+          // Desktop Duplication when the build has it (lighter than gdigrab).
+          dda: HostPlatform.current.isWindows && (ref.read(capabilitiesProvider).value?.hasFilter('ddagrab') ?? false),
+          display: Platform.environment['DISPLAY'] ?? ':0',
+        ),
         audio: (_audio ?? {...d.audio.where((a) => !isSystemAudio(a)).take(1)}).toList(),
       ),
       _StreamSource.camera => CaptureSources(
@@ -753,3 +804,5 @@ class _HlsFormState extends ConsumerState<_HlsForm> {
     );
   }
 }
+
+enum _Area { screen, region, window }

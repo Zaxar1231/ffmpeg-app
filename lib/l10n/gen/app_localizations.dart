@@ -11725,6 +11725,42 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Примерно: длина части считается по среднему битрейту файла, с запасом 5%'**
   String get pSplitSizeHint;
+
+  /// No description provided for @pCaptureArea.
+  ///
+  /// In ru, this message translates to:
+  /// **'Что записывать'**
+  String get pCaptureArea;
+
+  /// No description provided for @captureWindow.
+  ///
+  /// In ru, this message translates to:
+  /// **'Окно'**
+  String get captureWindow;
+
+  /// No description provided for @pCaptureWindowHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Записывается только это окно, даже если его перекрыть'**
+  String get pCaptureWindowHint;
+
+  /// No description provided for @noWindows.
+  ///
+  /// In ru, this message translates to:
+  /// **'Окна не найдены (в Linux нужен wmctrl)'**
+  String get noWindows;
+
+  /// No description provided for @pDda.
+  ///
+  /// In ru, this message translates to:
+  /// **'Быстрый захват (DirectX)'**
+  String get pDda;
+
+  /// No description provided for @pDdaHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Desktop Duplication: захват видеокартой, меньше нагрузки и пропусков кадров, работает с играми в полноэкранном режиме'**
+  String get pDdaHint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

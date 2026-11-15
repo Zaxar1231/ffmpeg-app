@@ -20,11 +20,15 @@ import '../edit/graphs.dart' show even, fnum;
 
 /// An input device: `-f <format> [options] -i <name>`.
 class CaptureDevice {
-  const CaptureDevice(this.format, this.name, this.label, {this.options = const []});
+  const CaptureDevice(this.format, this.name, this.label, {this.options = const [], this.videoFilter});
   final String format;
   final String name;
   final String label;
   final List<String> options;
+
+  /// Filter the frames need first (`hwdownload,format=bgra` for ddagrab,
+  /// whose frames are in video memory).
+  final String? videoFilter;
 
   /// Devices deliver frames in real time: a larger input queue avoids
   /// "thread message queue blocking" drops while the encoder warms up.
@@ -41,19 +45,55 @@ class ScreenRegion {
   final int x, y, width, height;
 }
 
-/// The screen as an input device for this platform.
+/// A window to record: its title (Windows, gdigrab `title=`) or X11 id
+/// (Linux, x11grab `-window_id`).
+class CaptureWindow {
+  const CaptureWindow(this.title, {this.id});
+  final String title;
+  final int? id;
+
+  @override
+  bool operator ==(Object other) => other is CaptureWindow && other.title == title && other.id == id;
+  @override
+  int get hashCode => Object.hash(title, id);
+}
+
+/// The screen as an input device for this platform. On Windows [dda] uses
+/// Desktop Duplication (`ddagrab`, GPU, much lighter than gdigrab, needs a
+/// build with that filter); a [window] is always captured with gdigrab.
 CaptureDevice screenDevice({
   required HostPlatform host,
   int fps = 30,
   ScreenRegion? region,
+  CaptureWindow? window,
   bool drawMouse = true,
+  bool dda = false,
+  int monitor = 0,
   String display = ':0.0',
 }) {
   // Even size, rounded down so the region never leaves the screen.
-  final size = region == null
-      ? <String>[]
-      : ['-video_size', '${math.max(2, region.width ~/ 2 * 2)}x${math.max(2, region.height ~/ 2 * 2)}'];
+  final w = region == null ? 0 : math.max(2, region.width ~/ 2 * 2);
+  final h = region == null ? 0 : math.max(2, region.height ~/ 2 * 2);
+  final size = region == null ? <String>[] : ['-video_size', '${w}x$h'];
+  final mouse = drawMouse ? '1' : '0';
   if (host.isWindows) {
+    if (window != null) {
+      return CaptureDevice(
+        'gdigrab',
+        'title=${window.title}',
+        window.title,
+        options: ['-framerate', '$fps', '-draw_mouse', mouse],
+      );
+    }
+    if (dda) {
+      final area = region == null ? '' : ':video_size=${w}x$h:offset_x=${region.x}:offset_y=${region.y}';
+      return CaptureDevice(
+        'lavfi',
+        'ddagrab=output_idx=$monitor:framerate=$fps:draw_mouse=$mouse$area',
+        'desktop',
+        videoFilter: 'hwdownload,format=bgra',
+      );
+    }
     return CaptureDevice(
       'gdigrab',
       'desktop',
@@ -62,20 +102,45 @@ CaptureDevice screenDevice({
         '-framerate',
         '$fps',
         '-draw_mouse',
-        drawMouse ? '1' : '0',
+        mouse,
         if (region != null) ...['-offset_x', '${region.x}', '-offset_y', '${region.y}'],
         ...size,
       ],
     );
   }
   final base = display.contains('.') ? display : '$display.0';
+  if (window?.id != null) {
+    return CaptureDevice(
+      'x11grab',
+      base,
+      window!.title,
+      options: ['-framerate', '$fps', '-draw_mouse', mouse, '-window_id', '${window.id}'],
+    );
+  }
   return CaptureDevice(
     'x11grab',
     region == null ? base : '$base+${region.x},${region.y}',
     display,
-    options: ['-framerate', '$fps', '-draw_mouse', drawMouse ? '1' : '0', ...size],
+    options: ['-framerate', '$fps', '-draw_mouse', mouse, ...size],
   );
 }
+
+/// Window titles from PowerShell (`Get-Process` with a `MainWindowTitle`).
+List<CaptureWindow> parseWindowTitles(String out) {
+  final seen = <String>{};
+  return [
+    for (final line in out.split('\n'))
+      if (line.trim().isNotEmpty && seen.add(line.trim())) CaptureWindow(line.trim()),
+  ];
+}
+
+/// `wmctrl -l`: `0x00200003  0 host Title with spaces`.
+List<CaptureWindow> parseWmctrl(String out) => [
+  for (final line in out.split('\n'))
+    if (RegExp(r'^(0x[0-9a-fA-F]+)\s+(-?\d+)\s+\S+\s+(.*)$').firstMatch(line.trim()) case final m?)
+      if (m.group(3)!.trim().isNotEmpty)
+        CaptureWindow(m.group(3)!.trim(), id: int.parse(m.group(1)!.substring(2), radix: 16)),
+];
 
 /// Cameras and audio sources from `ffmpeg -list_devices true -f dshow -i dummy`.
 ({List<CaptureDevice> video, List<CaptureDevice> audio}) parseDshowDevices(String stderr) {
@@ -206,8 +271,10 @@ List<String> liveArgs({
   final parts = <String>[];
   String? vMap, aMap;
   if (hasVideo) {
-    final scale = enc.height == null ? '' : 'scale=-2:${even(enc.height!)},';
-    parts.add('[0:v:0]${scale}fps=${enc.fps},format=yuv420p[v]');
+    // Windows can be any size; yuv420p needs even sides.
+    final scale = enc.height == null ? 'crop=trunc(iw/2)*2:trunc(ih/2)*2,' : 'scale=-2:${even(enc.height!)},';
+    final pre = src.file == null && src.video?.videoFilter != null ? '${src.video!.videoFilter},' : '';
+    parts.add('[0:v:0]$pre${scale}fps=${enc.fps},format=yuv420p[v]');
     vMap = '[v]';
   }
   if (src.file != null) {

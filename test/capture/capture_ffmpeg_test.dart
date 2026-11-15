@@ -78,6 +78,25 @@ void main() {
     expect(m.ok, isTrue, reason: m.stderr);
   }, skip: skip);
 
+  test('one window (x11grab -window_id), odd size', () async {
+    if (display == null || HostPlatform.current.isWindows) return markTestSkipped('no X display');
+    final wm = await runner.capture('wmctrl', ['-l']);
+    final windows = wm.ok ? parseWmctrl(wm.stdout).where((w) => w.title != 'N/A').toList() : <CaptureWindow>[];
+    if (windows.isEmpty) return markTestSkipped('no windows (wmctrl)');
+    final out = p.join(dir.path, 'window.$recordingExt');
+    final args = recordArgs(
+      src: CaptureSources(
+        video: screenDevice(host: HostPlatform.current, fps: 10, display: display, window: windows.first),
+      ),
+      output: out,
+      enc: const LiveEncode(fps: 10),
+    );
+    final r = await live(args, const Duration(seconds: 2));
+    expect(r.success, isTrue, reason: '${args.join(' ')}\n${r.logText}');
+    final v = (await probe.probe(out)).videoStreams.single;
+    expect(v.width! % 2 + v.height! % 2, 0);
+  }, skip: skip);
+
   test('audio only recording', () async {
     final out = p.join(dir.path, 'mic.$recordingExt');
     final r = await live(
@@ -139,6 +158,33 @@ void main() {
       expect(pi.videoStreams, isNotEmpty);
     }, skip: skip);
   }
+
+  test('screen sources: ddagrab, windows', () {
+    const win = HostPlatform(HostOs.windows, HostArch.x64);
+    final dda = screenDevice(host: win, fps: 60, dda: true, region: const ScreenRegion(10, 20, 641, 361));
+    expect(dda.format, 'lavfi');
+    expect(dda.name, 'ddagrab=output_idx=0:framerate=60:draw_mouse=1:video_size=640x360:offset_x=10:offset_y=20');
+    final args = recordArgs(
+      src: CaptureSources(video: dda),
+      output: 'out.mkv',
+      enc: const LiveEncode(fps: 60),
+    );
+    final graph = args[args.indexOf('-filter_complex') + 1];
+    expect(graph, startsWith('[0:v:0]hwdownload,format=bgra,crop=trunc(iw/2)*2:trunc(ih/2)*2,fps=60'));
+    final w = screenDevice(host: win, window: const CaptureWindow('Блокнот — заметки.txt'));
+    expect((w.format, w.name), ('gdigrab', 'title=Блокнот — заметки.txt'));
+    expect(w.toInput().toArgs(), containsAllInOrder(['-f', 'gdigrab', '-i', 'title=Блокнот — заметки.txt']));
+    const lin = HostPlatform(HostOs.linux, HostArch.x64);
+    final x = screenDevice(host: lin, display: ':1', window: const CaptureWindow('Kadra', id: 0x200003));
+    expect(x.options, containsAllInOrder(['-window_id', '${0x200003}']));
+    expect(x.name, ':1.0');
+    expect(
+      parseWmctrl('0x00200003  0 vm Kadra\n0x0040000a -1 vm \nbad line\n0x00a00001  1 host Видео — плеер\n')
+          .map((w) => (w.id, w.title)),
+      [(0x200003, 'Kadra'), (0xa00001, 'Видео — плеер')],
+    );
+    expect(parseWindowTitles('Notepad\r\n\nNotepad\nChrome\n').map((w) => w.title), ['Notepad', 'Chrome']);
+  });
 
   test('device lists', () {
     const modern = '''

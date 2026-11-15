@@ -1938,5 +1938,11 @@
   "jankLogEmpty": "No freezes so far",
   "splitSize": "By size",
   "pSplitSize": "Part size",
-  "pSplitSizeHint": "Approximate: the part length comes from the file’s average bitrate, with 5% to spare"
+  "pSplitSizeHint": "Approximate: the part length comes from the file’s average bitrate, with 5% to spare",
+  "pCaptureArea": "What to record",
+  "captureWindow": "Window",
+  "pCaptureWindowHint": "Only this window is recorded, even when covered",
+  "noWindows": "No windows found (Linux needs wmctrl)",
+  "pDda": "Fast capture (DirectX)",
+  "pDdaHint": "Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games"
 }

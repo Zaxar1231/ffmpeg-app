@@ -117,9 +117,12 @@ final liveProvider = NotifierProvider<LiveController, LiveState>(LiveController.
 
 /// Capture devices of this computer.
 class DeviceList {
-  const DeviceList({this.cameras = const [], this.audio = const [], this.note});
+  const DeviceList({this.cameras = const [], this.audio = const [], this.windows = const [], this.note});
   final List<CaptureDevice> cameras;
   final List<CaptureDevice> audio;
+
+  /// Open windows that can be recorded on their own.
+  final List<CaptureWindow> windows;
 
   /// Platform remark (e.g. Wayland limits).
   final String? note;
@@ -132,7 +135,13 @@ final captureDevicesProvider = FutureProvider.autoDispose<DeviceList>((ref) asyn
   if (HostPlatform.current.isWindows) {
     final r = await runner.capture(ffmpeg, ['-hide_banner', '-list_devices', 'true', '-f', 'dshow', '-i', 'dummy']);
     final d = parseDshowDevices(r.stderr);
-    return DeviceList(cameras: d.video, audio: d.audio);
+    final ps = await runner.capture('powershell', [
+      '-NoProfile',
+      '-NonInteractive',
+      '-Command',
+      r'Get-Process | Where-Object { $_.MainWindowTitle } | ForEach-Object { $_.MainWindowTitle }',
+    ]);
+    return DeviceList(cameras: d.video, audio: d.audio, windows: ps.ok ? parseWindowTitles(ps.stdout) : const []);
   }
   final cams = <CaptureDevice>[];
   final dev = Directory('/dev');
@@ -152,5 +161,11 @@ final captureDevicesProvider = FutureProvider.autoDispose<DeviceList>((ref) asyn
     ];
   }
   final wayland = (Platform.environment['XDG_SESSION_TYPE'] ?? '') == 'wayland';
-  return DeviceList(cameras: cams, audio: audio, note: wayland ? 'wayland' : null);
+  final wm = await runner.capture('wmctrl', ['-l']);
+  return DeviceList(
+    cameras: cams,
+    audio: audio,
+    windows: wm.ok ? parseWmctrl(wm.stdout) : const [],
+    note: wayland ? 'wayland' : null,
+  );
 });

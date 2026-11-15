@@ -6331,4 +6331,23 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pSplitSizeHint => 'Примерно: длина части считается по среднему битрейту файла, с запасом 5%';
+
+  @override
+  String get pCaptureArea => 'Что записывать';
+
+  @override
+  String get captureWindow => 'Окно';
+
+  @override
+  String get pCaptureWindowHint => 'Записывается только это окно, даже если его перекрыть';
+
+  @override
+  String get noWindows => 'Окна не найдены (в Linux нужен wmctrl)';
+
+  @override
+  String get pDda => 'Быстрый захват (DirectX)';
+
+  @override
+  String get pDdaHint =>
+      'Desktop Duplication: захват видеокартой, меньше нагрузки и пропусков кадров, работает с играми в полноэкранном режиме';
 }
