@@ -1,7 +1,7 @@
 name: kadra
 description: "Kadra — desktop GUI for ffmpeg, ffprobe and yt-dlp."
 publish_to: 'none'
-version: 1.0.2+7
+version: 1.1.0+8
 
 environment:
   sdk: ^3.13.7
