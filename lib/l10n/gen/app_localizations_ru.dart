@@ -6350,4 +6350,25 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get pDdaHint =>
       'Desktop Duplication: захват видеокартой, меньше нагрузки и пропусков кадров, работает с играми в полноэкранном режиме';
+
+  @override
+  String get lutWarm => 'Тёплый';
+
+  @override
+  String get lutCool => 'Холодный';
+
+  @override
+  String get lutTeal => 'Кино (бирюза и оранж)';
+
+  @override
+  String get lutFaded => 'Выцветший';
+
+  @override
+  String get lutVintage => 'Винтаж';
+
+  @override
+  String get lutVivid => 'Яркий';
+
+  @override
+  String get lutMono => 'Ч/б контрастный';
 }

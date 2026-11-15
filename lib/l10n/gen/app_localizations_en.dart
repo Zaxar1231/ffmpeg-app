@@ -6286,4 +6286,25 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get pDdaHint =>
       'Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games';
+
+  @override
+  String get lutWarm => 'Warm';
+
+  @override
+  String get lutCool => 'Cool';
+
+  @override
+  String get lutTeal => 'Cinema (teal & orange)';
+
+  @override
+  String get lutFaded => 'Faded';
+
+  @override
+  String get lutVintage => 'Vintage';
+
+  @override
+  String get lutVivid => 'Vivid';
+
+  @override
+  String get lutMono => 'Contrasty B&W';
 }

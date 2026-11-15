@@ -11761,6 +11761,48 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Desktop Duplication: захват видеокартой, меньше нагрузки и пропусков кадров, работает с играми в полноэкранном режиме'**
   String get pDdaHint;
+
+  /// No description provided for @lutWarm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тёплый'**
+  String get lutWarm;
+
+  /// No description provided for @lutCool.
+  ///
+  /// In ru, this message translates to:
+  /// **'Холодный'**
+  String get lutCool;
+
+  /// No description provided for @lutTeal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кино (бирюза и оранж)'**
+  String get lutTeal;
+
+  /// No description provided for @lutFaded.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выцветший'**
+  String get lutFaded;
+
+  /// No description provided for @lutVintage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Винтаж'**
+  String get lutVintage;
+
+  /// No description provided for @lutVivid.
+  ///
+  /// In ru, this message translates to:
+  /// **'Яркий'**
+  String get lutVivid;
+
+  /// No description provided for @lutMono.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ч/б контрастный'**
+  String get lutMono;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

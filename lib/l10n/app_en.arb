@@ -1944,5 +1944,12 @@
   "pCaptureWindowHint": "Only this window is recorded, even when covered",
   "noWindows": "No windows found (Linux needs wmctrl)",
   "pDda": "Fast capture (DirectX)",
-  "pDdaHint": "Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games"
+  "pDdaHint": "Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games",
+  "lutWarm": "Warm",
+  "lutCool": "Cool",
+  "lutTeal": "Cinema (teal & orange)",
+  "lutFaded": "Faded",
+  "lutVintage": "Vintage",
+  "lutVivid": "Vivid",
+  "lutMono": "Contrasty B&W"
 }

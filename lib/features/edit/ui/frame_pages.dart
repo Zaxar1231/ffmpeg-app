@@ -1,6 +1,9 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../luts.dart';
+
 import 'package:path/path.dart' as p;
 
 import '../../../core/engine/ffmpeg_command.dart';
@@ -590,14 +593,14 @@ class ColorPage extends ConsumerWidget {
       _loader('color', path, (i) => _ColorForm(key: ValueKey(i.path), info: i));
 }
 
-class _ColorForm extends StatefulWidget {
+class _ColorForm extends ConsumerStatefulWidget {
   const _ColorForm({super.key, required this.info});
   final MediaInfo info;
   @override
-  State<_ColorForm> createState() => _ColorFormState();
+  ConsumerState<_ColorForm> createState() => _ColorFormState();
 }
 
-class _ColorFormState extends State<_ColorForm> {
+class _ColorFormState extends ConsumerState<_ColorForm> {
   double _brightness = 0, _contrast = 1, _saturation = 1, _gamma = 1, _hue = 0, _temperature = 6500, _lutMix = 1;
   ColorLook _look = ColorLook.none;
   bool _vignette = false;
@@ -750,6 +753,24 @@ class _ColorFormState extends State<_ColorForm> {
                     },
                     child: Text(l.choose),
                   ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              child: Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: [
+                  for (final look in LutLook.values)
+                    ChoiceChip(
+                      label: Text(lutLookName(l, look)),
+                      selected: _lut != null && p.basename(_lut!) == 'kadra-${look.name}.cube',
+                      onSelected: (_) async {
+                        final path = await ensureLut(p.join(ref.read(appPathsProvider).root, 'luts'), look);
+                        if (mounted) setState(() => _lut = path);
+                      },
+                    ),
                 ],
               ),
             ),
@@ -1529,3 +1550,13 @@ class _HdrFormState extends ConsumerState<_HdrForm> {
 
 /// Formats used by the frame-based tools' estimates.
 String formatAt(Duration d) => formatDuration(d, millis: true);
+
+String lutLookName(AppLocalizations l, LutLook look) => switch (look) {
+  LutLook.warm => l.lutWarm,
+  LutLook.cool => l.lutCool,
+  LutLook.teal => l.lutTeal,
+  LutLook.faded => l.lutFaded,
+  LutLook.vintage => l.lutVintage,
+  LutLook.vivid => l.lutVivid,
+  LutLook.mono => l.lutMono,
+};

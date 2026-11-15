@@ -58,3 +58,5 @@ k('pCaptureWindowHint','Записывается только это окно, �
 k('noWindows','Окна не найдены (в Linux нужен wmctrl)','No windows found (Linux needs wmctrl)')
 k('pDda','Быстрый захват (DirectX)','Fast capture (DirectX)')
 k('pDdaHint','Desktop Duplication: захват видеокартой, меньше нагрузки и пропусков кадров, работает с играми в полноэкранном режиме','Desktop Duplication: the GPU captures, less load and fewer dropped frames, works with full-screen games')
+k('lutWarm','Тёплый','Warm'); k('lutCool','Холодный','Cool'); k('lutTeal','Кино (бирюза и оранж)','Cinema (teal & orange)')
+k('lutFaded','Выцветший','Faded'); k('lutVintage','Винтаж','Vintage'); k('lutVivid','Яркий','Vivid'); k('lutMono','Ч/б контрастный','Contrasty B&W')
