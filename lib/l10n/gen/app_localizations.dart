@@ -11707,6 +11707,24 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Подвисаний пока не было'**
   String get jankLogEmpty;
+
+  /// No description provided for @splitSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'По размеру'**
+  String get splitSize;
+
+  /// No description provided for @pSplitSize.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер части'**
+  String get pSplitSize;
+
+  /// No description provided for @pSplitSizeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Примерно: длина части считается по среднему битрейту файла, с запасом 5%'**
+  String get pSplitSizeHint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

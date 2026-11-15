@@ -6322,4 +6322,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get jankLogEmpty => 'Подвисаний пока не было';
+
+  @override
+  String get splitSize => 'По размеру';
+
+  @override
+  String get pSplitSize => 'Размер части';
+
+  @override
+  String get pSplitSizeHint => 'Примерно: длина части считается по среднему битрейту файла, с запасом 5%';
 }

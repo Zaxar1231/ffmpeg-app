@@ -49,3 +49,6 @@ k('setJankLogHint','Где интерфейс замирал дольше чет
 k('setJankLogHelp','Kadra записывает в файл jank.log (папка журналов) каждый кадр, который рисовался дольше 250 мс, и каждое замирание интерфейса дольше секунды — с названием открытого экрана. Если приложение тормозит, приложите этот файл к сообщению об ошибке: по нему видно, где именно.','Kadra writes to jank.log (in the logs folder) every frame that took longer than 250 ms and every interface stall longer than a second, with the name of the open screen. If the app lags, attach this file to a bug report: it shows exactly where.')
 k('jankEvents','{count, plural, =0{Открыть (за этот запуск — нет)} one{Открыть ({count} за этот запуск)} few{Открыть ({count} за этот запуск)} many{Открыть ({count} за этот запуск)} other{Открыть ({count} за этот запуск)}}','{count, plural, =0{Open (none this session)} other{Open ({count} this session)}}', count='int')
 k('jankLogEmpty','Подвисаний пока не было','No freezes so far')
+k('splitSize','По размеру','By size')
+k('pSplitSize','Размер части','Part size')
+k('pSplitSizeHint','Примерно: длина части считается по среднему битрейту файла, с запасом 5%','Approximate: the part length comes from the file’s average bitrate, with 5% to spare')

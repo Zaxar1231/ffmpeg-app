@@ -64,7 +64,7 @@ List<JobStep> planConcatCopy(List<MediaInfo> clips, String output) {
   ];
 }
 
-enum SplitMode { every, parts, chapters, times }
+enum SplitMode { every, parts, chapters, times, size }
 
 class SplitParams {
   const SplitParams({
@@ -73,8 +73,12 @@ class SplitParams {
     this.parts = 2,
     this.times = const [],
     this.precise = false,
+    this.sizeMb = 50,
   });
   final SplitMode mode;
+
+  /// Target part size for [SplitMode.size], in megabytes (10^6 bytes).
+  final double sizeMb;
   final Duration every;
   final int parts;
 
@@ -85,11 +89,33 @@ class SplitParams {
   final bool precise;
 }
 
-/// Cut points of [s] (empty for [SplitMode.every], which uses `-segment_time`).
+/// Part length for [SplitMode.size]: the file's average bitrate gives the
+/// duration of [SplitParams.sizeMb]; 5% is kept in reserve because parts
+/// without re-encoding end at keyframes. Null when the size is unknown.
+Duration? sizeSegment(MediaInfo info, SplitParams s) {
+  final d = info.duration;
+  if (d == null || d <= Duration.zero) return null;
+  final bitrate =
+      info.format.bitRate ?? (info.format.size == null ? null : info.format.size! * 8 / d.inMicroseconds * 1e6);
+  if (bitrate == null || bitrate <= 0 || s.sizeMb <= 0) return null;
+  final seconds = s.sizeMb * 1e6 * 8 / bitrate * 0.95;
+  final us = (seconds * 1e6).round().clamp(1000000, d.inMicroseconds);
+  return Duration(microseconds: us);
+}
+
+/// Segment length for the modes that use `-segment_time`.
+Duration? _segmentTime(MediaInfo info, SplitParams s) => switch (s.mode) {
+  SplitMode.every => s.every,
+  SplitMode.size => sizeSegment(info, s),
+  _ => null,
+};
+
+/// Cut points of [s] (empty for [SplitMode.every] and [SplitMode.size],
+/// which use `-segment_time`).
 List<Duration> splitPoints(MediaInfo info, SplitParams s) {
   final d = info.duration ?? Duration.zero;
   final pts = switch (s.mode) {
-    SplitMode.every => <Duration>[],
+    SplitMode.every || SplitMode.size => <Duration>[],
     SplitMode.parts => [for (var i = 1; i < s.parts; i++) d * i ~/ s.parts],
     SplitMode.chapters => [for (final c in info.chapters.skip(1)) c.start],
     SplitMode.times => ([...s.times]..sort()),
@@ -99,10 +125,11 @@ List<Duration> splitPoints(MediaInfo info, SplitParams s) {
 
 /// Number of resulting files (estimate for [SplitMode.every]).
 int splitCount(MediaInfo info, SplitParams s) {
-  if (s.mode == SplitMode.every) {
+  if (s.mode == SplitMode.every || s.mode == SplitMode.size) {
     final d = info.duration ?? Duration.zero;
-    if (s.every <= Duration.zero) return 1;
-    return (d.inMicroseconds / s.every.inMicroseconds).ceil().clamp(1, 1 << 20);
+    final seg = _segmentTime(info, s);
+    if (seg == null || seg <= Duration.zero) return 1;
+    return (d.inMicroseconds / seg.inMicroseconds).ceil().clamp(1, 1 << 20);
   }
   return splitPoints(info, s).length + 1;
 }
@@ -125,11 +152,12 @@ List<JobStep> planSplit({
   final pattern = splitPattern(output);
   final ext = p.extension(output).replaceFirst('.', '');
   final points = splitPoints(info, s);
+  final seg = _segmentTime(info, s);
   final segOpts = <String>[
     '-f',
     'segment',
-    if (s.mode == SplitMode.every) ...['-segment_time', secs(s.every)],
-    if (s.mode != SplitMode.every) ...['-segment_times', points.map(secs).join(',')],
+    if (seg != null) ...['-segment_time', secs(seg)],
+    if (seg == null) ...['-segment_times', points.map(secs).join(',')],
     '-reset_timestamps',
     '1',
   ];
@@ -155,7 +183,7 @@ List<JobStep> planSplit({
     out: out.copyWith(ext: ext),
     env: env,
   );
-  final forced = s.mode == SplitMode.every ? 'expr:gte(t,n_forced*${secs(s.every)})' : points.map(secs).join(',');
+  final forced = seg != null ? 'expr:gte(t,n_forced*${secs(seg)})' : points.map(secs).join(',');
   final st = plan.steps.last;
   final args = _withoutFaststart(st.args.sublist(0, st.args.length - 1));
   return [

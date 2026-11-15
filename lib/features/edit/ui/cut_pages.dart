@@ -537,6 +537,7 @@ class _SplitFormState extends State<_SplitForm> {
       : (widget.info.chapters.length > 1 ? SplitMode.chapters : SplitMode.every);
   Duration _every = const Duration(minutes: 1);
   int _parts = 2;
+  double _sizeMb = 50;
   late final _times = <Duration>[...?widget.initial?.times];
   bool _precise = false;
   Duration _pos = Duration.zero;
@@ -552,9 +553,11 @@ class _SplitFormState extends State<_SplitForm> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final info = widget.info;
-    final s = SplitParams(mode: _mode, every: _every, parts: _parts, times: _times, precise: _precise);
+    final s = SplitParams(mode: _mode, every: _every, parts: _parts, times: _times, precise: _precise, sizeMb: _sizeMb);
     final count = splitCount(info, s);
-    final noPoints = _mode != SplitMode.every && splitPoints(info, s).isEmpty;
+    final noPoints = _mode == SplitMode.size
+        ? sizeSegment(info, s) == null
+        : _mode != SplitMode.every && splitPoints(info, s).isEmpty;
     return EditScaffold(
       toolId: 'split',
       info: info,
@@ -591,6 +594,7 @@ class _SplitFormState extends State<_SplitForm> {
                     enabled: info.chapters.length > 1,
                   ),
                   ButtonSegment(value: SplitMode.times, label: Text(l.splitTimes)),
+                  ButtonSegment(value: SplitMode.size, label: Text(l.splitSize)),
                 ],
                 selected: {_mode},
                 onSelectionChanged: (v) => setState(() => _mode = v.first),
@@ -601,6 +605,17 @@ class _SplitFormState extends State<_SplitForm> {
                 title: l.pSplitEvery,
                 hint: l.pStartHint,
                 control: DurationField(value: _every, onChanged: (d) => setState(() => _every = d ?? _every)),
+              ),
+            if (_mode == SplitMode.size)
+              ValueSlider(
+                title: l.pSplitSize,
+                hint: l.pSplitSizeHint,
+                value: _sizeMb,
+                min: 5,
+                max: 2000,
+                divisions: 399,
+                format: (v) => '${v.round()} ${l.unitMB}',
+                onChanged: (v) => setState(() => _sizeMb = v.roundToDouble()),
               ),
             if (_mode == SplitMode.parts)
               ValueSlider(

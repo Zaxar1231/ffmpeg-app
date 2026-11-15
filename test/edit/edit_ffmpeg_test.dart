@@ -224,6 +224,29 @@ void main() {
       expect(files.length, 4);
     }, skip: skip);
 
+    test('by size: parts stay near the target', () async {
+      // Keyframes every 5 frames, so a copy split can cut close to the target.
+      final src = p.join(dir.path, 'gop.mp4');
+      final g = await runner.capture(ffmpeg!, [
+        '-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=s=640x360:r=25:d=8', //
+        '-c:v', 'libx264', '-g', '5', '-pix_fmt', 'yuv420p', src,
+      ]);
+      expect(g.ok, isTrue, reason: g.stderr);
+      final info = await probe.probe(src);
+      final out = p.join(dir.path, 'split3', 'part.mp4');
+      await Directory(p.dirname(out)).create();
+      final total = info.format.size!;
+      final s = SplitParams(mode: SplitMode.size, sizeMb: total / 4 / 1e6);
+      expect(sizeSegment(info, s)!, lessThan(info.duration!));
+      expect(splitCount(info, s), 5); // 4 parts of 95% + the rest
+      await run(planSplit(info: info, s: s, output: out));
+      final files = Directory(p.dirname(out)).listSync().whereType<File>().toList();
+      expect(files.length, inInclusiveRange(4, 6));
+      for (final f in files) {
+        expect(f.lengthSync(), lessThan(total / 4 * 1.15), reason: f.path);
+      }
+    }, skip: skip);
+
     test('at times, precise', () async {
       final out = p.join(dir.path, 'split2', 'part.mp4');
       await Directory(p.dirname(out)).create();

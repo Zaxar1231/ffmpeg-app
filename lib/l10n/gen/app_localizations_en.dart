@@ -6258,4 +6258,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get jankLogEmpty => 'No freezes so far';
+
+  @override
+  String get splitSize => 'By size';
+
+  @override
+  String get pSplitSize => 'Part size';
+
+  @override
+  String get pSplitSizeHint => 'Approximate: the part length comes from the file’s average bitrate, with 5% to spare';
 }
