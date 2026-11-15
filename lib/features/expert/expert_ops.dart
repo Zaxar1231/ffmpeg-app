@@ -5,6 +5,7 @@ library;
 import 'package:path/path.dart' as p;
 
 import '../../core/engine/shell_quote.dart';
+import '../../core/engine/capabilities.dart';
 import '../../core/queue/queue_models.dart';
 
 class ParsedCommand {
@@ -132,3 +133,161 @@ String fillTemplate(String text, {String? input, String? output}) =>
 const helpKinds = ['filter', 'encoder', 'decoder', 'muxer', 'demuxer', 'bsf', 'protocol'];
 
 List<String> helpArgs(String kind, String name) => ['-hide_banner', '-h', '$kind=${name.trim()}'];
+
+// ---------------------------------------------------------------- completion
+
+enum CompletionKind { option, videoEncoder, audioEncoder, subtitleEncoder, anyEncoder, format, filter, hwaccel }
+
+/// What is being typed at the cursor: the kind of name, the typed prefix and
+/// where it starts in the text (to replace it on accept).
+class CompletionContext {
+  const CompletionContext(this.kind, this.prefix, this.start);
+  final CompletionKind kind;
+  final String prefix;
+  final int start;
+}
+
+const _filterOptions = {'-vf', '-af', '-filter:v', '-filter:a', '-filter_complex', '-lavfi', '-filter'};
+
+/// Common ffmpeg options offered after `-` (all are in `ffmpeg -h full`).
+const commonOptions = [
+  '-i',
+  '-c',
+  '-c:v',
+  '-c:a',
+  '-c:s',
+  '-map',
+  '-vf',
+  '-af',
+  '-filter_complex',
+  '-ss',
+  '-to',
+  '-t',
+  '-f',
+  '-crf',
+  '-b:v',
+  '-b:a',
+  '-maxrate',
+  '-bufsize',
+  '-preset',
+  '-tune',
+  '-profile:v',
+  '-pix_fmt',
+  '-r',
+  '-g',
+  '-ar',
+  '-ac',
+  '-an',
+  '-vn',
+  '-sn',
+  '-y',
+  '-n',
+  '-hwaccel',
+  '-metadata',
+  '-map_metadata',
+  '-map_chapters',
+  '-movflags',
+  '-shortest',
+  '-frames:v',
+  '-q:v',
+  '-q:a',
+  '-threads',
+  '-disposition',
+  '-itsoffset',
+  '-loop',
+];
+
+/// Finds the completion context at [cursor] in a command line.
+CompletionContext? completionAt(String text, int cursor) {
+  if (cursor < 0 || cursor > text.length) return null;
+  final tokens = <String>[];
+  final cur = StringBuffer();
+  String? quote;
+  for (var i = 0; i < cursor; i++) {
+    final ch = text[i];
+    if (quote != null) {
+      if (ch == quote) {
+        quote = null;
+      } else {
+        cur.write(ch);
+      }
+      continue;
+    }
+    if (ch == '"' || ch == "'") {
+      quote = ch;
+    } else if (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r') {
+      if (cur.isNotEmpty) tokens.add(cur.toString());
+      cur.clear();
+    } else {
+      cur.write(ch);
+    }
+  }
+  final partial = cur.toString();
+  final prev = tokens.lastOrNull;
+  // Inside a filter graph: the name after the last separator, before any '='.
+  if (prev != null && _filterOptions.contains(prev)) {
+    final sep = partial.lastIndexOf(RegExp(r'[,;\]\[]'));
+    final name = partial.substring(sep + 1);
+    if (!RegExp(r'^[a-z0-9_]*$').hasMatch(name)) return null;
+    return CompletionContext(CompletionKind.filter, name, cursor - name.length);
+  }
+  if (quote != null) return null;
+  if (partial.startsWith('-')) return CompletionContext(CompletionKind.option, partial, cursor - partial.length);
+  if (prev == null || !RegExp(r'^[A-Za-z0-9_.-]*$').hasMatch(partial)) return null;
+  final kind = switch (prev) {
+    '-c:v' || '-vcodec' || '-codec:v' => CompletionKind.videoEncoder,
+    '-c:a' || '-acodec' || '-codec:a' => CompletionKind.audioEncoder,
+    '-c:s' || '-scodec' || '-codec:s' => CompletionKind.subtitleEncoder,
+    '-c' || '-codec' => CompletionKind.anyEncoder,
+    '-f' => CompletionKind.format,
+    '-hwaccel' => CompletionKind.hwaccel,
+    _ => null,
+  };
+  if (kind == null) return null;
+  return CompletionContext(kind, partial, cursor - partial.length);
+}
+
+/// Names of [ctx]'s kind from the installed build, best matches first:
+/// prefix matches, then other matches; `copy` for codecs.
+List<(String, String)> completionCandidates(CompletionContext ctx, FfmpegCapabilities caps, {int limit = 12}) {
+  Iterable<(String, String)> all;
+  MediaKind? kind;
+  switch (ctx.kind) {
+    case CompletionKind.option:
+      all = [for (final o in commonOptions) (o, '')];
+    case CompletionKind.filter:
+      all = [for (final f in caps.filters.values) (f.name, f.description)];
+    case CompletionKind.format:
+      all = [for (final e in caps.muxers.entries) (e.key, e.value)];
+    case CompletionKind.hwaccel:
+      all = [for (final h in caps.hwaccels) (h, '')];
+    case CompletionKind.videoEncoder ||
+        CompletionKind.audioEncoder ||
+        CompletionKind.subtitleEncoder ||
+        CompletionKind.anyEncoder:
+      kind = switch (ctx.kind) {
+        CompletionKind.videoEncoder => MediaKind.video,
+        CompletionKind.audioEncoder => MediaKind.audio,
+        CompletionKind.subtitleEncoder => MediaKind.subtitle,
+        _ => null,
+      };
+      all = [
+        ('copy', ''),
+        for (final e in caps.encoders.values)
+          if (kind == null || e.kind == kind) (e.name, e.description),
+      ];
+  }
+  final q = ctx.prefix.toLowerCase();
+  final starts = <(String, String)>[], contains = <(String, String)>[];
+  for (final e in all) {
+    final n = e.$1.toLowerCase();
+    if (n == q) continue;
+    if (n.startsWith(q)) {
+      starts.add(e);
+    } else if (q.isNotEmpty && n.contains(q)) {
+      contains.add(e);
+    }
+  }
+  starts.sort((a, b) => a.$1.length != b.$1.length ? a.$1.length - b.$1.length : a.$1.compareTo(b.$1));
+  return [...starts, ...contains].take(limit).toList();
+}

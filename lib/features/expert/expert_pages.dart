@@ -197,7 +197,37 @@ class _CommandEditorPageState extends ConsumerState<CommandEditorPage> {
   String? _error;
 
   @override
+  void initState() {
+    super.initState();
+    // Suggestions follow the cursor, not only the text.
+    _c.addListener(_onEdit);
+  }
+
+  CompletionContext? _ctx;
+
+  void _onEdit() {
+    final sel = _c.selection;
+    final next = sel.isValid && sel.isCollapsed ? completionAt(_c.text, sel.baseOffset) : null;
+    if (next?.kind != _ctx?.kind || next?.prefix != _ctx?.prefix || next?.start != _ctx?.start) {
+      setState(() => _ctx = next);
+    }
+  }
+
+  void _accept(String name) {
+    final ctx = _ctx;
+    if (ctx == null) return;
+    final end = ctx.start + ctx.prefix.length;
+    final text = _c.text;
+    final add = ctx.kind == CompletionKind.option ? '$name ' : name;
+    _c.value = TextEditingValue(
+      text: text.replaceRange(ctx.start, end, add),
+      selection: TextSelection.collapsed(offset: ctx.start + add.length),
+    );
+  }
+
+  @override
   void dispose() {
+    _c.removeListener(_onEdit);
     _c.dispose();
     _help.dispose();
     super.dispose();
@@ -301,17 +331,60 @@ class _CommandEditorPageState extends ConsumerState<CommandEditorPage> {
             ],
           ),
           const SizedBox(height: 12),
-          TextField(
-            controller: _c,
-            minLines: 6,
-            maxLines: 16,
-            style: _mono,
-            decoration: InputDecoration(
-              hintText: 'ffmpeg -i "input.mp4" -c:v libx264 -crf 23 "output.mp4"',
-              errorText: _error,
-              border: const OutlineInputBorder(),
-            ),
-            onChanged: (_) => setState(() => _error = null),
+          Builder(
+            builder: (context) {
+              final caps = ref.watch(capabilitiesProvider).value;
+              final ctx = _ctx;
+              final options = ctx == null || caps == null
+                  ? const <(String, String)>[]
+                  : completionCandidates(ctx, caps);
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Focus(
+                    // Tab takes the first suggestion.
+                    onKeyEvent: (_, e) {
+                      if (e is KeyDownEvent && e.logicalKey == LogicalKeyboardKey.tab && options.isNotEmpty) {
+                        _accept(options.first.$1);
+                        return KeyEventResult.handled;
+                      }
+                      return KeyEventResult.ignored;
+                    },
+                    child: TextField(
+                      controller: _c,
+                      minLines: 6,
+                      maxLines: 16,
+                      style: _mono,
+                      decoration: InputDecoration(
+                        hintText: 'ffmpeg -i "input.mp4" -c:v libx264 -crf 23 "output.mp4"',
+                        errorText: _error,
+                        border: const OutlineInputBorder(),
+                      ),
+                      onChanged: (_) => setState(() => _error = null),
+                    ),
+                  ),
+                  if (options.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: [
+                          for (final (i, (name, desc)) in options.indexed)
+                            Tooltip(
+                              message: desc.isEmpty ? name : '$name — $desc',
+                              child: ActionChip(
+                                avatar: i == 0 ? const Icon(Icons.keyboard_tab, size: 16) : null,
+                                label: Text(name, style: _mono),
+                                onPressed: () => _accept(name),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                ],
+              );
+            },
           ),
           const SizedBox(height: 8),
           Text(l.commandEditorHint, style: t.textTheme.bodySmall),

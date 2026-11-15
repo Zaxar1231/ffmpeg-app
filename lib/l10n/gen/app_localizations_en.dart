@@ -5749,7 +5749,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get commandEditorHint =>
-      'The command runs through the queue, without a shell: quotes and spaces in paths work on any system. The app adds -nostdin, -y and progress output when missing. Write it with or without “ffmpeg” at the start; for ffprobe start with “ffprobe”.';
+      'The command runs through the queue, without a shell: quotes and spaces in paths work on any system. The app adds -nostdin, -y and progress output when missing. Write it with or without “ffmpeg” at the start; for ffprobe start with “ffprobe”. Filters, codecs and formats of your build are suggested below the field; Tab takes the first one.';
 
   @override
   String get cmdErrSyntax => 'Unclosed quote';
