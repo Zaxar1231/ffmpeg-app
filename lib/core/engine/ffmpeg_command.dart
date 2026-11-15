@@ -95,7 +95,14 @@ class FfmpegOutput {
   /// Raw output options (codec params etc.), placed before the path.
   final List<String> options;
 
-  List<String> toArgs() => [
+  List<String> toArgs() {
+    final args = _args();
+    return usesLame(args) && !args.contains('-sample_fmt')
+        ? [...args.sublist(0, args.length - 1), ...lameSafe, path]
+        : args;
+  }
+
+  List<String> _args() => [
     for (final m in maps) ...['-map', m],
     if (seek != null) ...['-ss', formatTimestamp(seek!)],
     if (to != null) ...['-to', formatTimestamp(to!)],
@@ -113,6 +120,21 @@ class FfmpegOutput {
     if (format != null) ...['-f', format!],
     path,
   ];
+}
+
+/// libmp3lame gets float samples as they are: a NaN, infinity or an absurd
+/// value anywhere in the audio makes LAME fail, and ffmpeg reports it as
+/// "Error encoding a frame: Cannot allocate memory" (-12). 16-bit samples
+/// are clipped on conversion, which LAME always accepts; MP3 loses nothing.
+const lameSafe = ['-sample_fmt', 's16p'];
+
+bool usesLame(List<String> args) {
+  for (var i = 0; i < args.length - 1; i++) {
+    if (const {'-c:a', '-acodec', '-codec:a', '-c', '-codec'}.contains(args[i]) && args[i + 1] == 'libmp3lame') {
+      return true;
+    }
+  }
+  return false;
 }
 
 class FfmpegCommand {

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart' show Media, Player;
 import 'package:path/path.dart' as p;
 
+import '../../../core/engine/ffmpeg_command.dart' show lameSafe;
 import '../../../core/platform/app_paths.dart';
 import '../../../core/providers.dart';
 import '../../../ui/l10n.dart';
@@ -564,7 +565,7 @@ final exportFormats = <ExportFormat>[
     'mp3',
     'mp3',
     'MP3',
-    (k) => ['-c:a', 'libmp3lame', '-b:a', '${k ?? 192}k'],
+    (k) => ['-c:a', 'libmp3lame', '-b:a', '${k ?? 192}k', ...lameSafe],
     bitrates: [96, 128, 160, 192, 256, 320],
     defaultKbps: 192,
   ),

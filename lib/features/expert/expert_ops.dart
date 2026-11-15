@@ -6,6 +6,7 @@ import 'package:path/path.dart' as p;
 
 import '../../core/engine/shell_quote.dart';
 import '../../core/engine/capabilities.dart';
+import '../../core/engine/ffmpeg_command.dart' show lameSafe, usesLame;
 import '../../core/queue/queue_models.dart';
 
 class ParsedCommand {
@@ -70,7 +71,11 @@ ParsedCommand parseCommand(String text) {
     if (!args.contains('-nostats') && !args.contains('-stats')) '-nostats',
     if (!args.contains('-hide_banner')) '-hide_banner',
   ];
-  return ParsedCommand(tool, [...extra, ...args], inputs: inputs, output: out);
+  // MP3: see lameSafe (NaN or absurd samples make LAME fail with -12).
+  final lame = out != null && usesLame(args) && !args.contains('-sample_fmt')
+      ? [...args.sublist(0, args.length - 1), ...lameSafe, args.last]
+      : args;
+  return ParsedCommand(tool, [...extra, ...lame], inputs: inputs, output: out);
 }
 
 /// Text for the editor from a job's arguments (`ffmpeg …`).
