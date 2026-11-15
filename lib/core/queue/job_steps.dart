@@ -31,7 +31,25 @@ class JobStep {
     this.workingDirectory,
     this.totalDuration,
     this.files = const {},
+    this.env = const {},
   });
+
+  /// Extra environment variables for the process (e.g. `FREI0R_PATH`).
+  final Map<String, String> env;
+
+  JobStep withEnv(Map<String, String> e) => e.isEmpty
+      ? this
+      : JobStep(
+          args: args,
+          tool: tool,
+          label: label,
+          weight: weight,
+          capture: capture,
+          workingDirectory: workingDirectory,
+          totalDuration: totalDuration,
+          files: files,
+          env: {...env, ...e},
+        );
 
   final List<String> args;
 
@@ -62,6 +80,7 @@ class JobStep {
     'cwd': ?workingDirectory,
     'durationUs': ?totalDuration?.inMicroseconds,
     if (files.isNotEmpty) 'files': files,
+    if (env.isNotEmpty) 'env': env,
   };
 
   factory JobStep.fromJson(Map<String, dynamic> j) => JobStep(
@@ -73,6 +92,7 @@ class JobStep {
     workingDirectory: j['cwd'] as String?,
     totalDuration: j['durationUs'] == null ? null : Duration(microseconds: j['durationUs'] as int),
     files: (j['files'] as Map?)?.cast<String, String>() ?? const {},
+    env: (j['env'] as Map?)?.cast<String, String>() ?? const {},
   );
 }
 

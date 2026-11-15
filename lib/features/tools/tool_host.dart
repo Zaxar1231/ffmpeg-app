@@ -8,6 +8,7 @@ import '../automation/automation_service.dart' show BatchAction;
 import '../audio/audio_pages.dart';
 import '../audio_editor/ui/editor_page.dart';
 import '../capture/capture_pages.dart';
+import '../plugins/plugins_page.dart';
 import '../convert/convert_page.dart';
 import '../edit/ui/cut_pages.dart';
 import '../edit/graphs.dart';
@@ -81,6 +82,7 @@ class ToolHost extends ConsumerWidget {
       'webcam' => CapturePage(key: key, camera: true),
       'stream' => StreamPage(key: key, path: tool.path),
       'hls' => HlsPage(key: key, path: tool.path),
+      'plugins' => PluginsPage(key: key, path: tool.path),
       _ => const SizedBox.shrink(),
     };
   }
@@ -101,6 +103,7 @@ const screenTools = {
   ...audioFileTools,
   ...stage4Tools,
   ...stage5Tools,
+  'plugins',
 };
 
 /// Stage 5 tools with a screen.

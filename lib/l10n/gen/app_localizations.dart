@@ -11869,6 +11869,114 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Свой файл…'**
   String get fontOwnFile;
+
+  /// No description provided for @toolPlugins.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плагины эффектов'**
+  String get toolPlugins;
+
+  /// No description provided for @toolPluginsDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видеоэффекты frei0r и аудиоплагины LV2'**
+  String get toolPluginsDesc;
+
+  /// No description provided for @pPluginKind.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тип плагинов'**
+  String get pPluginKind;
+
+  /// No description provided for @pluginsVideo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Видео (frei0r)'**
+  String get pluginsVideo;
+
+  /// No description provided for @pluginsAudio.
+  ///
+  /// In ru, this message translates to:
+  /// **'Звук (LV2)'**
+  String get pluginsAudio;
+
+  /// No description provided for @pluginsFrei0rHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Более сотни видеоэффектов: свечение, мультяшность, искажения, цветовые фильтры'**
+  String get pluginsFrei0rHint;
+
+  /// No description provided for @pluginsLv2Hint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Аудиоплагины, установленные в системе (эквалайзеры, ревербераторы, синтезаторы эффектов)'**
+  String get pluginsLv2Hint;
+
+  /// No description provided for @pPlugin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плагин'**
+  String get pPlugin;
+
+  /// No description provided for @pPluginHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Найдено плагинов: {count}'**
+  String pPluginHint(int count);
+
+  /// No description provided for @pPluginParams.
+  ///
+  /// In ru, this message translates to:
+  /// **'Параметры'**
+  String get pPluginParams;
+
+  /// No description provided for @pFrei0rParamsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'По порядку, через |, числа от 0 до 1; пусто — значения по умолчанию'**
+  String get pFrei0rParamsHint;
+
+  /// No description provided for @pFrei0rParamsCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'У плагина параметров: {count}. Значения по порядку через |, числа от 0 до 1; пусто — по умолчанию'**
+  String pFrei0rParamsCount(int count);
+
+  /// No description provided for @pLv2ControlsHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'имя=значение через |; пусто — значения по умолчанию'**
+  String get pLv2ControlsHint;
+
+  /// No description provided for @openPluginsFolder.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть папку плагинов Kadra'**
+  String get openPluginsFolder;
+
+  /// No description provided for @pluginsNoFilter.
+  ///
+  /// In ru, this message translates to:
+  /// **'В установленной сборке ffmpeg нет фильтра {name} — установите сборку BtbN (GPL) в «Компонентах»'**
+  String pluginsNoFilter(String name);
+
+  /// No description provided for @noFrei0rLinux.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плагины frei0r не найдены: установите пакет frei0r-plugins (sudo apt install frei0r-plugins)'**
+  String get noFrei0rLinux;
+
+  /// No description provided for @noFrei0rWindows.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плагины frei0r не найдены: скачайте сборку frei0r для Windows с frei0r.dyne.org и положите DLL в папку плагинов Kadra'**
+  String get noFrei0rWindows;
+
+  /// No description provided for @noLv2Plugins.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плагины LV2 не найдены (нужны установленные плагины и программа lv2ls из пакета lilv-utils)'**
+  String get noLv2Plugins;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

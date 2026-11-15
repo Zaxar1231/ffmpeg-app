@@ -6405,4 +6405,68 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get fontOwnFile => 'Свой файл…';
+
+  @override
+  String get toolPlugins => 'Плагины эффектов';
+
+  @override
+  String get toolPluginsDesc => 'Видеоэффекты frei0r и аудиоплагины LV2';
+
+  @override
+  String get pPluginKind => 'Тип плагинов';
+
+  @override
+  String get pluginsVideo => 'Видео (frei0r)';
+
+  @override
+  String get pluginsAudio => 'Звук (LV2)';
+
+  @override
+  String get pluginsFrei0rHint => 'Более сотни видеоэффектов: свечение, мультяшность, искажения, цветовые фильтры';
+
+  @override
+  String get pluginsLv2Hint =>
+      'Аудиоплагины, установленные в системе (эквалайзеры, ревербераторы, синтезаторы эффектов)';
+
+  @override
+  String get pPlugin => 'Плагин';
+
+  @override
+  String pPluginHint(int count) {
+    return 'Найдено плагинов: $count';
+  }
+
+  @override
+  String get pPluginParams => 'Параметры';
+
+  @override
+  String get pFrei0rParamsHint => 'По порядку, через |, числа от 0 до 1; пусто — значения по умолчанию';
+
+  @override
+  String pFrei0rParamsCount(int count) {
+    return 'У плагина параметров: $count. Значения по порядку через |, числа от 0 до 1; пусто — по умолчанию';
+  }
+
+  @override
+  String get pLv2ControlsHint => 'имя=значение через |; пусто — значения по умолчанию';
+
+  @override
+  String get openPluginsFolder => 'Открыть папку плагинов Kadra';
+
+  @override
+  String pluginsNoFilter(String name) {
+    return 'В установленной сборке ffmpeg нет фильтра $name — установите сборку BtbN (GPL) в «Компонентах»';
+  }
+
+  @override
+  String get noFrei0rLinux =>
+      'Плагины frei0r не найдены: установите пакет frei0r-plugins (sudo apt install frei0r-plugins)';
+
+  @override
+  String get noFrei0rWindows =>
+      'Плагины frei0r не найдены: скачайте сборку frei0r для Windows с frei0r.dyne.org и положите DLL в папку плагинов Kadra';
+
+  @override
+  String get noLv2Plugins =>
+      'Плагины LV2 не найдены (нужны установленные плагины и программа lv2ls из пакета lilv-utils)';
 }

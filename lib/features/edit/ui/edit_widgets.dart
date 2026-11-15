@@ -92,6 +92,7 @@ class EditScaffold extends ConsumerStatefulWidget {
     required this.params,
     this.graph,
     this.customSteps,
+    this.processEnv = const {},
     this.preview,
     this.preSteps = const [],
     this.workingDirectory,
@@ -118,6 +119,9 @@ class EditScaffold extends ConsumerStatefulWidget {
 
   /// Stream-copy paths: steps for the chosen output path.
   final List<JobStep> Function(String output, EditOutput out)? customSteps;
+
+  /// Environment for ffmpeg (e.g. `FREI0R_PATH` for plugin effects).
+  final Map<String, String> processEnv;
   final List<JobStep> preSteps;
   final String? workingDirectory;
   final bool eightBit;
@@ -168,6 +172,7 @@ class _EditScaffoldState extends ConsumerState<EditScaffold> {
       steps = [...widget.preSteps, ...plan.steps];
       total = widget.graph!.duration ?? info.duration;
     }
+    if (steps != null && widget.processEnv.isNotEmpty) steps = [for (final s in steps) s.withEnv(widget.processEnv)];
     return ToolScaffold(
       toolId: widget.toolId,
       info: info,
@@ -221,7 +226,11 @@ class FramePreview extends ConsumerStatefulWidget {
     this.maxRects = 1,
     this.initialTime,
     this.onTimeChanged,
+    this.processEnv,
   });
+
+  /// Environment for ffmpeg (plugin effects).
+  final Map<String, String>? processEnv;
 
   final MediaInfo info;
 
@@ -294,7 +303,9 @@ class _FramePreviewState extends ConsumerState<FramePreview> {
     _tmp ??= await Directory.systemTemp.createTemp('kadra_prev');
     final out = p.join(_tmp!.path, 'f${_seq++}.png');
     final args = previewFrameArgs(info: widget.info, at: _at, output: out, graph: widget.graph, original: original);
-    final r = await ref.read(processRunnerProvider).capture(ffmpeg, args, timeout: const Duration(seconds: 40));
+    final r = await ref
+        .read(processRunnerProvider)
+        .capture(ffmpeg, args, timeout: const Duration(seconds: 40), environment: widget.processEnv);
     final f = File(out);
     if (!r.ok || !f.existsSync()) {
       if (mounted) {

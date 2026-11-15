@@ -65,20 +65,9 @@ class ToolDef {
 
 /// Stage in progress. Tools of earlier stages are enabled; tools of the
 /// current stage only once they are listed in [currentStageReady].
-const currentStage = 5;
+const currentStage = 6;
 
-const currentStageReady = {
-  'recipes',
-  'batch',
-  'watchFolder',
-  'commandLog',
-  'commandEditor',
-  'filterGraph',
-  'screenRecord',
-  'webcam',
-  'stream',
-  'hls',
-};
+const currentStageReady = {'plugins'};
 
 bool toolReady(ToolDef t) => t.stage < currentStage || (t.stage == currentStage && currentStageReady.contains(t.id));
 
@@ -425,6 +414,14 @@ const toolCatalog = <ToolDef>[
   ),
   ToolDef('stream', ToolCategory.capture, Icons.cell_tower, stage: 5, keywords: ['rtmp', 'srt', 'twitch', 'стрим']),
   ToolDef('hls', ToolCategory.capture, Icons.stream, stage: 5, keywords: ['dash', 'web']),
+  ToolDef(
+    'plugins',
+    ToolCategory.edit,
+    Icons.extension_outlined,
+    stage: 6,
+    keywords: ['frei0r', 'lv2', 'plugin', 'плагин', 'эффект'],
+    forKinds: _av,
+  ),
   // 9. Repair
   ToolDef(
     'repair',
@@ -516,6 +513,7 @@ String toolTitle(AppLocalizations l, String id) => switch (id) {
   'webcam' => l.toolWebcam,
   'stream' => l.toolStream,
   'hls' => l.toolHls,
+  'plugins' => l.toolPlugins,
   'repair' => l.toolRepair,
   'faststart' => l.toolFaststart,
   'download' => l.toolDownload,
@@ -599,6 +597,7 @@ String toolDescription(AppLocalizations l, String id) => switch (id) {
   'webcam' => l.toolWebcamDesc,
   'stream' => l.toolStreamDesc,
   'hls' => l.toolHlsDesc,
+  'plugins' => l.toolPluginsDesc,
   'repair' => l.toolRepairDesc,
   'faststart' => l.toolFaststartDesc,
   'download' => l.toolDownloadDesc,

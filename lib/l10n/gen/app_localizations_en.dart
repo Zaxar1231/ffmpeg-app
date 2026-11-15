@@ -6341,4 +6341,66 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fontOwnFile => 'Own file…';
+
+  @override
+  String get toolPlugins => 'Plugin effects';
+
+  @override
+  String get toolPluginsDesc => 'frei0r video effects and LV2 audio plugins';
+
+  @override
+  String get pPluginKind => 'Plugin type';
+
+  @override
+  String get pluginsVideo => 'Video (frei0r)';
+
+  @override
+  String get pluginsAudio => 'Audio (LV2)';
+
+  @override
+  String get pluginsFrei0rHint => 'A hundred-plus video effects: glow, cartoon, distortions, color filters';
+
+  @override
+  String get pluginsLv2Hint => 'Audio plugins installed in the system (equalizers, reverbs, effects)';
+
+  @override
+  String get pPlugin => 'Plugin';
+
+  @override
+  String pPluginHint(int count) {
+    return 'Plugins found: $count';
+  }
+
+  @override
+  String get pPluginParams => 'Parameters';
+
+  @override
+  String get pFrei0rParamsHint => 'In order, separated by |, numbers from 0 to 1; empty — defaults';
+
+  @override
+  String pFrei0rParamsCount(int count) {
+    return 'The plugin has $count parameters. Values in order separated by |, numbers 0 to 1; empty — defaults';
+  }
+
+  @override
+  String get pLv2ControlsHint => 'name=value separated by |; empty — defaults';
+
+  @override
+  String get openPluginsFolder => 'Open Kadra’s plugins folder';
+
+  @override
+  String pluginsNoFilter(String name) {
+    return 'The installed ffmpeg build has no $name filter — install the BtbN (GPL) build in Components';
+  }
+
+  @override
+  String get noFrei0rLinux =>
+      'No frei0r plugins found: install the frei0r-plugins package (sudo apt install frei0r-plugins)';
+
+  @override
+  String get noFrei0rWindows =>
+      'No frei0r plugins found: download the frei0r build for Windows from frei0r.dyne.org and put the DLLs into Kadra’s plugins folder';
+
+  @override
+  String get noLv2Plugins => 'No LV2 plugins found (installed plugins and lv2ls from lilv-utils are needed)';
 }

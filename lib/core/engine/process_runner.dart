@@ -226,9 +226,10 @@ class ProcessRunner {
     List<String> args, {
     Duration timeout = const Duration(seconds: 60),
     String? workingDirectory,
+    Map<String, String>? environment,
   }) async {
     try {
-      final p = await Process.start(executable, args, workingDirectory: workingDirectory);
+      final p = await Process.start(executable, args, workingDirectory: workingDirectory, environment: environment);
       final out = p.stdout.transform(const Utf8Decoder(allowMalformed: true)).join();
       final err = p.stderr.transform(const Utf8Decoder(allowMalformed: true)).join();
       await p.stdin.close();

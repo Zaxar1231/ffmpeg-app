@@ -169,6 +169,7 @@ class QueueController extends Notifier<QueueState> {
                 executable: exe,
                 args: args,
                 workingDirectory: substituteOpt(step.workingDirectory, vars),
+                environment: step.env.isEmpty ? null : step.env,
                 totalDuration: step.totalDuration ?? item.totalDuration,
                 progress: switch (step.tool) {
                   JobTool.ffmpeg => ProgressKind.ffmpeg,

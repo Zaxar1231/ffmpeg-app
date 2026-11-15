@@ -182,7 +182,7 @@ void main() {
     );
     expect(g.complex, contains('fontsdir='));
     final r = await runner.capture(ffmpeg!, [
-      '-v', 'debug', '-y', '-i', video.path, '-filter_complex', g.complex!, '-map', '[v]', '-f', 'null', '-', //
+      '-v', 'debug', '-y', '-i', video.path, '-filter_complex', g.complex, '-map', '[v]', '-f', 'null', '-', //
     ]);
     expect(r.ok, isTrue, reason: r.stderr);
     expect(r.stderr, contains('fontselect: (DejaVu Sans'));
