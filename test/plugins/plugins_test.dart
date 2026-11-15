@@ -27,9 +27,18 @@ void main() {
     }
     File(p.join(other.path, 'glow.so')).writeAsStringSync('');
     File(p.join(other.path, 'vertigo.so')).writeAsStringSync('');
-    final dirs = frei0rDirs(own: own.path, env: {'FREI0R_PATH': other.path, 'HOME': '/home/u'});
-    expect(dirs.take(3), [own.path, other.path, '/home/u/.frei0r-1/lib']);
-    final found = scanFrei0r(dirs.take(2).toList());
+    final win = Platform.isWindows;
+    final dirs = frei0rDirs(own: own.path, env: {'FREI0R_PATH': other.path, 'HOME': '/home/u'}, windows: win);
+    expect(dirs.take(3), [own.path, other.path, p.join('/home/u', '.frei0r-1', 'lib')]);
+    // Windows paths contain ':', so the list separator there is ';'.
+    expect(frei0rDirs(own: 'o', env: {'FREI0R_PATH': r'C:\a;D:\b'}, windows: true).take(3), ['o', r'C:\a', r'D:\b']);
+    final ext = win ? '.dll' : '.so';
+    for (final d in [own.path, other.path]) {
+      for (final f in Directory(d).listSync()) {
+        if (f.path.endsWith('.so') && ext != '.so') f.renameSync(f.path.replaceAll(RegExp(r'\.so$'), ext));
+      }
+    }
+    final found = scanFrei0r(dirs.take(2).toList(), windows: win);
     expect(found.map((x) => x.name), ['Cartoon', 'glow', 'vertigo']);
     expect(found.firstWhere((x) => x.name == 'glow').dir, own.path); // own folder wins
     expect(frei0rEnv('C:\\k\\frei0r', env: {'FREI0R_PATH': 'D:\\x'}, windows: true), {
