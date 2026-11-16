@@ -122,6 +122,13 @@ class FfmpegOutput {
   ];
 }
 
+/// Replaces NaN and ±Inf samples with silence. Broken samples (from a
+/// damaged source or a filter) make AAC refuse the audio ("Input contains
+/// (near) NaN/+-Inf") and LAME fail with -12. The trailing `aresample`
+/// works around an ffmpeg bug (6.1–9.0): `aeval` with `c=same` as the last
+/// filter crashes when the output needs another channel count.
+const sanitizeAudio = "aeval='if(isnan(val(ch))+isinf(val(ch)),0,val(ch))':c=same,aresample";
+
 /// libmp3lame gets float samples as they are: a NaN, infinity or an absurd
 /// value anywhere in the audio makes LAME fail, and ffmpeg reports it as
 /// "Error encoding a frame: Cannot allocate memory" (-12). 16-bit samples

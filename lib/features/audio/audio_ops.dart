@@ -178,7 +178,9 @@ List<JobStep> planNormalize({
         output,
         maps: [if (!c.audioOnly) '0:v?', '0:a', if (c.subtitles) '0:s?'],
         audioFilters: [
+          sanitizeAudio,
           twoPass ? loudnormApplyFilter(target) : loudnormMeasureFilter(target).replaceAll(':print_format=json', ''),
+          sanitizeAudio,
         ],
         options: [
           if (!c.audioOnly) ...['-c:v', 'copy'],
@@ -197,7 +199,13 @@ List<JobStep> planNormalize({
     logLevel: 'info', // loudnorm prints its JSON at info level
     inputs: [FfmpegInput(info.path)],
     outputs: [
-      FfmpegOutput('-', maps: ['0:a:0'], noVideo: true, audioFilters: [loudnormMeasureFilter(target)], format: 'null'),
+      FfmpegOutput(
+        '-',
+        maps: ['0:a:0'],
+        noVideo: true,
+        audioFilters: [sanitizeAudio, loudnormMeasureFilter(target)],
+        format: 'null',
+      ),
     ],
   ).toArgs();
   return [

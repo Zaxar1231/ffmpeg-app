@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as p;
+import 'package:kadra/core/engine/ffmpeg_command.dart' show sanitizeAudio;
 import 'package:kadra/core/engine/capabilities.dart';
 import 'package:kadra/core/engine/encoders.dart';
 import 'package:kadra/core/engine/hwaccel.dart';
@@ -329,7 +330,13 @@ void main() {
       expect(s[0].args, containsAllInOrder(['-v', 'info']));
       expect(
         s[0].args,
-        containsAllInOrder(['-af', 'loudnorm=I=-14.0:TP=-1.0:LRA=11.0:print_format=json', '-f', 'null', '-']),
+        containsAllInOrder([
+          '-af',
+          '$sanitizeAudio,loudnorm=I=-14.0:TP=-1.0:LRA=11.0:print_format=json',
+          '-f',
+          'null',
+          '-',
+        ]),
       );
       final applied = substitute(s[1].args, {
         'loudnorm.input_i': '-20.1',

@@ -107,6 +107,37 @@ void main() {
     }, skip: skip);
   }
 
+  // A user report: AAC "Input contains (near) NaN/+-Inf", MP3 -12 (ENOMEM).
+  test('audio with NaN and Inf samples: convert to MP4/AAC and MP3, normalize, audio chain', () async {
+    final src = p.join(dir.path, 'nan.mkv');
+    final g = await runner.capture(ffmpeg!, [
+      '-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=s=320x180:d=2', '-f', 'lavfi', '-i', //
+      "aevalsrc='if(gt(t,0.5),0/0,sin(2*PI*440*t))|if(gt(t,1.2),1/0,sin(2*PI*220*t))':s=48000:d=2",
+      '-c:v', 'libx264', '-c:a', 'pcm_f32le', src,
+    ]);
+    expect(g.ok, isTrue, reason: g.stderr);
+    final info = await probe.probe(src);
+    for (final (ext, params) in [
+      ('mp4', const ConvertParams(useHardware: false)),
+      ('mp3', const ConvertParams(container: 'mp3', video: VideoCodecChoice.none, audio: AudioCodecChoice.mp3)),
+      ('mp4', const ConvertParams(useHardware: false, audioChannels: 1)),
+    ]) {
+      final out = p.join(dir.path, 'nan_${params.audioChannels ?? 2}.$ext');
+      final plan = planConvert(
+        info: info,
+        output: out,
+        p: params,
+        env: EncodeEnv(caps: caps, allowHardware: false),
+      );
+      expect(plan.issues, isEmpty, reason: ext);
+      await run(plan.steps);
+      expect((await probe.probe(out)).audioStreams, isNotEmpty);
+    }
+    await run(
+      planNormalize(info: info, output: p.join(dir.path, 'nan_norm.mp4'), target: loudnessTargets.first, ext: 'mp4'),
+    );
+  }, skip: skip);
+
   test('target size lands under the limit (two-pass x264)', () async {
     final out = p.join(dir.path, 'target.mp4');
     final plan = planConvert(

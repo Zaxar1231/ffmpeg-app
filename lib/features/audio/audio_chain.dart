@@ -99,7 +99,9 @@ List<JobStep> planAudioChain({
               '0:a:$stream',
               if (c.subtitles && info.subtitleStreams.isNotEmpty) '0:s?',
             ],
-            audioFilters: filters,
+            // Broken samples in the source would break the filters, and a
+            // filter can produce them too (see sanitizeAudio).
+            audioFilters: [sanitizeAudio, ...filters, if (filters.isNotEmpty) sanitizeAudio],
             // Echo/reverb tails would make the audio longer than the video.
             duration: keepLength ? info.duration : null,
             options: [

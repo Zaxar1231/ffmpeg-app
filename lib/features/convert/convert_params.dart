@@ -454,6 +454,15 @@ ConvertPlan planConvert({
     // A raw stream specifier (`0:a`) passes audio through untouched.
     if (wantAudio) aMap = graph.audio!.contains(':') ? graph.audio! : '[${graph.audio}]';
   }
+  // Re-encoded audio: broken samples become silence (see sanitizeAudio).
+  if (wantAudio && p.audio != AudioCodecChoice.copy && aSpec != null) {
+    if (aMap!.startsWith('[')) {
+      complex = '$complex;$aMap$sanitizeAudio[aEnc]';
+      aMap = '[aEnc]';
+    } else {
+      af.insert(0, sanitizeAudio);
+    }
+  }
   final keepSubs = graph == null && c.subtitles && p.keepSubtitles && info.subtitleStreams.isNotEmpty;
   final maps = <String>[?vMap, ?aMap, if (keepSubs) '0:s'];
   final inputs = graph == null

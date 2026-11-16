@@ -27,6 +27,8 @@ List<String> importArgs(String source, String out, {required int sampleRate, req
       out,
       maps: ['0:a:0'],
       noVideo: true,
+      // Broken samples never enter the editor (see sanitizeAudio).
+      audioFilters: const [sanitizeAudio],
       options: ['-ac', '$channels', '-ar', '$sampleRate', ...workCodec],
     ),
   ],
@@ -322,7 +324,8 @@ List<String> mixArgs(
       ? '${labels.single}anull'
       : '${labels.join()}amix=inputs=${labels.length}:normalize=0:duration=longest:dropout_transition=0';
   final r = range;
-  b.write('$mix${r == null ? '' : ',${_trim(r.start, r.end)}'}[out]');
+  // Effects can produce NaN/Inf; the export encoders refuse them.
+  b.write('$mix${r == null ? '' : ',${_trim(r.start, r.end)}'},$sanitizeAudio[out]');
   return FfmpegCommand(
     reportProgress: reportProgress,
     inputs: [for (final t in tracks) FfmpegInput(t.file)],
